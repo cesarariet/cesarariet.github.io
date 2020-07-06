@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teoremas de valor medio</title>
+  <link rel="stylesheet" href="estilos.css">
+
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+
+</head>
+<body>
+
+
+
+  <header>
+    
+  </header>
+    
+
+  <article id="Estudio de funciones">
+    <section class="diapo">
+      <div class="contenido">
+
+  
+        <ul>
+          <li>
+            <h3>Teorema de Fermat</h3>
+            <p>Sea $f(x)$ una función derivable en $(a,b)$ y sea $c\in(a,b)$.</p>
+            <p>Si $f(c)$ es un extremo local, entonces $f'(c)=0$.</p>
+          </li>
+          <li>
+            <h3>Puntos Críticos</h3>
+            <p>Lugares de interes del gráfico de $f(x)$, donde:
+              <ul>
+                <li>$f'(x)=0$ (condición necesaria pero no suficiente para extremo de $f(x)$)</li>
+                <li>Donde no exista $f'(x)$ (situación excluida del teorema de Fermat)</li>
+              </ul>
+            </p>
+            <p>
+              \[PC=\{x\in Domf:f'(x)=0 \lor \not\exists f'(x) \}\]
+            </p>
+          </li>
+        </li>
+      </ul>
+      </div>
+      <div class="adicional">
+
+        <iframe src="https://www.geogebra.org/calculator/hfgppphr?embed" width="500" height="250" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+        <iframe src="https://www.geogebra.org/calculator/ng3dkngu?embed" width="500" height="250" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      </div>
+    </section>
+
+
+      <section class="diapo">
+
+        <div class="contenido">
+
+
+          <h3>
+            Teoremas de Valor Medio.
+          </h3>
+          <table>
+            <tr>
+            <td>
+              <h4>Teorema de Rolle</h4>
+              <p>Sea $f(x)$ una función tal que:</p>
+              <ul>
+                <li>$f$ es continua en $[a,b]$.</li>
+                <li>$f$ es derivable en $(a,b)$</li>
+                <li>$f(a)=f(b)$</li>
+              </ul>
+              <p>Entonces, 
+                \[ \exists c\in (a,b): f'(c)=0 \]
+              </p>
+            </td>
+            <td>
+              <h4>Teorema de Lagrange</h4>
+              <p>Sea $f(x)$ una función tal que:</p>
+              <ul>
+                <li>$f$ es continua en $[a,b]$.</li>
+                <li>$f$ es derivable en $(a,b)$</li>
+              </ul>
+              <p>Entonces, 
+                \[ \exists c\in (a,b): f'(c)=\frac{f(b)-f(a)}{b-a} \]
+              </p>
+    
+            </td>
+            <td>
+              <h4>Teorema de Cauchy</h4>
+              <p>Sean $f(x)$ y $g(x)$ funciones tales que:</p>
+              <ul>
+                <li>$f$ y $g$ son continuas en $[a,b]$.</li>
+                <li>$f$ y $g$ son derivables en $(a,b)$</li>
+              </ul>
+              <p>Entonces, 
+                \[ \exists c\in (a,b): \frac{f'(c)}{g'(c)}=\frac{f(b)-f(a)}{g(b)-g(a)} \]
+              </p>
+            </td>
+            </tr>
+          </table>
+          <p><strong>Nota: </strong> Los tres teoremas son equivalentes.</p>
+    
+        </div>
+
+    </section>
+
+    <section class="diapo">
+      <div class="contenido">
+
+        <h3>Consecuencias del Teorema de Valor Medio.</h3>
+        <ul>
+          <li>
+            <strong>Teorema: </strong> Si $f'(x)=0$ para todo $x\in (a,b)$, entonces
+            \[ f(x)=C\text{ (constante), } \forall x\in (a,b) \]
+          </li>
+          <li><strong>Teorema: </strong> Sean $f$ y $g$ dos funciones derivables en $(a,b)$.
+          \[f'(x)=g'(x), \forall x\in(a,b)\implies f(x)=g(x)+C  \]
+          </li>
+          <li><strong>Teorema: </strong>  Sea $f$ una funcion derivable en $(a,b)$.
+
+            <table>
+              <tr>
+                <td>$f'(x)>0, \forall x\in (a,b)$</td>
+                <td>$\iff$</td>
+                <td>$f$ es monótona creciente en $(a,b).$</td>
+              </tr>
+              <tr>
+                <td>$f'(x)&lt 0, \forall x\in (a,b)$</td>
+                <td>$\iff$ </td>
+                <td>$f$ es monótona decreciente en $(a,b).$</td>
+              </tr>
+            </table>  
+        </ul>
+
+      </div>
+      <div class="adicional">
+        <iframe src="https://www.geogebra.org/calculator/hfgppphr?embed" width="500" height="250" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+
+      </div>
+    </section>
+    <section class="diapo">
+
+      <div class="contenido">
+
+        <h3>Gráficos "básicos" de funciones</h3>
+        <p>Para realizar un gráfico aproximado de una función debe conocerse:
+        </p>
+  
+        <ol>
+          <li>$Dom f$.</li>
+          <li>Intervalos de crecimiento y decrecimiento.
+            <ul>
+              <li>Se pueden obtener dividiendo el $Dom f$ según los puntos críticos. </li>
+              <li> Y analizando el signo de la derivada (con el CTB).</li>
+            </ul>
+          </li>
+          <li>Comportamiento de la función en cada borde de los intervalos de monotonía.
+            <ul>
+              <li>Evaluando cuando es posible.</li>
+              <li>Haciendo límite cuando no es posible.</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>Utilidad de gráficos de funciones </h3>
+        <ul>
+          <li>Hallar cantidad de solucines de la ecuación $f(x)=k.$</li>
+          <li>Hallar extremos de una función y clasificarlos.</li>
+          <li>Hallar $Im f$</li>
+        </ul> 
+      </div>
+      
+          <div class="adicional">
+            <iframe src="https://www.geogebra.org/calculator/ngxdnsku?embed" width="500" height="500" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+          </div>
+    </section>
+
+    <section class="diapo">
+      <div class="contenido">
+
+        <h3>Concavidad de una función</h3>
+        <p><strong>Propiedad (Concavidad y Derivada): </strong> Sea $f$ una función derivable en $(a,b)$</p>
+        <table>
+          <tr>
+            <td>$f'(x)$ es monótona creciente en $(a,b)$</td>
+            <td>$\iff$</td>
+            <td>$f(x)$ es <strong>concava hacia arriba </strong>en $(a,b)$</td>
+          </tr>
+          <tr>
+            <td>$f'(x)$ es monótona decreciente en $(a,b)$</td>
+            <td>$\iff$</td>
+            <td>$f(x)$ es <strong>concava hacia abajo </strong>en $(a,b)$</td>
+          </tr>
+        </table>
+        <p><strong>Propiedad (Concavidad y Derivada Segunda): </strong> Sea $f$ una función dos veces derivable en $(a,b)$</p>
+        <table>
+          <tr>
+            <td>$f''(x)>0, \forall x\in (a,b)$</td>
+            <td>$\iff$</td>
+            <td>$f(x)$ es <strong>concava hacia arriba </strong>en $(a,b)$</td>
+          </tr>
+          <tr>
+            <td>$f''(x)<0, \forall x\in (a,b)$</td>
+            <td>$\iff$</td>
+            <td>$f(x)$ es <strong>concava hacia abajo </strong>en $(a,b)$</td>
+          </tr>
+        </table>
+        <p><strong>NOTA: </strong>Los puntos donde una función cambia de concavidad se denominan <strong>puntos de inflexión.</strong></p>
+
+      </div>
+
+      <div class="adicional">
+
+        <iframe src="https://www.geogebra.org/calculator/dx7yu2mh?embed" width="500" height="250" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+        <iframe src="https://www.geogebra.org/calculator/csdd3wsk?embed" width="800" height="250" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      </div>
+    </section>
+  </article>
+
+
+</body>
+</html>
