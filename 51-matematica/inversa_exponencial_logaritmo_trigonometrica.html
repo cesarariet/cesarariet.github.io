@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inversa</title>
+  <link rel="stylesheet" href="estilos.css">
+
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+</head>
+<body>
+
+  <article id="ideas previas">
+
+    <section class="diapo" id="grafico_de_funciones">
+      <div class="contenido">
+        <h3>Gráfico de funciones</h3>
+        <ul>
+          <li>Se llama gráfico de $f(x)$  a la colección de puntos $(x,f(x))$.</li>
+          <li>Toda función tiene un gráfico asociado.</li>
+          <li>No todos los gráficos representan funciones.</li>
+        </ul>
+      </div>
+      <div class="adicional">
+
+        <iframe src="https://www.geogebra.org/calculator/uyznemvp?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+        <iframe src="https://www.geogebra.org/calculator/pcafmjhc?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>  
+      </div>
+
+    </section>
+
+    <section class="diapo" id="intercambio de coordenadas">
+      <div class="contenido">
+        <h3>¿Qué pasa al intercambiar las coordenadas en el plano?</h3>
+        <ul>
+          <li>Ejemplo: $(1,2)$ pasa a ser $(2,1)$</li>
+          <li>Ejemplo: $(3,3)$ pasa a ser $(3,3)$ </li>
+          <li>Para un conjunto de puntos se comporta como rotación de 90° del gráfico, junto con una reflexión horizontal.</li>
+          <li>Al aplicarlo en gráficos de funciones el resultado a veces no corresponde con el gráfico de función.</li>
+        </ul>
+      </div>
+
+      <div class="adicional">
+
+          <img width="200" src="./images/puntos_simetricos_intercambio_coordenadas.png" alt="Ejemplo de intercambio de coordenadas para puntos aislados.">
+         
+          <div class="juntos">
+
+            <img width="200" src="./images/mano_para_intercambiar_coordenadas.png" alt="Imagen 1: mano.">
+            <img width="200" src="./images/mano_para_intercambiar_coordenadas_2.png" alt="Imagen 2: mano luego de intercambio de coordendas para cada un de sus puntos.">
+
+          </div>
+
+      </div>
+
+    </section>
+  </article> 
+
+
+  <article id="#funcion inversa">
+    <section class="diapo" id="definicion inversa ideas">
+
+      <div class="contenido" >
+        <h3>Función Inversa: Ideas</h3>
+        <ul>
+          <li>Se la suele notar $f^{-1}(x)$ (ojo, si es que existe).</li>
+          <li>Hace el camino opuesto \[f(x)=y \Leftrightarrow x=f^{-1}(y)\]</li>
+          <li>
+            Los puntos de $f^{-1}(x)$ son los de $f(x)$ 
+            <em> con las coordenadas intercambiadas.</em>
+          </li>
+          <li>El gráfico de $f^{-1}(x)$ sale del intercambio de coordenadas de los puntos del gráfico de $f(x)$.</li>
+          <li>Existen funciones que no tienen inversa.</li>
+        </ul>
+            <figure  id="tabla de funcion y su inversa">
+              <div class="juntos">
+                <table>
+                <tr>
+                  <td>$x$</td>
+                  <td>$f(x)$</td>
+                </tr>
+                <tr>
+                  <td>-2</td>
+                  <td>-5</td>
+                </tr>
+                <tr>
+                  <td>-1</td>
+                  <td>-3</td>
+                </tr>
+                <tr>
+                  <td>0</td>
+                  <td>-1</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>3</td>
+                </tr>
+                </table>
+              
+                <table>
+                  <tr>
+                    <td>$x$</td>
+                    <td>$f^{-1}(x)$</td>
+                  </tr>
+                  <tr>
+                    <td>-5</td>
+                    <td>-2</td>
+                  </tr>
+                  <tr>
+                    <td>-3</td>
+                    <td>-1</td>
+                  </tr>
+                  <tr>
+                    <td>-1</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>2</td>
+                  </tr>
+                </table>
+      
+              </div>
+              <figcaption>
+                <p>Tabla de valores de la función $f(x)=2\cdot x-1$ (a la derecha) y tabla de valores de su función inversa $f^{-1}(x)$. Notar las tablas tienen sus columnas de valores intercambiados.</p>
+              </figcaption>
+      </div>
+    
+
+      <div class="adicional">
+        
+        </figure>
+
+        <iframe src="https://www.geogebra.org/calculator/wmzbzpad?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+          </figcaption>
+
+        
+
+      </div>
+
+    </section>
+
+    <section class="diapo" id="definicion inversa">
+      <div class="contenido">
+        <h3>Función inversa. Teoremas.</h3>
+        <ul>
+          <li>Las funciones que "no repiten resultados" pueden invertirse.
+            <ul>
+              <li><strong>Definición: </strong> Diremos que una función $f(x)$ es <em>inyectiva</em> si no repite resultados, es decir,
+              \[
+              \forall x_1,x_2\in Dom f,
+               \underbrace{x_1\neq x_2\iff f(x_1)\neq f(x_2)}_{\text{distinto x da distinto resultado}}
+ 
+               \] 
+              </li>
+              <li><strong>Teorema: </strong>Las funciones inyectivas son inversibles.</li>
+            </ul>
+          </li>
+          <li><strong>Propiedades: </strong>
+            <ul>
+              <li>$f(x)=y \iff x=f^{-1}(y)$ (al despejar, una función "pasa como su inversa").</li>
+              <li>$Im f^{-1} = Dom f$</li>
+              <li>$Im f = Dom f^{-1}$</li>
+            </ul>
+          </li>
+          <li>El gráfico de $f^{-1}(x)$ es igual al gráfico de $f(x)$ luego de una rotación 90° y una reflexión horizontal.</li>
+
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="diapo">
+
+      <div class="contenido">
+        <h3>Función exponencial</h3>
+
+        <p style="font-size:30px">\[f(x)=a^x \]</p>
+        <ul>
+          <li> con $a\neq 1$ y $a>0$</li>
+          <li>$a$ se denomina la base de la expoencial.
+          </li>
+          <li>$\text{Dom }a^x = \Re$</li>
+          <li>$\text{Im }a^x = (0,+\infty)$</li>
+          <li><strong>Para $a>1$ </strong>se tiene:
+          <ul>
+            <li>La función es creciente.</li>
+            <li>$\lim_{x\rightarrow +\infty}{a^x}=+\infty$</li>
+            <li>$\lim_{x\rightarrow -\infty}{a^x}=0$</li>
+            <li>Tiene una asintota horizontal sólo por izquierda de ecuación $y=0$</li>
+          </ul>
+          </li>
+          <li>Para $0&lt a&lt 1$ se tiene:
+            <ul>
+              <li>La función es decreciente.</li>
+              <li>$\lim_{x\rightarrow +\infty}{a^x}=0$</li>
+              <li>$\lim_{x\rightarrow -\infty}{a^x}=+\infty$</li>
+              <li>Tiene una asintota horizontal sólo por derecha de ecuación $y=0$</li>
+            </ul>
+
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="adicional">
+
+        <iframe src="https://www.geogebra.org/graphing/fdu5yezg?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      </div>
+    </section>
+
+    <section class="diapo">
+
+      <div class="contenido">
+
+        <h3>La inversa función logarítmica como inversa de la exponencial</h3>
+  
+  
+        <p>La función $a^x$ exponencial es inyctiva y por lo tanto inversible. </p>
+        <p> Su inversa se la denomina $\log_a(x)$</p>
+
+      </div>
+      <iframe src="https://www.geogebra.org/graphing/n2dmg27x?embed" width="400" height="300" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+    </section>
+
+    <section class="diapo">
+
+      <div class="contenido">
+
+        <h3>Función logarítmica de base a</h3>
+
+        <p style="font-size:30px">\[f(x)=\log_a(x) \]</p>
+        <ul>
+          <li> con $a\neq 1$ y $a>0$</li>
+          <li>$a$ se denomina la base de del logaritmo.
+          </li>
+          <li>$\text{Dom }\log_a = (0,+\infty)$</li>
+          <li>$\text{Im }\log_a = \Re$</li>
+          <li>Tiene una asíntota vertical de ecuación $x=0$</li>
+          <li><strong>Para $a>1$ </strong>se tiene:
+          <ul>
+            <li>La función es creciente.</li>
+            <li>$\lim_{x\rightarrow +\infty}{log_a(x)}=+\infty$</li>
+            <li>$\lim_{x\rightarrow 0^+}{log_a(x)}=-\infty$</li>
+
+          </ul>
+          </li>
+          <li>Para $0&lt a&lt 1$ se tiene:
+            <ul>
+              <li>La función es decreciente.</li>
+              <li>$\lim_{x\rightarrow +\infty}{\log_a(x)}=-\infty$</li>
+              <li>$\lim_{x\rightarrow 0^+}{\log_a(x)}=+\infty$</li>
+            </ul>
+
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="adicional">
+        <iframe src="https://www.geogebra.org/graphing/fg7bdw2s?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      </div>
+
+    </section>
+
+    <section class="diapo">
+
+      <div class="contenido">
+        <h3>
+          Propiedades de las función exponencial y logarítmica.
+        </h3>
+        <p>Relación inversa entre las funciones ("depeje"):</p>
+        \[ a^x=y \iff x=\log_a(y) \]
+        <ul>
+          <li>$a^{x+y}=a^x\cdot a^y$</li>
+          <li>$a^{x-y}=\frac{a^x}{a^y}$</li>
+          <li>$(a^x)^y=a^{x\cdot y}$</li>
+          <li>$\log_a(x\cdot y)=\log_a(x)+\log_a(y)$</li>
+          <li>$\log_a(\frac{x}{y})=\log_a(x)-\log_a(y)$</li>
+          <li>$\log_a(x^y)=y\cdot \log_a(x)$</li>
+          <li>Bases más comunes:
+            <ul>
+              <li>$e=2,718...$ con $\ln(x)=\log_e(x)$</li>
+              <li>Base $10$ con $\log(x)=\log_{10}(x)$</li>
+            </ul>
+          </li>
+          <li>Fórmula de cambio de base:
+            \[ \log_a(x)=\frac{\log_b(x)}{\log_b(a)} = \frac{\ln(x)}{\ln(a)} \]
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section class="diapo">
+
+      <div class="contenido">
+        
+        <h3>Funciones Trigonométricas</h3>
+        <img style="margin: 10% 40%" src="https://www.matesfacil.com/ESO/geometria_plana/trigonometria/T2.png" alt="">
+
+      </div>
+
+    </section>
+
+    <section class="diapo">
+
+      <div class="contenido">
+        <h3>Circunferencia trigométrica</h3>
+        <ul>
+          <li>Tiene radio $1$ y centro $(0,0)$</li>
+          <li>Su perimetro vale $2\pi$. Una longitud de arco en la circunferencia es igual al angulo en radianes.</li>
+          <li>Desde una longitud de arco $\alpha$ medida desde el punto $(1,0)$ de define al punto de la circunsferencia trigonométrica como:
+            \[ (\cos(\alpha),\sin(\alpha)) \] </li>
+          <li>El giro anti-horario se considera como positivo y al giro horario como negativo. </li>
+          <li>Por el teorema de pitágoras:
+            \[ \cos^2(\alpha)+\sin^2(\alpha)=1 \]
+          </li>
+
+          <li>Debido al radio de la circunsferencia trigonométrica 
+            \[-1&lt \cos(\alpha) &lt 1 \]
+          \[ -1&lt \sin(\alpha) &lt 1 \]</li>
+        </ul>
+
+      </div>
+
+      <div class="adicional">
+        <iframe src="https://www.geogebra.org/calculator/b2bbhtva?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      </div>
+    </section>
+
+    <section class="diapo">
+
+      <div class="contenido">
+
+        <h3>Problemas $cos(x)=a$ para $x\in[0,2\pi]$</h3>
+
+        <iframe src="https://www.geogebra.org/calculator/knmqn3u7?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+
+      </div>
+
+    </section>
+
+    <section class="diapo">
+
+      <div class="contenido">
+
+        <h3>Problemas $sin(x)=a$ para $x\in[0,2\pi]$</h3>
+
+        <iframe src="https://www.geogebra.org/calculator/pd4ayjea?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+
+      </div>
+
+    </section>
+
+    <section class="diapo">
+
+      <div class="contenido">
+
+        <h3>Gráficos de las funciones coseno y seno</h3>
+        <div style="height: 40vh;">
+
+          <iframe src="https://www.geogebra.org/calculator/hdsukva4?embed" width="800" height="250" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+          <iframe src="https://www.geogebra.org/calculator/edsehuzd?embed" width="800" height="250" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+</body>
+</html>

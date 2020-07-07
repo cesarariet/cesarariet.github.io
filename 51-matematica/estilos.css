@@ -1,0 +1,114 @@
+/* 
+Documentación de estructura de diapositivas
+
+header --- titulo del tema (actual)
+nav --- navegación entre temas y subtemas
+
+div.diapositivas --- incluye todas las diapositivas
+    article --- división entre los temas
+        section.diapo --- contenido de cada pantalla
+            div.contenido --- texto importante
+            div.adicional --- graficos, tablas
+                figure --- las imagenes o tablas que corresponden a una descripcion figcation
+                    div.figures --- contenedor de figuras o tablas que van juntas
+                    figcaption --- descripcion del conjunto de figuras o tablas.
+
+
+                    #561612, #6B4B20, #A29F41, #F6D16C, #EC3019
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+
+body{
+    font-family: 'Ubuntu Mono', monospace;;
+    color: #E8CAA4;
+    background-color: #424254;
+    font-size: 1.5vw;
+    margin: 0;
+}
+body .diapo{
+    display: flex;
+    align-content: center;
+    /* flex-wrap: wrap; */
+    background-color: #351330;
+    margin: 5vh auto;
+    padding: 1vh 2.5vw;
+    box-sizing: border-box;
+    border: 3px #64908A solid;
+    border-radius: 10px;
+    height: 95vh;
+    width: 95vw;
+
+}
+
+.contenido{
+    max-width: 100%;
+    width: 100%;
+}
+
+.adicional{
+    display: flex;
+    flex-direction: column;
+    min-width: 20%;
+    max-width: 60%;
+    width: 100%;
+    justify-content: center;
+}
+
+iframe{
+    margin: .5em;
+    max-width: 95%;
+    width: 100vw;
+    max-height: 95%;
+    height: 80vh;
+}
+
+
+h1, h2, h3{
+    margin: .5em 0;
+    color: #CC2A41;
+}
+
+ul{
+    padding: .5em  1.5em;
+}
+
+li{
+    margin: .3em 0;
+    
+}
+
+figure{
+
+    padding: 5%;
+    text-align: center;
+    
+}
+
+.juntos{
+    width: inherit;
+    display: flex;
+}
+
+figcaption{
+    font-size: .8em;
+    width: 100%;
+}
+
+
+img{
+    padding: 10px;
+    max-width: 40vw;
+    max-height: 40vh;
+} 
+
+p{
+    margin-block-start: .8em;
+    margin-block-end: .8em;
+}
+td{
+    padding-left: 1.5em;
+}
+
+
+
