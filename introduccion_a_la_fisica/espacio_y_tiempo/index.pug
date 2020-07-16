@@ -1,0 +1,106 @@
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Espacio y tiempo"
+
+
+block body
+
+	+diapositiva("El espacio según Newton")
+		.diapo__contenido
+			ul
+				li Es absoluto e independiente del observador.
+				li Es homogeneo. Es igual en todos sus puntos.
+				li Es isotrópico. Todas las direcciones son iguales.
+
+		+imagen("https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Sir_Isaac_Newton_%281643-1727%29.jpg/220px-Sir_Isaac_Newton_%281643-1727%29.jpg",
+			"Sir Isaac Newton")
+		+imagen("https://culturacientifica.com/app/uploads/2014/03/Cubo-de-Newton.jpg",
+			"Con el experimento del cubo de agua, Newton intentó demostrar que el espacio es absoluto e independiente de la materia.")
+		+imagen("https://supercurioso.com/wp-content/uploads/2018/09/espacio.jpg",
+			"En el espacio todas las direcciones son indistinguibles. No hay arriba ni abajo.")
+
+
+
+
+	+diapositiva("El tiempo según Newton")
+		.diapo__contenido
+			ul
+				li El tiempo es absoluto.
+				li Transcurre en forma constante, sin que nada lo afecte.
+				li Todos los observadores ven pasar el tiempo en la misma forma.
+					ul
+						li Los relojes se pueden sincronizar.
+						li La simultaneidad es independiente del observador.
+						li Todos los sucesos del universo se pueden ordenar en pasado, presente y futuro.
+		+imagen("https://www.matematicamente.it/wp-content/uploads/2016/12/Schermata-2016-12-27-alle-19.17.45-300x111.png",
+			"El observador $O_1$ en la tierra ve que las luces $A$ y $B$ se prenden a la vez. Según los postulados de Newton, el observador $O_2$ arriba del tren en movimiento tambíen verá las luces prederse al mismo tiempo.")
+
+
+
+
+
+	+diapositiva("El movimiento según el espacio y tiempo de Newton")
+		.diapo__contenido
+			p El siguiente video muestra todos los elementos que intervienen en la descripción del movimiento de objeto.
+		figure
+			<iframe width="448" height="315" src="https://www.youtube.com/embed/76DqZ5GqoDA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	
+
+
+
+
+	+diapositiva("Problemas de la física moderna")
+		.diapo__contenido
+			ul
+				li No se ha observado ningún objeto que viaje más rápido que la luz.
+				li La luz se mueve igual para todas direcciones y sentidos.
+				li La velocidad luz es igual para todos los observadores. De valor
+					| \[c=300000 \frac{km}{s}\]
+		
+		+imagen("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/220px-Albert_Einstein_Head.jpg",
+			"Albert Einstein. Físico que logró resolver los grandes problemas de la física moderna.")
+
+		figure.video 
+			<iframe width="640" height="480" src="https://www.youtube.com/embed/FgKXAvUxyI4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			figcaption El experimento de Nichelson y Morley buscaba mostrar que la tierra se movía en el espacio viendo la variaciación de la velocidad de la luz en distintas direcciones. No lograron observar nada, concluyendo que la velocidad de la luz es independiente de observador.
+
+
+
+	+diapositiva("El espacio según Einstein")
+		.diapo__contenido
+			ul
+				li El espacio es relativo al observador.
+				ul
+					li Dos observadores pueden medir distintas distancias para un mismo objeto.
+					li Un objeto puede variar su tamaño dependiendo movmiento.
+				li La gravedad curva el espacio (y el tiempo).
+				li Estos efectos son más notororios a velocidades próximas a la de la luz.
+
+		+imagen("https://i.ytimg.com/vi/aTptumMvrek/maxresdefault.jpg",
+			"Al medir el largo $L$ de la barra que viaja en el tren, el resultado será distinto para la persona en el bagon que la persona en tierra. Para que este efecto se pueda percibir la velocdidad del tren deberia ser cercana a la de la luz")
+		+imagen("https://arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/SJJ3VY6QBZDC7AZGL22L5CWQOA.png",
+			"La gravedad curva el espacio-tiempo haciendo que la luz no viaje en linea recta.")
+
+
+
+
+
+	+diapositiva("El tiempo según Einstein")
+		.diapo__contenido
+			ul
+				li El tiempo es relativo al observador.
+				ul
+					li Para dos observadores el tiempo puede transcurrir de forma distinta.
+					li La simultaneidad de eventos es relativa al observador.
+					li No existe un pasado, presente y futuro definido para todos los observadores.
+				li La gravedad afecta el tiempo.
+		figure
+			<iframe width="484" height="315" src="https://www.youtube.com/embed/SdWBw98DnI8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			figcaption La velocidad de la luz es la misma para todos independientemente de las circunstancias. Entonces el tiempo no puede ser absoluto e igual para todos.
+		figure
+			<iframe width="484" height="315" src="https://www.youtube.com/embed/BWA9luXDNMU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			figcaption El presente, pasado y futuro dependen del observador. Lamentablemente este efecto puede notarse cuando un observador se mueve respecto de otro a una velocidad cercana a la luz.
+
+
+block header
+	+navegacion
