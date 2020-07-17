@@ -1,0 +1,52 @@
+.contenedor{
+  width: 50%;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  background-image: url("https://image.shutterstock.com/image-vector/panoramic-autumn-landscape-sunny-dayvector-260nw-1170109663.jpg");
+  background-size: cover;
+  background-position-y: 20%;
+}
+
+.trenfrente{
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template: 1fr 4fr 1fr / 1fr 7fr 1fr 7fr 1fr;
+  grid-template-areas:  "techo techo techo techo techo"
+                        "a      b     c     d     e"
+                        "piso  piso  piso  piso  piso" ; 
+}
+.techo,
+.pared,
+.piso{
+  background:rgb(121, 90, 11);
+  height: 100%;
+  
+  width: 100%;
+}
+.techo{
+  grid-area: techo;
+}
+
+.piso{
+  grid-area: piso;
+}
+
+.tren{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid #000;
+  height: 100%;
+  width: 1000%;
+  background: orange;
+}
+.ventana {
+  height: 50%;
+  width: 2%;
+  border: 1px solid black;
+  background: lightblue;
+}
