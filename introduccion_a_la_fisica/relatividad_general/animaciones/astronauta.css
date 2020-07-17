@@ -1,0 +1,23 @@
+#espacio-astronauta {
+  width: 60%;
+  height: 80%;
+  background: #000;
+}
+#espacio-astronauta img{
+  box-shadow: none;
+}
+#espacio-astronauta:hover {
+  animation-name: fondo-moviendose;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  background-image: url("https://image.freepik.com/vector-gratis/conjunto-universo-planeta-sistema-solar-elemento-espacial-universo-ilustracion-vector-estilo-dibujos-animados_56213-443.jpg");
+}
+@keyframes fondo-moviendose {
+  0% {
+    background-position-x: 0%;
+  }
+  100%{
+    background-position-x: 100%;
+  }
+}

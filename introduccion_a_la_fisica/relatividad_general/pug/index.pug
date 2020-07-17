@@ -1,0 +1,132 @@
+extend _plantilla.pug
+prepend head
+	- var titulo = "Teoría de la Relatividad General"
+
+
+block body
+
+	+diapositiva("Dos formas de entender el espacio y el tiempo")
+		.diapo__contenido
+			h3 Mecánica de Newton
+			ul 
+				li El espacio es absoluto.
+				li El tiempo es absoluto.
+
+				li La velocidad de la luz es relativa al observador.
+					ul
+						li No hay límite de velocidad para los cuerpos.
+				li Fue el primero en dar una Ley de la gravitación.
+
+
+
+
+
+
+		+imagen("https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Sir_Isaac_Newton_%281643-1727%29.jpg/220px-Sir_Isaac_Newton_%281643-1727%29.jpg",
+			"Isaac Newton (1643-1727)")
+		.diapo__contenido-2
+			h3 Relatividad Especial de Einstein
+			ul
+				li El espacio es relativo al observador.
+				li El tiempo es relativo al observador.
+				li La velocidad de la luz es absoluta.
+					ul
+						li Nada puede ir más rápido que la luz.
+				li La gravedad no esta incluida en la teoría.
+
+		+imagen("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/220px-Albert_Einstein_Head.jpg",
+			"Albert Einstein (1879-1955)")
+
+
+
+
+
+
+	+diapositiva("El movimiento es relativo")
+		.diapo__contenido
+			ul
+				li El movimiento necesita mínimo de dos objetos para percibirse.
+				li El movimiento es relativo al observador.
+				li El movimiento depende de un punto de referencia.
+		
+		include ../animaciones/_astronauta.pug
+		include ../animaciones/_animacion-trenes.pug
+
+
+
+
+
+	+diapositiva("La aceleración")
+		.diapo__contenido
+			ul
+				li Es magnitud física. 
+				li Es la variación de la velocidad en el tiempo.
+					ul 
+						li Variación del módulo de la velocidad (se siente cuando un auto acelera o frena).
+						li Variación de la dirección de la velocidad (se siente cuando un auto dobla pronunciadamente o sobrepasa un desnivel).
+				li Unidades comunes de aceleración: $\frac{m}{s^2}$ y $\frac{cm}{s^2}$
+
+		+imagen("https://i.gifer.com/8H2B.gif",
+			"Al golpear la pared el auto frena (se acelera en contra del movimiento) y el pasajero siente el efecto.")
+
+
+
+
+
+	+diapositiva("La gravedad según Newton")
+		.diapo__contenido
+			ul
+				li Es lo que nos empuja hacia el suelo.
+					ul
+						li En la tierra tierra todos los objetos caen con la misma aceleración.
+						li La aceleración de la gravedad en la tierra es $g=-9,8\frac{m}{s^2}$
+				li Todos los objetos con masa se atraen por acción de la gravedad entre sí.
+					ul
+						li Dos objetos en el espacio tienden a atraerse.
+						li La gravedad es una fuerza de acción instantanea.
+
+		+imagen("https://media.giphy.com/media/Vvi7eMx7IKcSc/giphy.gif",
+			"Es una creencia popular que Newton se inspiró para crear la Ley de la Gravitación universal al ver una manzana caer de un árbol.")
+		figure
+			<iframe width="853" height="480" src="https://www.youtube.com/embed/BNEI9wop1KM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			figcaption Experimento de la pluma y el martillo en la luna ¿Quién cae primero?
+
+		figure
+			<iframe width="853" height="480" src="https://www.youtube.com/embed/uZu6XWEwjG4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			figcaption Simulación de la ausencia de gravedad en un avión. 
+
+	+diapositiva("La gravedad según Einstein")
+		.diapo__contenido
+			ul 
+				li No puede ser una acción que se transmita en forma instantanea (nada puede ir más rápido que la luz).
+				li No pueden distinguirse, a priori, entre un efecto de gravedad y un efecto de aceleración.
+				li La Gravedad es una curvatura del espacio-tiempo (no es una fuerza).
+		
+		figure
+			<iframe width="656" height="480" src="https://www.youtube.com/embed/yabCGRDA6K0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			figcaption Experimento mental de Einstein que muestra lo que llamó principio de equivalencia (la gravedad y la aceleración son dos caras del mismo fenómeno).
+
+		figure
+			<iframe width="640" height="480" src="https://www.youtube.com/embed/-zDI30pOST8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			figcaption La curvatura del espacio-tiempo. Un eclipse en 1919 fue la primer confirmación experimental de la teoria de la relatividad general. Einstein pudo calcular cuanto se debía curvar un haz de luz en presencia de la gravedad.
+
+	+diapositiva("Viaje en el espacio-tiempo")
+		.diapo__contenido
+			ul
+				li El espacio se contrae para un observador en movimiento.
+				li El tiempo se dilata para los objetos en movimiento.
+				li Los eventos del pasado, presente y futuro es relativo al observador.
+
+		figure
+			<iframe width="853" height="480" src="https://www.youtube.com/embed/WKXo-jz6KjI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			figcaption ¿Qué pasaría en un viaje en una nave espacial que se mueve a una velocidad "cercana a la de la luz"? 
+
+		figure
+			<iframe width="853" height="480" src="https://www.youtube.com/embed/lPEo0wDiU0c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			figcaption Paradoja de los gémelos.
+
+		figure
+			<iframe width="853" height="480" src="https://www.youtube.com/embed/T7Yz7_AyEeM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			figcaption ¿Se puede viajar futuro y/o al pasado?
+block header
+	+navegacion

@@ -1,0 +1,30 @@
+- var titulo = "Diapositivas"
+- var diapositiva__numero = 0
+- var lista__diapositivas = []
+
+mixin imagen(archivo, descripcion)
+  figure
+    img(src= archivo, alt= descripcion)
+    figcaption= descripcion
+
+
+mixin diapositiva(diapositiva__titulo)
+  - 
+    diapositiva__numero += 1 
+    if (titulo.length === 0){
+      var diapositiva__titulo = `Diapositiva ${diapositiva__numero}`
+    }
+    lista__diapositivas.push(diapositiva__titulo)
+
+  section.diapo(id=`${diapositiva__titulo.split(' ').join('-').toLowerCase()}`)
+    h2= `${diapositiva__titulo}`
+    block 
+
+mixin navegacion
+  nav
+    ul
+      each id_diapositiva in lista__diapositivas
+        li
+          a(href= `#${id_diapositiva.split(' ').join('-').toLowerCase()}`)= id_diapositiva
+
+
