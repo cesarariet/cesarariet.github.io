@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&family=Oswald:wght@400;700&display=swap')
+
+$fuente-0: 'Oswald', sans-serif
+$fuente-1: 'Ubuntu', sans-serif
+  
+$color-0: #351330
+$color-1: #CC2A41
+$color-2: #64908A
+$color-3: #E8CAA4
+
+$diapositiva-ancho: 95vw
+$diapositiva-alto: 95vh
+
+@mixin responsive-to()
+  @media screen and (max-width: 639px)
+    @content
+
+
+  
+html 
+  font-size: 1.8vw
+  @include responsive-to()
+    font-size: 2.5vh
+
+
+    
+    
+body
+  width: 100hw
+  margin: 0
+  font-family: $fuente-1
+  color: $color-3
+  background-color: $color-0
+
+h1, h2, h3 
+  font-family: $fuente-0
+  text-transform: uppercase
+  color: $color-1
+  margin-bottom: .3em
+  margin-top: .3em
+
+p 
+  margin: .3em
+
+ul,ol
+  padding-left: 1em
+  margin-top: .3em
+  margin-bottom: .3em
+  li 
+    margin: .2em .5em
+
+.diapo
+  box-sizing: border-box
+  width: $diapositiva-ancho
+  height: $diapositiva-alto
+  margin:  (100vh - $diapositiva-alto) auto 20vh auto
+
+.comentario
+  display: flex
+  align-items: center
+  font-size: .8rem
+  color: $color-2
+  max-width: 90%
+  margin-left: auto
+  margin-right: auto
+  border: 3px solid $color-2
+  border-radius: 10px
+  h3 
+    color: $color-2
+    transform: rotate(-90deg)
+
+
+
+figure
+  display: flex
+  position: relative
+  width: 100%
+  height: 100%
+  margin: 0
+  justify-content: center
+  &:hover img
+    box-shadow: 5px 5px 5px rgba(0,0,0,.5 )
+  img
+    display: block
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 20%
+    // top: 0
+    margin: auto auto
+    max-width: 100%
+    max-height: 80%
+    border-radius: 4px
+  figcaption
+    display: block
+    position: absolute
+    top: 80%
+    max-width: 90%
+    height: auto
+    margin: 1% auto
+    font-size: 0.6rem
+    @include responsive-to()
+      font-size: .9rem
+    color: $color-2
+    text-align: justify
+  iframe
+    display: block
+    position: absolute
+    top: 0 
+    left: 5%
+    max-height: 80%
+    max-width: 90%
+    margin: 0 auto
+    border-radius: 4px
+  table 
+    position: initial
+    // height: 80%
+    border: 3px solid $color-2
+    border-radius: 10px
+    min-width: 60%
+    border-spacing: 0
+    th 
+      background: $color-2
+    td 
+      text-align: center
+      border: 1px solid $color-2

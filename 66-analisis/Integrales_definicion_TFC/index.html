@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Integrales de Riemann - TFC - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="objetivo---calcular-áreas">
+      <h2>Objetivo - calcular áreas</h2>
+      <div class="diapo__contenido">
+        <h3>Problema a resolver</h3>
+        <p>Sea $f$ una función tal que $f(x)\geq 0, \forall x \in (a,b)$</p>
+        <p>¿Cuál es el área contenido entre el gráfico de $f(x)$ y el eje $x$ para los $x\in(a,b)$?</p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul> 
+            <li>Por simplicidad se pide que el $f(x)\geq 0$, significando que la función queda por arriba del eje $x$.</li>
+            <li>Por simplicidad, también, se pide que la base del área sea el eje $x$.</li>
+          </ul>
+          <p>Más adelante generalizaremos el problema.</p>
+        </div>
+      </div>
+      <figure><iframe src="https://www.geogebra.org/calculator/n3hy9ahv?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+        <figcaption>Gráfico de una función y el área de interes (región entre la curva y el eje $x$ para $2\leq x \leq 5$)</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="área---aproximación-con-rectángulos">
+      <h2>Área - aproximación con rectángulos</h2>
+      <div class="diapo__contenido">
+        <ol> 
+          <li>Se parte el intervalo $(a,b)$ en varios intervalos menores.</li>
+          <li>En cada intervalo se dibuja un rectangulo (en este caso, de altura igual al valor de $f(x)$ en el borde izquierdo del intervalo base)</li>
+          <li>Se suman las areas de los rectángulos.</li>
+        </ol>
+        <p>El resultado es aproximadamente el valor de area buscada.</p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul> 
+            <li>¿Existe alguna elección de altura de cada rectángulo más inteligente?</li>
+            <li>Al agregar más rectángulos el resultado aparenta aproximar mejor. ¿Existe una partición del intervalo $(a,b)$ mejor?</li>
+            <li>¿Qué garantía hay de que el área aproximada se acerque al área objetivo?</li>
+          </ul>
+        </div>
+      </div>
+      <figure><iframe src="https://www.geogebra.org/calculator/xhgcygbm?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+        <figcaption>Aproximación de area debajo del gráfico de $f$ en el intervalo $(2,5)$ mediante rectángulos. El alto de cada rectángulo corresponde con el valor de la función a la izquierda de la partición.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="particiones">
+      <h2>Particiones</h2>
+      <div class="diapo__contenido">
+        <h3>Definiciones</h3>
+        <ul>
+          <li>Llamaremos partición $P$ del intervalo $[a,b]$ al conjunto $P=\{x_0,x_1,\dots,x_n\}$ tal que:
+            <ol>
+              <li>$x_0,x_1,\dots,x_n \in[a,b] $</li>
+              <li>$x_0 = a$</li>
+              <li>$x_n = b$</li>
+            </ol>
+          </li>
+          <li>Dadas $P$ y $Q$ particiones de $[a,b]$. Diremos que $P$ es una partición más fina que la partición $Q$ cuando $P$ incluye todos los puntos de $Q$.</li>
+        </ul>
+      </div>
+      <div class="comentario">
+        <h3>Ejemplos:</h3>
+        <div>
+          <p>\[P=\{1,4,6,7\}\] \[Q=\{1,2,3,7\}\] \[R=\{1,2,3,4,5,7\}\] </p>
+          <ul>
+            <li>$P$, $Q$ y $R$ son particiones del intervalo $[1,7]$.</li>
+            <li>$R$ es más fina que $Q$</li>
+            <li>$R$ no es más fina que $P$ porque $6\not\in R$.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="diapo" id="sumas-inferiores-de-riemann">
+      <h2>Sumas inferiores de Riemann</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>
+          Sea una partición $P=\{x_0,x_1,\dots,x_n\}$ del intervalo $[a,b]$. Llamaremos suma inferior de $f$ para la partición $P$
+          \[ s_p=s_1+s_2+\dots +s_n \]
+          \[ \begin{multline}s_p= (x_1-x_0)\cdot h_1+ (x_2-x_1)\cdot h_2 +\\+\dots + (x_n-x_{n-1})\cdot h_n \end{multline}\]
+        </p>
+        <p>donde $s_i$ es area del rectángulo con
+          <ul> 
+            <li>Base $(x_i-x_{i-1})$</li>
+            <li>Altura $h_i = \inf\{f(x):x\in[x_i,x_{i-1}]\}$</li>
+          </ul>
+        </p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>La suma inferior es menor al area buscada.</li>
+            <li>Al hacer más fina la partición la suma inferior se crece.</li>
+          </ul>
+        </div>
+      </div>
+      <figure><iframe src="https://www.geogebra.org/calculator/dyeehf2m?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+        <figcaption>En las sumas inferiores los rectángulos tienen una altura igual al menor valor (o el infimo valor) de la función en la partición correspondiente.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="sumas-superiores-de-riemann">
+      <h2>Sumas superiores de Riemann</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>
+          Sea una partición $P=\{x_0,x_1,\dots,x_n\}$ del intervalo $[a,b]$. Llamaremos suma superior de $f$ para la partición $P$
+          \[ S_p=S_1+S_2+\dots +S_n \]
+          \[ \begin{multline} S_p= (x_1-x_0)\cdot H_1+ (x_2-x_1)\cdot H_2 +\\+\dots +(x_n-x_{n-1})\cdot H_n\end{multline} \]
+        </p>
+        <p>donde $S_i$ es area del rectángulo con
+          <ul> 
+            <li>Base $(x_i-x_{i-1})$</li>
+            <li>Altura $H_i = \sup\{f(x):x\in[x_i,x_{i-1}]\}$</li>
+          </ul>
+        </p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>La suma superior es mayor al area buscada.</li>
+            <li>Al hacer más fina la partición la suma superior se reduce.</li>
+          </ul>
+        </div>
+      </div>
+      <figure><iframe src="https://www.geogebra.org/calculator/ekuqfvjx?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+        <figcaption>En las sumas superiores cada rectángulo tiene un altura igual al mayor valor (o el valor supremo) de la función dentro de la partición correspondiente.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="integral-de-riemann---definición">
+      <h2>Integral de Riemann - Definición</h2>
+      <div class="diapo__contenido"><span>Llamemos $A$ al area buscada. Sean $P$ y $Q$ particiones de $[a,b]$</span>
+        <div class="comparacion">
+          <div>
+            <h3>Sumas inferiores</h3>
+            <ul>
+              <li>$s_p \leq A$</li>
+              <li>Si $Q$ más fina que $P$ \[ A \geq s_Q \geq s_P \]</li>
+            </ul>
+            <p>Llamaremos integral inferior de $f$ en $[a,b]$ \[s = \sup_{P \text{ partición}}\{s_p\} \]</p>
+          </div>
+          <div>
+            <h3>Sumas Superiores</h3>
+            <ul>
+              <li>$S_p \geq A$</li>
+              <li>Si $Q$ más fina que $P$ \[ A \leq S_Q \leq S_P \]</li>
+            </ul>
+            <p>Llamaremos integral superior de $f$ en $[a,b]$ \[S = \inf_{P \text{ partición}}\{S_p\} \]</p>
+          </div>
+        </div>
+        <p>
+          Cuando $s=S=A$ diremos que $f$ es integrable en $[a,b]$ y notaremos 
+          \[\int_a^b{f \cdot dx} = A \]
+          
+          
+          
+          
+          
+        </p>
+      </div>
+    </section>
+    <section class="diapo" id="integral-de-riemann---propiedades">
+      <h2>Integral de Riemann - Propiedades</h2>
+      <div class="diapo__contenido" style="margin-left:20px">
+        <h3>Propiedades de integrales definidas</h3>
+        <p>Sean $f$ y $g$ funciones integrables:</p>
+        <p>$\int_a^b{(f+g) \cdot dx}=\int_a^b{f \cdot dx}+\int_a^b{g \cdot dx} $</p>
+        <p>$\int_a^b{K\cdot f \cdot dx}=K\cdot \int_a^b{f \cdot dx}$</p>
+        <p>$\int_a^a{f \cdot dx}=0$</p>
+        <p>$\int_b^a{f \cdot dx}=-\int_a^b{f \cdot dx}$</p>
+        <p>$\int_a^b{f \cdot dx}+\int_b^c{f \cdot dx}=\int_a^c{f \cdot dx}$</p>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <ul> 
+          <li>$\int_a^b{f \cdot dx}$ = número. (La llamaremos integral definida.)</li>
+          <li>$\int_a^x{f \cdot dt}$ = función. (La llamaremos función integral.)</li>
+          <li>La integral de Riemann es el area bajo la curva cuando $f(x)\geq 0, \forall x\in[a,b]$. Sin embargo la integral se puede calcular esa restricción.</li>
+          <li>Toda función monótona en $[a,b]$ es integrable en $[a,b]$</li>
+          <li>Toda función continua en $[a,b]$ es integrable en $[a,b]$</li>
+        </ul>
+      </div>
+    </section>
+    <section class="diapo" id="teorema-fundamental-del-cálculo">
+      <h2>Teorema Fundamental del Cálculo</h2>
+      <div class="diapo__contenido">
+        <h3>Teorema</h3>
+        <p>Sea $f$ integrable en $[a,b]$ y continua en $c\in(a,b)$. </p>
+        <p>Sea $F(x)=\int_a^x {f(t)\cdot dt}$</p>
+        <p>Entonces, \[F'(c)=f(c)\]</p>
+        <h3>Teorema (Regla de Barrow)</h3>
+        <p>Sea $f$ integrable en $[a,b]$ y sea $F(x)$ una primitiva de $f$. </p>
+        <p>Entonces, \[\int_a^b f(x)\cdot dx = F(b)-F(a)\]</p>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <ul>
+          <li>La integral y la derivada están relacionadas porque \[F'(x)=\left(\int_a^x {f(t)\cdot dt}\right)'=f(x)\]</li>
+          <li>Teniendo en cuenta lo dicho, llamaremos primitiva de una función $f(x)$ a la función $F(x)$ tal que cumple \[F'(x)=f(x)\]</li>
+        </ul>
+      </div>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#objetivo---calcular-áreas">Objetivo - calcular áreas</a></li>
+          <li><a href="#área---aproximación-con-rectángulos">Área - aproximación con rectángulos</a></li>
+          <li><a href="#particiones">Particiones</a></li>
+          <li><a href="#sumas-inferiores-de-riemann">Sumas inferiores de Riemann</a></li>
+          <li><a href="#sumas-superiores-de-riemann">Sumas superiores de Riemann</a></li>
+          <li><a href="#integral-de-riemann---definición">Integral de Riemann - Definición</a></li>
+          <li><a href="#integral-de-riemann---propiedades">Integral de Riemann - Propiedades</a></li>
+          <li><a href="#teorema-fundamental-del-cálculo">Teorema Fundamental del Cálculo</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
