@@ -51,8 +51,7 @@ ul li, ol li {
   font-size: 0.8rem;
   color: #64908A;
   max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 1rem auto;
   border: 3px solid #64908A;
   border-radius: 10px;
 }
