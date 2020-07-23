@@ -1,6 +1,18 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin                     +usarGeogebra
+//- para incluir un archivo de geogebra usar el mixin    +graficoGeogebra(nombreArchivo,descripcion,comandos='',width=400,height=400)
+//- 	es recomendable incluirlo en un bloque figure 
+//-		con una descripcion figcaption
+//-		el archivo debe incluirse en la carpeta geogebra/
+//- para comenzar una nueva diapositiva usar el mixin    +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//- para agregar una imagen usar el mixin                +imagen(archivo, descripcion)
+//- se agrega al final la navegacion con el mixion			 +navegacion
+
 extend pug/_plantilla.pug
 prepend head
-	- var titulo = "Espacio y tiempo"
+	- var titulo = "Titulo"
 
 
 block body

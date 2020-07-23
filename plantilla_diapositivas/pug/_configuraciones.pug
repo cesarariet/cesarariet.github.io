@@ -2,29 +2,81 @@
 - var diapositiva__numero = 0
 - var lista__diapositivas = []
 
+mixin usarGeogebra
+	script(src="https://www.geogebra.org/apps/deployggb.js")
+	script.
+		var parametrosGeogebra = {
+			"showMenuBar":false,
+			"showAlgebraInput":false,
+			"showToolBar":false,
+			"showToolBarHelp":false,
+			"showResetIcon":false,
+			"enableLabelDrags":false,
+			"enableShiftDragZoom":true,
+			"enableRightClick":false,
+			"errorDialogsActive":false,
+			"useBrowserForJS":false,
+			"allowStyleBar":false,
+			"preventFocus":false,
+			"showZoomButtons":false,
+			"showFullscreenButton":true,
+			"scale":1,
+			"disableAutoScale":false,
+			"allowUpscale":false,
+			"clickToLoad":false,
+			"appName":"classic",
+			"showSuggestionButtons":false,
+			"buttonRounding":0.7,
+			"buttonShadows":false,
+			"language":"es",
+		}
+
+mixin graficoGeogebra(id,descripcion,comandos='',width=400,height=400)
+	figure
+		script. 
+			parametrosGeogebra.appletOnLoad = function(api){ 
+				#{comandos}
+			},
+			parametrosGeogebra.filename = "geogebra/#{id}.ggb"
+			parametrosGeogebra.width = #{width}
+			parametrosGeogebra.height = #{height}
+			// is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+			var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+			var applet_#{id} = new GGBApplet(parametrosGeogebra, '5.0', views);
+			window.onload = function() {applet_#{id}.inject(#{id})};
+			
+
+		div(id=`${id}` class="contenedor--geogebra")
+			figcaption= descripcion
+
+
+
+
+
+
 mixin imagen(archivo, descripcion)
-  figure
-    img(src= archivo, alt= descripcion)
-    figcaption= descripcion
+	figure
+		img(src= archivo, alt= descripcion)
+		figcaption= descripcion
 
 
 mixin diapositiva(diapositiva__titulo)
-  - 
-    diapositiva__numero += 1 
-    if (titulo.length === 0){
-      var diapositiva__titulo = `Diapositiva ${diapositiva__numero}`
-    }
-    lista__diapositivas.push(diapositiva__titulo)
+	- 
+		diapositiva__numero += 1 
+		if (titulo.length === 0){
+			var diapositiva__titulo = `Diapositiva ${diapositiva__numero}`
+		}
+		lista__diapositivas.push(diapositiva__titulo)
 
-  section.diapo(id=`${diapositiva__titulo.split(' ').join('-').toLowerCase()}`)
-    h2= `${diapositiva__titulo}`
-    block 
+	section.diapo(id=`${diapositiva__titulo.split(' ').join('-').toLowerCase()}`)
+		h2= `${diapositiva__titulo}`
+		block 
 
 mixin navegacion
-  nav
-    ul
-      each id_diapositiva in lista__diapositivas
-        li
-          a(href= `#${id_diapositiva.split(' ').join('-').toLowerCase()}`)= id_diapositiva
+	nav
+		ul
+			each id_diapositiva in lista__diapositivas
+				li
+					a(href= `#${id_diapositiva.split(' ').join('-').toLowerCase()}`)= id_diapositiva
 
 
