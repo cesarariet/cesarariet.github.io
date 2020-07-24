@@ -74,7 +74,7 @@ figure {
     height: auto;
   }
 }
-figure:hover img {
+figure:hover > img, figure:hover > iframe, figure:hover > .contenedor--geogebra {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 figure img {
@@ -373,6 +373,7 @@ header {
   position: fixed;
   top: 0;
   right: 0;
+  z-index: 1000;
 }
 header h1 {
   color: #64908A;
