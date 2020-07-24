@@ -1,6 +1,19 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin                     +usarGeogebra
+//- para incluir un archivo de geogebra usar el mixin    +graficoGeogebra(nombreArchivo,descripcion,comandos='',width=400,height=400)
+//- 	es recomendable incluirlo en un bloque figure 
+//-		con una descripcion figcaption
+//-		el archivo debe incluirse en la carpeta geogebra/
+//- para comenzar una nueva diapositiva usar el mixin    +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//- para agregar una imagen usar el mixin                +imagen(archivo, descripcion)
+//- se agrega al final la navegacion con el mixion			 +navegacion
+
 extend pug/_plantilla.pug
 prepend head
 	- var titulo = "Integrales de Riemann - TFC"
+	+usarGeogebra
 
 
 block body
@@ -19,7 +32,8 @@ block body
 				p Más adelante generalizaremos el problema.
 
 		figure
-			<iframe src="https://www.geogebra.org/calculator/n3hy9ahv?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("areaBajoLaCurva","api.setCoordSystem(-1,7,-2,6)")
+			//- <iframe src="https://www.geogebra.org/calculator/n3hy9ahv?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
 			figcaption Gráfico de una función y el área de interes (región entre la curva y el eje $x$ para $2\leq x \leq 5$)
 
 
@@ -42,7 +56,8 @@ block body
 					li ¿Qué garantía hay de que el área aproximada se acerque al área objetivo?
 
 		figure
-			<iframe src="https://www.geogebra.org/calculator/xhgcygbm?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			//- <iframe src="https://www.geogebra.org/calculator/xhgcygbm?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("sumaIzquierda","api.setCoordSystem(-1,7,-2,6)")
 			figcaption Aproximación de area debajo del gráfico de $f$ en el intervalo $(2,5)$ mediante rectángulos. El alto de cada rectángulo corresponde con el valor de la función a la izquierda de la partición.
 
 
@@ -90,7 +105,8 @@ block body
 					li La suma inferior es menor al area buscada.
 					li Al hacer más fina la partición la suma inferior se crece.
 		figure
-			<iframe src="https://www.geogebra.org/calculator/dyeehf2m?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			//- <iframe src="https://www.geogebra.org/calculator/dyeehf2m?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("sumaInferior","api.setCoordSystem(-1,7,-2,6)")
 			figcaption En las sumas inferiores los rectángulos tienen una altura igual al menor valor (o el infimo valor) de la función en la partición correspondiente.
 
 
@@ -115,7 +131,8 @@ block body
 					li La suma superior es mayor al area buscada.
 					li Al hacer más fina la partición la suma superior se reduce.
 		figure
-			<iframe src="https://www.geogebra.org/calculator/ekuqfvjx?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("sumaSuperior","api.setCoordSystem(-1,7,-2,6)")
+			//- <iframe src="https://www.geogebra.org/calculator/ekuqfvjx?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
 			figcaption En las sumas superiores cada rectángulo tiene un altura igual al mayor valor (o el valor supremo) de la función dentro de la partición correspondiente.
 
 

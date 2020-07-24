@@ -1,6 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var parametrosGeogebra = {
+      	"showMenuBar":false,
+      	"showAlgebraInput":false,
+      	"showToolBar":false,
+      	"showToolBarHelp":false,
+      	"showResetIcon":false,
+      	"enableLabelDrags":false,
+      	"enableShiftDragZoom":true,
+      	"enableRightClick":false,
+      	"errorDialogsActive":false,
+      	"useBrowserForJS":false,
+      	"allowStyleBar":false,
+      	"preventFocus":false,
+      	"showZoomButtons":false,
+      	"showFullscreenButton":true,
+      	"scale":1,
+      	"autoHeight":false,
+      	"disableAutoScale":false,
+      	"allowUpscale":false,
+      	"clickToLoad":false,
+      	"appName":"classic",
+      	"showSuggestionButtons":false,
+      	"buttonRounding":0.7,
+      	"buttonShadows":false,
+      	"language":"es",
+      }
+      
+    </script>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta author="Mario Estanislao Cesar Ariet"/>
@@ -30,7 +60,22 @@
           <p>Más adelante generalizaremos el problema.</p>
         </div>
       </div>
-      <figure><iframe src="https://www.geogebra.org/calculator/n3hy9ahv?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      <figure>
+        <div class="contenedor--geogebra" id="areaBajoLaCurva"></div>
+        <script>var areaBajoLaCurva_parametros = {...parametrosGeogebra}
+areaBajoLaCurva_parametros.id = "areaBajoLaCurva"
+areaBajoLaCurva_parametros.appletOnLoad = function(api){ api.setCoordSystem(-1,7,-2,6) }
+areaBajoLaCurva_parametros.filename = "geogebra/areaBajoLaCurva.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+areaBajoLaCurva_parametros.width = "500";
+areaBajoLaCurva_parametros.height = "400";
+          var applet_areaBajoLaCurva = new GGBApplet(areaBajoLaCurva_parametros, '5.0', views);
+          applet_areaBajoLaCurva.inject("areaBajoLaCurva");
+          
+          
+          
+        </script>
         <figcaption>Gráfico de una función y el área de interes (región entre la curva y el eje $x$ para $2\leq x \leq 5$)</figcaption>
       </figure>
     </section>
@@ -52,7 +97,22 @@
           </ul>
         </div>
       </div>
-      <figure><iframe src="https://www.geogebra.org/calculator/xhgcygbm?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      <figure>
+        <div class="contenedor--geogebra" id="sumaIzquierda"></div>
+        <script>var sumaIzquierda_parametros = {...parametrosGeogebra}
+sumaIzquierda_parametros.id = "sumaIzquierda"
+sumaIzquierda_parametros.appletOnLoad = function(api){ api.setCoordSystem(-1,7,-2,6) }
+sumaIzquierda_parametros.filename = "geogebra/sumaIzquierda.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+sumaIzquierda_parametros.width = "500";
+sumaIzquierda_parametros.height = "400";
+          var applet_sumaIzquierda = new GGBApplet(sumaIzquierda_parametros, '5.0', views);
+          applet_sumaIzquierda.inject("sumaIzquierda");
+          
+          
+          
+        </script>
         <figcaption>Aproximación de area debajo del gráfico de $f$ en el intervalo $(2,5)$ mediante rectángulos. El alto de cada rectángulo corresponde con el valor de la función a la izquierda de la partición.</figcaption>
       </figure>
     </section>
@@ -106,7 +166,22 @@
           </ul>
         </div>
       </div>
-      <figure><iframe src="https://www.geogebra.org/calculator/dyeehf2m?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      <figure>
+        <div class="contenedor--geogebra" id="sumaInferior"></div>
+        <script>var sumaInferior_parametros = {...parametrosGeogebra}
+sumaInferior_parametros.id = "sumaInferior"
+sumaInferior_parametros.appletOnLoad = function(api){ api.setCoordSystem(-1,7,-2,6) }
+sumaInferior_parametros.filename = "geogebra/sumaInferior.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+sumaInferior_parametros.width = "500";
+sumaInferior_parametros.height = "400";
+          var applet_sumaInferior = new GGBApplet(sumaInferior_parametros, '5.0', views);
+          applet_sumaInferior.inject("sumaInferior");
+          
+          
+          
+        </script>
         <figcaption>En las sumas inferiores los rectángulos tienen una altura igual al menor valor (o el infimo valor) de la función en la partición correspondiente.</figcaption>
       </figure>
     </section>
@@ -133,7 +208,22 @@
           </ul>
         </div>
       </div>
-      <figure><iframe src="https://www.geogebra.org/calculator/ekuqfvjx?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      <figure>
+        <div class="contenedor--geogebra" id="sumaSuperior"></div>
+        <script>var sumaSuperior_parametros = {...parametrosGeogebra}
+sumaSuperior_parametros.id = "sumaSuperior"
+sumaSuperior_parametros.appletOnLoad = function(api){ api.setCoordSystem(-1,7,-2,6) }
+sumaSuperior_parametros.filename = "geogebra/sumaSuperior.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+sumaSuperior_parametros.width = "500";
+sumaSuperior_parametros.height = "400";
+          var applet_sumaSuperior = new GGBApplet(sumaSuperior_parametros, '5.0', views);
+          applet_sumaSuperior.inject("sumaSuperior");
+          
+          
+          
+        </script>
         <figcaption>En las sumas superiores cada rectángulo tiene un altura igual al mayor valor (o el valor supremo) de la función dentro de la partición correspondiente.</figcaption>
       </figure>
     </section>
