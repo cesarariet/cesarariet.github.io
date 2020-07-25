@@ -11,6 +11,8 @@ $color-3: #E8CAA4
 $diapositiva-ancho: 95vw
 $diapositiva-alto: 95vh
 
+// El siguiente mixin se usa como media query para hacer responsive las diapositivas
+
 @mixin responsive-to()
   @media screen and (max-width: 639px)
     @content
@@ -49,12 +51,16 @@ ul,ol
   li 
     margin: .2em .5em
 
+
+// Estilo de la diaposituva
+
 .diapo
   box-sizing: border-box
   width: $diapositiva-ancho
   height: $diapositiva-alto
   margin:  (100vh - $diapositiva-alto) auto 20vh auto
 
+// estilo para los comentarios, notas, extras
 .comentario
   display: flex
   align-items: center

@@ -1,19 +1,23 @@
 //- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
 
-//- para usar geogebra usar el mixin                     +usarGeogebra
-//- para incluir un archivo de geogebra usar el mixin    +graficoGeogebra(nombreArchivo,descripcion,comandos='',width=400,height=400)
-//- 	es recomendable incluirlo en un bloque figure 
-//-		con una descripcion figcaption
-//-		el archivo debe incluirse en la carpeta geogebra/
-//- para comenzar una nueva diapositiva usar el mixin    +diapositiva("titulo de la diapositiva")
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
 //- 	el bloque hijo sera incluido como parte de la diapositiva
-//- para agregar una imagen usar el mixin                +imagen(archivo, descripcion)
-//- se agrega al final la navegacion con el mixion			 +navegacion
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
 
 extend pug/_plantilla.pug
 prepend head
-	- var titulo = "Titulo"
-
+	- var titulo = "Pagina creada por Mario Estanislao Cesar Ariet"
+	+usarGeogebra
 
 block body
 

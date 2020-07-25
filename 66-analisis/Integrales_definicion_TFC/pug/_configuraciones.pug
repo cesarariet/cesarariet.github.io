@@ -1,8 +1,11 @@
-- var titulo = "Diapositivas"
-- var diapositiva__numero = 0
+//- titulo + diapositva__numero es el titulo default de las diapositvas cuando no se le asigna titulo.
+//- En lista__diapositivas se guardan todos los id de las diapositivas con el formato: todo minuscula y guiones - en vez de  espacios.
+- var titulo = "Diapositivas" 
+- var diapositiva__numero = 0 
 - var lista__diapositivas = []
-- var listaGraficosGeogebra = []
 
+//- Mixin usado para incluir en el Header el src a la librerias de Geogebra
+//- Además, en parametrosGeogebra se ponen la configuración por defecto de los applet de graficos.
 mixin usarGeogebra
 	script(src="https://www.geogebra.org/apps/deployggb.js")
 	script.
@@ -33,6 +36,9 @@ mixin usarGeogebra
 			"language":"es",
 		}
 
+//- Para incluir los graficos de Geogebra.
+//- En id debe darse el nombre del archivo .ggb sin la extensión.
+//- Los archivos debe incluirse en la carpeta /geogebra
 mixin graficoGeogebra(id,comandos,width=500,height=400)
 	div(id=`${id}` class="contenedor--geogebra")
 	script.
@@ -48,13 +54,14 @@ mixin graficoGeogebra(id,comandos,width=500,height=400)
 		applet_#{id}.inject("#{id}");
 
 
-
+//-Mixin para incluir una imagen y su descripción tanto en alt como en figcaption
 mixin imagen(archivo, descripcion)
 	figure
 		img(src= archivo, alt= descripcion)
 		figcaption= descripcion
 
-
+//- Para arregar una diapositiva usar este mixin ya genera automaticamente el id del contenedor
+//- con el titulo de la diapositiva todo en minusculas y con guiones en vez de espacios.
 mixin diapositiva(diapositiva__titulo)
 	- 
 		diapositiva__numero += 1 
@@ -67,6 +74,7 @@ mixin diapositiva(diapositiva__titulo)
 		h2= `${diapositiva__titulo}`
 		block 
 
+//- Este mixin agregado al final de la pagina general automaticamente la lista de navegacion a las diapositvas.
 mixin navegacion
 	nav
 		ul
