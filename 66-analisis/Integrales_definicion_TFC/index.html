@@ -261,7 +261,7 @@ sumaSuperior_parametros.height = "400";
     </section>
     <section class="diapo" id="integral-de-riemann---propiedades">
       <h2>Integral de Riemann - Propiedades</h2>
-      <div class="diapo__contenido" style="margin-left:20px">
+      <div class="diapo__contenido">
         <h3>Propiedades de integrales definidas</h3>
         <p>Sean $f$ y $g$ funciones integrables:</p>
         <p>$\int_a^b{(f+g) \cdot dx}=\int_a^b{f \cdot dx}+\int_a^b{g \cdot dx} $</p>
@@ -295,10 +295,72 @@ sumaSuperior_parametros.height = "400";
       <div class="comentario">
         <h3>Nota</h3>
         <ul>
-          <li>La integral y la derivada están relacionadas porque \[F'(x)=\left(\int_a^x {f(t)\cdot dt}\right)'=f(x)\]</li>
-          <li>Teniendo en cuenta lo dicho, llamaremos primitiva de una función $f(x)$ a la función $F(x)$ tal que cumple \[F'(x)=f(x)\]</li>
+          <li>
+            La integral y la derivada están relacionadas porque \[F'(x)=\left(\int_a^x {f(t)\cdot dt}\right)'=f(x)\]
+            Usando además la regla de la cadena puede verse que
+            \[ \begin{multline} \left(\int_{g(x)}^{h(x)} {f(t)\cdot dt}\right)'=\\=f'\left(h(x)\right)\cdot h'(x)-f'\left(g(x)\right)\cdot g'(x)\end{multline} \]
+          </li>
+          <li>Teniendo en cuenta la relación entre la integral y la derivada, llamaremos primitiva o antiderivada de una función $f(x)$ a la función $F(x)$ tal que cumple \[F'(x)=f(x)\]</li>
         </ul>
       </div>
+    </section>
+    <section class="diapo" id="integral-indefinida---primitiva">
+      <h2>Integral indefinida - Primitiva</h2>
+      <div class="diapo__contenido">
+        <ul>
+          <li>Llamaremos una primitiva de $f(x)$ a toda función $F(x)$ tal que $F'(x)=f(x).$</li>
+          <li>Si $F(x)$ es primitiva entonces $F(x)+C$ también es primitiva.</li>
+          <li>Escribiremos a la familia de primitivas de $f$ como \[\int f(x)\cdot dx\]
+            <p>Denominaremos a esta operación como integral indefinida.</p>
+          </li>
+        </ul>
+        <h3>Propiedades</h3>
+        <ul>
+          <li>$\int f(x)+g(x) dx = \int f(x) dx+\int g(x) dx$</li>
+          <li>$\int K\cdot f(x) dx= K\cdot \int f(x) dx$</li>
+        </ul>
+      </div>
+      <figure>
+        <table>
+          <style>tr{height: 2em}</style>
+          <tr>
+            <th colspan="2">Tabla de primitivas</th>
+          </tr>
+          <tr>
+            <th>$f(x)$</th>
+            <th>$\int f(x) dx$</th>
+          </tr>
+          <tr>
+            <td>$K$ (Costante)</td>
+            <td>$K\cdot x+C$</td>
+          </tr>
+          <tr>
+            <td>$x^n$ (para $n\neq -1$)</td>
+            <td>$\frac{x^{n+1}}{n+1}+C$</td>
+          </tr>
+          <tr>
+            <td>$x^{-1}=\frac{1}{x}$</td>
+            <td>$\ln|x|+C$</td>
+          </tr>
+          <tr>
+            <td>$e^x$</td>
+            <td>$e^x+C$</td>
+          </tr>
+          <tr>
+            <td>$\cos(x)$</td>
+            <td>$\sin(x)+C$</td>
+          </tr>
+          <tr>
+            <td>$\sin(x)$</td>
+            <td>$-\cos(x)+C$</td>
+          </tr>
+          <tr>
+            <td>$\frac {1}{1+x^2}$</td>
+            <td>$\arctan(x)+C$</td>
+          </tr>
+        </table>
+        <figcaption>Tabla con las funciones más usuales y sus primitivas. Mediante las propiedades de las integrales indefinidas y los métodos de integración se puede extender el uso de la tabla en otros casos.</figcaption>
+      </figure>
     </section>
     <header>
       <h1> <a href="#">menu</a></h1>
@@ -312,6 +374,7 @@ sumaSuperior_parametros.height = "400";
           <li><a href="#integral-de-riemann---definición">Integral de Riemann - Definición</a></li>
           <li><a href="#integral-de-riemann---propiedades">Integral de Riemann - Propiedades</a></li>
           <li><a href="#teorema-fundamental-del-cálculo">Teorema Fundamental del Cálculo</a></li>
+          <li><a href="#integral-indefinida---primitiva">Integral indefinida - Primitiva</a></li>
         </ul>
       </nav>
     </header>

@@ -149,6 +149,7 @@ block body
 						li $s_p \leq A$
 						li Si $Q$ más fina que $P$ \[ A \geq s_Q \geq s_P \]
 					p Llamaremos integral inferior de $f$ en $[a,b]$ \[s = \sup_{P \text{ partición}}\{s_p\} \]
+				
 				div
 					h3 Sumas Superiores
 					ul
@@ -164,7 +165,7 @@ block body
 
 
 	+diapositiva("Integral de Riemann - Propiedades")
-		.diapo__contenido(style="margin-left:20px")
+		.diapo__contenido
 			h3 Propiedades de integrales definidas
 			p Sean $f$ y $g$ funciones integrables:
 
@@ -197,8 +198,55 @@ block body
 		.comentario
 			h3 Nota
 			ul
-				li La integral y la derivada están relacionadas porque \[F'(x)=\left(\int_a^x {f(t)\cdot dt}\right)'=f(x)\]
-				li Teniendo en cuenta lo dicho, llamaremos primitiva de una función $f(x)$ a la función $F(x)$ tal que cumple \[F'(x)=f(x)\]
+				li.
+					La integral y la derivada están relacionadas porque \[F'(x)=\left(\int_a^x {f(t)\cdot dt}\right)'=f(x)\]
+					Usando además la regla de la cadena puede verse que
+					\[ \begin{multline} \left(\int_{g(x)}^{h(x)} {f(t)\cdot dt}\right)'=\\=f'\left(h(x)\right)\cdot h'(x)-f'\left(g(x)\right)\cdot g'(x)\end{multline} \]
+				li Teniendo en cuenta la relación entre la integral y la derivada, llamaremos primitiva o antiderivada de una función $f(x)$ a la función $F(x)$ tal que cumple \[F'(x)=f(x)\]
 		
+	+diapositiva("Integral indefinida - Primitiva")
+		.diapo__contenido
+			ul
+				li Llamaremos una primitiva de $f(x)$ a toda función $F(x)$ tal que $F'(x)=f(x).$
+				li Si $F(x)$ es primitiva entonces $F(x)+C$ también es primitiva.
+				li Escribiremos a la familia de primitivas de $f$ como \[\int f(x)\cdot dx\]
+					p Denominaremos a esta operación como integral indefinida.
+			h3 Propiedades
+			ul
+				li $\int f(x)+g(x) dx = \int f(x) dx+\int g(x) dx$
+				li $\int K\cdot f(x) dx= K\cdot \int f(x) dx$
+				
+		figure
+			table
+				style tr{height: 2em}
+				tr
+					th(colspan=2) Tabla de primitivas
+				tr
+					th $f(x)$
+					th $\int f(x) dx$
+				tr
+					td $K$ (Costante)
+					td $K\cdot x+C$
+				tr
+					td $x^n$ (para $n\neq -1$)
+					td $\frac{x^{n+1}}{n+1}+C$
+				tr
+					td $x^{-1}=\frac{1}{x}$
+					td $\ln|x|+C$
+				tr
+					td $e^x$
+					td $e^x+C$
+				tr
+					td $\cos(x)$
+					td $\sin(x)+C$
+				tr
+					td $\sin(x)$
+					td $-\cos(x)+C$
+				tr
+					td $\frac {1}{1+x^2}$
+					td $\arctan(x)+C$
+			figcaption Tabla con las funciones más usuales y sus primitivas. Mediante las propiedades de las integrales indefinidas y los métodos de integración se puede extender el uso de la tabla en otros casos.
+
+
 block header
 	+navegacion
