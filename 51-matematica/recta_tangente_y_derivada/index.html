@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var parametrosGeogebra = {
+      	"showMenuBar":false,
+      	"showAlgebraInput":false,
+      	"showToolBar":false,
+      	"showToolBarHelp":false,
+      	"showResetIcon":false,
+      	"enableLabelDrags":false,
+      	"enableShiftDragZoom":true,
+      	"enableRightClick":false,
+      	"errorDialogsActive":false,
+      	"useBrowserForJS":false,
+      	"allowStyleBar":false,
+      	"preventFocus":false,
+      	"showZoomButtons":false,
+      	"showFullscreenButton":true,
+      	"scale":1,
+      	"autoHeight":false,
+      	"disableAutoScale":false,
+      	"allowUpscale":false,
+      	"clickToLoad":false,
+      	"appName":"classic",
+      	"showSuggestionButtons":false,
+      	"buttonRounding":0.7,
+      	"buttonShadows":false,
+      	"language":"es",
+      }
+      
+    </script>
+    <meta name="description" content="Definición de recta tangente ¿Cómo se contruye? - Definición de derivaday su relación con la recta tangente."/>
+    <meta name="keywords" content="tangente, recta tangente, recta secante, derivada, tabla de derivada, función derivable, función no derivable"/>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta author="Mario Estanislao Cesar Ariet"/>
@@ -27,10 +59,24 @@
         <h3>Objetivo</h3>
         <p>Hallar forma funcional de la recta tangente al gráfico de una función en el punto $(x_0,f(x_0)).$</p>
       </div>
-      <figure><iframe src="https://www.geogebra.org/calculator/qexgpfmu?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      <figure>
+        <div class="contenedor--geogebra" id="rectaTangenteYCircunferencia"></div>
+        <script>var rectaTangenteYCircunferencia_parametros = {...parametrosGeogebra}
+rectaTangenteYCircunferencia_parametros.id = "rectaTangenteYCircunferencia"
+rectaTangenteYCircunferencia_parametros.appletOnLoad = function(api){  }
+rectaTangenteYCircunferencia_parametros.filename = "geogebra/rectaTangenteYCircunferencia.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+rectaTangenteYCircunferencia_parametros.width = "500";
+rectaTangenteYCircunferencia_parametros.height = "400";
+          var applet_rectaTangenteYCircunferencia = new GGBApplet(rectaTangenteYCircunferencia_parametros, '5.0', views);
+          applet_rectaTangenteYCircunferencia.inject("rectaTangenteYCircunferencia");
+          
+          
+        </script>
         <figcaption>
           Una curva, su recta tangente en el punto $P$ (línea continua) y una recta cualquiera que pasa por $P$ (línea discontinua). 
-          Al ampliar el gráfico hacia el punto $P$ la curva y su recta tangente en $P$ se vuelven indistinguibles.
+          Al ampliar el gráfico hacia el punto $P$ la curva y su recta tangente se vuelven indistinguibles.
           
           
           
@@ -54,14 +100,28 @@
           </li>
         </ul>
       </div>
-      <figure><iframe src="https://www.geogebra.org/calculator/rdabccah?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      <figure>
+        <div class="contenedor--geogebra" id="rectaSecante"></div>
+        <script>var rectaSecante_parametros = {...parametrosGeogebra}
+rectaSecante_parametros.id = "rectaSecante"
+rectaSecante_parametros.appletOnLoad = function(api){  }
+rectaSecante_parametros.filename = "geogebra/rectaSecante.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+rectaSecante_parametros.width = "500";
+rectaSecante_parametros.height = "400";
+          var applet_rectaSecante = new GGBApplet(rectaSecante_parametros, '5.0', views);
+          applet_rectaSecante.inject("rectaSecante");
+          
+          
+        </script>
         <figcaption>Recta secante que pasa por los puntos $(x_0,f(x_0))$ y $(x_1,f(x_1))$</figcaption>
       </figure>
     </section>
     <section class="diapo" id="desde-la-recta-secante-hacia-la-recta-tangente">
       <h2>Desde la recta secante hacia la recta tangente</h2>
       <div class="diapo__contenido">
-        <div class="comparacion">
+        <div class="comparacion"><small>
           <div id="idea-secante">
             <h3>Recta secante</h3>
             <p>La recta secante al gráfico de una función $f(x)$ que pasa por los puntos $(x_0,f(x_0))$ y $(x_1,f(x_1))$ tiene:</p>
@@ -77,7 +137,7 @@
                 <li>Pendiente \[m=\lim_{x_1\rightarrow x_0}\frac{f(x_1)-f(x_0)}{x_1-x_0}\]</li>
                 <li>Ecuación \[y=m\cdot (x-x_0)+f(x_0)\]</li>
               </ul>
-            </p>
+            </p></small>
           </div>
         </div>
         <div class="comentario">
@@ -85,7 +145,21 @@
           <p>"Acercando los puntos" la recta secante se aproxima a una recta tangente.</p>
         </div>
       </div>
-      <figure><iframe src="https://www.geogebra.org/calculator/byub8eev?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      <figure>
+        <div class="contenedor--geogebra" id="rectaSecanteYRectaTangente"></div>
+        <script>var rectaSecanteYRectaTangente_parametros = {...parametrosGeogebra}
+rectaSecanteYRectaTangente_parametros.id = "rectaSecanteYRectaTangente"
+rectaSecanteYRectaTangente_parametros.appletOnLoad = function(api){ api.setCoordSystem(-3,3,-3,3) }
+rectaSecanteYRectaTangente_parametros.filename = "geogebra/rectaSecanteYRectaTangente.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+rectaSecanteYRectaTangente_parametros.width = "420";
+rectaSecanteYRectaTangente_parametros.height = "420";
+          var applet_rectaSecanteYRectaTangente = new GGBApplet(rectaSecanteYRectaTangente_parametros, '5.0', views);
+          applet_rectaSecanteYRectaTangente.inject("rectaSecanteYRectaTangente");
+          
+          
+        </script>
         <figcaption>Visualización de la recta tagente y recta secante en el gráfico de una función.</figcaption>
       </figure>
     </section>
@@ -99,7 +173,21 @@
           <li>Ecuación \[y=m\cdot (x-x_0)+f(x_0)\]</li>
         </ul>
       </div>
-      <figure><iframe src="https://www.geogebra.org/calculator/jca3be8t?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      <figure>
+        <div class="contenedor--geogebra" id="funcionYSuRectaTangente"></div>
+        <script>var funcionYSuRectaTangente_parametros = {...parametrosGeogebra}
+funcionYSuRectaTangente_parametros.id = "funcionYSuRectaTangente"
+funcionYSuRectaTangente_parametros.appletOnLoad = function(api){ api.setCoordSystem(-5,5,-3,5) }
+funcionYSuRectaTangente_parametros.filename = "geogebra/funcionYSuRectaTangente.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+funcionYSuRectaTangente_parametros.width = "500";
+funcionYSuRectaTangente_parametros.height = "400";
+          var applet_funcionYSuRectaTangente = new GGBApplet(funcionYSuRectaTangente_parametros, '5.0', views);
+          applet_funcionYSuRectaTangente.inject("funcionYSuRectaTangente");
+          
+          
+        </script>
         <figcaption>Gráfico de una función (puede cambiarse en el recuadro superior) y su recta tangente en el punto de abscisa $x_0$.</figcaption>
       </figure>
     </section>
@@ -165,7 +253,7 @@
     <section class="diapo" id="derivada---propiedades">
       <h2>Derivada - Propiedades</h2>
       <div class="diapo__contenido">
-        <figure>
+        <figure><small>
           <table style="position:initial">
             <tr>
               <td>Función <br>+<br> Función</td>
@@ -185,9 +273,9 @@
             </tr>
             <tr>
               <td>Regla <br>de la<br> cadena</td>
-              <td>$ (fog)'(x)=\Big(f\big(g(x)\big)\Big)'=f'\big(g(x)\big)\cdot g'(x) $</td>
+              <td>$(fog)'(x)=\Big(f\big(g(x)\big)\Big)'=f'\big(g(x)\big)\cdot g'(x) $</td>
             </tr>
-          </table>
+          </table></small>
         </figure>
       </div>
       <figure>
@@ -250,7 +338,21 @@
           </p>
         </div>
       </div>
-      <figure><iframe src="https://www.geogebra.org/calculator/expcnjmt?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+      <figure>
+        <div class="contenedor--geogebra" id="funcionConPuntosNoDerivables"></div>
+        <script>var funcionConPuntosNoDerivables_parametros = {...parametrosGeogebra}
+funcionConPuntosNoDerivables_parametros.id = "funcionConPuntosNoDerivables"
+funcionConPuntosNoDerivables_parametros.appletOnLoad = function(api){ api.setCoordSystem(-3,4,-1.5,3) }
+funcionConPuntosNoDerivables_parametros.filename = "geogebra/funcionConPuntosNoDerivables.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+funcionConPuntosNoDerivables_parametros.width = "500";
+funcionConPuntosNoDerivables_parametros.height = "250";
+          var applet_funcionConPuntosNoDerivables = new GGBApplet(funcionConPuntosNoDerivables_parametros, '5.0', views);
+          applet_funcionConPuntosNoDerivables.inject("funcionConPuntosNoDerivables");
+          
+          
+        </script>
         <figcaption>Función no derivable en $x=-1$ por discontinuidad, en $x=1$ por "tener un pico o arruga", en $x=2$ por tener tangente vertical.</figcaption>
       </figure>
     </section>

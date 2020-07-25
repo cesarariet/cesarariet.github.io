@@ -26,7 +26,7 @@ h1, h2, h3 {
 }
 
 p {
-  margin-left: 0.3rem;
+  margin: 0.3em;
 }
 
 ul, ol {
@@ -50,9 +50,8 @@ ul li, ol li {
   align-items: center;
   font-size: 0.8rem;
   color: #64908A;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 90%;
+  margin: 1rem auto;
   border: 3px solid #64908A;
   border-radius: 10px;
 }
@@ -62,31 +61,32 @@ ul li, ol li {
 }
 
 figure {
-  display: flex;
-  position: relative;
+  display: grid;
+  grid-template-rows: 4fr 1fr;
   width: 100%;
   height: 100%;
   margin: 0;
-  justify-content: center;
+  align-items: center;
 }
-figure:hover img {
+@media screen and (max-width: 639px) {
+  figure {
+    display: initial;
+    height: auto;
+  }
+}
+figure:hover > img, figure:hover > iframe, figure:hover > .contenedor--geogebra {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 figure img {
   display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 20%;
   margin: auto auto;
   max-width: 100%;
   max-height: 80%;
   border-radius: 4px;
 }
 figure figcaption {
+  align-self: start;
   display: block;
-  position: absolute;
-  top: 80%;
   max-width: 90%;
   height: auto;
   margin: 1% auto;
@@ -101,9 +101,6 @@ figure figcaption {
 }
 figure iframe {
   display: block;
-  position: absolute;
-  top: 0;
-  left: 5%;
   max-height: 80%;
   max-width: 90%;
   margin: 0 auto;
@@ -113,6 +110,7 @@ figure table {
   position: initial;
   border: 3px solid #64908A;
   border-radius: 10px;
+  margin: auto;
   min-width: 60%;
   border-spacing: 0;
 }
@@ -123,12 +121,19 @@ figure table td {
   text-align: center;
   border: 1px solid #64908A;
 }
+figure .contenedor--geogebra {
+  display: block;
+  max-width: 90%;
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+}
 
 #recta-tangente---concepto {
   display: grid;
   grid-auto-flow: dense;
   grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   align-items: center;
 }
 #recta-tangente---concepto .diapo__contenido {
@@ -154,7 +159,7 @@ figure table td {
   display: grid;
   grid-auto-flow: dense;
   grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   align-items: center;
 }
 #recta-secante---concepto-auxiliar .diapo__contenido {
@@ -180,7 +185,7 @@ figure table td {
   display: grid;
   grid-auto-flow: dense;
   grid-template: 2.5em repeat(1, 1fr)/repeat(3, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   align-items: center;
 }
 #desde-la-recta-secante-hacia-la-recta-tangente .diapo__contenido {
@@ -212,7 +217,7 @@ figure table td {
   display: grid;
   grid-auto-flow: dense;
   grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   align-items: center;
 }
 #recta-tangente---definición .diapo__contenido {
@@ -238,7 +243,7 @@ figure table td {
   display: grid;
   grid-auto-flow: dense;
   grid-template: 2.5em repeat(1, 1fr)/repeat(3, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   align-items: center;
 }
 #derivada---definición .diapo__contenido {
@@ -264,7 +269,7 @@ figure table td {
   display: grid;
   grid-auto-flow: dense;
   grid-template: 2.5em repeat(1, 1fr)/repeat(3, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   align-items: center;
 }
 #derivada---propiedades .diapo__contenido {
@@ -290,7 +295,7 @@ figure table td {
   display: grid;
   grid-auto-flow: dense;
   grid-template: 2.5em repeat(2, 1fr)/repeat(2, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   align-items: center;
 }
 #derivada-y-la-recta-tangente .diapo__contenido {
@@ -316,6 +321,7 @@ header {
   position: fixed;
   top: 0;
   right: 0;
+  z-index: 1000;
 }
 header h1 {
   color: #64908A;

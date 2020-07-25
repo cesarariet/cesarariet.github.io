@@ -1,6 +1,25 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
 extend pug/_plantilla.pug
 prepend head
 	- var titulo = "Recta tangente y Derivada"
+	+usarGeogebra
+	meta(name="description", content="Definición de recta tangente ¿Cómo se contruye? - Definición de derivaday su relación con la recta tangente.")
+	meta(name="keywords", content="tangente, recta tangente, recta secante, derivada, tabla de derivada, función derivable, función no derivable")
 
 
 block body
@@ -16,10 +35,11 @@ block body
 			p Hallar forma funcional de la recta tangente al gráfico de una función en el punto $(x_0,f(x_0)).$
 
 		figure
-			<iframe src="https://www.geogebra.org/calculator/qexgpfmu?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			//- <iframe src="https://www.geogebra.org/calculator/qexgpfmu?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("rectaTangenteYCircunferencia")
 			figcaption.
 				Una curva, su recta tangente en el punto $P$ (línea continua) y una recta cualquiera que pasa por $P$ (línea discontinua). 
-				Al ampliar el gráfico hacia el punto $P$ la curva y su recta tangente en $P$ se vuelven indistinguibles.
+				Al ampliar el gráfico hacia el punto $P$ la curva y su recta tangente se vuelven indistinguibles.
 
 
 
@@ -36,7 +56,8 @@ block body
 						li Pendiente \[m=\frac{f(x_1)-f(x_0)}{x_1-x_0}\]
 						li Ecuación \[y=m\cdot (x-x_0)+f(x_0)\]
 		figure
-			<iframe src="https://www.geogebra.org/calculator/rdabccah?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			//- <iframe src="https://www.geogebra.org/calculator/rdabccah?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("rectaSecante")
 			figcaption Recta secante que pasa por los puntos $(x_0,f(x_0))$ y $(x_1,f(x_1))$
 
 
@@ -47,6 +68,7 @@ block body
 	+diapositiva("Desde la recta secante hacia la recta tangente")
 		.diapo__contenido
 			.comparacion
+				<small>
 				#idea-secante
 					h3 Recta secante
 					p La recta secante al gráfico de una función $f(x)$ que pasa por los puntos $(x_0,f(x_0))$ y $(x_1,f(x_1))$ tiene:
@@ -59,12 +81,14 @@ block body
 						ul
 							li Pendiente \[m=\lim_{x_1\rightarrow x_0}\frac{f(x_1)-f(x_0)}{x_1-x_0}\]
 							li Ecuación \[y=m\cdot (x-x_0)+f(x_0)\]
+					</small>
 			.comentario
 				h3 Nota
 				p "Acercando los puntos" la recta secante se aproxima a una recta tangente.
-	
+
 		figure
-			<iframe src="https://www.geogebra.org/calculator/byub8eev?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			//- <iframe src="https://www.geogebra.org/calculator/byub8eev?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("rectaSecanteYRectaTangente","api.setCoordSystem(-3,3,-3,3)",420,420)
 			figcaption Visualización de la recta tagente y recta secante en el gráfico de una función.
 
 
@@ -78,7 +102,8 @@ block body
 					li Pendiente \[m=\lim_{x\rightarrow x_0}\frac{f(x)-f(x_0)}{x-x_0}\]
 					li Ecuación \[y=m\cdot (x-x_0)+f(x_0)\]
 		figure
-			<iframe src="https://www.geogebra.org/calculator/jca3be8t?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			//- <iframe src="https://www.geogebra.org/calculator/jca3be8t?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("funcionYSuRectaTangente","api.setCoordSystem(-5,5,-3,5)")
 			figcaption Gráfico de una función (puede cambiarse en el recuadro superior) y su recta tangente en el punto de abscisa $x_0$.
 
 
@@ -135,6 +160,7 @@ block body
 	+diapositiva("Derivada - Propiedades")
 		.diapo__contenido
 			figure
+				<small>
 				table(style="position:initial")
 					tr
 						td Función <br>+<br> Función
@@ -150,8 +176,8 @@ block body
 						td $ \displaystyle \left(\frac{f(x)}{g(x)}\right)'=\frac{f'(x)\cdot g(x) - f(x)\cdot g'(x)}{[g(x)]^2} $
 					tr
 						td Regla <br>de la<br> cadena
-						td $ (fog)'(x)=\Big(f\big(g(x)\big)\Big)'=f'\big(g(x)\big)\cdot g'(x) $
-		
+						td $(fog)'(x)=\Big(f\big(g(x)\big)\Big)'=f'\big(g(x)\big)\cdot g'(x) $
+				</small>
 		figure
 			table
 				tr
@@ -199,7 +225,8 @@ block body
 						li La recta tangente al gráfico de $f(x)$ es vertical en $x_0$
 
 		figure
-			<iframe src="https://www.geogebra.org/calculator/expcnjmt?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			//- <iframe src="https://www.geogebra.org/calculator/expcnjmt?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("funcionConPuntosNoDerivables","api.setCoordSystem(-3,4,-1.5,3)",500,250)
 			figcaption Función no derivable en $x=-1$ por discontinuidad, en $x=1$ por "tener un pico o arruga", en $x=2$ por tener tangente vertical.
 
 
