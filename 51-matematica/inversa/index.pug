@@ -1,0 +1,163 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Función inversa"
+	meta(name="description", content="Definición de función inversa. Contrucción a partir del gráfico. Propiedades")
+	meta(name="keywords", content="función inversa, gráfico de funciones, gráfico de función inversa")
+	+usarGeogebra
+
+block body
+
+	+diapositiva("Gráfico de funciones")
+		.diapo__contenido
+			<ul>
+				<li>Se llama gráfico de $f(x)$  a la colección de puntos $(x,f(x))$.</li>
+				<li>Toda función tiene un gráfico asociado.</li>
+				<li>No todos los gráficos representan funciones.</li>
+			</ul>
+		figure
+			+graficoGeogebra("funcionPolinomica","api.setCoordSystem(-2,4,-5,4)",400)
+			figcaption Cada punto del gráfico de una función tiene la forma $(x,f(x))$. Notar que por cada valor de $x$ el gráfico pasa exactamente una altura que corresponde con el valor de $f(x).$
+		figure
+			+graficoGeogebra("curvaQueNoEsFuncion","api.setCoordSystem(-4,2,-4,4)",400)
+			figcaption Gráfico de una curva que no representa ninguna función. Existen valores de $x$ para los cuales hay dos alturas con puntos de la curva asociados.
+
+		
+	
+
+
+	+diapositiva("Intercambio de coordenadas")
+		.diapo__contenido
+			<ul>
+				<li>Ejemplo: $(1,2)$ pasa a ser $(2,1)$</li>
+				<li>Ejemplo: $(3,3)$ pasa a ser $(3,3)$ </li>
+				<li>Para un conjunto de puntos se comporta como rotación de 90° del gráfico, junto con una reflexión horizontal.</li>
+				<li>Al aplicarlo en gráficos de funciones el resultado a veces no corresponde con el gráfico otra función.</li>
+			</ul>
+		figure
+			+graficoGeogebra("puntoIntercambioDeCoordenadas","api.setCoordSystem(-2,3,-2,3)",300,300)
+			figcaption En el gráfico puede verse un punto y el correspondiente al intercambio de coordenadas. En el caso que los ejes tengan la misma escala, ambos puntos son simétricos respecto de la recta $y=x$.
+		figure
+			div(style="display:inline-flex")
+				<img width=230 id ="mano-que-se-invierte" src="./images/mano_para_intercambiar_coordenadas.png" alt="Imagen 1: mano.">
+				<img width=230 src="./images/mano_para_intercambiar_coordenadas_2.png" alt="Imagen 2: mano luego de intercambio de coordendas para cada un de sus puntos.">
+			figcaption.
+				Demostración del efecto de la inversión de coordenadas. La imagen de la derecha se obtiene de intercambiar las coordenadas de todos los puntos de la imagen de la izquierda.
+				Al posar el mouse o el dedo sobre la imagen de la izquierda, la misma hará una rotación de 90° anti-horaria y una reflexión horizontal.
+
+
+
+
+
+	+diapositiva("Función inversa - Ideas")
+		.diapo__contenido
+			<ul>
+				<li>Se la suele notar $f^{-1}(x)$ (ojo, si es que existe).</li>
+				<li>Hace el camino opuesto \[f(x)=y \iff x=f^{-1}(y)\]</li>
+				<li> Los puntos de $f^{-1}(x)$ son los de $f(x)$ 
+					<em> con las coordenadas intercambiadas.</em>
+				</li>
+				<li>El gráfico de $f^{-1}(x)$ sale del intercambio de coordenadas de los puntos del gráfico de $f(x)$.</li>
+				<li>Existen funciones que no tienen inversa.</li>
+			</ul>
+			<figure style="display:block">
+				<div style="display: grid;grid-template: 1fr / 1fr 1fr">
+					<table>
+						<tr>
+							<th>$x$</th>
+							<th>$f(x)$</th>
+						</tr>
+						<tr>
+							<td>-2</td>
+							<td>-5</td>
+						</tr>
+						<tr>
+							<td>-1</td>
+							<td>-3</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>-1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>3</td>
+						</tr>
+					</table>
+				
+					<table>
+						<tr>
+							<th>$x$</th>
+							<th>$f^{-1}(x)$</th>
+						</tr>
+						<tr>
+							<td>-5</td>
+							<td>-2</td>
+						</tr>
+						<tr>
+							<td>-3</td>
+							<td>-1</td>
+						</tr>
+						<tr>
+							<td>-1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>2</td>
+						</tr>
+					</table>
+				</div>
+				figcaption Tabla de valores de la función $f(x)=2\cdot x-1$ (a la derecha) y tabla de valores de su función inversa $f^{-1}(x)$. Notar las tablas tienen sus columnas de valores intercambiados.
+			</figure>
+		figure
+			+graficoGeogebra("funcionInversaInterpretacionGeometrica","api.setCoordSystem(-3,3,-3,3)",400,400)
+			figcaption En el siguiente gráfico puede verse el efecto de intercambiar coordenadas a todos los puntos del gráfico de una función (que aparece en el recuadro). Con el deslizador puede rotarse la curva hasta los 90° y luego con la casilla reflejarla horizontalmente. Puede verse así que la función $f(x)=x^2$, por ejemplo, no tiene inversa.
+
+	+diapositiva("Función inversa - Teoremas")
+		.diapo__contenido
+			ul
+				li Las funciones que "no repiten resultados" pueden invertirse.
+					ul
+						li. 
+							<strong>Definición: </strong> Diremos que una función $f(x)$ es <em>inyectiva</em> si no repite resultados, es decir,
+							\[
+							\forall x_1,x_2\in Dom f,
+							\underbrace{x_1\neq x_2\iff f(x_1)\neq f(x_2)}_{\text{distinto x da distinto resultado}}
+							\] 
+						li <strong>Teorema: </strong>Las funciones inyectivas son inversibles.
+
+				li <strong>Propiedades: </strong>
+					ul
+						<li>$f(x)=y \iff x=f^{-1}(y)$ (al despejar, una función "pasa como su inversa").</li>
+						<li>$Im f^{-1} = Dom f$</li>
+						<li>$Im f = Dom f^{-1}$</li>
+
+				li El gráfico de $f^{-1}(x)$ es igual al gráfico de $f(x)$ luego de una rotación 90° y una reflexión horizontal.
+
+		
+block header
+	+navegacion

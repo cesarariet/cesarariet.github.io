@@ -1,0 +1,85 @@
+//- titulo + diapositva__numero es el titulo default de las diapositvas cuando no se le asigna titulo.
+//- En lista__diapositivas se guardan todos los id de las diapositivas con el formato: todo minuscula y guiones - en vez de  espacios.
+- var titulo = "Diapositivas" 
+- var diapositiva__numero = 0 
+- var lista__diapositivas = []
+
+//- Mixin usado para incluir en el Header el src a la librerias de Geogebra
+//- Además, en parametrosGeogebra se ponen la configuración por defecto de los applet de graficos.
+mixin usarGeogebra
+	script(src="https://www.geogebra.org/apps/deployggb.js")
+	script.
+		var parametrosGeogebra = {
+			"showMenuBar":false,
+			"showAlgebraInput":false,
+			"showToolBar":false,
+			"showToolBarHelp":false,
+			"showResetIcon":false,
+			"enableLabelDrags":false,
+			"enableShiftDragZoom":true,
+			"enableRightClick":false,
+			"errorDialogsActive":false,
+			"useBrowserForJS":false,
+			"allowStyleBar":false,
+			"preventFocus":false,
+			"showZoomButtons":false,
+			"showFullscreenButton":true,
+			"scale":1,
+			"autoHeight":false,
+			"disableAutoScale":false,
+			"allowUpscale":false,
+			"clickToLoad":false,
+			"appName":"classic",
+			"showSuggestionButtons":false,
+			"buttonRounding":0.7,
+			"buttonShadows":false,
+			"language":"es",
+		}
+
+//- Para incluir los graficos de Geogebra.
+//- En id debe darse el nombre del archivo .ggb sin la extensión.
+//- Los archivos debe incluirse en la carpeta /geogebra
+mixin graficoGeogebra(id,comandos,width=500,height=400)
+	div(id=`${id}` class="contenedor--geogebra")
+	script.
+		var #{id}_parametros = {...parametrosGeogebra}
+		#{id}_parametros.id = "#{id}"
+		#{id}_parametros.appletOnLoad = function(api){ #{comandos} }
+		#{id}_parametros.filename = "geogebra/#{id}.ggb"
+		// is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+		var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+		#{id}_parametros.width = "#{width}";
+		#{id}_parametros.height = "#{height}";
+		var applet_#{id} = new GGBApplet(#{id}_parametros, '5.0', views);
+		applet_#{id}.inject("#{id}");
+
+
+//-Mixin para incluir una imagen y su descripción tanto en alt como en figcaption
+mixin imagen(archivo, descripcion)
+	figure
+		img(src= archivo, alt= descripcion)
+		figcaption= descripcion
+
+//- Para arregar una diapositiva usar este mixin ya genera automaticamente el id del contenedor
+//- con el titulo de la diapositiva todo en minusculas y con guiones en vez de espacios.
+mixin diapositiva(diapositiva__titulo)
+	- 
+		diapositiva__numero += 1 
+		if (titulo.length === 0){
+			var diapositiva__titulo = `Diapositiva ${diapositiva__numero}`
+		}
+		lista__diapositivas.push(diapositiva__titulo)
+
+	section.diapo(id=`${diapositiva__titulo.split(' ').join('-').toLowerCase()}`)
+		h2= `${diapositiva__titulo}`
+		block 
+
+//- Este mixin agregado al final de la pagina general automaticamente la lista de navegacion a las diapositvas.
+mixin navegacion
+	nav
+		ul
+			each id_diapositiva in lista__diapositivas
+				li
+					a(href= `#${id_diapositiva.split(' ').join('-').toLowerCase()}`)= id_diapositiva
+
+
