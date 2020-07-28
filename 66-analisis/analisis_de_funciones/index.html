@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="Teorema de Fermat y puntos críticos. Criterio de la derivada primera. Estudio y gráficos de funciones. Cantidad de soluciones de una ecuación."/>
+    <meta name="keywords" content="Fermat, puntos críticos, monotonía, criterio de la derivada, concavidad, gráfico de función, cantidad de soluciones"/>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var parametrosGeogebra = {
+      	"showMenuBar":false,
+      	"showAlgebraInput":false,
+      	"showToolBar":false,
+      	"showToolBarHelp":false,
+      	"showResetIcon":false,
+      	"enableLabelDrags":false,
+      	"enableShiftDragZoom":true,
+      	"enableRightClick":false,
+      	"errorDialogsActive":false,
+      	"useBrowserForJS":false,
+      	"allowStyleBar":false,
+      	"preventFocus":false,
+      	"showZoomButtons":false,
+      	"showFullscreenButton":true,
+      	"scale":1,
+      	"autoHeight":false,
+      	"disableAutoScale":false,
+      	"allowUpscale":false,
+      	"clickToLoad":false,
+      	"appName":"classic",
+      	"showSuggestionButtons":false,
+      	"buttonRounding":0.7,
+      	"buttonShadows":false,
+      	"language":"es",
+      }
+      
+    </script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Estudio de Funciones - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="puntos-críticos">
+      <h2>Puntos críticos</h2>
+      <div class="diapo__contenido">
+        <ul>
+          <li>
+            <h3>Teorema de Fermat</h3><p>Sea $f(x)$ una función derivable en $(a,b)$ y sea $c\in(a,b)$.</p>
+<p>Si $f(c)$ es un extremo local, entonces $f'(c)=0$.</p>
+          </li>
+          <li>
+            <h3>Puntos Críticos</h3>
+            <p>Lugares de interes del gráfico de $f(x)$, donde:
+              <ul><li>$f'(x)=0$ (condición necesaria pero no suficiente para extremo de $f(x)$)</li>
+<li>Donde no exista $f'(x)$ (situación excluida del teorema de Fermat)</li>
+              </ul>
+            </p>
+            <p>\[PC=\{x\in Domf:f'(x)=0 \lor \not\exists f'(x) \}\]</p>
+          </li>
+        </ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="teoremaDeFermat"></div>
+        <script>var teoremaDeFermat_parametros = {...parametrosGeogebra}
+teoremaDeFermat_parametros.id = "teoremaDeFermat"
+teoremaDeFermat_parametros.appletOnLoad = function(api){ api.setCoordSystem(-3,3,-2.5,2.5) }
+teoremaDeFermat_parametros.filename = "geogebra/teoremaDeFermat.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+teoremaDeFermat_parametros.width = "450";
+teoremaDeFermat_parametros.height = "200";
+          var applet_teoremaDeFermat = new GGBApplet(teoremaDeFermat_parametros, '5.0', views);
+          applet_teoremaDeFermat.inject("teoremaDeFermat");
+          
+          
+        </script>
+        <figcaption>Como puede observarse en $x=-1$ la función alcanza un mínimo local y en $x=1$ la función alcanza un máximo local. La recta tangente en ambos lugares es horizontal (derivada nula).</figcaption>
+      </figure>
+      <figure>
+        <div class="contenedor--geogebra" id="puntosCriticos"></div>
+        <script>var puntosCriticos_parametros = {...parametrosGeogebra}
+puntosCriticos_parametros.id = "puntosCriticos"
+puntosCriticos_parametros.appletOnLoad = function(api){ api.setCoordSystem(-0.5,4.5,0.5,2.5) }
+puntosCriticos_parametros.filename = "geogebra/puntosCriticos.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+puntosCriticos_parametros.width = "450";
+puntosCriticos_parametros.height = "200";
+          var applet_puntosCriticos = new GGBApplet(puntosCriticos_parametros, '5.0', views);
+          applet_puntosCriticos.inject("puntosCriticos");
+          
+          
+        </script>
+        <figcaption>Función con extremos locales en $x=0,5$ (mínimo local), en $x=1$ (máximo local), en $x=2$ (mínimo local), en $x=3$ (máximo local) y en $x=4$ (mínimo local).</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="teoremas-de-valor-medio">
+      <h2>Teoremas de valor medio</h2>
+      <div class="diapo__contenido">
+        <div><h3>Teorema de Rolle</h3>
+<p>Sea $f(x)$ una función tal que:</p>
+<ul>
+<li>$f$ es continua en $[a,b]$.</li>
+<li>$f$ es derivable en $(a,b)$</li>
+<li>$f(a)=f(b)$</li>
+</ul>
+<p>Entonces, \[ \exists c\in (a,b): f'(c)=0 \]
+        </div>
+        <div><h3>Teorema de Lagrange</h3>
+<p>Sea $f(x)$ una función tal que:</p>
+<ul>
+<li>$f$ es continua en $[a,b]$.</li>
+<li>$f$ es derivable en $(a,b)$</li>
+</ul>
+<p>Entonces, \[ \exists c\in (a,b): f'(c)=\frac{f(b)-f(a)}{b-a} \]</p>
+        </div>
+        <div><h3>Teorema de Cauchy</h3>
+<p>Sean $f(x)$ y $g(x)$ funciones tales que:</p>
+<ul>
+<li>$f$ y $g$ son continuas en $[a,b]$.</li>
+<li>$f$ y $g$ son derivables en $(a,b)$</li>
+</ul>
+<p>Entonces, \[ \exists c\in (a,b): \frac{f'(c)}{g'(c)}=\frac{f(b)-f(a)}{g(b)-g(a)} \]</p>
+        </div>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <p>Los tres teoremas son equivalentes. Cada uno puede desmostrarse a partir de cualquiera de los otros dos.</p>
+      </div>
+    </section>
+    <section class="diapo" id="consecuencias-del-teorema-de-valor-medio">
+      <h2>Consecuencias del Teorema de Valor Medio</h2>
+      <div class="diapo__contenido">
+        <ul>
+          <li>
+            <h3>Teorema</h3>
+            <p>
+              Sea $f$ una función tal que $f'(x)=0, \forall x\in (a,b)$. Entonces
+              \[ f(x)=C,\forall x\in (a,b) \]
+            </p>
+          </li>
+          <li>
+            <h3>Teorema</h3>
+            <p>
+              Sean $f$ y $g$ dos funciones tales que $f'(x)=g'(x), \forall x\in(a,b).$ Entonces
+              \[f(x)=g(x)+C,\forall x \in (a,b)  \]
+            </p>
+          </li>
+          <li>
+            <h3>Teorema</h3>
+            <p>Sea $f$ una funcion derivable en $(a,b)$.</p><table>
+<tr>
+<td>$f'(x)>0, \forall x\in (a,b)$</td>
+<td>$\iff$</td>
+<td>$f$ es monótona <br>creciente en $(a,b).$</td>
+</tr>
+<tr>
+<td>$f'(x)&lt 0, \forall x\in (a,b)$</td>
+<td>$\iff$ </td>
+<td>$f$ es monótona <br>decreciente en $(a,b).$</td>
+</tr>
+</table> 
+          </li>
+        </ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="criterioDerivada"></div>
+        <script>var criterioDerivada_parametros = {...parametrosGeogebra}
+criterioDerivada_parametros.id = "criterioDerivada"
+criterioDerivada_parametros.appletOnLoad = function(api){ api.setCoordSystem(-3,3,-2.5,2.5) }
+criterioDerivada_parametros.filename = "geogebra/criterioDerivada.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+criterioDerivada_parametros.width = "350";
+criterioDerivada_parametros.height = "300";
+          var applet_criterioDerivada = new GGBApplet(criterioDerivada_parametros, '5.0', views);
+          applet_criterioDerivada.inject("criterioDerivada");
+          
+          
+        </script>
+        <figcaption>Notar la relación que existe entre la pendiente de la recta tangente y el crecimiento o decrecimiento de la función.</figcaption>
+      </figure>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <ul>
+          <li>El último teorema se conoce como criterio de la primera derivada.</li>
+          <li>La relación entre el signo de la derivada y la monotonía es muy útil para elaborar gráficos de funciones.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="diapo" id="gráficos-de-funciones">
+      <h2>Gráficos de funciones</h2>
+      <div class="diapo__contenido">
+        <p>Para realizar un gráfico aproximado de una función debe conocerse:
+          <ol>
+            <li>$Dom f$.</li>
+            <li>Intervalos de crecimiento y decrecimiento.
+              <ul>
+                <li>Analizando el signo de la derivada (con el CTB).</li>
+              </ul>
+            </li>
+            <li>Comportamiento de la función en cada borde de los intervalos de monotonía.
+              <ul><li>Evaluando cuando es posible.</li>
+<li>Haciendo límite cuando no es posible.</li>
+              </ul>
+            </li>
+          </ol>
+        </p>
+        <div class="comentario"><h3>Utilidad</h3>
+<ul>
+<li>Hallar cantidad de solucines de la ecuación $f(x)=k.$</li>
+<li>Hallar extremos de una función y clasificarlos.</li>
+<li>Hallar $Im f$</li>
+</ul> 
+        </div>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="cantidadDeSoluciones"></div>
+        <script>var cantidadDeSoluciones_parametros = {...parametrosGeogebra}
+cantidadDeSoluciones_parametros.id = "cantidadDeSoluciones"
+cantidadDeSoluciones_parametros.appletOnLoad = function(api){ api.setCoordSystem(-3,3,-2,3) }
+cantidadDeSoluciones_parametros.filename = "geogebra/cantidadDeSoluciones.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+cantidadDeSoluciones_parametros.width = "450";
+cantidadDeSoluciones_parametros.height = "500";
+          var applet_cantidadDeSoluciones = new GGBApplet(cantidadDeSoluciones_parametros, '5.0', views);
+          applet_cantidadDeSoluciones.inject("cantidadDeSoluciones");
+          
+          
+        </script>
+        <figcaption>Representación del problema $f(x)=k$. ¿Cuántas veces el gráfico de la función alcanza la altura $k$?</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="concavidad">
+      <h2>Concavidad</h2>
+      <div class="diapo__contenido">
+        <h3>Propiedad (Concavidad y Derivada) </h3>
+        <p>
+          Sea $f$ una función derivable en $(a,b)$. Entonces:<table>
+<tr>
+<td>$f'(x)$ es monótona <br> creciente en $(a,b)$</td>
+<td>$\iff$</td>
+<td>$f(x)$ es concava <br>hacia arriba en $(a,b)$</td>
+</tr>
+<tr>
+<td>$f'(x)$ es monótona <br>decreciente en $(a,b)$</td>
+<td>$\iff$</td>
+<td>$f(x)$ es concava <br>hacia abajo en $(a,b)$</td>
+</tr>
+</table>
+          <h3>Propiedad (Concavidad y Derivada Segunda)</h3>
+          <p>
+            Sea $f$ una función dos veces derivable en $(a,b)$. Entonces:<table>
+<tr>
+<td>$f''(x)>0, \forall x\in (a,b)$</td>
+<td>$\iff$</td>
+<td>$f(x)$ es concava <br>hacia arriba en $(a,b)$</td>
+</tr>
+<tr>
+<td>$f''(x)<0, \forall x\in (a,b)$</td>
+<td>$\iff$</td>
+<td>$f(x)$ es concava <br>hacia abajo en $(a,b)$</td>
+</tr>
+</table>
+          </p>
+        </p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <p>Los puntos donde una función cambia de concavidad se denominan puntos de inflexión.</p>
+        </div>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="funcionConcavaHaciaArriba"></div>
+        <script>var funcionConcavaHaciaArriba_parametros = {...parametrosGeogebra}
+funcionConcavaHaciaArriba_parametros.id = "funcionConcavaHaciaArriba"
+funcionConcavaHaciaArriba_parametros.appletOnLoad = function(api){ api.setCoordSystem(-.5,4.5,-1.5,2) }
+funcionConcavaHaciaArriba_parametros.filename = "geogebra/funcionConcavaHaciaArriba.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+funcionConcavaHaciaArriba_parametros.width = "450";
+funcionConcavaHaciaArriba_parametros.height = "200";
+          var applet_funcionConcavaHaciaArriba = new GGBApplet(funcionConcavaHaciaArriba_parametros, '5.0', views);
+          applet_funcionConcavaHaciaArriba.inject("funcionConcavaHaciaArriba");
+          
+          
+        </script>
+        <figcaption>Función concava hacia arriba. </figcaption>
+      </figure>
+      <figure>
+        <div class="contenedor--geogebra" id="funcionConcavaHaciaAbajo"></div>
+        <script>var funcionConcavaHaciaAbajo_parametros = {...parametrosGeogebra}
+funcionConcavaHaciaAbajo_parametros.id = "funcionConcavaHaciaAbajo"
+funcionConcavaHaciaAbajo_parametros.appletOnLoad = function(api){ api.setCoordSystem(-.5,4.5,-3.5,-.5) }
+funcionConcavaHaciaAbajo_parametros.filename = "geogebra/funcionConcavaHaciaAbajo.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+funcionConcavaHaciaAbajo_parametros.width = "450";
+funcionConcavaHaciaAbajo_parametros.height = "200";
+          var applet_funcionConcavaHaciaAbajo = new GGBApplet(funcionConcavaHaciaAbajo_parametros, '5.0', views);
+          applet_funcionConcavaHaciaAbajo.inject("funcionConcavaHaciaAbajo");
+          
+          
+        </script>
+        <figcaption>Función concava hacia abajo. </figcaption>
+      </figure>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#puntos-críticos">Puntos críticos</a></li>
+          <li><a href="#teoremas-de-valor-medio">Teoremas de valor medio</a></li>
+          <li><a href="#consecuencias-del-teorema-de-valor-medio">Consecuencias del Teorema de Valor Medio</a></li>
+          <li><a href="#gráficos-de-funciones">Gráficos de funciones</a></li>
+          <li><a href="#concavidad">Concavidad</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>

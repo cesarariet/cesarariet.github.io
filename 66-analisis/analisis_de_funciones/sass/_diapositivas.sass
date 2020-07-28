@@ -1,0 +1,56 @@
+@mixin diapositiva-grid($filas,$columnas,$contenido-span-fila, $contenido-span-columna)
+  display: grid
+  grid-auto-flow: dense
+  grid-template: 2.5em repeat($filas,1fr) / repeat($columnas,1fr)
+  grid-gap: .5rem
+  align-items: center
+  .diapo__contenido
+    grid-row: 2 / span $contenido-span-fila
+    grid-column: 1 / span $contenido-span-columna
+  @include globales.responsive-to()
+    min-height: globales.$diapositiva-alto
+    height: auto
+    $canditada-adicionales: ( $filas * $columnas ) + 1 - $contenido-span-fila - $contenido-span-columna
+    grid-template: 2.5em auto repeat($canditada-adicionales,minmax(30%,50%)) / 1fr
+    .diapo__contenido
+      grid-row: 2 / 3
+      grid-column: 1 / -1
+  h2
+    grid-column: 1/-1
+
+// Para seleccinoar la organización de la diapositiva usar el id la diapositiva (igual al titulo en minusculas con - en vez de espacios).
+// el grid se crea con el mixin dispostiva-grid($filas,$columnas,$contenido-span-fila, $contenido-span-columna)
+
+#puntos-críticos
+  @include diapositiva-grid(2,2,2, 1)
+  
+
+#teoremas-de-valor-medio
+  .diapo__contenido
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    @include globales.responsive-to()
+      display: initial
+  
+#consecuencias-del-teorema-de-valor-medio
+  @include diapositiva-grid(2,3,2, 2)
+
+#gráficos-de-funciones
+  @include diapositiva-grid(1,2,1, 1)
+
+#concavidad
+  @include diapositiva-grid(2,2,2, 1)
+  
+  
+  
+
+
+#integral-de-riemann---definición
+  @include diapositiva-grid(1,1,1,1)
+  .comparacion
+    display: flex
+    justify-content: space-evenly
+    div 
+      margin: 2px
+
+

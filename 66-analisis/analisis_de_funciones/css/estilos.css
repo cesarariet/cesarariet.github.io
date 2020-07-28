@@ -1,0 +1,323 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&family=Oswald:wght@400;700&display=swap");
+html {
+  font-size: 1.6vw;
+}
+@media screen and (max-width: 639px) {
+  html {
+    font-size: 2.5vh;
+  }
+}
+
+body {
+  width: 100hw;
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+  color: #E8CAA4;
+  background-color: #351330;
+}
+
+h1, h2, h3 {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  color: #CC2A41;
+  margin-bottom: 0.3em;
+  margin-top: 0.3em;
+}
+
+p {
+  margin: 0.3em;
+}
+
+ul, ol {
+  padding-left: 1em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+ul li, ol li {
+  margin: 0.2em 0.5em;
+}
+
+.diapo {
+  box-sizing: border-box;
+  width: 95vw;
+  height: 95vh;
+  margin: 5vh auto 20vh auto;
+}
+
+.comentario {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #64908A;
+  max-width: 90%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 1rem auto;
+  border: 3px solid #64908A;
+  border-radius: 10px;
+}
+.comentario h3 {
+  color: #64908A;
+  transform: rotate(-90deg);
+}
+
+figure {
+  display: grid;
+  grid-template-rows: 4fr 1fr;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  align-items: center;
+}
+@media screen and (max-width: 639px) {
+  figure {
+    display: initial;
+    height: auto;
+  }
+}
+figure:hover > img, figure:hover > iframe, figure:hover > .contenedor--geogebra {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+figure img {
+  display: block;
+  margin: auto auto;
+  max-width: 100%;
+  max-height: 80%;
+  border-radius: 4px;
+}
+figure figcaption {
+  align-self: start;
+  display: block;
+  max-width: 90%;
+  height: auto;
+  margin: 1% auto;
+  font-size: 0.7rem;
+  color: #64908A;
+  text-align: justify;
+}
+@media screen and (max-width: 639px) {
+  figure figcaption {
+    font-size: 0.9rem;
+  }
+}
+figure iframe {
+  display: block;
+  max-height: 80%;
+  max-width: 90%;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+figure table {
+  position: initial;
+  border: 3px solid #64908A;
+  border-radius: 10px;
+  margin: auto;
+  min-width: 60%;
+  border-spacing: 0;
+}
+figure table th {
+  background: #64908A;
+}
+figure table td {
+  text-align: center;
+  border: 1px solid #64908A;
+}
+figure .contenedor--geogebra {
+  display: block;
+  max-width: 90%;
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#puntos-críticos {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(2, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#puntos-críticos .diapo__contenido {
+  grid-row: 2/span 2;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #puntos-críticos {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(2, minmax(30%, 50%))/1fr;
+  }
+  #puntos-críticos .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#puntos-críticos h2 {
+  grid-column: 1/-1;
+}
+
+#teoremas-de-valor-medio .diapo__contenido {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+@media screen and (max-width: 639px) {
+  #teoremas-de-valor-medio .diapo__contenido {
+    display: initial;
+  }
+}
+
+#consecuencias-del-teorema-de-valor-medio {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(2, 1fr)/repeat(3, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#consecuencias-del-teorema-de-valor-medio .diapo__contenido {
+  grid-row: 2/span 2;
+  grid-column: 1/span 2;
+}
+@media screen and (max-width: 639px) {
+  #consecuencias-del-teorema-de-valor-medio {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(3, minmax(30%, 50%))/1fr;
+  }
+  #consecuencias-del-teorema-de-valor-medio .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#consecuencias-del-teorema-de-valor-medio h2 {
+  grid-column: 1/-1;
+}
+
+#gráficos-de-funciones {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#gráficos-de-funciones .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #gráficos-de-funciones {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
+  }
+  #gráficos-de-funciones .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#gráficos-de-funciones h2 {
+  grid-column: 1/-1;
+}
+
+#concavidad {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(2, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#concavidad .diapo__contenido {
+  grid-row: 2/span 2;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #concavidad {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(2, minmax(30%, 50%))/1fr;
+  }
+  #concavidad .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#concavidad h2 {
+  grid-column: 1/-1;
+}
+
+#integral-de-riemann---definición {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(1, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#integral-de-riemann---definición .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #integral-de-riemann---definición {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(0, minmax(30%, 50%))/1fr;
+  }
+  #integral-de-riemann---definición .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#integral-de-riemann---definición h2 {
+  grid-column: 1/-1;
+}
+#integral-de-riemann---definición .comparacion {
+  display: flex;
+  justify-content: space-evenly;
+}
+#integral-de-riemann---definición .comparacion div {
+  margin: 2px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+header h1 {
+  color: #64908A;
+}
+header * {
+  color: #E8CAA4;
+  text-decoration: none;
+  margin-top: 0;
+}
+header nav {
+  width: 30vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: -100vw;
+  padding: 5vh auto;
+  background: #64908A;
+  opacity: 0.95;
+  box-shadow: 0 0 10px #64908A;
+  transition: 0.4s;
+  transition-timing-function: ease;
+}
+@media screen and (orientation: portrait) {
+  header nav {
+    width: 80vw;
+  }
+}
+header nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+header:hover nav {
+  top: 0;
+  right: 0%;
+}

@@ -1,0 +1,210 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Estudio de Funciones"
+	meta(name="description", content="Teorema de Fermat y puntos críticos. Criterio de la derivada primera. Estudio y gráficos de funciones. Cantidad de soluciones de una ecuación.")
+	meta(name="keywords", content="Fermat, puntos críticos, monotonía, criterio de la derivada, concavidad, gráfico de función, cantidad de soluciones")
+	+usarGeogebra
+
+block body
+
+	+diapositiva("Puntos críticos")
+		.diapo__contenido
+			ul
+				li
+					h3 Teorema de Fermat
+					<p>Sea $f(x)$ una función derivable en $(a,b)$ y sea $c\in(a,b)$.</p>
+					<p>Si $f(c)$ es un extremo local, entonces $f'(c)=0$.</p>
+				li
+					h3 Puntos Críticos
+					p Lugares de interes del gráfico de $f(x)$, donde:
+						ul
+							<li>$f'(x)=0$ (condición necesaria pero no suficiente para extremo de $f(x)$)</li>
+							<li>Donde no exista $f'(x)$ (situación excluida del teorema de Fermat)</li>
+					p \[PC=\{x\in Domf:f'(x)=0 \lor \not\exists f'(x) \}\]
+
+		figure
+			+graficoGeogebra("teoremaDeFermat","api.setCoordSystem(-3,3,-2.5,2.5)",450,200)
+			figcaption Como puede observarse en $x=-1$ la función alcanza un mínimo local y en $x=1$ la función alcanza un máximo local. La recta tangente en ambos lugares es horizontal (derivada nula).
+
+		figure
+			+graficoGeogebra("puntosCriticos","api.setCoordSystem(-0.5,4.5,0.5,2.5)",450,200)
+			figcaption Función con extremos locales en $x=0,5$ (mínimo local), en $x=1$ (máximo local), en $x=2$ (mínimo local), en $x=3$ (máximo local) y en $x=4$ (mínimo local).
+
+
+
+
+
+
+	+diapositiva("Teoremas de valor medio")
+		.diapo__contenido
+			div
+				<h3>Teorema de Rolle</h3>
+				<p>Sea $f(x)$ una función tal que:</p>
+				<ul>
+					<li>$f$ es continua en $[a,b]$.</li>
+					<li>$f$ es derivable en $(a,b)$</li>
+					<li>$f(a)=f(b)$</li>
+				</ul>
+				<p>Entonces, \[ \exists c\in (a,b): f'(c)=0 \]
+			
+			div
+				<h3>Teorema de Lagrange</h3>
+				<p>Sea $f(x)$ una función tal que:</p>
+				<ul>
+					<li>$f$ es continua en $[a,b]$.</li>
+					<li>$f$ es derivable en $(a,b)$</li>
+				</ul>
+				<p>Entonces, \[ \exists c\in (a,b): f'(c)=\frac{f(b)-f(a)}{b-a} \]</p>
+
+			div
+				<h3>Teorema de Cauchy</h3>
+				<p>Sean $f(x)$ y $g(x)$ funciones tales que:</p>
+				<ul>
+					<li>$f$ y $g$ son continuas en $[a,b]$.</li>
+					<li>$f$ y $g$ son derivables en $(a,b)$</li>
+				</ul>
+				<p>Entonces, \[ \exists c\in (a,b): \frac{f'(c)}{g'(c)}=\frac{f(b)-f(a)}{g(b)-g(a)} \]</p>
+		
+		.comentario
+			h3 Nota
+			p Los tres teoremas son equivalentes. Cada uno puede desmostrarse a partir de cualquiera de los otros dos.
+
+
+
+
+
+	+diapositiva("Consecuencias del Teorema de Valor Medio")
+		.diapo__contenido
+			ul
+				li
+					h3 Teorema
+					p.
+						Sea $f$ una función tal que $f'(x)=0, \forall x\in (a,b)$. Entonces
+						\[ f(x)=C,\forall x\in (a,b) \]
+				li
+					h3 Teorema
+					p.
+						Sean $f$ y $g$ dos funciones tales que $f'(x)=g'(x), \forall x\in(a,b).$ Entonces
+						\[f(x)=g(x)+C,\forall x \in (a,b)  \]
+				li
+					h3 Teorema
+					p Sea $f$ una funcion derivable en $(a,b)$.
+					<table>
+						<tr>
+							<td>$f'(x)>0, \forall x\in (a,b)$</td>
+							<td>$\iff$</td>
+							<td>$f$ es monótona <br>creciente en $(a,b).$</td>
+						</tr>
+						<tr>
+							<td>$f'(x)&lt 0, \forall x\in (a,b)$</td>
+							<td>$\iff$ </td>
+							<td>$f$ es monótona <br>decreciente en $(a,b).$</td>
+						</tr>
+					</table> 
+
+		figure
+			+graficoGeogebra("criterioDerivada","api.setCoordSystem(-3,3,-2.5,2.5)",350,300)
+			figcaption Notar la relación que existe entre la pendiente de la recta tangente y el crecimiento o decrecimiento de la función.
+
+		.comentario
+			h3 Nota
+			ul
+				li El último teorema se conoce como criterio de la primera derivada.
+				li La relación entre el signo de la derivada y la monotonía es muy útil para elaborar gráficos de funciones.
+
+
+
+
+
+	+diapositiva("Gráficos de funciones")
+		.diapo__contenido
+			p Para realizar un gráfico aproximado de una función debe conocerse:
+				ol
+					li $Dom f$.
+					li Intervalos de crecimiento y decrecimiento.
+						ul
+							li Analizando el signo de la derivada (con el CTB).
+
+					li Comportamiento de la función en cada borde de los intervalos de monotonía.
+						ul
+							<li>Evaluando cuando es posible.</li>
+							<li>Haciendo límite cuando no es posible.</li>
+			.comentario
+				<h3>Utilidad</h3>
+				<ul>
+					<li>Hallar cantidad de solucines de la ecuación $f(x)=k.$</li>
+					<li>Hallar extremos de una función y clasificarlos.</li>
+					<li>Hallar $Im f$</li>
+				</ul> 
+
+		figure
+			+graficoGeogebra("cantidadDeSoluciones","api.setCoordSystem(-3,3,-2,3)",450,500)
+			figcaption Representación del problema $f(x)=k$. ¿Cuántas veces el gráfico de la función alcanza la altura $k$?
+
+
+
+
+
+	+diapositiva("Concavidad")
+		.diapo__contenido
+			h3 Propiedad (Concavidad y Derivada) 
+			p Sea $f$ una función derivable en $(a,b)$. Entonces:
+				<table>
+					<tr>
+						<td>$f'(x)$ es monótona <br> creciente en $(a,b)$</td>
+						<td>$\iff$</td>
+						<td>$f(x)$ es concava <br>hacia arriba en $(a,b)$</td>
+					</tr>
+					<tr>
+						<td>$f'(x)$ es monótona <br>decreciente en $(a,b)$</td>
+						<td>$\iff$</td>
+						<td>$f(x)$ es concava <br>hacia abajo en $(a,b)$</td>
+					</tr>
+				</table>
+
+				h3 Propiedad (Concavidad y Derivada Segunda)
+				p Sea $f$ una función dos veces derivable en $(a,b)$. Entonces:
+					<table>
+						<tr>
+							<td>$f''(x)>0, \forall x\in (a,b)$</td>
+							<td>$\iff$</td>
+							<td>$f(x)$ es concava <br>hacia arriba en $(a,b)$</td>
+						</tr>
+						<tr>
+							<td>$f''(x)<0, \forall x\in (a,b)$</td>
+							<td>$\iff$</td>
+							<td>$f(x)$ es concava <br>hacia abajo en $(a,b)$</td>
+						</tr>
+					</table>
+
+			.comentario
+				h3 Nota
+				p Los puntos donde una función cambia de concavidad se denominan puntos de inflexión.
+
+		figure
+			+graficoGeogebra("funcionConcavaHaciaArriba","api.setCoordSystem(-.5,4.5,-1.5,2)",450,200)
+			figcaption Función concava hacia arriba. 
+		figure
+			+graficoGeogebra("funcionConcavaHaciaAbajo","api.setCoordSystem(-.5,4.5,-3.5,-.5)",450,200)
+			figcaption Función concava hacia abajo. 
+
+
+
+block header
+	+navegacion
