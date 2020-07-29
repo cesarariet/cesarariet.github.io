@@ -74,7 +74,6 @@ figure {
 @media screen and (max-width: 639px) {
   figure {
     display: initial;
-    height: auto;
   }
 }
 figure:hover > img, figure:hover > iframe, figure:hover > .contenedor--geogebra {
