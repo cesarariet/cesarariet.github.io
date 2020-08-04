@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="Introducción a las ecuaciones direnciales ordinarias"/>
+    <meta name="keywords" content="ecuaciones diferenciales, separación de variables"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Ecuaciones diferenciales - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="icofont/icofont.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="ecuaciones---comentarios">
+      <h2>Ecuaciones - Comentarios</h2>
+      <div class="diapo__contenido">
+        <ul>
+          <li>Es una igualdad entre dos expresiones matemáticas.</li>
+          <li>Hay una o varias incognitas.</li>
+          <li>Cantidad de soluciones:
+            <ul> 
+              <li>Ninguna.</li>
+              <li>Solución única.</li>
+              <li>Varias soluciones.</li>
+            </ul>
+          </li>
+          <li>Existen formas de encontrar la solución para casos particulares.
+            <ul>
+              <li>Probar (y tener suerte)</li>
+              <li>"Despejar la $x$" (cuando se puede)</li>
+              <li>Fórmula de Bhaskara (en ecuación cuadrática).</li>
+              <li>etc, etc, etc.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="comentario">
+        <h3>Ejemplo</h3>
+        <div> 
+          <p>\[x^2-4 = 0\]</p>
+          <p>Es una ecuación con dos soluciones $\{-2,2\}$</p>
+        </div>
+      </div>
+      <div class="comentario">
+        <h3>Ejemplo</h3>
+        <div> 
+          <p>\[cos(x)=x\] </p>
+          <p>Es una ecuación que tiene una solución. ¿Cómo se obtiene?</p>
+        </div>
+      </div>
+    </section>
+    <section class="diapo" id="ecuaciones-diferenciales">
+      <h2>Ecuaciones diferenciales</h2>
+      <div class="diapo__contenido">
+        <ul>
+          <li>Ecuación que relaciona funciones y sus derivadas.</li>
+          <li>Cuando hay una sóla función desconcida (variable dependiente) y una sóla variable independiente, llamaremos a la expresión <strong> Ecuación diferencial ordinaria </strong></li>
+          <li>Hay variados métodos de resolución para las ecuaciones diferenciales.</li>
+        </ul>
+        <h3>Método de separación de variables</h3>
+        <p>Es un método para hallar las soluciones de una ecuación diferencial. </p>
+        <p>Consiste en separar ("despejar") las variables de una ecuación de forma que los miembros resultantes puedan integrarse.</p>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <div>
+          <ul>
+            <li>
+              En el miembro donde queda la función (digamos $f(x)$) intentar una sustitución igual a dicha función
+              \[u=f'(x)\text{,	} du=f'(x)dx\]
+            </li>
+            <li>Si el problema tiene condición incial o de contorno, usarla para obtener la constante de integración.</li>
+            <li>Luego de integrar debe despejarse la función.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#ecuaciones---comentarios">Ecuaciones - Comentarios</a></li>
+          <li><a href="#ecuaciones-diferenciales">Ecuaciones diferenciales</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>

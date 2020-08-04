@@ -1,0 +1,212 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Pagina creada por Mario Estanislao Cesar Ariet"
+	//- Poner una descripcion del tema de la pagina. Sobre todo para cuando arme una pagina como indice general.
+	meta(name="description", content="descripción del tema")
+	//- A continuación poner los tag que describen los temas de las diapositvas
+	//- también incluir para quienes esta dirigida la diapositiva, materia, codigo materia, cbc
+	meta(name="keywords", content="palabras claves")
+
+	+usarGeogebra
+
+block body
+
+
+	+diapositiva("Principios de construcción del contenido")
+		ul
+			li Cada diapositva tiene que verse en una pantalla. No abusar de contenido.
+			li Es solo un soporte o resulmen de la clase.
+				ul 
+					li Resumen de conceptos importantes.
+					li lista de pasos o metodos de resolución (para mostrar como guia mientras se resuelve ejercicios)
+			li incluir gráficos o tablas para ejemplificar.
+				li la descripción debe ser muy breve y autocontenida (en clase se detalla.)
+		.comentario
+			h3 Nota
+			p Los casos particulares, o información negativa se incluye en comentarios.
+
+	+diapositiva("Construcción diapositva")
+		ol
+			li usa el mixin +diapositiva("titulo de diapositva") para crear la diapostiva con el id tilulo-de-diapositiva (todo minuscula y con guiones en vez de espacios.)
+			li En la clase .diapo__contenido se pone el contenido que puede ocupar más de un grid cell.
+			li Con la clase .comentario se agrega los comentarios particulares, info negativa, advertencias.
+			li en figure se colocan las imagenes, graficos, tablas con sus figcaption
+			li en /sass/_diapositivas.sass se indica el grid de la diapositiva con el mixin @include diapositiva-grid(filas,columnas,contenido-span-fila,contenido-span-columna)
+				p Algunas configuraciones a tener en cuenta
+					ul
+						li No poner nada (un solo contenedor.)
+						li diapositiva-grid(1,2,1,1) dos contenedores en forma horizontal, .diapo__contenido 50%
+						li diapositiva-grid(1,3,1,2) dos contenedores en forma horizontal, .diapo__contenido 66%
+						li diapositiva-grid(1,3,1,1) tres contenedores en forma horizontal, .diapo__contenido 33%
+						li diapositiva-grid(2,2,2,1) tres contenedores, .diapo__contenido ocupa mitad izquierda.
+						li diapositiva-grid(2,2,1,2) tres contenedores, .diapo__contenido ocupa mitad superior.
+	
+	+diapositiva("h1 h2 h3 h4 h5 h6")
+		h1 h1 Titulos principales
+		p De momento solo implementado en el menu de navegación.
+		h2 h2 Titulo de diapositiva
+		p No usar ":" en los titulos, en todo caso usar guion -
+		h3 h3 Subtitulos dentro de diapositva
+		p También usado para el titulo de los comentarios.
+		h4 h4 Subsubtitulo
+		h5 h5 subsubsubtitulo
+		h6 h6 subsubsusbsubtitulo
+
+	+diapositiva("Elementos de texto")
+		.diapo__contenido
+			p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nostrum, obcaecati ea saepe iure quidem doloribus suscipit rerum recusandae distinctio officia perspiciatis atque quos fugit placeat labore, tempore quam temporibus?
+			p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam reprehenderit ipsum ad id debitis? Harum laudantium qui dignissimos eos recusandae perferendis officiis fugiat totam, non distinctio iure consequatur, quisquam iste.
+			.comentario
+				h3 Nota
+				div
+					p 
+						i.icono-check
+						|Acá pongo los comentarios. (icono-check en un i o span)
+					p 
+						i.icono-like
+						|Puedo usar iconos parar resaltar. (icono-like en i o span)
+					p
+						i.icono-idea
+						|Para dar consejos. (icono-idea en i o en span)
+					p
+						i.icono-atencion
+						|Para llamar la atencion (icono-atencion en i o en span)
+					p
+						span.icono-prohibido
+						|Señalar cosas prohibidas (icono-prohibido en i o span)
+					p
+						span.icono-anotar
+						| Sugerir que cosas agendar o guardar. (icono-anotar en i o en span)
+
+		div
+			h3 Lista ordenada
+			p Ahora viene una lista ordenada.
+			ol
+				li item 1
+				li <em> item 2 </em> con etiqueta &lt;em&gt;
+					ol
+						li sub item 1
+						li sub item 2
+				li <strong> item 3 </strong> con etiqueta &lt;strong&gt;
+		div
+			h3 Lista ordenada
+			p Ahora viene una lista sin orden.
+			ul
+				li item 1
+					ul
+						li sub item 1
+						li sub item 2
+				li <em> item 2 </em> con etiqueta &lt;em&gt;
+				li <strong> item 3 </strong> con etiqueta &lt;strong&gt;
+
+
+
+	+diapositiva("Tablas")
+		.diapo__contenido
+			ul
+				li Las tablas que no se presentan en un &lt;figure&gt; NO tiene un estilo definido.
+				li Las tablas dentro del &lt;figure&gt; tienen definido un estilo.
+				li Las &lt;figure&gt; deben incluir un &lt;figcaption&gt;
+
+			.comentario
+				h3 Notas
+				div
+					p 
+						i.icono-atencion
+						|Cuando la tabla se muy alta el alto de la diapositiva también crece.
+					p
+						i.icono-prohibido
+						|Evitar que las tablas sean muy anchas.
+
+		figure
+			table
+				tr
+					th col 1
+					th col 2
+					th col 3
+				tr
+					td cel 1
+					td cel 2
+					td cel 3
+				tr
+					td cel 1
+					td cel 2
+					td cel 3
+				tr
+					td cel 1
+					td cel 2
+					td cel 3
+			figcaption Es una muestra de una tabla donde se ve el &lt;th&gt; y &lt;td&gt;. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, blanditiis aliquid! Placeat eius corporis harum!
+
+
+	+diapositiva("Imagenes")
+		.diapo__contenido
+			ul
+				li Las imagenes se incluyen con el mixin +imagen("url","descripcion")
+				li El mixin crea &lt;figure&gt;, dentro &lt;img&gt; y &lt;figcaption&gt;
+				li El mixin hace que la descripción se coloque tanto en el campo alt como en el &lt;figcaption&gt;
+		
+		+imagen("https://upload.wikimedia.org/wikipedia/commons/3/39/GodfreyKneller-IsaacNewton-1689.jpg",
+			"Esto es el caption")
+
+		+imagen("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Hydrogen_Density_Plots.png/1200px-Hydrogen_Density_Plots.png","otra imagen. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, architecto? ")
+
+	+diapositiva("videos en iframe")
+		.diapo__contenido
+			ul 
+				li Un video se incluyen en &lt;figure&gt; para que tega estilo.
+				li Debe incluir &lt;figcaption&gt;
+
+		figure
+			<iframe width="853" height="480" src="https://www.youtube.com/embed/76DqZ5GqoDA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			figcaption Un video que hice para explicar que es el movimiento.
+		figure
+			<iframe width="875" height="413" src="https://www.youtube.com/embed/TtPkpbIrNpg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			figcaption Video que muestra dando una clase con la diapositva que usaba antes.
+		figure
+			<iframe width="853" height="480" src="https://www.youtube.com/embed/tFic0M2NTVc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			figcaption Video de una clase grabada donde muestro la primera version de estas diapositivas.
+
+
+	+diapositiva("graficos en geogebra")
+		.diapo__contenido
+			ul
+				li deben crearse el &lt;figure&gt;
+				li A dentro se usa el mixin +graficoGeogebra ("nombrearchivo", "comandos", width:450,height400). 
+					ul
+						li donde el archivo debe ser "geogebra/nombrearchivo.ggb".
+						li "comandos" son ordenes que se pasan a geogebra con metodos del objeto "api". Por ejemplo: api.setCoordSystem(xmin,xmax,ymin,xmax) damos los límites de los ejes de gráfico.
+						li width y height son ancho y alto en pixeles en pixeles.
+		figure
+			+graficoGeogebra("a","api.setCoordSystem(-1,1,-1,1)")
+			figcaption Grafico de geogebra
+		figure
+			+graficoGeogebra("b","api.setCoordSystem(-1,1,-1,1)")
+			figcaption Grafico de geogebra
+		figure
+			+graficoGeogebra("c","api.setCoordSystem(-1,1,-1,1)")
+			figcaption Grafico de geogebra 
+
+
+
+
+
+
+block header
+	+navegacion

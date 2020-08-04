@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="descripción del tema"/>
+    <meta name="keywords" content="palabras claves"/>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var parametrosGeogebra = {
+      	"showMenuBar":false,
+      	"showAlgebraInput":false,
+      	"showToolBar":false,
+      	"showToolBarHelp":false,
+      	"showResetIcon":false,
+      	"enableLabelDrags":false,
+      	"enableShiftDragZoom":true,
+      	"enableRightClick":false,
+      	"errorDialogsActive":false,
+      	"useBrowserForJS":false,
+      	"allowStyleBar":false,
+      	"preventFocus":false,
+      	"showZoomButtons":false,
+      	"showFullscreenButton":true,
+      	"scale":1,
+      	"autoHeight":false,
+      	"disableAutoScale":false,
+      	"allowUpscale":false,
+      	"clickToLoad":false,
+      	"appName":"classic",
+      	"showSuggestionButtons":false,
+      	"buttonRounding":0.7,
+      	"buttonShadows":false,
+      	"language":"es",
+      }
+      
+    </script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Pagina creada por Mario Estanislao Cesar Ariet - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="icofont/icofont.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="principios-de-construcción-del-contenido">
+      <h2>Principios de construcción del contenido</h2>
+      <ul>
+        <li>Cada diapositva tiene que verse en una pantalla. No abusar de contenido.</li>
+        <li>Es solo un soporte o resulmen de la clase.
+          <ul> 
+            <li>Resumen de conceptos importantes.</li>
+            <li>lista de pasos o metodos de resolución (para mostrar como guia mientras se resuelve ejercicios)</li>
+          </ul>
+        </li>
+        <li>incluir gráficos o tablas para ejemplificar.
+          <li>la descripción debe ser muy breve y autocontenida (en clase se detalla.)</li>
+        </li>
+      </ul>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <p>Los casos particulares, o información negativa se incluye en comentarios.</p>
+      </div>
+    </section>
+    <section class="diapo" id="construcción-diapositva">
+      <h2>Construcción diapositva</h2>
+      <ol>
+        <li>usa el mixin +diapositiva("titulo de diapositva") para crear la diapostiva con el id tilulo-de-diapositiva (todo minuscula y con guiones en vez de espacios.)</li>
+        <li>En la clase .diapo__contenido se pone el contenido que puede ocupar más de un grid cell.</li>
+        <li>Con la clase .comentario se agrega los comentarios particulares, info negativa, advertencias.</li>
+        <li>en figure se colocan las imagenes, graficos, tablas con sus figcaption</li>
+        <li>en /sass/_diapositivas.sass se indica el grid de la diapositiva con el mixin @include diapositiva-grid(filas,columnas,contenido-span-fila,contenido-span-columna)
+          <p>Algunas configuraciones a tener en cuenta
+            <ul>
+              <li>No poner nada (un solo contenedor.)</li>
+              <li>diapositiva-grid(1,2,1,1) dos contenedores en forma horizontal, .diapo__contenido 50%</li>
+              <li>diapositiva-grid(1,3,1,2) dos contenedores en forma horizontal, .diapo__contenido 66%</li>
+              <li>diapositiva-grid(1,3,1,1) tres contenedores en forma horizontal, .diapo__contenido 33%</li>
+              <li>diapositiva-grid(2,2,2,1) tres contenedores, .diapo__contenido ocupa mitad izquierda.</li>
+              <li>diapositiva-grid(2,2,1,2) tres contenedores, .diapo__contenido ocupa mitad superior.</li>
+            </ul>
+          </p>
+        </li>
+      </ol>
+    </section>
+    <section class="diapo" id="h1-h2-h3-h4-h5-h6">
+      <h2>h1 h2 h3 h4 h5 h6</h2>
+      <h1>h1 Titulos principales</h1>
+      <p>De momento solo implementado en el menu de navegación.</p>
+      <h2>h2 Titulo de diapositiva</h2>
+      <p>No usar ":" en los titulos, en todo caso usar guion -</p>
+      <h3>h3 Subtitulos dentro de diapositva</h3>
+      <p>También usado para el titulo de los comentarios.</p>
+      <h4>h4 Subsubtitulo</h4>
+      <h5>h5 subsubsubtitulo</h5>
+      <h6>h6 subsubsusbsubtitulo</h6>
+    </section>
+    <section class="diapo" id="elementos-de-texto">
+      <h2>Elementos de texto</h2>
+      <div class="diapo__contenido">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nostrum, obcaecati ea saepe iure quidem doloribus suscipit rerum recusandae distinctio officia perspiciatis atque quos fugit placeat labore, tempore quam temporibus?</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam reprehenderit ipsum ad id debitis? Harum laudantium qui dignissimos eos recusandae perferendis officiis fugiat totam, non distinctio iure consequatur, quisquam iste.</p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <div>
+            <p> <i class="icono-check"></i>Acá pongo los comentarios. (icono-check en un i o span)</p>
+            <p> <i class="icono-like"></i>Puedo usar iconos parar resaltar. (icono-like en i o span)</p>
+            <p><i class="icono-idea"></i>Para dar consejos. (icono-idea en i o en span)</p>
+            <p><i class="icono-atencion"></i>Para llamar la atencion (icono-atencion en i o en span)</p>
+            <p><span class="icono-prohibido"></span>Señalar cosas prohibidas (icono-prohibido en i o span)</p>
+            <p><span class="icono-anotar"></span>Sugerir que cosas agendar o guardar. (icono-anotar en i o en span)</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3>Lista ordenada</h3>
+        <p>Ahora viene una lista ordenada.</p>
+        <ol>
+          <li>item 1</li>
+          <li><em> item 2 </em> con etiqueta &lt;em&gt;
+            <ol>
+              <li>sub item 1</li>
+              <li>sub item 2</li>
+            </ol>
+          </li>
+          <li><strong> item 3 </strong> con etiqueta &lt;strong&gt;</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Lista ordenada</h3>
+        <p>Ahora viene una lista sin orden.</p>
+        <ul>
+          <li>item 1
+            <ul>
+              <li>sub item 1</li>
+              <li>sub item 2</li>
+            </ul>
+          </li>
+          <li><em> item 2 </em> con etiqueta &lt;em&gt;</li>
+          <li><strong> item 3 </strong> con etiqueta &lt;strong&gt;</li>
+        </ul>
+      </div>
+    </section>
+    <section class="diapo" id="tablas">
+      <h2>Tablas</h2>
+      <div class="diapo__contenido">
+        <ul>
+          <li>Las tablas que no se presentan en un &lt;figure&gt; NO tiene un estilo definido.</li>
+          <li>Las tablas dentro del &lt;figure&gt; tienen definido un estilo.</li>
+          <li>Las &lt;figure&gt; deben incluir un &lt;figcaption&gt;</li>
+        </ul>
+        <div class="comentario">
+          <h3>Notas</h3>
+          <div>
+            <p> <i class="icono-atencion"></i>Cuando la tabla se muy alta el alto de la diapositiva también crece.</p>
+            <p><i class="icono-prohibido"></i>Evitar que las tablas sean muy anchas.</p>
+          </div>
+        </div>
+      </div>
+      <figure>
+        <table>
+          <tr>
+            <th>col 1</th>
+            <th>col 2</th>
+            <th>col 3</th>
+          </tr>
+          <tr>
+            <td>cel 1</td>
+            <td>cel 2</td>
+            <td>cel 3</td>
+          </tr>
+          <tr>
+            <td>cel 1</td>
+            <td>cel 2</td>
+            <td>cel 3</td>
+          </tr>
+          <tr>
+            <td>cel 1</td>
+            <td>cel 2</td>
+            <td>cel 3</td>
+          </tr>
+        </table>
+        <figcaption>Es una muestra de una tabla donde se ve el &lt;th&gt; y &lt;td&gt;. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, blanditiis aliquid! Placeat eius corporis harum!</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="imagenes">
+      <h2>Imagenes</h2>
+      <div class="diapo__contenido">
+        <ul>
+          <li>Las imagenes se incluyen con el mixin +imagen("url","descripcion")</li>
+          <li>El mixin crea &lt;figure&gt;, dentro &lt;img&gt; y &lt;figcaption&gt;</li>
+          <li>El mixin hace que la descripción se coloque tanto en el campo alt como en el &lt;figcaption&gt;</li>
+        </ul>
+      </div>
+      <figure><img src="https://upload.wikimedia.org/wikipedia/commons/3/39/GodfreyKneller-IsaacNewton-1689.jpg" alt="Esto es el caption"/>
+        <figcaption>Esto es el caption</figcaption>
+      </figure>
+      <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Hydrogen_Density_Plots.png/1200px-Hydrogen_Density_Plots.png" alt="otra imagen. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, architecto? "/>
+        <figcaption>otra imagen. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, architecto? </figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="videos-en-iframe">
+      <h2>videos en iframe</h2>
+      <div class="diapo__contenido">
+        <ul> 
+          <li>Un video se incluyen en &lt;figure&gt; para que tega estilo.</li>
+          <li>Debe incluir &lt;figcaption&gt;</li>
+        </ul>
+      </div>
+      <figure><iframe width="853" height="480" src="https://www.youtube.com/embed/76DqZ5GqoDA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <figcaption>Un video que hice para explicar que es el movimiento.</figcaption>
+      </figure>
+      <figure><iframe width="875" height="413" src="https://www.youtube.com/embed/TtPkpbIrNpg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <figcaption>Video que muestra dando una clase con la diapositva que usaba antes.</figcaption>
+      </figure>
+      <figure><iframe width="853" height="480" src="https://www.youtube.com/embed/tFic0M2NTVc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <figcaption>Video de una clase grabada donde muestro la primera version de estas diapositivas.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="graficos-en-geogebra">
+      <h2>graficos en geogebra</h2>
+      <div class="diapo__contenido">
+        <ul>
+          <li>deben crearse el &lt;figure&gt;</li>
+          <li>A dentro se usa el mixin +graficoGeogebra ("nombrearchivo", "comandos", width:450,height400). 
+            <ul>
+              <li>donde el archivo debe ser "geogebra/nombrearchivo.ggb".</li>
+              <li>"comandos" son ordenes que se pasan a geogebra con metodos del objeto "api". Por ejemplo: api.setCoordSystem(xmin,xmax,ymin,xmax) damos los límites de los ejes de gráfico.</li>
+              <li>width y height son ancho y alto en pixeles en pixeles.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="a"></div>
+        <script>var a_parametros = {...parametrosGeogebra}
+a_parametros.id = "a"
+a_parametros.appletOnLoad = function(api){ api.setCoordSystem(-1,1,-1,1) }
+a_parametros.filename = "geogebra/a.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+a_parametros.width = "500";
+a_parametros.height = "400";
+          var applet_a = new GGBApplet(a_parametros, '5.0', views);
+          applet_a.inject("a");
+          
+          
+        </script>
+        <figcaption>Grafico de geogebra</figcaption>
+      </figure>
+      <figure>
+        <div class="contenedor--geogebra" id="b"></div>
+        <script>var b_parametros = {...parametrosGeogebra}
+b_parametros.id = "b"
+b_parametros.appletOnLoad = function(api){ api.setCoordSystem(-1,1,-1,1) }
+b_parametros.filename = "geogebra/b.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+b_parametros.width = "500";
+b_parametros.height = "400";
+          var applet_b = new GGBApplet(b_parametros, '5.0', views);
+          applet_b.inject("b");
+          
+          
+        </script>
+        <figcaption>Grafico de geogebra</figcaption>
+      </figure>
+      <figure>
+        <div class="contenedor--geogebra" id="c"></div>
+        <script>var c_parametros = {...parametrosGeogebra}
+c_parametros.id = "c"
+c_parametros.appletOnLoad = function(api){ api.setCoordSystem(-1,1,-1,1) }
+c_parametros.filename = "geogebra/c.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+c_parametros.width = "500";
+c_parametros.height = "400";
+          var applet_c = new GGBApplet(c_parametros, '5.0', views);
+          applet_c.inject("c");
+          
+          
+        </script>
+        <figcaption>Grafico de geogebra </figcaption>
+      </figure>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#principios-de-construcción-del-contenido">Principios de construcción del contenido</a></li>
+          <li><a href="#construcción-diapositva">Construcción diapositva</a></li>
+          <li><a href="#h1-h2-h3-h4-h5-h6">h1 h2 h3 h4 h5 h6</a></li>
+          <li><a href="#elementos-de-texto">Elementos de texto</a></li>
+          <li><a href="#tablas">Tablas</a></li>
+          <li><a href="#imagenes">Imagenes</a></li>
+          <li><a href="#videos-en-iframe">videos en iframe</a></li>
+          <li><a href="#graficos-en-geogebra">graficos en geogebra</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
