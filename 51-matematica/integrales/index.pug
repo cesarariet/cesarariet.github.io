@@ -16,17 +16,180 @@
 
 extend pug/_plantilla.pug
 prepend head
-	- var titulo = "Pagina creada por Mario Estanislao Cesar Ariet"
+	- var titulo = "Integrales"
 	//- Poner una descripcion del tema de la pagina. Sobre todo para cuando arme una pagina como indice general.
-	meta(name="description", content="descripción del tema")
+	meta(name="description", content="Definición de integrales a partir de primitivas. Tabla de integrales y métodos de integración.")
 	//- A continuación poner los tag que describen los temas de las diapositvas
 	//- también incluir para quienes esta dirigida la diapositiva, materia, codigo materia, cbc
-	meta(name="keywords", content="palabras claves")
+	meta(name="keywords", content="intergrales, primitivas, antiderivadas, tabla de integrales, métodos de integración, sustición, partes")
 
-	+usarGeogebra
+	//- +usarGeogebra
 
 block body
+	+diapositiva("Primitiva o antiderivada")
+		.diapo__contenido
+			p Diremos que $F(x)$ es una primitiva de $f(x)$ si \[ F'(x)=f(x)\]
+			.comentario
+				h3 Nota
+				ul
+					li El problema toma el camino "opuesto a derivar".
+					li Una función tiene infinitas primitivas. Si $F(x)$ es primitiva de $f(x)$ entonces $F(x)+C$ también lo es.
+			h3 Notacion
+			p Llamaremos integral indefinida a la operación de hallar la familia de primitivas de una función y lo notaremos.
+			p \[ \int{f(x)\cdot dx}  \]
+
+	+diapositiva("Tabla de primitivas")
+		figure 
+			table
+				style tr{height: 2em}
+				tr 
+					th(colspan=2) Tabla de derivadas
+				tr
+					th $f(x)$
+					th $f'(x)$
+				tr
+					td $C$ (constate)
+					td $0$
+				tr
+					td $x$
+					td $1$
+				tr
+					td $x^n$
+					td $n\cdot x^{n-1}$
+				tr
+					td $e^x$
+					td $e^x$
+				tr
+					td $\ln(x)$
+					td $\frac{1}{x}$
+				tr
+					td $\sin(x)$
+					td $\cos(x)$
+				tr
+					td $\cos(x)$
+					td $-\sin(x)$
+			figcaption Tabla con las funciones más usuales y sus derivadas. 
+
+		figure
+			table
+				style tr{height: 2em}
+				tr
+					th(colspan=2) Tabla de primitivas
+				tr
+					th $f(x)$
+					th $\int f(x) dx$
+				tr
+					td $1$
+					td $x+C$
+				tr
+					td $K$ (Costante)
+					td $K\cdot x+C$
+				tr
+					td $x^n$ (para $n\neq -1$)
+					td $\frac{x^{n+1}}{n+1}+C$
+				tr
+					td $e^x$
+					td $e^x+C$
+				tr
+					td $x^{-1}=\frac{1}{x}$
+					td $\ln|x|+C$
+				tr
+					td $\cos(x)$
+					td $\sin(x)+C$
+				tr
+					td $\sin(x)$
+					td $-\cos(x)+C$
+			figcaption Tabla con las funciones más usuales y sus primitivas. 
 
 
+
+
+
+
+	+diapositiva("Integral indefinida")
+		.diapo__contenido
+			p Escribiremos a la familia de primitivas de $f$ como \[\int f(x)\cdot dx\]
+			p Denominaremos a esta operación como integral indefinida.
+			h3 Propiedades
+			ul
+				li $\int f(x)+g(x) dx = \int f(x) dx+\int g(x) dx$
+				li $\int K\cdot f(x) dx= K\cdot \int f(x) dx$
+				
+		figure
+			table
+				style tr{height: 2em}
+				tr
+					th(colspan=2) Tabla de primitivas
+				tr
+					th $f(x)$
+					th $\int f(x) dx$
+				tr
+					td $K$ (Costante)
+					td $K\cdot x+C$
+				tr
+					td $x^n$ (para $n\neq -1$)
+					td $\frac{x^{n+1}}{n+1}+C$
+				tr
+					td $x^{-1}=\frac{1}{x}$
+					td $\ln|x|+C$
+				tr
+					td $e^x$
+					td $e^x+C$
+				tr
+					td $\cos(x)$
+					td $\sin(x)+C$
+				tr
+					td $\sin(x)$
+					td $-\cos(x)+C$
+
+			figcaption Tabla con las funciones más usuales y sus primitivas. Mediante las propiedades de las integrales indefinidas y los métodos de integración se puede extender el uso de la tabla en otros casos.
+
+		.comentario
+			h3 Nota
+			div
+				p
+					i.icono-prohibido
+					| $\int{f(x)\cdot g(x) dx}\neq \int{f(x) dx}\cdot \int{g(c)dx}$
+				p
+					i.icono-prohibido
+					| $\int{\frac{f(x)}{g(x)} dx}\neq \frac{\int{f(x) dx}} {\int{g(c)dx}}$
+				p
+					i.icono-alerta 
+					|Los métodos de integración que veremos no resuelven una integral, solo la transforman en otra integral.
+
+	+diapositiva("Método de Sustición")
+		.diapo__contenido
+			ul
+				li Puede inferirse de la regla de la cadena
+				li Se realiza una cambio de variable \[ u=g(x) \]
+				li El diferencial de la nueva variable es \[ du=g'(x)\cdot dx\]
+				li Al cambiar las variables y diferenciales se obtiene una nueva integral. Si la sustitución fue exitosa la nueva integral se puede resolver.
+		
+		.comentario
+			h3 Nota
+			ul
+				li La experiencia ayuda a saber cuando usar el método de sustitución.
+				li Usualmente cuando hay composiciones puede intetarse hacer sustitución ("tomando la función interior")
+				li Cuando aparece la derivada de parte de la función a integrar multiplicando al diferencial puede intentarse sustitución.
+
+
+	+diapositiva("Método de partes")
+		.diapo__contenido
+			ul
+				li Puede inferirse de la regla de derivación de producto de funciones
+				li
+					|Debe usarse la fórmula
+					|\[\int{f(x)\cdot g'(x) dx}= f(x)\cdot g(x) -\int{f'(x)\cdot g(x) dx}  \]
+					|Donde deben elegirse:
+					ul
+						li Algo como $f(x)$ que debe derivarse para obtener $f'(x)$
+						li Algo como $g'(x)$ que debe integrarse para obtener $g(x)=\int{g'(x) dx}$
+			.comentario
+				h3 Nota
+				ul 
+					li Para $\int{\text{polinomio}\cdot e^x dx}$  derivar  el polinomio.
+					li Para $\int{\text{polinomio}\cdot sen(x) \text{ o } cos(x) dx}$ derivar  el polinomio.
+					li Para $\int{\text{polinomio}\cdot ln(x) dx}$ conviene derivar  el logarítmo.
+					li El método no resuelve la integral, solo la cambia por otra.
 block header
-  +navegacion
+	+navegacion

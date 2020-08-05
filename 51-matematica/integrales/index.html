@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="Definición de integrales a partir de primitivas. Tabla de integrales y métodos de integración."/>
+    <meta name="keywords" content="intergrales, primitivas, antiderivadas, tabla de integrales, métodos de integración, sustición, partes"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Integrales - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="icofont/icofont.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="primitiva-o-antiderivada">
+      <h2>Primitiva o antiderivada</h2>
+      <div class="diapo__contenido">
+        <p>Diremos que $F(x)$ es una primitiva de $f(x)$ si \[ F'(x)=f(x)\]</p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>El problema toma el camino "opuesto a derivar".</li>
+            <li>Una función tiene infinitas primitivas. Si $F(x)$ es primitiva de $f(x)$ entonces $F(x)+C$ también lo es.</li>
+          </ul>
+        </div>
+        <h3>Notacion</h3>
+        <p>Llamaremos integral indefinida a la operación de hallar la familia de primitivas de una función y lo notaremos.</p>
+        <p>\[ \int{f(x)\cdot dx}  \]</p>
+      </div>
+    </section>
+    <section class="diapo" id="tabla-de-primitivas">
+      <h2>Tabla de primitivas</h2>
+      <figure> 
+        <table>
+          <style>tr{height: 2em}</style>
+          <tr> 
+            <th colspan="2">Tabla de derivadas</th>
+          </tr>
+          <tr>
+            <th>$f(x)$</th>
+            <th>$f'(x)$</th>
+          </tr>
+          <tr>
+            <td>$C$ (constate)</td>
+            <td>$0$</td>
+          </tr>
+          <tr>
+            <td>$x$</td>
+            <td>$1$</td>
+          </tr>
+          <tr>
+            <td>$x^n$</td>
+            <td>$n\cdot x^{n-1}$</td>
+          </tr>
+          <tr>
+            <td>$e^x$</td>
+            <td>$e^x$</td>
+          </tr>
+          <tr>
+            <td>$\ln(x)$</td>
+            <td>$\frac{1}{x}$</td>
+          </tr>
+          <tr>
+            <td>$\sin(x)$</td>
+            <td>$\cos(x)$</td>
+          </tr>
+          <tr>
+            <td>$\cos(x)$</td>
+            <td>$-\sin(x)$</td>
+          </tr>
+        </table>
+        <figcaption>Tabla con las funciones más usuales y sus derivadas. </figcaption>
+      </figure>
+      <figure>
+        <table>
+          <style>tr{height: 2em}</style>
+          <tr>
+            <th colspan="2">Tabla de primitivas</th>
+          </tr>
+          <tr>
+            <th>$f(x)$</th>
+            <th>$\int f(x) dx$</th>
+          </tr>
+          <tr>
+            <td>$1$</td>
+            <td>$x+C$</td>
+          </tr>
+          <tr>
+            <td>$K$ (Costante)</td>
+            <td>$K\cdot x+C$</td>
+          </tr>
+          <tr>
+            <td>$x^n$ (para $n\neq -1$)</td>
+            <td>$\frac{x^{n+1}}{n+1}+C$</td>
+          </tr>
+          <tr>
+            <td>$e^x$</td>
+            <td>$e^x+C$</td>
+          </tr>
+          <tr>
+            <td>$x^{-1}=\frac{1}{x}$</td>
+            <td>$\ln|x|+C$</td>
+          </tr>
+          <tr>
+            <td>$\cos(x)$</td>
+            <td>$\sin(x)+C$</td>
+          </tr>
+          <tr>
+            <td>$\sin(x)$</td>
+            <td>$-\cos(x)+C$</td>
+          </tr>
+        </table>
+        <figcaption>Tabla con las funciones más usuales y sus primitivas. </figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="integral-indefinida">
+      <h2>Integral indefinida</h2>
+      <div class="diapo__contenido">
+        <p>Escribiremos a la familia de primitivas de $f$ como \[\int f(x)\cdot dx\]</p>
+        <p>Denominaremos a esta operación como integral indefinida.</p>
+        <h3>Propiedades</h3>
+        <ul>
+          <li>$\int f(x)+g(x) dx = \int f(x) dx+\int g(x) dx$</li>
+          <li>$\int K\cdot f(x) dx= K\cdot \int f(x) dx$</li>
+        </ul>
+      </div>
+      <figure>
+        <table>
+          <style>tr{height: 2em}</style>
+          <tr>
+            <th colspan="2">Tabla de primitivas</th>
+          </tr>
+          <tr>
+            <th>$f(x)$</th>
+            <th>$\int f(x) dx$</th>
+          </tr>
+          <tr>
+            <td>$K$ (Costante)</td>
+            <td>$K\cdot x+C$</td>
+          </tr>
+          <tr>
+            <td>$x^n$ (para $n\neq -1$)</td>
+            <td>$\frac{x^{n+1}}{n+1}+C$</td>
+          </tr>
+          <tr>
+            <td>$x^{-1}=\frac{1}{x}$</td>
+            <td>$\ln|x|+C$</td>
+          </tr>
+          <tr>
+            <td>$e^x$</td>
+            <td>$e^x+C$</td>
+          </tr>
+          <tr>
+            <td>$\cos(x)$</td>
+            <td>$\sin(x)+C$</td>
+          </tr>
+          <tr>
+            <td>$\sin(x)$</td>
+            <td>$-\cos(x)+C$</td>
+          </tr>
+        </table>
+        <figcaption>Tabla con las funciones más usuales y sus primitivas. Mediante las propiedades de las integrales indefinidas y los métodos de integración se puede extender el uso de la tabla en otros casos.</figcaption>
+      </figure>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <div>
+          <p><i class="icono-prohibido"></i>$\int{f(x)\cdot g(x) dx}\neq \int{f(x) dx}\cdot \int{g(c)dx}$</p>
+          <p><i class="icono-prohibido"></i>$\int{\frac{f(x)}{g(x)} dx}\neq \frac{\int{f(x) dx}} {\int{g(c)dx}}$</p>
+          <p><i class="icono-alerta"> </i>Los métodos de integración que veremos no resuelven una integral, solo la transforman en otra integral.</p>
+        </div>
+      </div>
+    </section>
+    <section class="diapo" id="método-de-sustición">
+      <h2>Método de Sustición</h2>
+      <div class="diapo__contenido">
+        <ul>
+          <li>Puede inferirse de la regla de la cadena</li>
+          <li>Se realiza una cambio de variable \[ u=g(x) \]</li>
+          <li>El diferencial de la nueva variable es \[ du=g'(x)\cdot dx\]</li>
+          <li>Al cambiar las variables y diferenciales se obtiene una nueva integral. Si la sustitución fue exitosa la nueva integral se puede resolver.</li>
+        </ul>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <ul>
+          <li>La experiencia ayuda a saber cuando usar el método de sustitución.</li>
+          <li>Usualmente cuando hay composiciones puede intetarse hacer sustitución ("tomando la función interior")</li>
+          <li>Cuando aparece la derivada de parte de la función a integrar multiplicando al diferencial puede intentarse sustitución.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="diapo" id="método-de-partes">
+      <h2>Método de partes</h2>
+      <div class="diapo__contenido">
+        <ul>
+          <li>Puede inferirse de la regla de derivación de producto de funciones</li>
+          <li>
+            Debe usarse la fórmula
+            \[\int{f(x)\cdot g'(x) dx}= f(x)\cdot g(x) -\int{f'(x)\cdot g(x) dx}  \]
+            Donde deben elegirse:
+            <ul>
+              <li>Algo como $f(x)$ que debe derivarse para obtener $f'(x)$</li>
+              <li>Algo como $g'(x)$ que debe integrarse para obtener $g(x)=\int{g'(x) dx}$</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul> 
+            <li>Para $\int{\text{polinomio}\cdot e^x dx}$  derivar  el polinomio.</li>
+            <li>Para $\int{\text{polinomio}\cdot sen(x) \text{ o } cos(x) dx}$ derivar  el polinomio.</li>
+            <li>Para $\int{\text{polinomio}\cdot ln(x) dx}$ conviene derivar  el logarítmo.</li>
+            <li>El método no resuelve la integral, solo la cambia por otra.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#primitiva-o-antiderivada">Primitiva o antiderivada</a></li>
+          <li><a href="#tabla-de-primitivas">Tabla de primitivas</a></li>
+          <li><a href="#integral-indefinida">Integral indefinida</a></li>
+          <li><a href="#método-de-sustición">Método de Sustición</a></li>
+          <li><a href="#método-de-partes">Método de partes</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
