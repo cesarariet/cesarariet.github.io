@@ -1,0 +1,189 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Series Numéricas"
+	//- Poner una descripcion del tema de la pagina. Sobre todo para cuando arme una pagina como indice general.
+	meta(name="description", content="Definición de series numéricas. Convergencia y criterios de convergencia")
+	//- A continuación poner los tag que describen los temas de las diapositvas
+	//- también incluir para quienes esta dirigida la diapositiva, materia, codigo materia, cbc
+	meta(name="keywords", content="análisis, cbc, 66, series, convergencia, condición necesaria, criterio de comparación, criterio de integral de Cauchy, Criterio del cociencie, D'Alembert, Criterio de la raiz, Cauchy")
+
+
+	+usarGeogebra
+
+block body
+
+	+diapositiva("Series - Preliminares")
+		.diapo__contenido
+			h3 Objetivo de la presentación
+			ul
+				li Definir, cuando es posible, sumas de infinitos términos \[ \sum_{i=1}^{\infty}{a_i}=a_1+a_2+a_3+\dots \]
+				li Ejemplos sencillos:
+					ul
+						li $\sum_{i=1}^{\infty}{0}=0+0+0+\dots=0$
+						li $\sum_{i=1}^{\infty}{1}=1+1+1+\dots=+\infty$
+						li $\sum_{i=1}^{\infty}{\frac{1}{2^n}}=\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\dots=1$
+						li $\sum_{i=1}^{\infty}{(-1)^n=-1+1-1+1-1+\dots=?}$
+			
+		.comentario
+			h3 Nota
+			div
+				ul
+					li ¿Se puede hacer una suma de infinitos términos en tiempo finito?
+					li ¿Puedo saber antes de sumar si el resultado será finito, infinito o no tiene sentido?
+					li ¿Qué valor podemos asignar a la última suma? 
+
+				
+
+	+diapositiva("Series - Definición")
+		.diapo__contenido
+			table
+				tr
+					td
+						p Sea $a_i$ una sucesión. Llamaremos serie de término general $a_i$ a la expresión \[ \sum_{i=1}^{\infty}{a_i} = a_1+a_2+a_3+\dots \]
+
+					td
+						p Llamaremos suma parcial $S_n$ de la serie $\sum_{i=1}^{\infty}a_i$ a la suma de los primeros $n$ términos.
+						p \[ S_n=\sum_{i=1}^{n}{a_i} =a_1+\dots+a_n \]
+					
+			p Diremos que una serie $\sum_{i=1}^{\infty}{a_i}$ es convergente si las sumas parciales tienen límite finito
+			p \[ \sum_{i=1}^{\infty}{a_i}=\lim_{n\rightarrow +\infty }S_n \] 
+			.comentario
+				h3 nota
+				p
+					i.icono-idea
+					| Las sumas parciales fomar una sucesión.
+
+	+diapositiva("Series de resultado conocido")
+		.diapo__contenido
+			h3 Serie Geométrica
+			p Para $|r|<1$ tenemos \[ \sum_{n=0}^{\infty}{r^n}=\frac{1}{ 1-r} \]
+			p En cualquier otro caso la serie diverge.
+			h3 Serie Telescópica
+			p \[ \sum_{n=1}^{\infty}{a_{n+1}-a_n}=\lim_{N\rightarrow +\infty}{a_{N+1}-a_1} \]
+			p \[  \sum_{n=1}^{\infty}{a_n-a_{n+1}}=\lim_{N\rightarrow +\infty}{a_1-a_{N+1}} \]
+
+	+diapositiva("Teoremas importantes")
+		.diapo__contenido
+			h3 Condición necesaria de convergencia
+			p si la serie $\sum a_n$ es convergente $\implies\lim a_n = 0$
+			p Aunque tiene más utilidad su contrarecíproco
+			p \[\lim a_n \neq 0 \implies \sum a_n\text{ diverge.}\]
+			h3 Criterio de comparación directa
+			p Sean $\sum a_n$ y $\sum b_n$ dos series de términos positivos tal que $a_n&lt;b_n$
+			ul
+				li $\sum b_n$ converge $\implies \sum a_n$ converge.
+				li $\sum a_n=+\infty \implies \sum b_n=+\infty$ 
+			h3 Criterio de comparación indirecta (vía límite)
+			p Sean $\sum a_n$ y $\sum b_n$ dos series de términos positivos y sea $\lim \frac{a_n}{b_n}=L$
+			ul
+				li Si $0\lt L\leq +\infty$ y $\sum b_n =+\infty$ $\implies$ $\sum a_n =+\infty$
+				li Si $0\leq L\lt +\infty$ y $\sum b_n $ converge $\implies$ $\sum a_n$ converge
+
+		.comentario
+			h3 Nota
+			div
+				p
+					i.icono-like
+					| La condición necesaria es, generalmente, fácil de verificar.
+				p
+					i.icono-like 
+					| Las series de terminos postivos son convergentes o bien divergen a $+\infty.$
+				p
+					i.icono-atencion
+					| Los criterios de convergencia no dicen el valor de convergencia. 
+				p
+					i.icono-idea
+					| Del criterio de comparación via límite se deduce que si $0\lt L \lt +\infty$ entonces $a_n$ y $b_n$ tienen un comportamiento similar. 
+
+	+diapositiva("Criterio integral de Cauchy")
+		.diapo__contenido
+
+			p Sea $f(x)$ una función positiva y monótona decreciente en el intervalo $[N,+\infty)$. Entonces
+			p(style="text-align:center")  $\int_N^{+\infty}f(x)$ y $\sum_N^{+\infty}{f(n)}$ tienen el mismo comportamiento.
+
+			.comentario
+				h3 Nota
+				ul
+					li Definiremos la integral impropia de una función $f(x)$  \[ \int_a^{+\infty}{f(x)}=\lim_{b\rightarrow\infty}{\int_a^b{f(x)dx}} \]
+					li Usualmente, partiendo de una serie $\sum a_n$, se reemplaza la $n$ por una $x$ para obtener la función $f(x)$
+					li Para verificar la monotonía de $f(x)$ alcanza ver derivada negativa en un intervalo que llegue al $+\infty$
+		figure
+			+graficoGeogebra("criterioIntegralSuperior","api.setCoordSystem(-.2,8,-.2,1.2)",500,200)
+			figcaption El area de $\int_1^{+\infty}f(x)dx$ es menor que el area de los rectángulos $\sum_{n=1}^{+\infty}f(n)$. 
+		figure
+			+graficoGeogebra("criterioIntegralInferior","api.setCoordSystem(-.2,8,-.2,1.2)",500,200)
+			figcaption El area de $\int_1^{+\infty}f(x)dx$ es mayor que el area de los rectángulos $\sum_{n=2}^{+\infty}f(n)$. 
+
+	
+
+
+
+	+diapositiva("Serie p")
+		.diapo__contenido
+			h3 Propiedad
+			p \[\sum_{n=1}^{+\infty} \frac{1}{n^p}\] converge para $p\gt 1$ y diverge para $p\leq 1$
+		.comentario
+			h3 Nota
+			div
+				ul
+					li Para $p\leq 0$ es inmediato por no cumplir la condición necesaria de convergencia.
+					li Para $p\gt 0 $ puede usarse el criterio integral de Cauchy. 
+						ul 
+							li $f(x)=\frac{1}{x^p}$ es positivo en $(1,+\infty)$.
+							li $f'(x)=\frac{-p}{x^{p-1}}<0$ para $x\in(1,+\infty)$.
+
+	+diapositiva("Criterio del cociente y de la raiz")
+		.diapo__contenido
+			p Sea una serie $\sum a_n$. Dado alguno de los siguientes límites
+			table(style="width:90%")
+				tr
+					td \[ \lim_{n\rightarrow +\infty}{\frac{|a_{n+1}|}{|a_n|}}=L \]
+					td \[ \lim_{n\rightarrow +\infty}{\sqrt[n]{|a_n|}}=L \]
+			p Entonces
+			ul
+				li $\sum a_n$ converge si $L<1$
+				li $\sum a_n$ diverge si $L>1$
+				li El criterio no decide si $L=1$
+
+	+diapositiva("Criterio de Leibniz")
+		.diapo__contenido
+			p Sea una serie alternada  de la forma $\sum_{n=1}^{+\infty}{(-1)^n|a_n|}$ o de la forma $\sum_{n=1}^{+\infty}{(-1)^{n+1}|a_n|}$
+			p Si $a_n$ cumple las siguientes propiedades
+			ul
+				li $\lim a_n=0$
+				li $a_n$ es monótona decreciente.
+			p Entonces, la serie es convergente.
+
+		.comentario
+			h3 Nota
+			div
+				p Diremos que una serie es alternada si término a término hay variación del signo.
+				p Una serie alternada puede escribirse como:
+				p \[ \sum_{n=1}^{+\infty}{(-1)^n|a_n|}=-|a_1|+|a_2|-|a_3|+|a_4|-|a_5|+\dots \]
+				p \[ \sum_{n=1}^{+\infty}{(-1)^{n+1}|a_n|}=|a_1|-|a_2|+|a_3|-|a_4|+|a_5|-\dots \]
+				p
+					i.icono-alerta 
+					| Si alguna de las condiciones no se cumple, el criterio no decide.
+
+
+
+
+
+block header
+	+navegacion
