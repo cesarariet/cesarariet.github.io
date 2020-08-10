@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="Cálculo de areas contendidas entre funciones mediante la aplicación de integrales definidas."/>
+    <meta name="keywords" content="51, mátematica, cbc, areas, cáculo de areas, integrales, integral definida"/>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var parametrosGeogebra = {
+      	"showMenuBar":false,
+      	"showAlgebraInput":false,
+      	"showToolBar":false,
+      	"showToolBarHelp":false,
+      	"showResetIcon":false,
+      	"enableLabelDrags":false,
+      	"enableShiftDragZoom":true,
+      	"enableRightClick":false,
+      	"errorDialogsActive":false,
+      	"useBrowserForJS":false,
+      	"allowStyleBar":false,
+      	"preventFocus":false,
+      	"showZoomButtons":false,
+      	"showFullscreenButton":true,
+      	"scale":1,
+      	"autoHeight":false,
+      	"disableAutoScale":false,
+      	"allowUpscale":false,
+      	"clickToLoad":false,
+      	"appName":"classic",
+      	"showSuggestionButtons":false,
+      	"buttonRounding":0.7,
+      	"buttonShadows":false,
+      	"language":"es",
+      }
+      
+    </script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Integral definida - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="icofont/icofont.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="preliminares">
+      <h2>Preliminares</h2>
+      <div class="diapo__contenido">
+        <h3>Objetivos de la presentanción</h3>
+        <p>Calcular áreas:</p>
+        <ul>
+          <li>Rectángulo: $\text{base}\cdot\text{altura}$ <i class="icono-check"></i></li>
+          <li>Triángulo: $\frac{\text{base}\cdot\text{altura}}{2}$<i class="icono-check"></i></li>
+          <li>Entre los gráficos de dos funciones $f(x)$ y $g(x)$ para los $x\in[a,b]$ ¿Cómo se puede calcular?</li>
+        </ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="areaEntreFunciones"></div>
+        <script>var areaEntreFunciones_parametros = {...parametrosGeogebra}
+areaEntreFunciones_parametros.id = "areaEntreFunciones"
+areaEntreFunciones_parametros.appletOnLoad = function(api){ api.setCoordSystem(-2.9,3.9,-2.1,8.1) }
+areaEntreFunciones_parametros.filename = "geogebra/areaEntreFunciones.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+areaEntreFunciones_parametros.width = "500";
+areaEntreFunciones_parametros.height = "400";
+          var applet_areaEntreFunciones = new GGBApplet(areaEntreFunciones_parametros, '5.0', views);
+          applet_areaEntreFunciones.inject("areaEntreFunciones");
+          
+          
+        </script>
+        <figcaption>En forma sombreada se encuentra el área entre las funciones $f(x)$ y $g(x)$ en un intervalo $[a,b].$ Las rectas verticales son los límites del intervalo. Notar que cada punto del area tiene por encima una de las funciones y por debajo la otra.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="deducción-del-cálculo-de-area">
+      <h2>Deducción del cálculo de area</h2>
+      <div class="diapo__contenido">
+        <p>Sea $F(x)$ es el area entre una función $f(x)$ y el eje $x$ para $x\in [0,x]$ </p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <p>
+            El area entre el $f(x)$ y el eje $x$ para $x\in [a,b]$ es igual a
+            $ F(b)-F(a) $
+          </p>
+        </div>
+        <p>Supongamos $f(x)$ continua en $x_0$ y $f(x_0)\geq 0$. La derivada de la función $F(x_0)$ es</p>
+        <p>
+          \[\begin{split} 
+          F'(x_0) & = \lim_{x\rightarrow x_0}{ \frac{F(x)-F(x_0)}{x-x_0} } \\ 
+          & \approx \lim_{x\rightarrow x_0}{ \frac{f(x_0)\cdot (x-x_0)}{x-x_0} } \\
+          & = f(x_0)
+          \end{split} \]
+        </p>
+        <h3>Conclusión</h3>
+        <p>La función área $F(x)$ es la primitiva de la función $f(x)$ (con $f(x)\geq 0$)</p>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="areaEntreCeroYX"></div>
+        <script>var areaEntreCeroYX_parametros = {...parametrosGeogebra}
+areaEntreCeroYX_parametros.id = "areaEntreCeroYX"
+areaEntreCeroYX_parametros.appletOnLoad = function(api){ api.setCoordSystem(-.2,1.6,-.4,1.2) }
+areaEntreCeroYX_parametros.filename = "geogebra/areaEntreCeroYX.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+areaEntreCeroYX_parametros.width = "350";
+areaEntreCeroYX_parametros.height = "220";
+          var applet_areaEntreCeroYX = new GGBApplet(areaEntreCeroYX_parametros, '5.0', views);
+          applet_areaEntreCeroYX.inject("areaEntreCeroYX");
+          
+          
+        </script>
+        <figcaption>La función $F(x)$ representa el valor del área sombreada.</figcaption>
+      </figure>
+      <figure>
+        <div class="contenedor--geogebra" id="deduccionAreaPrimitiva"></div>
+        <script>var deduccionAreaPrimitiva_parametros = {...parametrosGeogebra}
+deduccionAreaPrimitiva_parametros.id = "deduccionAreaPrimitiva"
+deduccionAreaPrimitiva_parametros.appletOnLoad = function(api){ api.setCoordSystem(-.2,1.6,-.4,1.2) }
+deduccionAreaPrimitiva_parametros.filename = "geogebra/deduccionAreaPrimitiva.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+deduccionAreaPrimitiva_parametros.width = "350";
+deduccionAreaPrimitiva_parametros.height = "220";
+          var applet_deduccionAreaPrimitiva = new GGBApplet(deduccionAreaPrimitiva_parametros, '5.0', views);
+          applet_deduccionAreaPrimitiva.inject("deduccionAreaPrimitiva");
+          
+          
+        </script>
+        <figcaption>El área entre la $f(x)$ y el eje $x$ para el intervalo $[x_0,x]$ es igual a $F(x)-F(x_0)$. Dicha área se aproxima al valor $f(x_0)\cdot (x-x_0)$ cuando $x$ se acerca a $x_0$.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="integral-definida">
+      <h2>Integral definida</h2>
+      <div class="diapo__contenido">
+        <p>Sea $F(x)$ una primitiva de $f(x)$. Es decir, \[ \int f(x)dx = F(x)+C \]</p>
+        <p>Definimos la integral definida de $f(x)$ entre $a$ y $b$ como</p>
+        <p>\[ \int_a^b{f(x)}=F(x)\Big|_a^b=F(b)-F(a) \]</p>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <p><i class="icono-idea"></i>La definición es motivada por la relación mostrada en <a href="#deducción-del-cálculo-de-area">Deducción del cálculo de área.</a></p>
+        <p><i class="icono-atencion"></i>La integral definida se relaciona con el area debajo de $f(x)$ solamente cuando $f(x)\geq 0$ para los $x\in[a,b]$.</p>
+      </div>
+    </section>
+    <section class="diapo" id="área-entre-curvas">
+      <h2>Área entre curvas</h2>
+      <div class="diapo__contendido">
+        <p>Sean $f(x)$ y $g(x)$ funciones tales que $f(x)\geq g(x)$ para todo $x\in[a,b].$</p>
+        <p>El area de la región contenida entre $f(x)$ y $g(x)$ para los $x\in[a,b]$ es</p>
+        <p>\[ \int_a^b{f(x)-g(x)dx} \]</p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <div>
+            <p><i class="icono-atencion"></i>En el cálculo de áreas es fudamental conocer cual función se encuentra por arriba y cual por debajo.</p>
+            <p><i class="icono-idea"></i>Las funciones continuas intercambian posición en los puntos donde $f(x)=g(x)$ (puntos de intersección).</p>
+            <p><i class="icono-idea"></i>El eje $x$ puede representarse con la función constante $g(x)=0.$</p>
+          </div>
+        </div>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="areaTechoPiso"></div>
+        <script>var areaTechoPiso_parametros = {...parametrosGeogebra}
+areaTechoPiso_parametros.id = "areaTechoPiso"
+areaTechoPiso_parametros.appletOnLoad = function(api){ api.setCoordSystem(-1.5,4.5,-2.5,5.5) }
+areaTechoPiso_parametros.filename = "geogebra/areaTechoPiso.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+areaTechoPiso_parametros.width = "500";
+areaTechoPiso_parametros.height = "400";
+          var applet_areaTechoPiso = new GGBApplet(areaTechoPiso_parametros, '5.0', views);
+          applet_areaTechoPiso.inject("areaTechoPiso");
+          
+          
+        </script>
+        <figcaption>Representación de la región de interés. El punto azúl dentro de la región se encuentra encerrado por arriba con la función $f(x)$ y por debajo con la función $g(x)$</figcaption>
+      </figure>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#preliminares">Preliminares</a></li>
+          <li><a href="#deducción-del-cálculo-de-area">Deducción del cálculo de area</a></li>
+          <li><a href="#integral-definida">Integral definida</a></li>
+          <li><a href="#área-entre-curvas">Área entre curvas</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>

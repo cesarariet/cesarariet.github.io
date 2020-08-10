@@ -1,0 +1,111 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Integral definida"
+	//- Poner una descripcion del tema de la pagina. Sobre todo para cuando arme una pagina como indice general.
+	meta(name="description", content="Cálculo de areas contendidas entre funciones mediante la aplicación de integrales definidas.")
+	//- A continuación poner los tag que describen los temas de las diapositvas
+	//- también incluir para quienes esta dirigida la diapositiva, materia, codigo materia, cbc
+	meta(name="keywords", content="51, mátematica, cbc, areas, cáculo de areas, integrales, integral definida")
+	+usarGeogebra
+
+block body
+	+diapositiva("Preliminares")
+		.diapo__contenido
+			h3 Objetivos de la presentanción
+			p Calcular áreas:
+			ul
+				li Rectángulo: $\text{base}\cdot\text{altura}$ 
+					i.icono-check
+				li Triángulo: $\frac{\text{base}\cdot\text{altura}}{2}$
+					i.icono-check
+				li Entre los gráficos de dos funciones $f(x)$ y $g(x)$ para los $x\in[a,b]$ ¿Cómo se puede calcular?
+		
+		figure
+			+graficoGeogebra("areaEntreFunciones","api.setCoordSystem(-2.9,3.9,-2.1,8.1)")
+			figcaption En forma sombreada se encuentra el área entre las funciones $f(x)$ y $g(x)$ en un intervalo $[a,b].$ Las rectas verticales son los límites del intervalo. Notar que cada punto del area tiene por encima una de las funciones y por debajo la otra.
+
+	+diapositiva("Deducción del cálculo de area")
+		.diapo__contenido
+			p Sea $F(x)$ es el area entre una función $f(x)$ y el eje $x$ para $x\in [0,x]$ 
+			.comentario
+				h3 Nota
+				p
+					| El area entre el $f(x)$ y el eje $x$ para $x\in [a,b]$ es igual a
+					| $ F(b)-F(a) $
+			p Supongamos $f(x)$ continua en $x_0$ y $f(x_0)\geq 0$. La derivada de la función $F(x_0)$ es
+			p.
+				\[\begin{split} 
+				F'(x_0) & = \lim_{x\rightarrow x_0}{ \frac{F(x)-F(x_0)}{x-x_0} } \\ 
+				& \approx \lim_{x\rightarrow x_0}{ \frac{f(x_0)\cdot (x-x_0)}{x-x_0} } \\
+				& = f(x_0)
+				\end{split} \]
+			h3 Conclusión
+			p La función área $F(x)$ es la primitiva de la función $f(x)$ (con $f(x)\geq 0$)
+
+		figure
+			+graficoGeogebra("areaEntreCeroYX","api.setCoordSystem(-.2,1.6,-.4,1.2)",350,220)
+			figcaption La función $F(x)$ representa el valor del área sombreada.
+		figure
+			+graficoGeogebra("deduccionAreaPrimitiva","api.setCoordSystem(-.2,1.6,-.4,1.2)",350,220)
+			figcaption El área entre la $f(x)$ y el eje $x$ para el intervalo $[x_0,x]$ es igual a $F(x)-F(x_0)$. Dicha área se aproxima al valor $f(x_0)\cdot (x-x_0)$ cuando $x$ se acerca a $x_0$.
+
+	+diapositiva("Integral definida")
+		.diapo__contenido
+			p Sea $F(x)$ una primitiva de $f(x)$. Es decir, \[ \int f(x)dx = F(x)+C \]
+			p Definimos la integral definida de $f(x)$ entre $a$ y $b$ como
+			p \[ \int_a^b{f(x)}=F(x)\Big|_a^b=F(b)-F(a) \]
+		
+		.comentario
+			h3 Nota
+			p
+				i.icono-idea
+				| La definición es motivada por la relación mostrada en 
+				a(href="#deducción-del-cálculo-de-area") Deducción del cálculo de área.
+			p
+				i.icono-atencion
+				| La integral definida se relaciona con el area debajo de $f(x)$ solamente cuando $f(x)\geq 0$ para los $x\in[a,b]$.
+
+	+diapositiva("Área entre curvas")
+		.diapo__contendido
+			p Sean $f(x)$ y $g(x)$ funciones tales que $f(x)\geq g(x)$ para todo $x\in[a,b].$
+			p El area de la región contenida entre $f(x)$ y $g(x)$ para los $x\in[a,b]$ es
+			p \[ \int_a^b{f(x)-g(x)dx} \]
+
+			.comentario
+				h3 Nota
+				div
+					p
+						i.icono-atencion
+						| En el cálculo de áreas es fudamental conocer cual función se encuentra por arriba y cual por debajo.
+					p
+						i.icono-idea
+						| Las funciones continuas intercambian posición en los puntos donde $f(x)=g(x)$ (puntos de intersección).
+					p
+						i.icono-idea
+						| El eje $x$ puede representarse con la función constante $g(x)=0.$
+
+		figure
+			+graficoGeogebra("areaTechoPiso","api.setCoordSystem(-1.5,4.5,-2.5,5.5)")
+			figcaption Representación de la región de interés. El punto azúl dentro de la región se encuentra encerrado por arriba con la función $f(x)$ y por debajo con la función $g(x)$
+
+
+
+
+block header
+	+navegacion
