@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clase</title>
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			height: 100vh;
+			width: 100vw;
+			position: relative;
+		}
+		#diapositiva:hover {
+			height: 100vh;
+			width: 100vw;
+		}
+		#camara {
+			position: absolute;
+			height: 100vh;
+			width: 1px;
+			top: 0;
+			right: 0;
+			opacity: 0;
+			overflow: hidden;
+		}
+		#diapositiva {
+			height: 100vh;
+			width: 30vw;
+		}
+		#camara:hover {
+			height: 100vh;
+			width: 70vw;
+			overflow: hidden;
+		}
+
+	</style>
+</head>
+<body>
+	<iframe id="diapositiva" src="http://localhost:8848/" frameborder="0"></iframe>
+	<iframe id="camara" src="http://192.168.0.15:8081/video" frameborder="0"></iframe>
+</body>
+</html>
