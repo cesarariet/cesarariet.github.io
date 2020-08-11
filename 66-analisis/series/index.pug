@@ -72,7 +72,7 @@ block body
 	+diapositiva("Series de resultado conocido")
 		.diapo__contenido
 			h3 Serie Geométrica
-			p Para $|r|<1$ tenemos \[ \sum_{n=0}^{\infty}{r^n}=\frac{1}{ 1-r} \]
+			p Para $|r|<1$ la serie converge y además \[ \sum_{n=0}^{\infty}{r^n}=\frac{1}{ 1-r} \]
 			p En cualquier otro caso la serie diverge.
 			h3 Serie Telescópica
 			p \[ \sum_{n=1}^{\infty}{a_{n+1}-a_n}=\lim_{N\rightarrow +\infty}{a_{N+1}-a_1} \]
@@ -106,16 +106,16 @@ block body
 					| Las series de terminos postivos son convergentes o bien divergen a $+\infty.$
 				p
 					i.icono-atencion
-					| Los criterios de convergencia no dicen el valor de convergencia. 
+					| Los criterios de convergencia no dicen el valor de convergencia.
 				p
 					i.icono-idea
-					| Del criterio de comparación via límite se deduce que si $0\lt L \lt +\infty$ entonces $a_n$ y $b_n$ tienen un comportamiento similar. 
+					| Del criterio de comparación via límite se deduce que si $0\lt L \lt +\infty$ entonces $a_n$ y $b_n$ son ambas convergentes o ambas divergentes. 
 
 	+diapositiva("Criterio integral de Cauchy")
 		.diapo__contenido
 
 			p Sea $f(x)$ una función positiva y monótona decreciente en el intervalo $[N,+\infty)$. Entonces
-			p(style="text-align:center")  $\int_N^{+\infty}f(x)$ y $\sum_N^{+\infty}{f(n)}$ tienen el mismo comportamiento.
+			p(style="text-align:center")  $\int_N^{+\infty}f(x)$ y $\sum_N^{+\infty}{f(n)}$ son ambas convergentes o ambas divergentes.
 
 			.comentario
 				h3 Nota
@@ -143,10 +143,10 @@ block body
 			div
 				ul
 					li Para $p\leq 0$ es inmediato por no cumplir la condición necesaria de convergencia.
-					li Para $p\gt 0 $ puede usarse el criterio integral de Cauchy. 
+					li Para $p\gt 0 $ puede usarse el criterio integral de Cauchy porque
 						ul 
 							li $f(x)=\frac{1}{x^p}$ es positivo en $(1,+\infty)$.
-							li $f'(x)=\frac{-p}{x^{p-1}}<0$ para $x\in(1,+\infty)$.
+							li $f'(x)=\frac{-p}{x^{p+1}}<0$ para $x\in(1,+\infty)$.
 
 	+diapositiva("Criterio del cociente y de la raiz")
 		.diapo__contenido
@@ -182,7 +182,28 @@ block body
 					| Si alguna de las condiciones no se cumple, el criterio no decide.
 
 
+	+diapositiva("Convergencia absoluta")
+		.diapo__contenido
+			h3 Definiciones
+			ul
+				li Diremos que una serie $\sum a_n$ converge absolutamente si $\sum |a_n|$ converge.
+				li Diremos que $\sum a_n$ converge condicionalmente si es convergente pero  $\sum |a_n|$ diverge (no converge absolutamente).
+			h3 Teorema
+			p \[ \sum |a_n| \text{ converge}\implies \sum a_n \text{ converge.} \]
+			p Es decir, una serie con convergencia absoluta es convergente.
 
+		.comentario
+			h3 Nota
+			div
+				ul
+					li $\sum (-\frac{1}{2})^n$ converge absolutamente.
+					li $\sum (-1)^n\frac{1}{n}$ converge condicionalmente.
+				p
+					i.icono-like
+					| Al estudiar la convergencia absoluta pueden usarse todos los criterios de series de términos positivos.
+				p
+					i.icono-atencion
+					| El teorema no dice nada cuando $\sum |a_n|$  es divergente.
 
 
 block header

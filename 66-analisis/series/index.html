@@ -101,7 +101,7 @@
       <h2>Series de resultado conocido</h2>
       <div class="diapo__contenido">
         <h3>Serie Geométrica</h3>
-        <p>Para $|r|<1$ tenemos \[ \sum_{n=0}^{\infty}{r^n}=\frac{1}{ 1-r} \]</p>
+        <p>Para $|r|<1$ la serie converge y además \[ \sum_{n=0}^{\infty}{r^n}=\frac{1}{ 1-r} \]</p>
         <p>En cualquier otro caso la serie diverge.</p>
         <h3>Serie Telescópica</h3>
         <p>\[ \sum_{n=1}^{\infty}{a_{n+1}-a_n}=\lim_{N\rightarrow +\infty}{a_{N+1}-a_1} \]</p>
@@ -133,8 +133,8 @@
         <div>
           <p><i class="icono-like"></i>La condición necesaria es, generalmente, fácil de verificar.</p>
           <p><i class="icono-like"> </i>Las series de terminos postivos son convergentes o bien divergen a $+\infty.$</p>
-          <p><i class="icono-atencion"></i>Los criterios de convergencia no dicen el valor de convergencia. </p>
-          <p><i class="icono-idea"></i>Del criterio de comparación via límite se deduce que si $0\lt L \lt +\infty$ entonces $a_n$ y $b_n$ tienen un comportamiento similar. </p>
+          <p><i class="icono-atencion"></i>Los criterios de convergencia no dicen el valor de convergencia.</p>
+          <p><i class="icono-idea"></i>Del criterio de comparación via límite se deduce que si $0\lt L \lt +\infty$ entonces $a_n$ y $b_n$ son ambas convergentes o ambas divergentes. </p>
         </div>
       </div>
     </section>
@@ -142,7 +142,7 @@
       <h2>Criterio integral de Cauchy</h2>
       <div class="diapo__contenido">
         <p>Sea $f(x)$ una función positiva y monótona decreciente en el intervalo $[N,+\infty)$. Entonces</p>
-        <p style="text-align:center"> $\int_N^{+\infty}f(x)$ y $\sum_N^{+\infty}{f(n)}$ tienen el mismo comportamiento.</p>
+        <p style="text-align:center"> $\int_N^{+\infty}f(x)$ y $\sum_N^{+\infty}{f(n)}$ son ambas convergentes o ambas divergentes.</p>
         <div class="comentario">
           <h3>Nota</h3>
           <ul>
@@ -198,10 +198,10 @@ criterioIntegralInferior_parametros.height = "200";
         <div>
           <ul>
             <li>Para $p\leq 0$ es inmediato por no cumplir la condición necesaria de convergencia.</li>
-            <li>Para $p\gt 0 $ puede usarse el criterio integral de Cauchy. 
+            <li>Para $p\gt 0 $ puede usarse el criterio integral de Cauchy porque
               <ul> 
                 <li>$f(x)=\frac{1}{x^p}$ es positivo en $(1,+\infty)$.</li>
-                <li>$f'(x)=\frac{-p}{x^{p-1}}<0$ para $x\in(1,+\infty)$.</li>
+                <li>$f'(x)=\frac{-p}{x^{p+1}}<0$ para $x\in(1,+\infty)$.</li>
               </ul>
             </li>
           </ul>
@@ -248,6 +248,30 @@ criterioIntegralInferior_parametros.height = "200";
         </div>
       </div>
     </section>
+    <section class="diapo" id="convergencia-absoluta">
+      <h2>Convergencia absoluta</h2>
+      <div class="diapo__contenido">
+        <h3>Definiciones</h3>
+        <ul>
+          <li>Diremos que una serie $\sum a_n$ converge absolutamente si $\sum |a_n|$ converge.</li>
+          <li>Diremos que $\sum a_n$ converge condicionalmente si es convergente pero  $\sum |a_n|$ diverge (no converge absolutamente).</li>
+        </ul>
+        <h3>Teorema</h3>
+        <p>\[ \sum |a_n| \text{ converge}\implies \sum a_n \text{ converge.} \]</p>
+        <p>Es decir, una serie con convergencia absoluta es convergente.</p>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <div>
+          <ul>
+            <li>$\sum (-\frac{1}{2})^n$ converge absolutamente.</li>
+            <li>$\sum (-1)^n\frac{1}{n}$ converge condicionalmente.</li>
+          </ul>
+          <p><i class="icono-like"></i>Al estudiar la convergencia absoluta pueden usarse todos los criterios de series de términos positivos.</p>
+          <p><i class="icono-atencion"></i>El teorema no dice nada cuando $\sum |a_n|$  es divergente.</p>
+        </div>
+      </div>
+    </section>
     <header>
       <h1> <a href="#">menu</a></h1>
       <nav>
@@ -260,6 +284,7 @@ criterioIntegralInferior_parametros.height = "200";
           <li><a href="#serie-p">Serie p</a></li>
           <li><a href="#criterio-del-cociente-y-de-la-raiz">Criterio del cociente y de la raiz</a></li>
           <li><a href="#criterio-de-leibniz">Criterio de Leibniz</a></li>
+          <li><a href="#convergencia-absoluta">Convergencia absoluta</a></li>
         </ul>
       </nav>
     </header>

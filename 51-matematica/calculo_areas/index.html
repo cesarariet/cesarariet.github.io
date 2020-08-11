@@ -137,14 +137,23 @@ deduccionAreaPrimitiva_parametros.height = "220";
     <section class="diapo" id="integral-definida">
       <h2>Integral definida</h2>
       <div class="diapo__contenido">
+        <h3>Definición</h3>
         <p>Sea $F(x)$ una primitiva de $f(x)$. Es decir, \[ \int f(x)dx = F(x)+C \]</p>
         <p>Definimos la integral definida de $f(x)$ entre $a$ y $b$ como</p>
         <p>\[ \int_a^b{f(x)}=F(x)\Big|_a^b=F(b)-F(a) \]</p>
+        <h3>Propiedades</h3>
+        <p>$\int_a^b{(f+g) \cdot dx}=\int_a^b{f \cdot dx}+\int_a^b{g \cdot dx} $</p>
+        <p>$\int_a^b{K\cdot f \cdot dx}=K\cdot \int_a^b{f \cdot dx}$</p>
+        <p>$\int_a^a{f \cdot dx}=0$</p>
+        <p>$\int_b^a{f \cdot dx}=-\int_a^b{f \cdot dx}$</p>
+        <p>$\int_a^b{f \cdot dx}+\int_b^c{f \cdot dx}=\int_a^c{f \cdot dx}$</p>
       </div>
       <div class="comentario">
         <h3>Nota</h3>
-        <p><i class="icono-idea"></i>La definición es motivada por la relación mostrada en <a href="#deducción-del-cálculo-de-area">Deducción del cálculo de área.</a></p>
-        <p><i class="icono-atencion"></i>La integral definida se relaciona con el area debajo de $f(x)$ solamente cuando $f(x)\geq 0$ para los $x\in[a,b]$.</p>
+        <div>
+          <p><i class="icono-idea"></i>La definición es motivada por la relación mostrada en <a href="#deducción-del-cálculo-de-area">Deducción del cálculo de área.</a></p>
+          <p><i class="icono-atencion"></i>La integral definida se relaciona con el area debajo de $f(x)$ solamente cuando $f(x)\geq 0$ para los $x\in[a,b]$.</p>
+        </div>
       </div>
     </section>
     <section class="diapo" id="área-entre-curvas">
