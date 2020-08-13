@@ -265,6 +265,32 @@ figure .contenedor--geogebra {
   grid-column: 1/-1;
 }
 
+#series-de-potencias---idea {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(2, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#series-de-potencias---idea .diapo__contenido {
+  grid-row: 2/span 2;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #series-de-potencias---idea {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(2, minmax(30%, 50%))/1fr;
+  }
+  #series-de-potencias---idea .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#series-de-potencias---idea h2 {
+  grid-column: 1/-1;
+}
+
 header {
   position: fixed;
   top: 0;
