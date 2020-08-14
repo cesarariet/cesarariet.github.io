@@ -32,13 +32,12 @@ block body
 		.diapo__contenido
 			h3 Objetivo de la presentación
 			ul
-				li Definir, cuando es posible, sumas de infinitos términos \[ \sum_{i=1}^{\infty}{a_i}=a_1+a_2+a_3+\dots \]
+				li Definir, cuando es posible, sumas de infinitos términos \[ \sum_{n=1}^{+\infty}{a_n}=a_1+a_2+a_3+\dots \]
 				li Ejemplos sencillos:
-					ul
-						li $\sum_{i=1}^{\infty}{0}=0+0+0+\dots=0$
-						li $\sum_{i=1}^{\infty}{1}=1+1+1+\dots=+\infty$
-						li $\sum_{i=1}^{\infty}{\frac{1}{2^n}}=\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\dots=1$
-						li $\sum_{i=1}^{\infty}{(-1)^n=-1+1-1+1-1+\dots=?}$
+					p $\sum_{n=1}^{+\infty}{0}=0+0+0+\dots=0$
+					p $\sum_{n=1}^{+\infty}{1}=1+1+1+\dots=+\infty$
+					p $\sum_{n=1}^{+\infty}{\frac{1}{2^n}}=\frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\dots=1$
+					p $\sum_{n=1}^{+\infty}{(-1)^n=-1+1-1+\dots=?}$
 			
 		.comentario
 			h3 Nota
@@ -52,17 +51,14 @@ block body
 
 	+diapositiva("Series - Definición")
 		.diapo__contenido
-			table
-				tr
-					td
-						p Sea $a_i$ una sucesión. Llamaremos serie de término general $a_i$ a la expresión \[ \sum_{i=1}^{\infty}{a_i} = a_1+a_2+a_3+\dots \]
 
-					td
-						p Llamaremos suma parcial $S_n$ de la serie $\sum_{i=1}^{\infty}a_i$ a la suma de los primeros $n$ términos.
-						p \[ S_n=\sum_{i=1}^{n}{a_i} =a_1+\dots+a_n \]
+			p Sea $a_n$ una sucesión. Llamaremos serie de término general $a_n$ a la expresión \[ \sum_{n=1}^{+\infty}{a_n} = a_1+a_2+a_3+\dots \]
+
+			p Llamaremos suma parcial $S_N$ de la serie $\sum_{n=1}^{+\infty}a_n$ a la suma de los primeros $N$ términos.
+			p \[ S_n=\sum_{n=1}^{N}{a_n} =a_1+a_2+\dots+a_N \]
 					
-			p Diremos que una serie $\sum_{i=1}^{\infty}{a_i}$ es convergente si las sumas parciales tienen límite finito
-			p \[ \sum_{i=1}^{\infty}{a_i}=\lim_{n\rightarrow +\infty }S_n \] 
+			p Diremos que una serie $\sum_{n=1}^{+\infty}{a_n}$ es convergente si las sumas parciales tienen límite finito
+			p \[ \sum_{n=1}^{+\infty}{a_n}=\lim_{N\rightarrow +\infty }S_N \] 
 			.comentario
 				h3 nota
 				p
@@ -81,19 +77,19 @@ block body
 	+diapositiva("Teoremas importantes")
 		.diapo__contenido
 			h3 Condición necesaria de convergencia
-			p si la serie $\sum a_n$ es convergente $\implies\lim a_n = 0$
+			p $\sum a_n$ es converge $\implies\lim a_n = 0$.
 			p Aunque tiene más utilidad su contrarecíproco
 			p \[\lim a_n \neq 0 \implies \sum a_n\text{ diverge.}\]
 			h3 Criterio de comparación directa
 			p Sean $\sum a_n$ y $\sum b_n$ dos series de términos positivos tal que $a_n&lt;b_n$
 			ul
 				li $\sum b_n$ converge $\implies \sum a_n$ converge.
-				li $\sum a_n=+\infty \implies \sum b_n=+\infty$ 
+				li $\sum a_n=+\infty \implies \sum b_n=+\infty.$ 
 			h3 Criterio de comparación indirecta (vía límite)
 			p Sean $\sum a_n$ y $\sum b_n$ dos series de términos positivos y sea $\lim \frac{a_n}{b_n}=L$
 			ul
-				li Si $0\lt L\leq +\infty$ y $\sum b_n =+\infty$ $\implies$ $\sum a_n =+\infty$
-				li Si $0\leq L\lt +\infty$ y $\sum b_n $ converge $\implies$ $\sum a_n$ converge
+				li Si $0\lt L\leq +\infty$ y $\sum b_n =+\infty$ $\implies$ $\sum a_n =+\infty.$
+				li Si $0\leq L\lt +\infty$ y $\sum b_n $ converge $\implies$ $\sum a_n$ converge.
 
 		.comentario
 			h3 Nota
@@ -115,14 +111,14 @@ block body
 		.diapo__contenido
 
 			p Sea $f(x)$ una función positiva y monótona decreciente en el intervalo $[N,+\infty)$. Entonces
-			p(style="text-align:center")  $\int_N^{+\infty}f(x)$ y $\sum_N^{+\infty}{f(n)}$ son ambas convergentes o ambas divergentes.
+			p(style="text-align:center")  $\int_N^{+\infty}f(x) dx$ y $\sum_N^{+\infty}{f(n)}$ son ambas convergentes o ambas divergentes.
 
 			.comentario
 				h3 Nota
 				ul
-					li Definiremos la integral impropia de una función $f(x)$  \[ \int_a^{+\infty}{f(x)}=\lim_{b\rightarrow\infty}{\int_a^b{f(x)dx}} \]
-					li Usualmente, partiendo de una serie $\sum a_n$, se reemplaza la $n$ por una $x$ para obtener la función $f(x)$
-					li Para verificar la monotonía de $f(x)$ alcanza ver derivada negativa en un intervalo que llegue al $+\infty$
+					li Definiremos la integral impropia de una función $f(x)$  \[ \int_a^{+\infty}{f(x) dx}=\lim_{b\rightarrow\infty}{\int_a^b{f(x)dx}} \]
+					li Usualmente, partiendo de una serie $\sum a_n$, se reemplaza la $n$ por una $x$ para obtener la función $f(x).$
+					li Para verificar la monotonía de $f(x)$ alcanza ver derivada negativa en un intervalo que llegue al $+\infty.$
 		figure
 			+graficoGeogebra("criterioIntegralSuperior","api.setCoordSystem(-.2,8,-.2,1.2)",500,200)
 			figcaption El area de $\int_1^{+\infty}f(x)dx$ es menor que el area de los rectángulos $\sum_{n=1}^{+\infty}f(n)$. 
@@ -137,7 +133,7 @@ block body
 	+diapositiva("Serie p")
 		.diapo__contenido
 			h3 Propiedad
-			p \[\sum_{n=1}^{+\infty} \frac{1}{n^p}\] converge para $p\gt 1$ y diverge para $p\leq 1$
+			p \[\sum_{n=1}^{+\infty} \frac{1}{n^p}\] converge para $p\gt 1$ y diverge para $p\leq 1.$
 		.comentario
 			h3 Nota
 			div
@@ -157,16 +153,16 @@ block body
 					td \[ \lim_{n\rightarrow +\infty}{\sqrt[n]{|a_n|}}=L \]
 			p Entonces
 			ul
-				li $\sum a_n$ converge si $L<1$
-				li $\sum a_n$ diverge si $L>1$
-				li El criterio no decide si $L=1$
+				li $\sum a_n$ converge si $L<1.$
+				li $\sum a_n$ diverge si $L>1.$
+				li El criterio no decide si $L=1.$
 
 	+diapositiva("Criterio de Leibniz")
 		.diapo__contenido
-			p Sea una serie alternada  de la forma $\sum_{n=1}^{+\infty}{(-1)^n|a_n|}$ o de la forma $\sum_{n=1}^{+\infty}{(-1)^{n+1}|a_n|}$
+			p Sea una serie alternada  de la forma $\sum_{n=1}^{+\infty}{(-1)^n|a_n|}$ o de la forma $\sum_{n=1}^{+\infty}{(-1)^{n+1}|a_n|}.$
 			p Si $a_n$ cumple las siguientes propiedades
 			ul
-				li $\lim a_n=0$
+				li $\lim a_n=0.$
 				li $a_n$ es monótona decreciente.
 			p Entonces, la serie es convergente.
 
@@ -175,11 +171,15 @@ block body
 			div
 				p Diremos que una serie es alternada si término a término hay variación del signo.
 				p Una serie alternada puede escribirse como:
-				p: small \[ \sum_{n=1}^{+\infty}{(-1)^n|a_n|}=-|a_1|+|a_2|-|a_3|+|a_4|-|a_5|+\dots \]
-				p: small \[ \sum_{n=1}^{+\infty}{(-1)^{n+1}|a_n|}=|a_1|-|a_2|+|a_3|-|a_4|+|a_5|-\dots \]
+				p: small \[ \sum_{n=1}^{+\infty}{(-1)^n|a_n|}=-|a_1|+|a_2|-|a_3|++\dots \]
+				p: small \[ \sum_{n=1}^{+\infty}{(-1)^{n+1}|a_n|}=|a_1|-|a_2|+|a_3|-\dots \]
 				p
 					i.icono-alerta 
 					| Si alguna de las condiciones no se cumple, el criterio no decide.
+
+
+
+
 
 
 	+diapositiva("Convergencia absoluta")
@@ -189,7 +189,7 @@ block body
 				li Diremos que una serie $\sum a_n$ converge absolutamente si $\sum |a_n|$ converge.
 				li Diremos que $\sum a_n$ converge condicionalmente si es convergente pero  $\sum |a_n|$ diverge (no converge absolutamente).
 			h3 Teorema
-			p \[ \sum |a_n| \text{ converge}\implies \sum a_n \text{ converge.} \]
+			p: small \[ \sum |a_n| \text{ converge}\implies \sum a_n \text{ converge.} \]
 			p Es decir, una serie con convergencia absoluta es convergente.
 
 		.comentario
@@ -218,7 +218,7 @@ block body
 		
 		figure
 			+graficoGeogebra("polinomioTaylor","api.setCoordSystem(-5,5,-3,8)")
-			figcaption Representación de una función y su polinomio de Taylor.
+			figcaption Representación de una función y su polinomio de Taylor de orden $n$ en el punto de contacto $(x_0,f(x_0)).$
 		.comentario
 			h3 Nota
 			div
@@ -240,26 +240,27 @@ block body
 
 	
 
-	+diapositiva("Serie de potencia")
+	+diapositiva("Serie de potencias")
 
 		.diapo__contenido
-			p Llamaremos serie de pontencia a toda serie de la forma
+			p Llamaremos serie de potencias a toda serie de la forma
 			p \[ \sum_{n=0}^{+\infty}{a_n\cdot (x-x_0)^n} \]
 			p Al aplicar el criterio de cociente (D'Alembert) o de la raíz (Cauchy) algo de la forma \[ L\cdot |x-x_0|\]
 				ul
-					li Para $L\cdot |x-x_0|\lt 1$ hay convergencia absoluta. El radio de convergencia es $\frac{1}{L}$
+					li Para $L\cdot |x-x_0|\lt 1$ hay convergencia absoluta. El radio de convergencia es $\frac{1}{L}.$
 					li Para $L\cdot |x-x_0| \gt 1$ la serie de potencia diverge.
 					li Para $L\cdot |x-x_0| = 1$ el criterio aplicado no decide por tanto hay que aplicar otra estrategía.
 
 		.comentario
 			h3 Nota
-			p
-				i.icono-atencion
-				| Cuando las potencias no se presentan en la forma propuesta no hay, necesariamente, radio de convergencia.
-			p
-				i.icono-idea
-				| Toda serie de potencia converge en $x_0$. El radio de convergencia puede ser cualquier numero mayor o igual a cero e incluso $+\infty$.
-				
+			div
+				p
+					i.icono-atencion
+					| Cuando las potencias no se presentan en la forma propuesta no hay, necesariamente, radio de convergencia.
+				p
+					i.icono-idea
+					| Toda serie de potencias converge en $x_0$. El radio de convergencia puede ser cualquier numero mayor o igual a cero e incluso $+\infty$.
+					
 
 
 
