@@ -14,11 +14,11 @@
 			width: 100vw;
 			position: relative;
 		}
-		#diapositiva:hover {
+		#diapositiva:hover.libre {
 			height: 100vh;
 			width: 100vw;
 		}
-		#camara {
+		#camara.libre {
 			position: absolute;
 			height: 100vh;
 			width: 1px;
@@ -27,11 +27,11 @@
 			opacity: 0;
 			overflow: hidden;
 		}
-		#diapositiva {
+		#diapositiva.libre, #diapositiva.bloqueo {
 			height: 100vh;
 			width: 30vw;
 		}
-		#camara:hover {
+		#camara:hover.libre, #camara.bloqueo {
 			height: 100vh;
 			width: 70vw;
 			overflow: hidden;
@@ -53,12 +53,38 @@
 			opacity: 1;
 			z-index: 2;
 		}
-
-	</style>
+		#botones {
+			position: absolute;
+			right:10px;
+			bottom:10px;
+		}
+</style>
 </head>
 <body>
-	<iframe id="diapositiva" src="http://localhost:8848/" frameborder="0"></iframe>
-	<iframe id="camara" src="http://192.168.0.15:8081/video" frameborder="0"></iframe>
+	<form id="botones">
+		<input type="checkbox" name="bloqueoCamra" id="bloquearCamara">
+	</form>
+	<iframe class="libre" id="diapositiva" src="http://localhost:8848/" frameborder="0"></iframe>
+	<iframe class="libre" id="camara" src="http://192.168.0.15:8081/video" frameborder="0"></iframe>
 	<iframe id="material" src="file:///C:/Users/tano_/Google%20Drive/CBC" frameborder="0"></iframe>
 </body>
+<script>
+	const diapositiva = document.getElementById('diapositiva')
+	const camara = document.getElementById('camara')
+
+	document.getElementById('bloquearCamara').onclick = function() {
+		if (this.checked) {
+			diapositiva.classList.add('bloqueo')
+			camara.classList.add('bloqueo')
+			diapositiva.classList.remove('libre')
+			camara.classList.remove('libre')
+		}
+		else {
+			diapositiva.classList.remove('bloqueo')
+			camara.classList.remove('bloqueo')
+			diapositiva.classList.add('libre')
+			camara.classList.add('libre')
+		}
+	}
+</script>
 </html>
