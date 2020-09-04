@@ -1,0 +1,92 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Pagina creada por Mario Estanislao Cesar Ariet"
+	//- Poner una descripcion del tema de la pagina. Sobre todo para cuando arme una pagina como indice general.
+	meta(name="description", content="Dinámica")
+	//- A continuación poner los tag que describen los temas de las diapositvas
+	//- también incluir para quienes esta dirigida la diapositiva, materia, codigo materia, cbc
+	meta(name="keywords", content="palabras claves")
+
+block body
+
+	+diapositiva("Dinámica")
+		.diapo__contenido
+			p Es el estudio del movimiento en relación con sus causas.
+			p Interrogantes que nos motivaran:
+			ul
+				li ¿Por qué se mueven los objetos?
+				li ¿Los objetos se mueven sólos o necesitan de un agente externo?
+				li ¿Qué hace que los objetos cueste más o menos acelerarlos o detenerlos?
+
+		.comentario
+			h3 Nota
+			p Haremos diferencia entre dos tipos de estado de movimiento.
+				ul
+					li MRU (Movimiento Rectilineo Uniforme): Cuando un objeto mantiene velocidad constante o esta quieto.
+					li Movimiento acelerado: Cuando la velocidad o la dirección de movimiento varia en el tiempo.
+	
+
+	+diapositiva("Masa")
+		.diapo__contenido
+			ul
+				li En físico-química se definió que la masa es la cantidad de materia de un cuerpo.
+				li En Física la masa es la magnitud que mide la resistencia de un cuerpo al cambio de movimiento.
+					.comentario: ul
+						li A mayor masa más difícil es acelerar un cuerpo.
+						li Ejemplo: Es más fácil empujar un carrito de supermercado vacio que empujar un carrito lleno.
+					li Es una magnitud del tipo escalar.
+					li Sus unidades son: 
+						ul
+							li $kg$ (kilogramos), 
+							li $g$ (gramos).
+
+
+	+diapositiva("Fuerza")
+		.diapo__contenido
+			ul
+				li Es la magnitud física encargada de que los cuerpos con masa cambien su condición de movimiento.
+					.comentario
+						ul
+							li A mayor fuerza más rápido cambia de velocidad un objeto.
+							li Si tengo dos objetos de distinta masa y les aplico la misma fuerza, el mas liviano cambiara su velocidad mas rápido.
+				li La percibimos cuando empujamos o tiramos de un objeto.
+				li Es una magnitud del tipo vectorial. Necesitamos indicar desde donde se realiza la fuerza y en que dirección.
+					.comentario
+						p Empujar para arriba o para adelante un objeto hará que su movimiento sea distinto.
+				li Unidades de Fuerza:
+					ul
+						li $N$ (Newton).
+						li $dyn$ (Dinas).
+						li $kgf$ (kilogramos fuerza).
+
+
+	+diapositiva("Leyes de Newton")
+		.diapo__contenido
+			p Newton desarrollo tres leyes que permiten describir todo el universo.
+			h3 Primera Ley
+			p Todo cuerpo que no esté sometido a fuerzas externas permanece en reposo o a velocidad constante.
+			h3 Segunda Ley 
+			p Un cuerpo de masa $m$ sometido a una fuerza $F$ cambiará su estado de movimiento con una aceleración $a$ según la expresión
+			p \[ F=m\cdot a \]
+			h3 Tercera ley
+			p Todo fuerza aplicada a un cuerpo devuelve una fuerza de igual intensidad y de sentido opuesto.
+
+
+block header
+	+navegacion
