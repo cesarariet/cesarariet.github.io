@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="Ejemplo de las leyes de Newton, describiendo como es y que sucede en un viaje en el espacio exterior."/>
+    <meta name="keywords" content="Newton, Dinámica, espacio exterior, masa, peso"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Dínamica para el viaje al espacio exterior - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="icofont/icofont.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="leyes-de-newton">
+      <h2>Leyes de Newton</h2>
+      <div class="diapo__contenido">
+        <p>Newton desarrollo tres leyes que permiten describir todo el universo.</p>
+        <h3>Primera Ley</h3>
+        <p>Todo cuerpo que no esté sometido a fuerzas externas permanece en reposo o a velocidad constante.</p>
+        <h3>Segunda Ley </h3>
+        <p>Un cuerpo de masa $m$ sometido a una fuerza $F$ cambiará su estado de movimiento con una aceleración $a$ según la expresión</p>
+        <p>\[ F=m\cdot a \]</p>
+        <h3>Tercera ley</h3>
+        <p>Todo fuerza aplicada a un cuerpo devuelve una fuerza de igual intensidad y de sentido opuesto.</p>
+      </div>
+    </section>
+    <section class="diapo" id="la-fuerza-de-la-gravedad">
+      <h2>La fuerza de la gravedad</h2>
+      <div class="diapo__contenido">
+        <ul>
+          <li>Newton describio que el fenómeno que hace que los objetos caigan al suelo es el mismo por el cual los planetas se mueven.</li>
+          <li>Todos par de objetos con masa se atraen entre sí:
+            <ul>
+              <li>Con una Fuerza proporcional a las masas de los cuerpos.</li>
+              <li>Con una fuerza que disminuye con la separación entre los objetos.</li>
+            </ul>
+            <div class="comentario">
+              <h3>Nota</h3>
+              <div>
+                <p>La formula que desarrollo Newton es</p>
+                <p>\[ F= - \frac{m_1\cdot m_2}{d^2} \]</p>
+                <p>donde $m_1$ y $m_2$ son las masas de los cuerpos y $d$ es la distancia que los separa.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="diapo" id="la-masa-y-el-peso">
+      <h2>La masa y el peso</h2>
+      <div class="diapo__contenido">
+        <h3>Masa</h3>
+        <ul> 
+          <li>Según físico-química es la cantidad de materia de un cuerpo.</li>
+          <li>Según las leyes de Newton es la cantidad que determina que tan difícil es cambiar el estado de movimiento (la velocidad) de un cuerpo.</li>
+          <li>Es una magnitud escalar (Se describe con un número y una unidad).</li>
+          <li>Unidades: $kg$, $g$.</li>
+        </ul>
+        <h3>Peso</h3>
+        <ul>
+          <li>Es la fuerza de la gravedad que sienten los cuerpos debido al planeta.</li>
+          <li>Es magnitud vectorial: Tiene dirección porque apunta hacia "abajo" (al centro de la tierra)</li>
+          <li>Unidades: $N$, $dyn$, $kgf$.</li>
+        </ul>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <div>
+            <p><i class="icono-like"></i>La tierra nos atrae hacia ella, pero nosotros también la atraemos hacia nosotros (pero el efecto es muy pequeño).</p>
+            <p><i class="icono-alerta"></i>La luna y la tierra se atraen entre sí ¿Por qué no se cae la luna?</p>
+          </div>
+        </div>
+      </div>
+      <figure>
+        <figure><img src="imagenes/balanza.jpg"/>
+          <figcaption></figcaption>
+        </figure>
+        <figcaption>Una Balanza de dos platos sirve para comparar la masa de dos objetos.</figcaption>
+      </figure>
+      <figure>
+        <figure><img src="imagenes/dinamometro_homero.jpg"/>
+          <figcaption></figcaption>
+        </figure>
+        <figcaption>Las básculas para medir el peso que tenemos en casa miden el peso de la persona al percibir la deformación de un material elástico. </figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="la-luna-en-caída-libre">
+      <h2>La luna en caída libre</h2>
+      <div class="diapo__contenido">
+        <p>Según la ley de la gravitación de Newton todos los objetos con masa se atraen ¿Por qué la luna y la tierra no se atraen hasta colisionar?</p>
+        <p>En la imagen se observa un proyectil que se arroja con una determinada velocidad hacia el costado.</p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul> 
+            <li>En el instante que se lo lanza el proyectil comienza a caer hasta llegar al suelo.</li>
+            <li>Mientras más rápida sea la velocidad de salida, las lejo llegará.</li>
+            <li>Con una velocidad suficientemente alta el proyectil dara la vuelta a la tierra.</li>
+          </ul>
+        </div>
+        <p>La luna es como el proyectil que tiene suficiente velocidad como para siempre estar cayendo y nunca acercarse a la tierra.</p>
+        <p><i class="icono-alerta"></i>La velocidad de traslación de la luna alrededor de la tierra es aproximadamente $3600\frac{km}{h}$</p>
+      </div>
+      <figure id="vel-escape"><img src="imagenes/velocidad_de_escape.svg" id="vel-escape__img"/>
+        <figcaption>Proyectil (sin motores) lanzado desde la tierra. A mayor velocidad de lanzamiento más distancia recorrerá antes de golpear el suelo. Eventualmente puede dar la vuelta al planeta.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="caída-libre-y-tiro-vertical">
+      <h2>Caída libre y tiro vertical</h2>
+      <div class="diapo__contenido">
+        <p>Cuando se deja un objeto libre en el espacio, este se sentirá atraído por los objeto circundantes. Aquel de mayor masa y mas cercano lo atraerá con mayor fuerza.</p>
+        <p>En la tierra el objeto de mayor masa es la tierra misma. 
+          <ul> 
+            <li>La fuerza de la gravedad de la tierra provoca que todos los objetos tengan las misma aceleración de caida libre. De valor \[ g= 9,8 \frac{m}{s^2} \]</li>
+            <li>Todos caen con la misma aceleración de la gravedad sin importar su masa.</li>
+          </ul>
+        </p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>En la luna la aceleración de la gravedad es $1,6\frac{m}{s^2}.$</li>
+            <li>En marte la aceleración de la gravedad es $3,7\frac{m}{s^2}.$</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#leyes-de-newton">Leyes de Newton</a></li>
+          <li><a href="#la-fuerza-de-la-gravedad">La fuerza de la gravedad</a></li>
+          <li><a href="#la-masa-y-el-peso">La masa y el peso</a></li>
+          <li><a href="#la-luna-en-caída-libre">La luna en caída libre</a></li>
+          <li><a href="#caída-libre-y-tiro-vertical">Caída libre y tiro vertical</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clase</title>
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			height: 100vh;
+			width: 100vw;
+			position: relative;
+		}
+		#diapositiva:hover.libre {
+			height: 100vh;
+			width: 100vw;
+		}
+		#camara.libre {
+			position: absolute;
+			height: 100vh;
+			width: 1px;
+			top: 0;
+			right: 0;
+			opacity: 0;
+			overflow: hidden;
+		}
+		#diapositiva.libre, #diapositiva.bloqueo {
+			height: 100vh;
+			width: 30vw;
+		}
+		#camara:hover.libre, #camara.bloqueo {
+			height: 100vh;
+			width: 70vw;
+			overflow: hidden;
+			opacity: 1;
+		}
+
+		#material {
+			position: absolute;
+			height: 1vh;
+			width: 1vw;
+			top: 0;
+			right: 0;
+			opacity: 0;
+			overflow: hidden;
+		}
+		#material:hover {
+			height: 99vh;
+			width: 70vw;
+			opacity: 1;
+			z-index: 2;
+		}
+		#botones {
+			position: absolute;
+			right:10px;
+			bottom:10px;
+		}
+</style>
+</head>
+<body>
+	<form id="botones">
+		<input type="checkbox" name="bloqueoCamra" id="bloquearCamara">
+	</form>
+	<iframe class="libre" id="diapositiva" src="file:///C:/Users/tano_" frameborder="0"></iframe>
+	<iframe class="libre" id="camara" src="http://192.168.0.15:8081/video" frameborder="0"></iframe>
+	<iframe id="material" src="file:///C:/Users/tano_/Google%20Drive/CBC" frameborder="0"></iframe>
+</body>
+<script>
+	const diapositiva = document.getElementById('diapositiva')
+	const camara = document.getElementById('camara')
+
+	document.getElementById('bloquearCamara').onclick = function() {
+		if (this.checked) {
+			diapositiva.classList.add('bloqueo')
+			camara.classList.add('bloqueo')
+			diapositiva.classList.remove('libre')
+			camara.classList.remove('libre')
+		}
+		else {
+			diapositiva.classList.remove('bloqueo')
+			camara.classList.remove('bloqueo')
+			diapositiva.classList.add('libre')
+			camara.classList.add('libre')
+		}
+	}
+</script>
+</html>

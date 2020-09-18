@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<iframe src="http://localhost:8848" id='izq' frameborder="0"></iframe>
+	<iframe src="file:///C:/Users/tano_/Google%20Drive/" frameborder="0" id="der"></iframe>
+
+</body>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	iframe{
+		position: absolute;
+		top: 0;
+	}
+	#izq {
+		width: 50vw;
+		left: 0;
+	}
+	#der { 
+		width: 50vw;
+		right: 0;
+	}
+	#anotaciones{
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		width: 100vw;
+		height: 100vh;
+
+	}
+
+</style>
+
+<script>
+	
+	document.addEventListener('keydown',()=> {
+		alert('ddd')
+	})
+
+</script>
+</html>

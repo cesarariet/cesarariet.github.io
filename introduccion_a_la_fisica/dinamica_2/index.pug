@@ -1,0 +1,129 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Dínamica para el viaje al espacio exterior"
+	//- Poner una descripcion del tema de la pagina. Sobre todo para cuando arme una pagina como indice general.
+	meta(name="description", content="Ejemplo de las leyes de Newton, describiendo como es y que sucede en un viaje en el espacio exterior.")
+	//- A continuación poner los tag que describen los temas de las diapositvas
+	//- también incluir para quienes esta dirigida la diapositiva, materia, codigo materia, cbc
+	meta(name="keywords", content="Newton, Dinámica, espacio exterior, masa, peso")
+
+//-	+usarGeogebra
+
+block body
+
+	+diapositiva("Leyes de Newton")
+		.diapo__contenido
+			p Newton desarrollo tres leyes que permiten describir todo el universo.
+			h3 Primera Ley
+			p Todo cuerpo que no esté sometido a fuerzas externas permanece en reposo o a velocidad constante.
+			h3 Segunda Ley 
+			p Un cuerpo de masa $m$ sometido a una fuerza $F$ cambiará su estado de movimiento con una aceleración $a$ según la expresión
+			p \[ F=m\cdot a \]
+			h3 Tercera ley
+			p Todo fuerza aplicada a un cuerpo devuelve una fuerza de igual intensidad y de sentido opuesto.
+
+
+	+diapositiva("La fuerza de la gravedad")
+		.diapo__contenido
+			ul
+				li Newton describio que el fenómeno que hace que los objetos caigan al suelo es el mismo por el cual los planetas se mueven.
+				li Todos par de objetos con masa se atraen entre sí:
+					ul
+						li Con una Fuerza proporcional a las masas de los cuerpos.
+						li Con una fuerza que disminuye con la separación entre los objetos.
+					.comentario
+						h3 Nota
+						div
+							p La formula que desarrollo Newton es
+							p \[ F= - \frac{m_1\cdot m_2}{d^2} \]
+							p donde $m_1$ y $m_2$ son las masas de los cuerpos y $d$ es la distancia que los separa.
+
+	+diapositiva("La masa y el peso")
+		.diapo__contenido
+			h3 Masa
+			ul 
+				li Según físico-química es la cantidad de materia de un cuerpo.
+				li Según las leyes de Newton es la cantidad que determina que tan difícil es cambiar el estado de movimiento (la velocidad) de un cuerpo.
+				li Es una magnitud escalar (Se describe con un número y una unidad).
+				li Unidades: $kg$, $g$.
+
+			h3 Peso
+			ul
+				li Es la fuerza de la gravedad que sienten los cuerpos debido al planeta.
+				li Es magnitud vectorial: Tiene dirección porque apunta hacia "abajo" (al centro de la tierra)
+				li Unidades: $N$, $dyn$, $kgf$.
+		
+			.comentario
+				h3 Nota
+				div
+					p
+						i.icono-like
+						|La tierra nos atrae hacia ella, pero nosotros también la atraemos hacia nosotros (pero el efecto es muy pequeño).
+					p
+						i.icono-alerta
+						| La luna y la tierra se atraen entre sí ¿Por qué no se cae la luna?
+
+		figure
+			+imagen("imagenes/balanza.jpg")
+			figcaption Una Balanza de dos platos sirve para comparar la masa de dos objetos.
+
+		figure
+			+imagen("imagenes/dinamometro_homero.jpg")
+			figcaption Las básculas para medir el peso que tenemos en casa miden el peso de la persona al percibir la deformación de un material elástico. 
+
+
+	+diapositiva("La luna en caída libre")
+
+		.diapo__contenido
+			p Según la ley de la gravitación de Newton todos los objetos con masa se atraen ¿Por qué la luna y la tierra no se atraen hasta colisionar?
+			p En la imagen se observa un proyectil que se arroja con una determinada velocidad hacia el costado.
+			.comentario
+				h3 Nota
+				ul 
+					li En el instante que se lo lanza el proyectil comienza a caer hasta llegar al suelo.
+					li Mientras más rápida sea la velocidad de salida, las lejo llegará.
+					li Con una velocidad suficientemente alta el proyectil dara la vuelta a la tierra.
+			
+			p La luna es como el proyectil que tiene suficiente velocidad como para siempre estar cayendo y nunca acercarse a la tierra.
+			p
+				i.icono-alerta
+				| La velocidad de traslación de la luna alrededor de la tierra es aproximadamente $3600\frac{km}{h}$
+
+		figure#vel-escape
+			<img src="imagenes/velocidad_de_escape.svg" id="vel-escape__img"/>
+			figcaption Proyectil (sin motores) lanzado desde la tierra. A mayor velocidad de lanzamiento más distancia recorrerá antes de golpear el suelo. Eventualmente puede dar la vuelta al planeta.
+
+	+diapositiva("Caída libre y tiro vertical")
+		.diapo__contenido
+			p Cuando se deja un objeto libre en el espacio, este se sentirá atraído por los objeto circundantes. Aquel de mayor masa y mas cercano lo atraerá con mayor fuerza.
+			p En la tierra el objeto de mayor masa es la tierra misma. 
+				ul 
+					li La fuerza de la gravedad de la tierra provoca que todos los objetos tengan las misma aceleración de caida libre. De valor \[ g= 9,8 \frac{m}{s^2} \]
+					li Todos caen con la misma aceleración de la gravedad sin importar su masa.
+
+			.comentario
+				h3 Nota
+				ul
+					li En la luna la aceleración de la gravedad es $1,6\frac{m}{s^2}.$
+					li En marte la aceleración de la gravedad es $3,7\frac{m}{s^2}.$
+	
+
+
+block header
+	+navegacion
