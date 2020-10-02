@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+      }
+
+      #diapositiva.bloqueo {
+        height: 100vh;
+        width: 30vw;
+      }
+      #camara.bloqueo {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 70vw;
+        overflow: hidden;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="botones">
+      <input type="checkbox" name="bloqueoCamra" id="bloquearCamara" />
+    </form>
+    <iframe
+      class="bloqueo"
+      id="diapositiva"
+      src="http://localhost:8848/"
+      frameborder="0"
+    ></iframe>
+    <iframe
+      class="bloqueo"
+      id="camara"
+      src="http://192.168.0.15:8081/video"
+      frameborder="0"
+    ></iframe>
+  </body>
+</html>
