@@ -1,0 +1,71 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Pagina creada por Mario Estanislao Cesar Ariet"
+	//- Poner una descripcion del tema de la pagina. Sobre todo para cuando arme una pagina como indice general.
+	meta(name="description", content="descripción del tema")
+	//- A continuación poner los tag que describen los temas de las diapositvas
+	//- también incluir para quienes esta dirigida la diapositiva, materia, codigo materia, cbc
+	meta(name="keywords", content="palabras claves")
+
+	+usarGeogebra
+
+block body
+	+diapositiva("Suma de vectores y producto por un escalar")
+		.diapo__contenido
+			h3 Suma de vectores
+			ul
+				li En $\Re^2$ \[(v_1,v_2)+(w_1,w_2)=(v_1+w_1,v_2+w_2) \]
+				li En $\Re^3$  \[(v_1,v_2,v_3)+(w_1,w_2,w_3)=(v_1+w_1,v_2+w_2,v_3+w_3) \]
+			h3 Producto por un escalar
+			ul
+				li En $\Re^2$ \[ \lambda\cdot (v_1,v_2)=(\lambda\cdot v_1,\lambda \cdot v_2) \]
+		.comentario
+			h3 Nota
+			ul
+				li Geometricamente la suma de vectores es la regla de la poligonal.
+				li Al multiplicar un vector por un escalar, el vector se estira según el valor del escalar pero sin cambiar su dirección.
+
+		figure
+			+graficoGeogebra("sumaVectores","api.setCoordSystem(-5,5,-3,5)")
+
+
+	+diapositiva("Recta en el plano")
+		.diapo__contenido
+			ul
+				li En el plano $\Re^n$, una recta puede representarse parametricamente usando \[ (x,y)=\lambda\cdot v+P \] donde $v$ es un vector director y $P$ es un punto de paso.
+				li En el caso particular de $R^2$ pueden representarse de forma implícita mediante la ecuación \[ ax+by=c \] donde $a,b,c$ son números constantes.
+				li Si $v=(v_1,v_2)$ es un vector director de la recta y $P=(P_1,P_2)$ es un punto de paso de una recta en $R^2$ se tiene:
+					ul
+						li Forma paramétrica: $(x,y)=\lambda \cdot (v_1,v_2)+(p_1,p_2)$
+						li Forma implícita: $v_2x-v_1y=v_2p_1-v_1p_2$
+		.comentario
+			h3 Nota
+			ul
+				li $(v_2,-v_1)$ es un vector perpendicular al vector $(v_1,v_2)$
+				li Si $P$ y $Q$ son puntos de paso de una recta, entonces $Q-P$ es un vector director de la misma.
+				li Con la forma paramétrica es fácil dar puntos de la recta.
+				li La forma implícita es fácil decidir si un punto pertenece o no a una recta.
+				li En $\Re^3$ veremos que una recta se describe con dos ecuaciones. 
+
+		figure
+			+graficoGeogebra("rectaR2")
+
+
+block header
+	+navegacion

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="descripción del tema"/>
+    <meta name="keywords" content="palabras claves"/>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var parametrosGeogebra = {
+      	"showMenuBar":false,
+      	"showAlgebraInput":false,
+      	"showToolBar":false,
+      	"showToolBarHelp":false,
+      	"showResetIcon":false,
+      	"enableLabelDrags":false,
+      	"enableShiftDragZoom":true,
+      	"enableRightClick":false,
+      	"errorDialogsActive":false,
+      	"useBrowserForJS":false,
+      	"allowStyleBar":false,
+      	"preventFocus":false,
+      	"showZoomButtons":false,
+      	"showFullscreenButton":true,
+      	"scale":1,
+      	"autoHeight":false,
+      	"disableAutoScale":false,
+      	"allowUpscale":false,
+      	"clickToLoad":false,
+      	"appName":"classic",
+      	"showSuggestionButtons":false,
+      	"buttonRounding":0.7,
+      	"buttonShadows":false,
+      	"language":"es",
+      }
+      
+    </script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Pagina creada por Mario Estanislao Cesar Ariet - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="icofont/icofont.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="suma-de-vectores-y-producto-por-un-escalar">
+      <h2>Suma de vectores y producto por un escalar</h2>
+      <div class="diapo__contenido">
+        <h3>Suma de vectores</h3>
+        <ul>
+          <li>En $\Re^2$ \[(v_1,v_2)+(w_1,w_2)=(v_1+w_1,v_2+w_2) \]</li>
+          <li>En $\Re^3$  \[(v_1,v_2,v_3)+(w_1,w_2,w_3)=(v_1+w_1,v_2+w_2,v_3+w_3) \]</li>
+        </ul>
+        <h3>Producto por un escalar</h3>
+        <ul>
+          <li>En $\Re^2$ \[ \lambda\cdot (v_1,v_2)=(\lambda\cdot v_1,\lambda \cdot v_2) \]</li>
+        </ul>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <ul>
+          <li>Geometricamente la suma de vectores es la regla de la poligonal.</li>
+          <li>Al multiplicar un vector por un escalar, el vector se estira según el valor del escalar pero sin cambiar su dirección.</li>
+        </ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="sumaVectores"></div>
+        <script>var sumaVectores_parametros = {...parametrosGeogebra}
+sumaVectores_parametros.id = "sumaVectores"
+sumaVectores_parametros.appletOnLoad = function(api){ api.setCoordSystem(-5,5,-3,5) }
+sumaVectores_parametros.filename = "geogebra/sumaVectores.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+sumaVectores_parametros.width = "500";
+sumaVectores_parametros.height = "400";
+          var applet_sumaVectores = new GGBApplet(sumaVectores_parametros, '5.0', views);
+          applet_sumaVectores.inject("sumaVectores");
+          
+          
+        </script>
+      </figure>
+    </section>
+    <section class="diapo" id="recta-en-el-plano">
+      <h2>Recta en el plano</h2>
+      <div class="diapo__contenido">
+        <ul>
+          <li>En el plano $\Re^n$, una recta puede representarse parametricamente usando \[ (x,y)=\lambda\cdot v+P \] donde $v$ es un vector director y $P$ es un punto de paso.</li>
+          <li>En el caso particular de $R^2$ pueden representarse de forma implícita mediante la ecuación \[ ax+by=c \] donde $a,b,c$ son números constantes.</li>
+          <li>Si $v=(v_1,v_2)$ es un vector director de la recta y $P=(P_1,P_2)$ es un punto de paso de una recta en $R^2$ se tiene:
+            <ul>
+              <li>Forma paramétrica: $(x,y)=\lambda \cdot (v_1,v_2)+(p_1,p_2)$</li>
+              <li>Forma implícita: $v_2x-v_1y=v_2p_1-v_1p_2$</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <ul>
+          <li>$(v_2,-v_1)$ es un vector perpendicular al vector $(v_1,v_2)$</li>
+          <li>Si $P$ y $Q$ son puntos de paso de una recta, entonces $Q-P$ es un vector director de la misma.</li>
+          <li>Con la forma paramétrica es fácil dar puntos de la recta.</li>
+          <li>La forma implícita es fácil decidir si un punto pertenece o no a una recta.</li>
+          <li>En $\Re^3$ veremos que una recta se describe con dos ecuaciones. </li>
+        </ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="rectaR2"></div>
+        <script>var rectaR2_parametros = {...parametrosGeogebra}
+rectaR2_parametros.id = "rectaR2"
+rectaR2_parametros.appletOnLoad = function(api){  }
+rectaR2_parametros.filename = "geogebra/rectaR2.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+rectaR2_parametros.width = "500";
+rectaR2_parametros.height = "400";
+          var applet_rectaR2 = new GGBApplet(rectaR2_parametros, '5.0', views);
+          applet_rectaR2.inject("rectaR2");
+          
+          
+        </script>
+      </figure>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#suma-de-vectores-y-producto-por-un-escalar">Suma de vectores y producto por un escalar</a></li>
+          <li><a href="#recta-en-el-plano">Recta en el plano</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
