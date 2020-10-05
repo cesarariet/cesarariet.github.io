@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="Definición de Función y descripción de las funciones más usadas. Definición de composición y de función inversa."/>
+    <meta name="keywords" content="Función, lineal, cuadrática, polinómica, exponencial, logarítmica, trigonométricas, inversa, composición"/>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var parametrosGeogebra = {
+      	"showMenuBar":false,
+      	"showAlgebraInput":false,
+      	"showToolBar":false,
+      	"showToolBarHelp":false,
+      	"showResetIcon":false,
+      	"enableLabelDrags":false,
+      	"enableShiftDragZoom":true,
+      	"enableRightClick":false,
+      	"errorDialogsActive":false,
+      	"useBrowserForJS":false,
+      	"allowStyleBar":false,
+      	"preventFocus":false,
+      	"showZoomButtons":false,
+      	"showFullscreenButton":true,
+      	"scale":1,
+      	"autoHeight":false,
+      	"disableAutoScale":false,
+      	"allowUpscale":false,
+      	"clickToLoad":false,
+      	"appName":"classic",
+      	"showSuggestionButtons":false,
+      	"buttonRounding":0.7,
+      	"buttonShadows":false,
+      	"language":"es",
+      }
+      
+    </script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Funciones Reales - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="icofont/icofont.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="definición-de-función">
+      <h2>Definición de función</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>Llamaremos función $f:A\rightarrow B$ a la relación de elementos entre los conjuntos $A$ y $B$ donde cada elemento de $A$ tiene asociado un único elemento de $B$.</p>
+        <ul> 
+          <li>Si $b\in B$ está asociado a $a\in A$ a través de $f$ lo notaremos \[ f(a)=b \]</li>
+          <li>Llamaremos dominio al conjunto A y lo notaremos \[\text{Dom }f=A\]</li>
+          <li>Llamaremos codominio al conjunto B y lo notaremos \[\text{Codom }f =B\]</li>
+        </ul>
+      </div>
+      <figure><img src="./imagenes/definicionFuncion.png" alt="Representación de una función mediante diagrama de Venn. Notar que para cada elemento del dominio $A$ hay una única flecha apuntando a algún elemento de $B.$"/>
+        <figcaption>Representación de una función mediante diagrama de Venn. Notar que para cada elemento del dominio $A$ hay una única flecha apuntando a algún elemento de $B.$</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="representación-de-funciones">
+      <h2>Representación de funciones</h2>
+      <div class="diapo__contenido">
+        <p>Un función puede definirse de distintas maneras. Algunas de ellas son:</p>
+        <ul>
+          <li>Dando explícitamente todas las evaluaciones.</li>
+          <li>Mediante una fórmula. Ej: $f(x) = 2\cdot x+1$.</li>
+          <li>Con un gráfico de función que consiste en el conjunto de puntos \[ \text{graf } f = \{(x,f(x)): x\in\text{ Dom }f \} \]</li>
+        </ul>
+        <figure><img src="imagenes/funcionesYNoFunciones.png" alt="Ejemplos de funciones dando todas evaluaciones en forma explícita. El caso $c$ es una relación que no cumple con la definición de función."/>
+          <figcaption>Ejemplos de funciones dando todas evaluaciones en forma explícita. El caso $c$ es una relación que no cumple con la definición de función.</figcaption>
+        </figure>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="graficoFuncion"></div>
+        <script>var graficoFuncion_parametros = {...parametrosGeogebra}
+graficoFuncion_parametros.id = "graficoFuncion"
+graficoFuncion_parametros.appletOnLoad = function(api){ api.setCoordSystem(-3,3,-4,4) }
+graficoFuncion_parametros.filename = "geogebra/graficoFuncion.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+graficoFuncion_parametros.width = "450";
+graficoFuncion_parametros.height = "450";
+          var applet_graficoFuncion = new GGBApplet(graficoFuncion_parametros, '5.0', views);
+          applet_graficoFuncion.inject("graficoFuncion");
+          
+          
+        </script>
+        <figcaption>Gráfico de una función. El punto azul representa uno de los elementos del gráfico.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="dominio-e-imagen">
+      <h2>Dominio e Imagen</h2>
+      <div class="diapo__contenido">
+        <h3>Dominio de una función</h3>
+        <ul>
+          <li>"Todos los $x$ donde la función esta definida."</li>
+          <li>"Los valores de $x$ donde hay gráfico."</li>
+        </ul>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>El dominio puede darse en forma explícita o deducirse de la definición de la función o del contexto.</li>
+            <li>En funciones dadas por una fórmula se llama dominio natural al conjunto de valores donde la fórmula tiene sentido.</li>
+          </ul>
+        </div>
+        <h3>Imagen de una función </h3>
+        <p>Se define como $\text{Im }f = \{f(x):x\in \text{Dom }f\}$</p>
+        <ul>
+          <li>"Conjunto de TODAS las evaluaciones de una función."</li>
+          <li>"Conjunto de las alturas donde hay gráfico de función."</li>
+        </ul>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>Codominio e Imagen son conceptos distintos.</li>
+          </ul>
+        </div>
+      </div>
+      <figure><img src="imagenes/dominioGrafico.png" alt="Visualización del dominio de una función en su gráfico."/>
+        <figcaption>Visualización del dominio de una función en su gráfico.</figcaption>
+      </figure>
+      <figure><img src="imagenes/imagenGrafico.png" alt="Visualización de la imagen de una función en su gráfico."/>
+        <figcaption>Visualización de la imagen de una función en su gráfico.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="conjuntos-de-ceros---de-positividad---de-negatividad">
+      <h2>Conjuntos de ceros - de positividad - de negatividad</h2>
+      <div class="diapo__contenido">
+        <h3>Conjunto de ceros</h3>
+        <ul>
+          <li>$ C_0(f)=\{x\in\text{Dom }f:f(x)=0 \} $
+            <li>"Todos los $x$ donde la función vale cero."</li>
+            <li>"Todos los $x$ donde el gráfico de f toca el eje de abscisas."</li>
+          </li>
+        </ul>
+        <h3>Conjunto de positividad</h3>
+        <ul>
+          <li>$ C_+(f)=\{ x\in\text{Dom }f:f(x)>0 \} $</li>
+          <li>"Todos los $x$ donde $f(x)$ tiene valor positivo."</li>
+          <li>"Todos los $x$ donde el gráfico se encuentra por arriba del eje de abscisas."</li>
+        </ul>
+        <h3>Conjunto de negatividad</h3>
+        <ul>
+          <li>$ C_+(f)=\{ x\in\text{Dom }f:f(x)<0 \} $</li>
+          <li>"Todos los $x$ donde $f(x)$ tiene valor negativo."</li>
+          <li>"Todos los $x$ donde el gráfico se encuentra por debajo del eje de abscisas."</li>
+        </ul>
+      </div>
+      <figure><img src="imagenes/cerosPositividadNegatividad.png" alt="Visualización de los conjuntos de ceros, de positividad y de negatividad en el gráfico de funciones."/>
+        <figcaption>Visualización de los conjuntos de ceros, de positividad y de negatividad en el gráfico de funciones.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="intervalos-de-monotonía">
+      <h2>Intervalos de monotonía</h2>
+      <div class="diapo__contenido">
+        <h3>Intervalo de crecimiento</h3>
+        <p>$I_\nearrow f$ = “valores de x donde la función sube” (viendo de izquierda a derecho).	</p>
+        <p>Si $x_1,x_2 \in I_\nearrow f$ entonces \[ x_1&lt x_2 \iff f(x_1) &lt f(x_2)\] </p>
+        <h3>Intervalo de decrecimiento</h3>
+        <p>$I_\searrow f$ = “valores de x donde la función baja” (viendo de izquierda a derecho).</p>
+        <p>Si $x_1,x_2 \in I_\nearrow f$ entonces \[ x_1&lt x_2 \iff f(x_1) &gt f(x_2)\] </p>
+      </div>
+      <figure><img src="imagenes/crecimientoDecrecimiento.png"/>
+        <figcaption></figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="función-lineal">
+      <h2>Función lineal</h2>
+      <div class="diapo__contenido">
+        <p>\[ f(x)=m\cdot x + b \]</p>
+        <ul>
+          <li>El gráfico de $f$ es una recta.</li>
+          <li>$m$ es la pendiente de la recta.
+            <ul>
+              <li>$m>0$ función creciente en $\Re$</li>
+              <li>$m=0$ función constante en $\Re$</li>
+              <li>$m&lt 0$ función decreciente en $\Re$</li>
+            </ul>
+          </li>
+          <li>$b$ es la ordenada al origen.				</li>
+        </ul>
+        <p>La función lineal que pasa por los puntos $(x_1,y_1)$ y $(x_2,y_2)$ puede calcularse como</p>
+        <p>\[ f(x)=m(x-x_1)+y_1\]</p>
+        <p>\[ m=\frac{y_2-y_1}{x_2-x_1} \]</p>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <p>La rectas verticales no tienen asociada una función lineal ya que su gráfico no representa una función. </p>
+      </div>
+      <div class="contenedor--geogebra" id="funcionLineal"></div>
+      <script>var funcionLineal_parametros = {...parametrosGeogebra}
+funcionLineal_parametros.id = "funcionLineal"
+funcionLineal_parametros.appletOnLoad = function(api){ api.setCoordSystem(-2,4,-1,3) }
+funcionLineal_parametros.filename = "geogebra/funcionLineal.ggb"
+        // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+        var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+funcionLineal_parametros.width = "500";
+funcionLineal_parametros.height = "400";
+        var applet_funcionLineal = new GGBApplet(funcionLineal_parametros, '5.0', views);
+        applet_funcionLineal.inject("funcionLineal");
+        
+        
+      </script>
+    </section>
+    <section class="diapo" id="función-cuadrática">
+      <h2>Función Cuadrática</h2>
+      <diapo__contenido>
+        <p>Forma Polinómica: \[ f(x) = ax^2+bx+c\]</p>
+        <p>Forma Canónica: \[f(x)= a(x-x_v)^2+y_v\]</p>
+        <p>Forma Factorizada: \[ f(x)= a(x-x_1)(x-x_2) \]</p>
+      </diapo__contenido>
+      <figure>
+        <div class="contenedor--geogebra" id="canonicaCuadratica"></div>
+        <script>var canonicaCuadratica_parametros = {...parametrosGeogebra}
+canonicaCuadratica_parametros.id = "canonicaCuadratica"
+canonicaCuadratica_parametros.appletOnLoad = function(api){ api.setCoordSystem(-2,4,-3,4) }
+canonicaCuadratica_parametros.filename = "geogebra/canonicaCuadratica.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+canonicaCuadratica_parametros.width = "350";
+canonicaCuadratica_parametros.height = "400";
+          var applet_canonicaCuadratica = new GGBApplet(canonicaCuadratica_parametros, '5.0', views);
+          applet_canonicaCuadratica.inject("canonicaCuadratica");
+          
+          
+        </script>
+        <figcaption>Gráfico de una función cuadrática, con su vértice y su forma canónica. </figcaption>
+      </figure>
+      <div class="comentario">
+        <ul>
+          <li>$a$ es el coeficiente principal.</li>
+          <li>El gráfico de una cuadrática es una parábola con ramas hacia arriba para $a\gt 0$ y ramas hacia abajo para $a\lt 0.$</li>
+          <li>$(x_v,y_v)$ es el vertice de la parábola. \[x_v=-\frac{b}{2a}, y_v=f(x_v)\]</li>
+          <li>$x_1$ y $x_2$ son las raices de la función cuadrática (si existen). \[ x_1,x_2=\frac{-b\pm\sqrt{b^2-2ac}}{2a} \]</li>
+        </ul>
+      </div>
+    </section>
+    <section class="diapo" id="función-homográfica">
+      <h2>Función Homográfica</h2>
+      <diapo__contenido>
+        <p>\[f(x)=\frac{ax+b}{cx+d} \]</p>
+        <div class="comentario">
+          <ul>
+            <li>Es necesario $c\neq 0$ y $ad\neq bc$ para tener una homográfica.</li>
+            <li>$\text{Dom }f=\Re-\{-d/c\}$ (no se puede dividir por cero).</li>
+            <li>Hay una asíntota vertical de ecuación $x=-d/c$.</li>
+            <li>$\text{Im }f = \Re-\{a/c\}$.</li>
+            <li>Hay una asíntota horizontal de ecuación $y=a/c$.</li>
+          </ul>
+        </div>
+      </diapo__contenido>
+      <figure>
+        <div class="contenedor--geogebra" id="homografica"></div>
+        <script>var homografica_parametros = {...parametrosGeogebra}
+homografica_parametros.id = "homografica"
+homografica_parametros.appletOnLoad = function(api){ api.setCoordSystem(-10,10,-5,15) }
+homografica_parametros.filename = "geogebra/homografica.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+homografica_parametros.width = "500";
+homografica_parametros.height = "400";
+          var applet_homografica = new GGBApplet(homografica_parametros, '5.0', views);
+          applet_homografica.inject("homografica");
+          
+          
+        </script>
+        <figcaption>Gráfico de una función homográfica y sus asíntotas.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="gráfico-de-funciones">
+      <h2>Gráfico de funciones</h2>
+      <div class="diapo__contenido"><ul>
+<li>Se llama gráfico de $f(x)$  a la colección de puntos $(x,f(x))$.</li>
+<li>Toda función tiene un gráfico asociado.</li>
+<li>No todos los gráficos representan funciones.</li>
+</ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="funcionPolinomica"></div>
+        <script>var funcionPolinomica_parametros = {...parametrosGeogebra}
+funcionPolinomica_parametros.id = "funcionPolinomica"
+funcionPolinomica_parametros.appletOnLoad = function(api){ api.setCoordSystem(-2,4,-5,4) }
+funcionPolinomica_parametros.filename = "geogebra/funcionPolinomica.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+funcionPolinomica_parametros.width = "400";
+funcionPolinomica_parametros.height = "400";
+          var applet_funcionPolinomica = new GGBApplet(funcionPolinomica_parametros, '5.0', views);
+          applet_funcionPolinomica.inject("funcionPolinomica");
+          
+          
+        </script>
+        <figcaption>Cada punto del gráfico de una función tiene la forma $(x,f(x))$. Notar que por cada valor de $x$ el gráfico pasa exactamente una altura que corresponde con el valor de $f(x).$</figcaption>
+      </figure>
+      <figure>
+        <div class="contenedor--geogebra" id="curvaQueNoEsFuncion"></div>
+        <script>var curvaQueNoEsFuncion_parametros = {...parametrosGeogebra}
+curvaQueNoEsFuncion_parametros.id = "curvaQueNoEsFuncion"
+curvaQueNoEsFuncion_parametros.appletOnLoad = function(api){ api.setCoordSystem(-4,2,-4,4) }
+curvaQueNoEsFuncion_parametros.filename = "geogebra/curvaQueNoEsFuncion.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+curvaQueNoEsFuncion_parametros.width = "400";
+curvaQueNoEsFuncion_parametros.height = "400";
+          var applet_curvaQueNoEsFuncion = new GGBApplet(curvaQueNoEsFuncion_parametros, '5.0', views);
+          applet_curvaQueNoEsFuncion.inject("curvaQueNoEsFuncion");
+          
+          
+        </script>
+        <figcaption>Gráfico de una curva que no representa ninguna función. Existen valores de $x$ para los cuales hay dos alturas con puntos de la curva asociados.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="intercambio-de-coordenadas">
+      <h2>Intercambio de coordenadas</h2>
+      <div class="diapo__contenido"><ul>
+<li>Ejemplo: $(1,2)$ pasa a ser $(2,1)$</li>
+<li>Ejemplo: $(3,3)$ pasa a ser $(3,3)$ </li>
+<li>Para un conjunto de puntos se comporta como rotación de 90° del gráfico, junto con una reflexión horizontal.</li>
+<li>Al aplicarlo en gráficos de funciones el resultado a veces no corresponde con el gráfico otra función.</li>
+</ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="puntoIntercambioDeCoordenadas"></div>
+        <script>var puntoIntercambioDeCoordenadas_parametros = {...parametrosGeogebra}
+puntoIntercambioDeCoordenadas_parametros.id = "puntoIntercambioDeCoordenadas"
+puntoIntercambioDeCoordenadas_parametros.appletOnLoad = function(api){ api.setCoordSystem(-2,3,-2,3) }
+puntoIntercambioDeCoordenadas_parametros.filename = "geogebra/puntoIntercambioDeCoordenadas.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+puntoIntercambioDeCoordenadas_parametros.width = "300";
+puntoIntercambioDeCoordenadas_parametros.height = "300";
+          var applet_puntoIntercambioDeCoordenadas = new GGBApplet(puntoIntercambioDeCoordenadas_parametros, '5.0', views);
+          applet_puntoIntercambioDeCoordenadas.inject("puntoIntercambioDeCoordenadas");
+          
+          
+        </script>
+        <figcaption>En el gráfico puede verse un punto y el correspondiente al intercambio de coordenadas. En el caso que los ejes tengan la misma escala, ambos puntos son simétricos respecto de la recta $y=x$.</figcaption>
+      </figure>
+      <figure>
+        <div style="display:flex;align-content:space-evenly"><img width=230 id ="mano-que-se-invierte" src="./images/mano_para_intercambiar_coordenadas.png" alt="Imagen 1: mano.">
+<img width=230 src="./images/mano_para_intercambiar_coordenadas_2.png" alt="Imagen 2: mano luego de intercambio de coordendas para cada un de sus puntos.">
+        </div>
+        <figcaption>
+          Demostración del efecto de la inversión de coordenadas. La imagen de la derecha se obtiene de intercambiar las coordenadas de todos los puntos de la imagen de la izquierda.
+          Al posar el mouse o el dedo sobre la imagen de la izquierda, la misma hará una rotación de 90° anti-horaria y una reflexión horizontal.
+          
+          
+          
+          
+          
+        </figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="función-inversa---ideas">
+      <h2>Función inversa - Ideas</h2>
+      <div class="diapo__contenido"><ul>
+<li>Se la suele notar $f^{-1}(x)$ (ojo, si es que existe).</li>
+<li>Hace el camino opuesto \[f(x)=y \iff x=f^{-1}(y)\]</li>
+<li> Los puntos de $f^{-1}(x)$ son los de $f(x)$ 
+<em> con las coordenadas intercambiadas.</em>
+</li>
+<li>El gráfico de $f^{-1}(x)$ sale del intercambio de coordenadas de los puntos del gráfico de $f(x)$.</li>
+<li>Existen funciones que no tienen inversa.</li>
+</ul>
+<figure style="display:block">
+<div style="display: grid;grid-template: 1fr / 1fr 1fr">
+<table>
+<tr>
+<th>$x$</th>
+<th>$f(x)$</th>
+</tr>
+<tr>
+<td>-2</td>
+<td>-5</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>-3</td>
+</tr>
+<tr>
+<td>0</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+</tr>
+</table>
+<table>
+<tr>
+<th>$x$</th>
+<th>$f^{-1}(x)$</th>
+</tr>
+<tr>
+<td>-5</td>
+<td>-2</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+</tr>
+</table>
+</div>
+        <figcaption>Tabla de valores de la función $f(x)=2\cdot x-1$ (a la derecha) y tabla de valores de su función inversa $f^{-1}(x)$. Notar las tablas tienen sus columnas de valores intercambiados.</figcaption></figure>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="funcionInversaInterpretacionGeometrica"></div>
+        <script>var funcionInversaInterpretacionGeometrica_parametros = {...parametrosGeogebra}
+funcionInversaInterpretacionGeometrica_parametros.id = "funcionInversaInterpretacionGeometrica"
+funcionInversaInterpretacionGeometrica_parametros.appletOnLoad = function(api){ api.setCoordSystem(-3,3,-3,3) }
+funcionInversaInterpretacionGeometrica_parametros.filename = "geogebra/funcionInversaInterpretacionGeometrica.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+funcionInversaInterpretacionGeometrica_parametros.width = "400";
+funcionInversaInterpretacionGeometrica_parametros.height = "400";
+          var applet_funcionInversaInterpretacionGeometrica = new GGBApplet(funcionInversaInterpretacionGeometrica_parametros, '5.0', views);
+          applet_funcionInversaInterpretacionGeometrica.inject("funcionInversaInterpretacionGeometrica");
+          
+          
+        </script>
+        <figcaption>En el siguiente gráfico puede verse el efecto de intercambiar coordenadas a todos los puntos del gráfico de una función (que aparece en el recuadro). Con el deslizador puede rotarse la curva hasta los 90° y luego con la casilla reflejarla horizontalmente. Puede verse así que la función $f(x)=x^2$, por ejemplo, no tiene inversa.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="función-inversa---teoremas">
+      <h2>Función inversa - Teoremas</h2>
+      <div class="diapo__contenido">
+        <ul>
+          <li>Las funciones que "no repiten resultados" pueden invertirse.
+            <ul>
+              <li>
+                <strong>Definición: </strong> Diremos que una función $f(x)$ es <em>inyectiva</em> si no repite resultados, es decir,
+                \[
+                \forall x_1,x_2\in Dom f,
+                \underbrace{x_1\neq x_2\iff f(x_1)\neq f(x_2)}_{\text{distinto x da distinto resultado}}
+                \] 
+              </li>
+              <li><strong>Teorema: </strong>Las funciones inyectivas son inversibles.</li>
+            </ul>
+          </li>
+          <li><strong>Propiedades: </strong>
+            <ul><li>$f(x)=y \iff x=f^{-1}(y)$ (al despejar, una función "pasa como su inversa").</li>
+<li>$Im f^{-1} = Dom f$</li>
+<li>$Im f = Dom f^{-1}$</li>
+            </ul>
+          </li>
+          <li>El gráfico de $f^{-1}(x)$ es igual al gráfico de $f(x)$ luego de una rotación 90° y una reflexión horizontal</li>
+        </ul>
+      </div>
+    </section>
+    <section class="diapo" id="función-exponencial">
+      <h2>Función exponencial</h2>
+      <div class="diapo__contenido"><p>\[f(x)=a^x \]</p>
+<ul>
+<li> con $a\neq 1$ y $a>0$</li>
+<li>$a$ se denomina la base de la expoencial.
+</li>
+<li>$\text{Dom }a^x = \Re$</li>
+<li>$\text{Im }a^x = (0,+\infty)$</li>
+<li><strong>Para $a>1$ </strong>se tiene:
+<ul>
+<li>La función es creciente.</li>
+</ul>
+</li>
+<li>Para $0&lt a&lt 1$ se tiene:
+<ul>
+<li>La función es decreciente.</li>
+</ul>
+</li>
+</ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="exponencial"></div>
+        <script>var exponencial_parametros = {...parametrosGeogebra}
+exponencial_parametros.id = "exponencial"
+exponencial_parametros.appletOnLoad = function(api){ api.setCoordSystem(-5,5,-.5,5) }
+exponencial_parametros.filename = "geogebra/exponencial.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+exponencial_parametros.width = "500";
+exponencial_parametros.height = "400";
+          var applet_exponencial = new GGBApplet(exponencial_parametros, '5.0', views);
+          applet_exponencial.inject("exponencial");
+          
+          
+        </script>
+      </figure>
+    </section>
+    <section class="diapo" id="función-logarítmica">
+      <h2>Función logarítmica</h2>
+      <div class="diapo__contenido"><p>\[f(x)=\log_a(x) \]</p>
+<ul>
+<li> con $a\neq 1$ y $a>0$</li>
+<li>$a$ se denomina la base de del logaritmo.
+</li>
+<li>$\text{Dom }\log_a = (0,+\infty)$</li>
+<li>$\text{Im }\log_a = \Re$</li>
+<li>Tiene una asíntota vertical de ecuación $x=0$</li>
+<li><strong>Para $a>1$ </strong>se tiene:
+<ul>
+<li>La función es creciente.</li>
+</ul>
+</li>
+<li>Para $0&lt a&lt 1$ se tiene:
+<ul>
+<li>La función es decreciente.</li>
+</ul>
+</li>
+</ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="logaritmo"></div>
+        <script>var logaritmo_parametros = {...parametrosGeogebra}
+logaritmo_parametros.id = "logaritmo"
+logaritmo_parametros.appletOnLoad = function(api){ api.setCoordSystem(-.5,10,-10,10) }
+logaritmo_parametros.filename = "geogebra/logaritmo.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+logaritmo_parametros.width = "500";
+logaritmo_parametros.height = "400";
+          var applet_logaritmo = new GGBApplet(logaritmo_parametros, '5.0', views);
+          applet_logaritmo.inject("logaritmo");
+          
+          
+        </script>
+      </figure>
+    </section>
+    <section class="diapo" id="propiedades-de-la-función-exponencia-y-logarítmica">
+      <h2>Propiedades de la función exponencia y logarítmica</h2>
+      <div class="diapo__contenido"><ul>
+        <li>$a^x=y \iff x=\log_a(y) $</li><li>$a^{x+y}=a^x\cdot a^y$</li>
+<li>$a^{x-y}=\frac{a^x}{a^y}$</li>
+<li>$(a^x)^y=a^{x\cdot y}$</li>
+<li>$\log_a(x\cdot y)=\log_a(x)+\log_a(y)$</li>
+<li>$\log_a(\frac{x}{y})=\log_a(x)-\log_a(y)$</li>
+<li>$\log_a(x^y)=y\cdot \log_a(x)$</li>
+<li>Bases más comunes:
+<ul>
+<li>$e=2,718...$ con $\ln(x)=\log_e(x)$</li>
+<li>Base $10$ con $\log(x)=\log_{10}(x)$</li>
+</ul>
+</li>
+<li>Fórmula de cambio de base: $ \log_a(x)=\frac{\log_b(x)}{\log_b(a)} = \frac{\ln(x)}{\ln(a)} $</li>
+</ul>
+      </div>
+    </section>
+    <section class="diapo" id="circunferencia-trigonométrica">
+      <h2>Circunferencia trigonométrica</h2>
+      <div class="diapo__contenido"><ul>
+<li>Tiene radio $1$ y centro $(0,0)$</li>
+<li>Su perimetro vale $2\pi$. Una longitud de arco en la circunferencia es igual al ángulo en radianes.</li>
+        <li>Una lóngitud de arco $\alpha$ medida desde el punto $(1,0)$ de define al punto: \[ (\cos(\alpha),\sin(\alpha)) \] </li></ul>
+        <div class="comentario">
+          <ul><li>El giro anti-horario se considera como positivo y al giro horario como negativo. </li>
+            <li>Por el teorema de pitágoras:	\[ \cos^2(\alpha)+\sin^2(\alpha)=1 \]</li>
+            <li>Debido l radio de la circunsferencia trigonométrica 	\[-1\leq \cos(\alpha) \leq 1 \] \[ -1\leq \sin(\alpha) \leq 1 \]</li>
+            <li>$\cos(a+b)=\cos(a)\cos(b)-\sin(a)\sin(b)$</li>
+            <li>$\sin(a+b)=\cos(a)\sin(b)+\sin(a)\cos(b)$</li>
+          </ul>
+        </div>
+      </div>
+      <figure><iframe src="https://www.geogebra.org/calculator/b2bbhtva?embed" width="500" height="500" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe></figure>
+    </section>
+    <section class="diapo" id="seno-y-coseno">
+      <h2>Seno y coseno</h2>
+      <div class="diapo__contenido">
+        <h3>Función Coseno
+          <figure> 
+            <div class="contenedor--geogebra" id="coseno"></div>
+            <script>var coseno_parametros = {...parametrosGeogebra}
+coseno_parametros.id = "coseno"
+coseno_parametros.appletOnLoad = function(api){ api.setCoordSystem(-10,10,-1.2,1.2) }
+coseno_parametros.filename = "geogebra/coseno.ggb"
+              // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+              var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+coseno_parametros.width = "800";
+coseno_parametros.height = "250";
+              var applet_coseno = new GGBApplet(coseno_parametros, '5.0', views);
+              applet_coseno.inject("coseno");
+              
+              
+            </script>
+          </figure>
+        </h3>
+        <h3>Función Seno
+          <figure>
+            <div class="contenedor--geogebra" id="seno"></div>
+            <script>var seno_parametros = {...parametrosGeogebra}
+seno_parametros.id = "seno"
+seno_parametros.appletOnLoad = function(api){ api.setCoordSystem(-10,10,-1.2,1.2) }
+seno_parametros.filename = "geogebra/seno.ggb"
+              // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+              var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+seno_parametros.width = "800";
+seno_parametros.height = "250";
+              var applet_seno = new GGBApplet(seno_parametros, '5.0', views);
+              applet_seno.inject("seno");
+              
+              
+            </script>
+          </figure>
+        </h3>
+      </div>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#definición-de-función">Definición de función</a></li>
+          <li><a href="#representación-de-funciones">Representación de funciones</a></li>
+          <li><a href="#dominio-e-imagen">Dominio e Imagen</a></li>
+          <li><a href="#conjuntos-de-ceros---de-positividad---de-negatividad">Conjuntos de ceros - de positividad - de negatividad</a></li>
+          <li><a href="#intervalos-de-monotonía">Intervalos de monotonía</a></li>
+          <li><a href="#función-lineal">Función lineal</a></li>
+          <li><a href="#función-cuadrática">Función Cuadrática</a></li>
+          <li><a href="#función-homográfica">Función Homográfica</a></li>
+          <li><a href="#gráfico-de-funciones">Gráfico de funciones</a></li>
+          <li><a href="#intercambio-de-coordenadas">Intercambio de coordenadas</a></li>
+          <li><a href="#función-inversa---ideas">Función inversa - Ideas</a></li>
+          <li><a href="#función-inversa---teoremas">Función inversa - Teoremas</a></li>
+          <li><a href="#función-exponencial">Función exponencial</a></li>
+          <li><a href="#función-logarítmica">Función logarítmica</a></li>
+          <li><a href="#propiedades-de-la-función-exponencia-y-logarítmica">Propiedades de la función exponencia y logarítmica</a></li>
+          <li><a href="#circunferencia-trigonométrica">Circunferencia trigonométrica</a></li>
+          <li><a href="#seno-y-coseno">Seno y coseno</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>

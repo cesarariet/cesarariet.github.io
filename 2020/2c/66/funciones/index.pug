@@ -1,0 +1,426 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Funciones Reales"
+	//- Poner una descripcion del tema de la pagina. Sobre todo para cuando arme una pagina como indice general.
+	meta(name="description", content="Definición de Función y descripción de las funciones más usadas. Definición de composición y de función inversa.")
+	//- A continuación poner los tag que describen los temas de las diapositvas
+	//- también incluir para quienes esta dirigida la diapositiva, materia, codigo materia, cbc
+	meta(name="keywords", content="Función, lineal, cuadrática, polinómica, exponencial, logarítmica, trigonométricas, inversa, composición")
+
+	+usarGeogebra
+
+block body
+
+
+
+	+diapositiva("Definición de función")
+		.diapo__contenido
+			h3 Definición
+			p Llamaremos función $f:A\rightarrow B$ a la relación de elementos entre los conjuntos $A$ y $B$ donde cada elemento de $A$ tiene asociado un único elemento de $B$.
+			ul 
+				li Si $b\in B$ está asociado a $a\in A$ a través de $f$ lo notaremos \[ f(a)=b \]
+				li Llamaremos dominio al conjunto A y lo notaremos \[\text{Dom }f=A\]
+				li Llamaremos codominio al conjunto B y lo notaremos \[\text{Codom }f =B\]
+
+		+imagen("./imagenes/definicionFuncion.png","Representación de una función mediante diagrama de Venn. Notar que para cada elemento del dominio $A$ hay una única flecha apuntando a algún elemento de $B.$")
+
+
+	+diapositiva("Representación de funciones")
+
+		.diapo__contenido
+			p Un función puede definirse de distintas maneras. Algunas de ellas son:
+			ul
+				li Dando explícitamente todas las evaluaciones.
+				li Mediante una fórmula. Ej: $f(x) = 2\cdot x+1$.
+				li Con un gráfico de función que consiste en el conjunto de puntos \[ \text{graf } f = \{(x,f(x)): x\in\text{ Dom }f \} \]
+
+			+imagen("imagenes/funcionesYNoFunciones.png","Ejemplos de funciones dando todas evaluaciones en forma explícita. El caso $c$ es una relación que no cumple con la definición de función.")
+		
+		figure
+			+graficoGeogebra("graficoFuncion","api.setCoordSystem(-3,3,-4,4)",450,450)
+			figcaption Gráfico de una función. El punto azul representa uno de los elementos del gráfico.
+
+	+diapositiva("Dominio e Imagen")
+
+		.diapo__contenido
+			h3 Dominio de una función
+			ul
+				li "Todos los $x$ donde la función esta definida."
+				li "Los valores de $x$ donde hay gráfico."
+			.comentario
+				h3 Nota
+				ul
+					li El dominio puede darse en forma explícita o deducirse de la definición de la función o del contexto.
+					li En funciones dadas por una fórmula se llama dominio natural al conjunto de valores donde la fórmula tiene sentido.
+				
+			h3 Imagen de una función 
+			p Se define como $\text{Im }f = \{f(x):x\in \text{Dom }f\}$
+			ul
+				li "Conjunto de TODAS las evaluaciones de una función."
+				li "Conjunto de las alturas donde hay gráfico de función."
+
+			.comentario
+				h3 Nota
+				ul
+					li Codominio e Imagen son conceptos distintos.
+					
+		+imagen("imagenes/dominioGrafico.png","Visualización del dominio de una función en su gráfico.")
+
+		+imagen("imagenes/imagenGrafico.png","Visualización de la imagen de una función en su gráfico.")
+
+	+diapositiva("Conjuntos de ceros - de positividad - de negatividad")
+
+		.diapo__contenido
+			h3 Conjunto de ceros
+			ul
+				li $ C_0(f)=\{x\in\text{Dom }f:f(x)=0 \} $
+					li "Todos los $x$ donde la función vale cero."
+					li "Todos los $x$ donde el gráfico de f toca el eje de abscisas."
+			h3 Conjunto de positividad
+			ul
+				li $ C_+(f)=\{ x\in\text{Dom }f:f(x)>0 \} $
+				li "Todos los $x$ donde $f(x)$ tiene valor positivo."
+				li "Todos los $x$ donde el gráfico se encuentra por arriba del eje de abscisas."
+
+			h3 Conjunto de negatividad
+			ul
+				li $ C_+(f)=\{ x\in\text{Dom }f:f(x)<0 \} $
+				li "Todos los $x$ donde $f(x)$ tiene valor negativo."
+				li "Todos los $x$ donde el gráfico se encuentra por debajo del eje de abscisas."
+		
+		+imagen("imagenes/cerosPositividadNegatividad.png","Visualización de los conjuntos de ceros, de positividad y de negatividad en el gráfico de funciones.")
+
+
+	+diapositiva("Intervalos de monotonía")
+
+		.diapo__contenido
+			h3 Intervalo de crecimiento
+			p $I_\nearrow f$ = “valores de x donde la función sube” (viendo de izquierda a derecho).	
+			p Si $x_1,x_2 \in I_\nearrow f$ entonces \[ x_1&lt x_2 \iff f(x_1) &lt f(x_2)\] 
+			h3 Intervalo de decrecimiento
+			p $I_\searrow f$ = “valores de x donde la función baja” (viendo de izquierda a derecho).
+			p Si $x_1,x_2 \in I_\nearrow f$ entonces \[ x_1&lt x_2 \iff f(x_1) &gt f(x_2)\] 
+
+		+imagen("imagenes/crecimientoDecrecimiento.png")
+
+
+	+diapositiva("Función lineal")
+		.diapo__contenido
+			p \[ f(x)=m\cdot x + b \]
+			ul
+				li El gráfico de $f$ es una recta.
+				li $m$ es la pendiente de la recta.
+					ul
+						li $m>0$ función creciente en $\Re$
+						li $m=0$ función constante en $\Re$
+						li $m&lt 0$ función decreciente en $\Re$
+
+				li $b$ es la ordenada al origen.				
+			p La función lineal que pasa por los puntos $(x_1,y_1)$ y $(x_2,y_2)$ puede calcularse como
+			p \[ f(x)=m(x-x_1)+y_1\]
+			p \[ m=\frac{y_2-y_1}{x_2-x_1} \]
+
+		.comentario
+			h3 Nota
+			p La rectas verticales no tienen asociada una función lineal ya que su gráfico no representa una función. 
+	
+		+graficoGeogebra("funcionLineal","api.setCoordSystem(-2,4,-1,3)")
+
+
+	+diapositiva("Función Cuadrática")
+		diapo__contenido
+			p Forma Polinómica: \[ f(x) = ax^2+bx+c\]
+			p Forma Canónica: \[f(x)= a(x-x_v)^2+y_v\]
+			p Forma Factorizada: \[ f(x)= a(x-x_1)(x-x_2) \]
+	
+		figure
+			+graficoGeogebra("canonicaCuadratica","api.setCoordSystem(-2,4,-3,4)",350,400)
+			figcaption Gráfico de una función cuadrática, con su vértice y su forma canónica. 
+
+		.comentario
+			ul
+				li $a$ es el coeficiente principal.
+				li El gráfico de una cuadrática es una parábola con ramas hacia arriba para $a\gt 0$ y ramas hacia abajo para $a\lt 0.$
+				li $(x_v,y_v)$ es el vertice de la parábola. \[x_v=-\frac{b}{2a}, y_v=f(x_v)\]
+				li $x_1$ y $x_2$ son las raices de la función cuadrática (si existen). \[ x_1,x_2=\frac{-b\pm\sqrt{b^2-2ac}}{2a} \]
+
+
+	+diapositiva("Función Homográfica")
+		diapo__contenido
+			p \[f(x)=\frac{ax+b}{cx+d} \]
+			
+			.comentario
+				ul
+					li Es necesario $c\neq 0$ y $ad\neq bc$ para tener una homográfica.
+					li $\text{Dom }f=\Re-\{-d/c\}$ (no se puede dividir por cero).
+					li Hay una asíntota vertical de ecuación $x=-d/c$.
+					li $\text{Im }f = \Re-\{a/c\}$.
+					li Hay una asíntota horizontal de ecuación $y=a/c$.
+
+		figure
+			+graficoGeogebra("homografica","api.setCoordSystem(-10,10,-5,15)")
+			figcaption Gráfico de una función homográfica y sus asíntotas.
+
+
+
+
+
+	+diapositiva("Gráfico de funciones")
+		.diapo__contenido
+			<ul>
+				<li>Se llama gráfico de $f(x)$  a la colección de puntos $(x,f(x))$.</li>
+				<li>Toda función tiene un gráfico asociado.</li>
+				<li>No todos los gráficos representan funciones.</li>
+			</ul>
+		figure
+			+graficoGeogebra("funcionPolinomica","api.setCoordSystem(-2,4,-5,4)",400)
+			figcaption Cada punto del gráfico de una función tiene la forma $(x,f(x))$. Notar que por cada valor de $x$ el gráfico pasa exactamente una altura que corresponde con el valor de $f(x).$
+		figure
+			+graficoGeogebra("curvaQueNoEsFuncion","api.setCoordSystem(-4,2,-4,4)",400)
+			figcaption Gráfico de una curva que no representa ninguna función. Existen valores de $x$ para los cuales hay dos alturas con puntos de la curva asociados.
+
+		
+	
+
+
+	+diapositiva("Intercambio de coordenadas")
+		.diapo__contenido
+			<ul>
+				<li>Ejemplo: $(1,2)$ pasa a ser $(2,1)$</li>
+				<li>Ejemplo: $(3,3)$ pasa a ser $(3,3)$ </li>
+				<li>Para un conjunto de puntos se comporta como rotación de 90° del gráfico, junto con una reflexión horizontal.</li>
+				<li>Al aplicarlo en gráficos de funciones el resultado a veces no corresponde con el gráfico otra función.</li>
+			</ul>
+		figure
+			+graficoGeogebra("puntoIntercambioDeCoordenadas","api.setCoordSystem(-2,3,-2,3)",300,300)
+			figcaption En el gráfico puede verse un punto y el correspondiente al intercambio de coordenadas. En el caso que los ejes tengan la misma escala, ambos puntos son simétricos respecto de la recta $y=x$.
+		figure
+			div(style="display:flex;align-content:space-evenly")
+				<img width=230 id ="mano-que-se-invierte" src="./images/mano_para_intercambiar_coordenadas.png" alt="Imagen 1: mano.">
+				<img width=230 src="./images/mano_para_intercambiar_coordenadas_2.png" alt="Imagen 2: mano luego de intercambio de coordendas para cada un de sus puntos.">
+			figcaption.
+				Demostración del efecto de la inversión de coordenadas. La imagen de la derecha se obtiene de intercambiar las coordenadas de todos los puntos de la imagen de la izquierda.
+				Al posar el mouse o el dedo sobre la imagen de la izquierda, la misma hará una rotación de 90° anti-horaria y una reflexión horizontal.
+
+
+
+
+
+	+diapositiva("Función inversa - Ideas")
+		.diapo__contenido
+			<ul>
+				<li>Se la suele notar $f^{-1}(x)$ (ojo, si es que existe).</li>
+				<li>Hace el camino opuesto \[f(x)=y \iff x=f^{-1}(y)\]</li>
+				<li> Los puntos de $f^{-1}(x)$ son los de $f(x)$ 
+					<em> con las coordenadas intercambiadas.</em>
+				</li>
+				<li>El gráfico de $f^{-1}(x)$ sale del intercambio de coordenadas de los puntos del gráfico de $f(x)$.</li>
+				<li>Existen funciones que no tienen inversa.</li>
+			</ul>
+			<figure style="display:block">
+				<div style="display: grid;grid-template: 1fr / 1fr 1fr">
+					<table>
+						<tr>
+							<th>$x$</th>
+							<th>$f(x)$</th>
+						</tr>
+						<tr>
+							<td>-2</td>
+							<td>-5</td>
+						</tr>
+						<tr>
+							<td>-1</td>
+							<td>-3</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>-1</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>3</td>
+						</tr>
+					</table>
+				
+					<table>
+						<tr>
+							<th>$x$</th>
+							<th>$f^{-1}(x)$</th>
+						</tr>
+						<tr>
+							<td>-5</td>
+							<td>-2</td>
+						</tr>
+						<tr>
+							<td>-3</td>
+							<td>-1</td>
+						</tr>
+						<tr>
+							<td>-1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>2</td>
+						</tr>
+					</table>
+				</div>
+				figcaption Tabla de valores de la función $f(x)=2\cdot x-1$ (a la derecha) y tabla de valores de su función inversa $f^{-1}(x)$. Notar las tablas tienen sus columnas de valores intercambiados.
+			</figure>
+		figure
+			+graficoGeogebra("funcionInversaInterpretacionGeometrica","api.setCoordSystem(-3,3,-3,3)",400,400)
+			figcaption En el siguiente gráfico puede verse el efecto de intercambiar coordenadas a todos los puntos del gráfico de una función (que aparece en el recuadro). Con el deslizador puede rotarse la curva hasta los 90° y luego con la casilla reflejarla horizontalmente. Puede verse así que la función $f(x)=x^2$, por ejemplo, no tiene inversa.
+
+	+diapositiva("Función inversa - Teoremas")
+		.diapo__contenido
+			ul
+				li Las funciones que "no repiten resultados" pueden invertirse.
+					ul
+						li. 
+							<strong>Definición: </strong> Diremos que una función $f(x)$ es <em>inyectiva</em> si no repite resultados, es decir,
+							\[
+							\forall x_1,x_2\in Dom f,
+							\underbrace{x_1\neq x_2\iff f(x_1)\neq f(x_2)}_{\text{distinto x da distinto resultado}}
+							\] 
+						li <strong>Teorema: </strong>Las funciones inyectivas son inversibles.
+
+				li <strong>Propiedades: </strong>
+					ul
+						<li>$f(x)=y \iff x=f^{-1}(y)$ (al despejar, una función "pasa como su inversa").</li>
+						<li>$Im f^{-1} = Dom f$</li>
+						<li>$Im f = Dom f^{-1}$</li>
+
+				li El gráfico de $f^{-1}(x)$ es igual al gráfico de $f(x)$ luego de una rotación 90° y una reflexión horizontal
+
+
+
+	+diapositiva("Función exponencial")
+		.diapo__contenido
+			<p>\[f(x)=a^x \]</p>
+			<ul>
+				<li> con $a\neq 1$ y $a>0$</li>
+				<li>$a$ se denomina la base de la expoencial.
+				</li>
+				<li>$\text{Dom }a^x = \Re$</li>
+				<li>$\text{Im }a^x = (0,+\infty)$</li>
+				<li><strong>Para $a>1$ </strong>se tiene:
+				<ul>
+					<li>La función es creciente.</li>
+
+				</ul>
+				</li>
+				<li>Para $0&lt a&lt 1$ se tiene:
+					<ul>
+						<li>La función es decreciente.</li>
+
+					</ul>
+
+				</li>
+			</ul>
+
+		figure
+			+graficoGeogebra("exponencial","api.setCoordSystem(-5,5,-.5,5)")
+
+
+	+diapositiva("Función logarítmica")
+		.diapo__contenido
+			<p>\[f(x)=\log_a(x) \]</p>
+			<ul>
+				<li> con $a\neq 1$ y $a>0$</li>
+				<li>$a$ se denomina la base de del logaritmo.
+				</li>
+				<li>$\text{Dom }\log_a = (0,+\infty)$</li>
+				<li>$\text{Im }\log_a = \Re$</li>
+				<li>Tiene una asíntota vertical de ecuación $x=0$</li>
+				<li><strong>Para $a>1$ </strong>se tiene:
+				<ul>
+					<li>La función es creciente.</li>
+
+
+				</ul>
+				</li>
+				<li>Para $0&lt a&lt 1$ se tiene:
+					<ul>
+						<li>La función es decreciente.</li>
+
+					</ul>
+
+				</li>
+			</ul>
+
+		figure
+			+graficoGeogebra("logaritmo","api.setCoordSystem(-.5,10,-10,10)")
+
+	+diapositiva("Propiedades de la función exponencia y logarítmica")
+		.diapo__contenido
+			<ul>
+				li $a^x=y \iff x=\log_a(y) $
+				<li>$a^{x+y}=a^x\cdot a^y$</li>
+				<li>$a^{x-y}=\frac{a^x}{a^y}$</li>
+				<li>$(a^x)^y=a^{x\cdot y}$</li>
+				<li>$\log_a(x\cdot y)=\log_a(x)+\log_a(y)$</li>
+				<li>$\log_a(\frac{x}{y})=\log_a(x)-\log_a(y)$</li>
+				<li>$\log_a(x^y)=y\cdot \log_a(x)$</li>
+				<li>Bases más comunes:
+					<ul>
+						<li>$e=2,718...$ con $\ln(x)=\log_e(x)$</li>
+						<li>Base $10$ con $\log(x)=\log_{10}(x)$</li>
+					</ul>
+				</li>
+				<li>Fórmula de cambio de base: $ \log_a(x)=\frac{\log_b(x)}{\log_b(a)} = \frac{\ln(x)}{\ln(a)} $</li>
+			</ul>
+
+	+diapositiva("Circunferencia trigonométrica")
+		.diapo__contenido
+			<ul>
+				<li>Tiene radio $1$ y centro $(0,0)$</li>
+				<li>Su perimetro vale $2\pi$. Una longitud de arco en la circunferencia es igual al ángulo en radianes.</li>
+				li Una lóngitud de arco $\alpha$ medida desde el punto $(1,0)$ de define al punto: \[ (\cos(\alpha),\sin(\alpha)) \] 
+			</ul>
+			.comentario
+				ul
+					<li>El giro anti-horario se considera como positivo y al giro horario como negativo. </li>
+					li Por el teorema de pitágoras:	\[ \cos^2(\alpha)+\sin^2(\alpha)=1 \]
+					li Debido l radio de la circunsferencia trigonométrica 	\[-1\leq \cos(\alpha) \leq 1 \] \[ -1\leq \sin(\alpha) \leq 1 \]
+					li $\cos(a+b)=\cos(a)\cos(b)-\sin(a)\sin(b)$
+					li $\sin(a+b)=\cos(a)\sin(b)+\sin(a)\cos(b)$
+
+		figure
+			<iframe src="https://www.geogebra.org/calculator/b2bbhtva?embed" width="500" height="500" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+
+	+diapositiva("Seno y coseno")
+
+		.diapo__contenido
+			h3 Función Coseno
+				figure 
+					+graficoGeogebra("coseno","api.setCoordSystem(-10,10,-1.2,1.2)",800,250)
+			h3 Función Seno
+				figure
+					+graficoGeogebra("seno","api.setCoordSystem(-10,10,-1.2,1.2)",800,250)
+
+block header
+	+navegacion

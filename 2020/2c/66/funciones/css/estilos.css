@@ -1,0 +1,559 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&family=Oswald:wght@400;700&display=swap");
+html {
+  font-size: 1.8vw;
+}
+@media screen and (max-width: 639px) {
+  html {
+    font-size: 2.5vh;
+  }
+}
+
+body {
+  width: 100hw;
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+  color: #E8CAA4;
+  background-color: #351330;
+}
+
+h1, h2, h3 {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  color: #CC2A41;
+  margin-bottom: 0.3em;
+  margin-top: 0.3em;
+}
+
+p {
+  margin: 0.3em;
+}
+
+ul, ol {
+  padding-left: 1em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+ul li, ol li {
+  margin: 0.3em;
+}
+ul li > p, ol li > p {
+  margin-left: 0;
+}
+
+.diapo {
+  box-sizing: border-box;
+  width: 95vw;
+  height: 95vh;
+  margin: 5vh auto 20vh auto;
+}
+
+.comentario {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #64908A;
+  max-width: 90%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0.6em auto;
+  padding: 0.3em;
+  border: 3px solid #64908A;
+  border-radius: 10px;
+}
+.comentario h3 {
+  color: #64908A;
+  transform: rotate(-90deg);
+}
+
+figure {
+  display: block;
+  flex-direction: column;
+  width: 95%;
+  height: 100%;
+  margin: auto auto;
+  overflow: hidden;
+  margin: 0;
+  align-items: center;
+}
+@media screen and (max-width: 639px) {
+  figure {
+    display: initial;
+    height: auto;
+  }
+}
+figure:hover > img, figure:hover > iframe, figure:hover > .contenedor--geogebra {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+figure img {
+  display: block;
+  margin: auto auto;
+  max-width: 100%;
+  max-height: 90%;
+  border-radius: 3px;
+}
+figure figcaption {
+  align-self: start;
+  display: block;
+  max-width: 90%;
+  height: auto;
+  margin: 1% auto;
+  font-size: 0.6rem;
+  color: #64908A;
+  text-align: justify;
+}
+@media screen and (max-width: 639px) {
+  figure figcaption {
+    font-size: 0.9rem;
+  }
+}
+figure iframe {
+  display: block;
+  max-height: 80%;
+  max-width: 90%;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+figure table {
+  font-size: 0.8rem;
+  border: 3px solid #64908A;
+  border-radius: 10px;
+  margin: auto;
+  min-width: 60%;
+  border-spacing: 0;
+}
+figure table th {
+  background: #64908A;
+}
+figure table td {
+  text-align: center;
+  border: 1px solid #64908A;
+}
+figure .contenedor--geogebra {
+  display: block;
+  max-width: 90%;
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#definición-de-función {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#definición-de-función .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #definición-de-función {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
+  }
+  #definición-de-función .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#definición-de-función h2 {
+  grid-column: 1/-1;
+}
+
+#representación-de-funciones {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#representación-de-funciones .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #representación-de-funciones {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
+  }
+  #representación-de-funciones .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#representación-de-funciones h2 {
+  grid-column: 1/-1;
+}
+
+#dominio-e-imagen {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(2, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#dominio-e-imagen .diapo__contenido {
+  grid-row: 2/span 2;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #dominio-e-imagen {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(2, minmax(30%, 50%))/1fr;
+  }
+  #dominio-e-imagen .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#dominio-e-imagen h2 {
+  grid-column: 1/-1;
+}
+
+#conjuntos-de-ceros---de-positividad---de-negatividad {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#conjuntos-de-ceros---de-positividad---de-negatividad .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #conjuntos-de-ceros---de-positividad---de-negatividad {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
+  }
+  #conjuntos-de-ceros---de-positividad---de-negatividad .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#conjuntos-de-ceros---de-positividad---de-negatividad h2 {
+  grid-column: 1/-1;
+}
+
+#intervalos-de-monotonía {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#intervalos-de-monotonía .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #intervalos-de-monotonía {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
+  }
+  #intervalos-de-monotonía .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#intervalos-de-monotonía h2 {
+  grid-column: 1/-1;
+}
+
+#función-lineal {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(2, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#función-lineal .diapo__contenido {
+  grid-row: 2/span 2;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #función-lineal {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(2, minmax(30%, 50%))/1fr;
+  }
+  #función-lineal .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#función-lineal h2 {
+  grid-column: 1/-1;
+}
+
+#función-cuadrática {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(3, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#función-cuadrática .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #función-cuadrática {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(2, minmax(30%, 50%))/1fr;
+  }
+  #función-cuadrática .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#función-cuadrática h2 {
+  grid-column: 1/-1;
+}
+
+#función-homográfica {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#función-homográfica .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #función-homográfica {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
+  }
+  #función-homográfica .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#función-homográfica h2 {
+  grid-column: 1/-1;
+}
+
+#gráfico-de-funciones {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(3, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#gráfico-de-funciones .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #gráfico-de-funciones {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(2, minmax(30%, 50%))/1fr;
+  }
+  #gráfico-de-funciones .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#gráfico-de-funciones h2 {
+  grid-column: 1/-1;
+}
+
+#intercambio-de-coordenadas {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(2, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#intercambio-de-coordenadas .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 2;
+}
+@media screen and (max-width: 639px) {
+  #intercambio-de-coordenadas {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(2, minmax(30%, 50%))/1fr;
+  }
+  #intercambio-de-coordenadas .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#intercambio-de-coordenadas h2 {
+  grid-column: 1/-1;
+}
+#intercambio-de-coordenadas #mano-que-se-invierte:hover {
+  animation-name: rotar-reflejar;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+@keyframes rotar-reflejar {
+  50% {
+    transform: rotateZ(-90deg);
+  }
+  100% {
+    transform: rotateZ(-90deg) rotateX(180deg);
+  }
+}
+
+#función-inversa---ideas {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#función-inversa---ideas .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #función-inversa---ideas {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
+  }
+  #función-inversa---ideas .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#función-inversa---ideas h2 {
+  grid-column: 1/-1;
+}
+
+#función-exponencial {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#función-exponencial .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #función-exponencial {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
+  }
+  #función-exponencial .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#función-exponencial h2 {
+  grid-column: 1/-1;
+}
+
+#función-logarítmica {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#función-logarítmica .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #función-logarítmica {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
+  }
+  #función-logarítmica .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#función-logarítmica h2 {
+  grid-column: 1/-1;
+}
+
+#circunferencia-trigonométrica {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#circunferencia-trigonométrica .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #circunferencia-trigonométrica {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
+  }
+  #circunferencia-trigonométrica .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#circunferencia-trigonométrica h2 {
+  grid-column: 1/-1;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+header h1 {
+  color: #64908A;
+}
+header * {
+  color: #E8CAA4;
+  text-decoration: none;
+  margin-top: 0;
+}
+header nav {
+  width: 30vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: -100vw;
+  padding: 5vh auto;
+  background: #64908A;
+  opacity: 0.95;
+  box-shadow: 0 0 10px #64908A;
+  transition: 0.4s;
+  transition-timing-function: ease;
+}
+@media screen and (orientation: portrait) {
+  header nav {
+    width: 80vw;
+  }
+}
+header nav ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+header:hover nav {
+  top: 0;
+  right: 0%;
+}
