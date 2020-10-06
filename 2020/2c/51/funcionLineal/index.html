@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="Definición de función lineal y su gráfico. Problema de la función lineal que pasa por dos puntos."/>
+    <meta name="keywords" content="Función, lineal"/>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var parametrosGeogebra = {
+      	"showMenuBar":false,
+      	"showAlgebraInput":false,
+      	"showToolBar":false,
+      	"showToolBarHelp":false,
+      	"showResetIcon":false,
+      	"enableLabelDrags":false,
+      	"enableShiftDragZoom":true,
+      	"enableRightClick":false,
+      	"errorDialogsActive":false,
+      	"useBrowserForJS":false,
+      	"allowStyleBar":false,
+      	"preventFocus":false,
+      	"showZoomButtons":false,
+      	"showFullscreenButton":true,
+      	"scale":1,
+      	"autoHeight":false,
+      	"disableAutoScale":false,
+      	"allowUpscale":false,
+      	"clickToLoad":false,
+      	"appName":"classic",
+      	"showSuggestionButtons":false,
+      	"buttonRounding":0.7,
+      	"buttonShadows":false,
+      	"language":"es",
+      }
+      
+    </script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Funciones Reales - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="icofont/icofont.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="función-lineal">
+      <h2>Función lineal</h2>
+      <div class="diapo__contenido">
+        <p>\[ f(x)=m\cdot x + b \]</p>
+        <ul>
+          <li>El gráfico de $f$ es una recta.</li>
+          <li>$m$ es la pendiente de la recta.
+            <ul>
+              <li>$m>0$ función creciente en $\Re$</li>
+              <li>$m=0$ función constante en $\Re$</li>
+              <li>$m&lt 0$ función decreciente en $\Re$</li>
+            </ul>
+          </li>
+          <li>$b$ es la ordenada al origen (donde corta al eje de ordenadas).</li>
+        </ul>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>La rectas verticales no tienen asociada una función lineal ya que su gráfico no representa una función. </li>
+            <li>Dos rectas son paralelas si tienen la misma pendiente.</li>
+          </ul>
+        </div>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="mxmasb"></div>
+        <script>var mxmasb_parametros = {...parametrosGeogebra}
+mxmasb_parametros.id = "mxmasb"
+mxmasb_parametros.appletOnLoad = function(api){ api.setCoordSystem(-3,3,-3,3) }
+mxmasb_parametros.filename = "geogebra/mxmasb.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+mxmasb_parametros.width = "500";
+mxmasb_parametros.height = "500";
+          var applet_mxmasb = new GGBApplet(mxmasb_parametros, '5.0', views);
+          applet_mxmasb.inject("mxmasb");
+          
+          
+        </script>
+      </figure>
+    </section>
+    <section class="diapo" id="función-lineal-que-pasa-por-dos-puntos">
+      <h2>Función lineal que pasa por dos puntos</h2>
+      <div class="diapo__contenido">
+        <p>La función lineal que pasa por los puntos $(x_1,y_1)$ y $(x_2,y_2)$ puede calcularse como</p>
+        <ol>
+          <li>La pendiente: \[ m=\frac{y_2-y_1}{x_2-x_1} \]</li>
+          <li>La función: \[ f(x)=m(x-x_1)+y_1\]</li>
+        </ol>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>Recordar que un punto $(a,b)$ de un gráfico de una función $f$ es equivalente a $f(a)=b$</li>
+            <li>Es indistinto usar forma funcional $f(x)=m(x-x_1)+y_1$ o la forma $f(x)=m(x-x_2)+y_2$</li>
+            <li>Si se necesita hallar la forma de $f(x)=mx+b$ es necesario distribuir la expresión $f(x)=m(x-x_1)+y_1$</li>
+          </ul>
+        </div>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="funcionLineal"></div>
+        <script>var funcionLineal_parametros = {...parametrosGeogebra}
+funcionLineal_parametros.id = "funcionLineal"
+funcionLineal_parametros.appletOnLoad = function(api){ api.setCoordSystem(-2,4,-1,3) }
+funcionLineal_parametros.filename = "geogebra/funcionLineal.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+funcionLineal_parametros.width = "500";
+funcionLineal_parametros.height = "500";
+          var applet_funcionLineal = new GGBApplet(funcionLineal_parametros, '5.0', views);
+          applet_funcionLineal.inject("funcionLineal");
+          
+          
+        </script>
+      </figure>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#función-lineal">Función lineal</a></li>
+          <li><a href="#función-lineal-que-pasa-por-dos-puntos">Función lineal que pasa por dos puntos</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>

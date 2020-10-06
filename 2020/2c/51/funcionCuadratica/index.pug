@@ -1,0 +1,82 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Función Cuadrática"
+	//- Poner una descripcion del tema de la pagina. Sobre todo para cuando arme una pagina como indice general.
+	meta(name="description", content="Definición de Función cuadrática, su gráfico y partes más importantes. Descripción de la forma polinómica, canónica y factorizada.")
+	//- A continuación poner los tag que describen los temas de las diapositvas
+	//- también incluir para quienes esta dirigida la diapositiva, materia, codigo materia, cbc
+	meta(name="keywords", content="Función, cuadrática, parábola, vértice, polinómica, canónica, factorizada, raices")
+
+	+usarGeogebra
+
+block body
+
+
+
+	+diapositiva("Función Cuadrática")
+		diapo__contenido
+			ul
+				li Forma Polinómica: \[ f(x) = ax^2+bx+c\]
+				li Forma Canónica: \[f(x)= a(x-x_v)^2+y_v\]
+				li Forma Factorizada: \[ f(x)= a(x-x_1)(x-x_2) \]
+			p Ejemplos de funciones cuadráticas.
+			ul
+				li $f(x)=3x^2-2x+1$
+				li $f(x) = x^2$
+				li $f(x)= -(x+2)(x-4)$
+				li $f(x)= x^2+2x(x+1)$
+
+		.comentario
+			ul
+				li El gráfico de una función cuadrática es una parábola.
+				li $a$ es el coeficiente principal.
+				li El gráfico de una cuadrática es una parábola con ramas hacia arriba para $a\gt 0$ y ramas hacia abajo para $a\lt 0.$
+				li $(x_v,y_v)$ es el vertice de la parábola. \[x_v=-\frac{b}{2a}, y_v=f(x_v)\]
+				li $x_1$ y $x_2$ son las raices de la función cuadrática (si existen). \[ x_1,x_2=\frac{-b\pm\sqrt{b^2-2ac}}{2a} \]
+
+
+
+	+diapositiva("Forma polinómica")
+		.diapo__contenido
+			p \[ f(x) = ax^2+bx+c \]
+			p Ejemplos:
+				ul
+					li $f(x)=3x^2+2x-1$ con $a=3,b=2,c=1$
+					li $f(x)=-x^2+9$ con $a=-1,b=0,c=9$
+					li $f(x)=x^2$ con $a=1,b=0,x=0$
+			p Vértice de la parábola:\[ x_v=-\frac{b}{2a}, y_v=f(x_v)\]
+			p Raices o ceros de la cuadrática (si existen) \[ x_1,x_2=\frac{-b\pm\sqrt{b^2-2ac}}{2a} \]
+
+	+diapositiva("Forma canónica")
+		.diapo__contenido
+			p \[f(x)= a(x-x_v)^2+y_v\]
+
+		p Ejemplos:
+			ul
+				li $f(x)=3(x-4)^2+5$ con $a=3,x_v=4,y_v=5$
+
+
+
+		figure
+			+graficoGeogebra("canonicaCuadratica","api.setCoordSystem(-2,4,-3,4)",350,400)
+			figcaption Gráfico de una función cuadrática, con su vértice y su forma canónica. 
+
+
+block header
+	+navegacion

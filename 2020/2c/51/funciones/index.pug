@@ -1,0 +1,144 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Funciones Reales"
+	//- Poner una descripcion del tema de la pagina. Sobre todo para cuando arme una pagina como indice general.
+	meta(name="description", content="Definición de Función. Representación de funciones reales y sus principales elementos.")
+	//- A continuación poner los tag que describen los temas de las diapositvas
+	//- también incluir para quienes esta dirigida la diapositiva, materia, codigo materia, cbc
+	meta(name="keywords", content="Función, dominio, imagen, gráfico")
+
+	+usarGeogebra
+
+block body
+
+
+
+	+diapositiva("Definición de función")
+		.diapo__contenido
+			h3 Definición
+			p Llamaremos función $f:A\rightarrow B$ a la relación de elementos entre los conjuntos $A$ y $B$ donde cada elemento de $A$ tiene asociado un único elemento de $B$.
+			ul 
+				li Si $b\in B$ está asociado a $a\in A$ a través de $f$ lo notaremos \[ f(a)=b \]
+				li Llamaremos dominio al conjunto A y lo notaremos \[\text{Dom }f=A\]
+				li Llamaremos codominio al conjunto B y lo notaremos \[\text{Codom }f =B\]
+
+		+imagen("./imagenes/definicionFuncion.png","Representación de una función mediante diagrama de Venn. Notar que para cada elemento del dominio $A$ hay una única flecha apuntando a algún elemento de $B.$")
+
+
+	+diapositiva("Representación de funciones")
+
+		.diapo__contenido
+			p Un función puede definirse de distintas maneras. Algunas de ellas son:
+			ul
+				li Dando explícitamente todas las evaluaciones.
+				li Mediante una fórmula. Ej: $f(x) = 2\cdot x+1$.
+				li Con un gráfico de función que consiste en el conjunto de puntos \[ \text{graf } f = \{(x,f(x)): x\in\text{ Dom }f \} \]
+
+			+imagen("imagenes/funcionesYNoFunciones.png","Ejemplos de funciones dando todas evaluaciones en forma explícita. El caso $c$ es una relación que no cumple con la definición de función.")
+		
+		figure
+			+graficoGeogebra("graficoFuncion","api.setCoordSystem(-3,3,-4,4)",450,450)
+			figcaption Gráfico de una función. El punto azul representa uno de los elementos del gráfico.
+
+	+diapositiva("Gráfico de funciones")
+		.diapo__contenido
+			<ul>
+				<li>Se llama gráfico de $f(x)$  a la colección de puntos $(x,f(x))$.</li>
+				<li>Toda función tiene un gráfico asociado.</li>
+				<li>No todos los gráficos representan funciones.</li>
+			</ul>
+		figure
+			+graficoGeogebra("funcionPolinomica","api.setCoordSystem(-2,4,-5,4)",400)
+			figcaption Cada punto del gráfico de una función tiene la forma $(x,f(x))$. Notar que por cada valor de $x$ el gráfico pasa exactamente una altura que corresponde con el valor de $f(x).$
+		figure
+			+graficoGeogebra("curvaQueNoEsFuncion","api.setCoordSystem(-4,2,-4,4)",400)
+			figcaption Gráfico de una curva que no representa ninguna función. Existen valores de $x$ para los cuales hay dos alturas con puntos de la curva asociados.
+
+
+	+diapositiva("Dominio e Imagen")
+
+		.diapo__contenido
+			h3 Dominio de una función
+			ul
+				li "Todos los $x$ donde la función esta definida."
+				li "Los valores de $x$ donde hay gráfico."
+			.comentario
+				h3 Nota
+				ul
+					li El dominio puede darse en forma explícita o deducirse de la definición de la función o del contexto.
+					li En funciones dadas por una fórmula se llama dominio natural al conjunto de valores donde la fórmula tiene sentido.
+				
+			h3 Imagen de una función 
+			p Se define como $\text{Im }f = \{f(x):x\in \text{Dom }f\}$
+			ul
+				li "Conjunto de TODAS las evaluaciones de una función."
+				li "Conjunto de las alturas donde hay gráfico de función."
+
+			.comentario
+				h3 Nota
+				ul
+					li Codominio e Imagen son conceptos distintos.
+					
+		+imagen("imagenes/dominioGrafico.png","Visualización del dominio de una función en su gráfico.")
+
+		+imagen("imagenes/imagenGrafico.png","Visualización de la imagen de una función en su gráfico.")
+
+	+diapositiva("Conjuntos de ceros - de positividad - de negatividad")
+
+		.diapo__contenido
+			h3 Conjunto de ceros
+			ul
+				li $ C_0(f)=\{x\in\text{Dom }f:f(x)=0 \} $
+					li "Todos los $x$ donde la función vale cero."
+					li "Todos los $x$ donde el gráfico de f toca el eje de abscisas."
+			h3 Conjunto de positividad
+			ul
+				li $ C_+(f)=\{ x\in\text{Dom }f:f(x)>0 \} $
+				li "Todos los $x$ donde $f(x)$ tiene valor positivo."
+				li "Todos los $x$ donde el gráfico se encuentra por arriba del eje de abscisas."
+
+			h3 Conjunto de negatividad
+			ul
+				li $ C_-(f)=\{ x\in\text{Dom }f:f(x)<0 \} $
+				li "Todos los $x$ donde $f(x)$ tiene valor negativo."
+				li "Todos los $x$ donde el gráfico se encuentra por debajo del eje de abscisas."
+		
+		+imagen("imagenes/cerosPositividadNegatividad.png","Visualización de los conjuntos de ceros, de positividad y de negatividad en el gráfico de funciones.")
+
+
+	+diapositiva("Intervalos de monotonía")
+
+		.diapo__contenido
+			h3 Intervalo de crecimiento
+			p $I_\nearrow f$ = “valores de x donde la función sube” (viendo de izquierda a derecho).	
+			p Si $x_1,x_2 \in I_\nearrow f$ entonces \[ x_1&lt x_2 \iff f(x_1) &lt f(x_2)\] 
+			h3 Intervalo de decrecimiento
+			p $I_\searrow f$ = “valores de x donde la función baja” (viendo de izquierda a derecho).
+			p Si $x_1,x_2 \in I_\searrow f$ entonces \[ x_1&lt x_2 \iff f(x_1) &gt f(x_2)\] 
+
+		+imagen("imagenes/crecimientoDecrecimiento.png")
+
+
+
+
+		
+	
+
+block header
+	+navegacion

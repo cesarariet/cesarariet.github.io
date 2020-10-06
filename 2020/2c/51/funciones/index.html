@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="Definición de Función. Representación de funciones reales y sus principales elementos."/>
+    <meta name="keywords" content="Función, dominio, imagen, gráfico"/>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var parametrosGeogebra = {
+      	"showMenuBar":false,
+      	"showAlgebraInput":false,
+      	"showToolBar":false,
+      	"showToolBarHelp":false,
+      	"showResetIcon":false,
+      	"enableLabelDrags":false,
+      	"enableShiftDragZoom":true,
+      	"enableRightClick":false,
+      	"errorDialogsActive":false,
+      	"useBrowserForJS":false,
+      	"allowStyleBar":false,
+      	"preventFocus":false,
+      	"showZoomButtons":false,
+      	"showFullscreenButton":true,
+      	"scale":1,
+      	"autoHeight":false,
+      	"disableAutoScale":false,
+      	"allowUpscale":false,
+      	"clickToLoad":false,
+      	"appName":"classic",
+      	"showSuggestionButtons":false,
+      	"buttonRounding":0.7,
+      	"buttonShadows":false,
+      	"language":"es",
+      }
+      
+    </script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Funciones Reales - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="icofont/icofont.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="definición-de-función">
+      <h2>Definición de función</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>Llamaremos función $f:A\rightarrow B$ a la relación de elementos entre los conjuntos $A$ y $B$ donde cada elemento de $A$ tiene asociado un único elemento de $B$.</p>
+        <ul> 
+          <li>Si $b\in B$ está asociado a $a\in A$ a través de $f$ lo notaremos \[ f(a)=b \]</li>
+          <li>Llamaremos dominio al conjunto A y lo notaremos \[\text{Dom }f=A\]</li>
+          <li>Llamaremos codominio al conjunto B y lo notaremos \[\text{Codom }f =B\]</li>
+        </ul>
+      </div>
+      <figure><img src="./imagenes/definicionFuncion.png" alt="Representación de una función mediante diagrama de Venn. Notar que para cada elemento del dominio $A$ hay una única flecha apuntando a algún elemento de $B.$"/>
+        <figcaption>Representación de una función mediante diagrama de Venn. Notar que para cada elemento del dominio $A$ hay una única flecha apuntando a algún elemento de $B.$</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="representación-de-funciones">
+      <h2>Representación de funciones</h2>
+      <div class="diapo__contenido">
+        <p>Un función puede definirse de distintas maneras. Algunas de ellas son:</p>
+        <ul>
+          <li>Dando explícitamente todas las evaluaciones.</li>
+          <li>Mediante una fórmula. Ej: $f(x) = 2\cdot x+1$.</li>
+          <li>Con un gráfico de función que consiste en el conjunto de puntos \[ \text{graf } f = \{(x,f(x)): x\in\text{ Dom }f \} \]</li>
+        </ul>
+        <figure><img src="imagenes/funcionesYNoFunciones.png" alt="Ejemplos de funciones dando todas evaluaciones en forma explícita. El caso $c$ es una relación que no cumple con la definición de función."/>
+          <figcaption>Ejemplos de funciones dando todas evaluaciones en forma explícita. El caso $c$ es una relación que no cumple con la definición de función.</figcaption>
+        </figure>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="graficoFuncion"></div>
+        <script>var graficoFuncion_parametros = {...parametrosGeogebra}
+graficoFuncion_parametros.id = "graficoFuncion"
+graficoFuncion_parametros.appletOnLoad = function(api){ api.setCoordSystem(-3,3,-4,4) }
+graficoFuncion_parametros.filename = "geogebra/graficoFuncion.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+graficoFuncion_parametros.width = "450";
+graficoFuncion_parametros.height = "450";
+          var applet_graficoFuncion = new GGBApplet(graficoFuncion_parametros, '5.0', views);
+          applet_graficoFuncion.inject("graficoFuncion");
+          
+          
+        </script>
+        <figcaption>Gráfico de una función. El punto azul representa uno de los elementos del gráfico.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="gráfico-de-funciones">
+      <h2>Gráfico de funciones</h2>
+      <div class="diapo__contenido"><ul>
+<li>Se llama gráfico de $f(x)$  a la colección de puntos $(x,f(x))$.</li>
+<li>Toda función tiene un gráfico asociado.</li>
+<li>No todos los gráficos representan funciones.</li>
+</ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="funcionPolinomica"></div>
+        <script>var funcionPolinomica_parametros = {...parametrosGeogebra}
+funcionPolinomica_parametros.id = "funcionPolinomica"
+funcionPolinomica_parametros.appletOnLoad = function(api){ api.setCoordSystem(-2,4,-5,4) }
+funcionPolinomica_parametros.filename = "geogebra/funcionPolinomica.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+funcionPolinomica_parametros.width = "400";
+funcionPolinomica_parametros.height = "400";
+          var applet_funcionPolinomica = new GGBApplet(funcionPolinomica_parametros, '5.0', views);
+          applet_funcionPolinomica.inject("funcionPolinomica");
+          
+          
+        </script>
+        <figcaption>Cada punto del gráfico de una función tiene la forma $(x,f(x))$. Notar que por cada valor de $x$ el gráfico pasa exactamente una altura que corresponde con el valor de $f(x).$</figcaption>
+      </figure>
+      <figure>
+        <div class="contenedor--geogebra" id="curvaQueNoEsFuncion"></div>
+        <script>var curvaQueNoEsFuncion_parametros = {...parametrosGeogebra}
+curvaQueNoEsFuncion_parametros.id = "curvaQueNoEsFuncion"
+curvaQueNoEsFuncion_parametros.appletOnLoad = function(api){ api.setCoordSystem(-4,2,-4,4) }
+curvaQueNoEsFuncion_parametros.filename = "geogebra/curvaQueNoEsFuncion.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+curvaQueNoEsFuncion_parametros.width = "400";
+curvaQueNoEsFuncion_parametros.height = "400";
+          var applet_curvaQueNoEsFuncion = new GGBApplet(curvaQueNoEsFuncion_parametros, '5.0', views);
+          applet_curvaQueNoEsFuncion.inject("curvaQueNoEsFuncion");
+          
+          
+        </script>
+        <figcaption>Gráfico de una curva que no representa ninguna función. Existen valores de $x$ para los cuales hay dos alturas con puntos de la curva asociados.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="dominio-e-imagen">
+      <h2>Dominio e Imagen</h2>
+      <div class="diapo__contenido">
+        <h3>Dominio de una función</h3>
+        <ul>
+          <li>"Todos los $x$ donde la función esta definida."</li>
+          <li>"Los valores de $x$ donde hay gráfico."</li>
+        </ul>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>El dominio puede darse en forma explícita o deducirse de la definición de la función o del contexto.</li>
+            <li>En funciones dadas por una fórmula se llama dominio natural al conjunto de valores donde la fórmula tiene sentido.</li>
+          </ul>
+        </div>
+        <h3>Imagen de una función </h3>
+        <p>Se define como $\text{Im }f = \{f(x):x\in \text{Dom }f\}$</p>
+        <ul>
+          <li>"Conjunto de TODAS las evaluaciones de una función."</li>
+          <li>"Conjunto de las alturas donde hay gráfico de función."</li>
+        </ul>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>Codominio e Imagen son conceptos distintos.</li>
+          </ul>
+        </div>
+      </div>
+      <figure><img src="imagenes/dominioGrafico.png" alt="Visualización del dominio de una función en su gráfico."/>
+        <figcaption>Visualización del dominio de una función en su gráfico.</figcaption>
+      </figure>
+      <figure><img src="imagenes/imagenGrafico.png" alt="Visualización de la imagen de una función en su gráfico."/>
+        <figcaption>Visualización de la imagen de una función en su gráfico.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="conjuntos-de-ceros---de-positividad---de-negatividad">
+      <h2>Conjuntos de ceros - de positividad - de negatividad</h2>
+      <div class="diapo__contenido">
+        <h3>Conjunto de ceros</h3>
+        <ul>
+          <li>$ C_0(f)=\{x\in\text{Dom }f:f(x)=0 \} $
+            <li>"Todos los $x$ donde la función vale cero."</li>
+            <li>"Todos los $x$ donde el gráfico de f toca el eje de abscisas."</li>
+          </li>
+        </ul>
+        <h3>Conjunto de positividad</h3>
+        <ul>
+          <li>$ C_+(f)=\{ x\in\text{Dom }f:f(x)>0 \} $</li>
+          <li>"Todos los $x$ donde $f(x)$ tiene valor positivo."</li>
+          <li>"Todos los $x$ donde el gráfico se encuentra por arriba del eje de abscisas."</li>
+        </ul>
+        <h3>Conjunto de negatividad</h3>
+        <ul>
+          <li>$ C_-(f)=\{ x\in\text{Dom }f:f(x)<0 \} $</li>
+          <li>"Todos los $x$ donde $f(x)$ tiene valor negativo."</li>
+          <li>"Todos los $x$ donde el gráfico se encuentra por debajo del eje de abscisas."</li>
+        </ul>
+      </div>
+      <figure><img src="imagenes/cerosPositividadNegatividad.png" alt="Visualización de los conjuntos de ceros, de positividad y de negatividad en el gráfico de funciones."/>
+        <figcaption>Visualización de los conjuntos de ceros, de positividad y de negatividad en el gráfico de funciones.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="intervalos-de-monotonía">
+      <h2>Intervalos de monotonía</h2>
+      <div class="diapo__contenido">
+        <h3>Intervalo de crecimiento</h3>
+        <p>$I_\nearrow f$ = “valores de x donde la función sube” (viendo de izquierda a derecho).	</p>
+        <p>Si $x_1,x_2 \in I_\nearrow f$ entonces \[ x_1&lt x_2 \iff f(x_1) &lt f(x_2)\] </p>
+        <h3>Intervalo de decrecimiento</h3>
+        <p>$I_\searrow f$ = “valores de x donde la función baja” (viendo de izquierda a derecho).</p>
+        <p>Si $x_1,x_2 \in I_\searrow f$ entonces \[ x_1&lt x_2 \iff f(x_1) &gt f(x_2)\] </p>
+      </div>
+      <figure><img src="imagenes/crecimientoDecrecimiento.png"/>
+        <figcaption></figcaption>
+      </figure>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#definición-de-función">Definición de función</a></li>
+          <li><a href="#representación-de-funciones">Representación de funciones</a></li>
+          <li><a href="#gráfico-de-funciones">Gráfico de funciones</a></li>
+          <li><a href="#dominio-e-imagen">Dominio e Imagen</a></li>
+          <li><a href="#conjuntos-de-ceros---de-positividad---de-negatividad">Conjuntos de ceros - de positividad - de negatividad</a></li>
+          <li><a href="#intervalos-de-monotonía">Intervalos de monotonía</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
