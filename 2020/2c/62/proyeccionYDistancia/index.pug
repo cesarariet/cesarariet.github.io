@@ -1,0 +1,86 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Pagina creada por Mario Estanislao Cesar Ariet"
+	//- Poner una descripcion del tema de la pagina. Sobre todo para cuando arme una pagina como indice general.
+	meta(name="description", content="descripción del tema")
+	//- A continuación poner los tag que describen los temas de las diapositvas
+	//- también incluir para quienes esta dirigida la diapositiva, materia, codigo materia, cbc
+	meta(name="keywords", content="palabras claves")
+
+	+usarGeogebra
+
+block body
+	
+	+diapositiva("Proyección sobre un vector")
+
+		.diapo__contenido
+			h3 Definición
+			p Llamaremos proyección de un punto $P$ sobre un vector $\vec{v}$ al vector \[ Proy_v(P)=\frac{P\cdot \vec{v}}{||\vec{v}||^2}\vec{v} \]
+			.comentario
+				h3 Nota 
+				ul
+					li La proyección es el punto de intersección entre la dirección de $\vec{v}$ y la recta perpendicular a $\vec{v}$ que pasa por $P$.
+					li $\frac{P\cdot \vec{v}}{||v||}$ es la distancia entre el origen y la proyección.
+					li $\frac{\vec{v}}{||\vec{v}||}$ es el vector unitario (versor) con la misma dirección de $\vec{v}$
+
+		figure
+			+graficoGeogebra("proyeccionVector","api.setCoordSystem(-7,7,-7,7)",400,400)
+			figcaption Representación de $P'= Proy_v(P)$, proyección ortogonal del punto $P$ sobre el vector $\vec{v}$.
+
+	+diapositiva("Proyección ortogonal sobre una recta")
+
+		.diapo__contenido
+			h3 Definición
+			p Llamaremos proyección ortogonal del punto $P$ sobre la recta $L$ de ecuación $\lambda\vec{v}+Q$ al punto \[ Proy_L(P)= \frac{(P-Q)\cdot \vec{v}}{||v||^2}\vec{v}+Q \]
+			h3 Distancia entre recta y punto
+			p  \[d(L,P)= ||Proy_L(P)-P|| \]
+
+			.comentario
+				h3 Nota
+				ul
+					li La proyección ortogonal de $P$ sobre $L$ es el punto de la recta a menor distancia de $P$
+					li El segmento $\vec{PP'}$ es perpendicular a la recta $L$.
+					li $Proy_L(P)=Proy_v(P-Q)+Q$
+
+		figure
+			+graficoGeogebra("proyeccionRecta","api.setCoordSystem(-7,7,-7,7)",400,400)
+
+	+diapositiva("Proyección ortogonal sobre un plano")
+		.diapo__contenido
+			h3 Definición
+			p Llamaremos proyección ortogonal del punto $P$ sobre el plano $\Pi$ de ecuación $ax+by+cz=d$ al punto \[ Proy_\Pi(P)= \frac{(d-\vec{N}\cdot P)}{||N||^2}\vec{N}+P \]
+			h3 Distancia entre recta y punto
+			p  \[d(\Pi,P)= ||Proy_\Pi(P)-P|| = \frac{|d-\vec{N}\cdot P|}{||N||} \]
+
+			.comentario
+				h3 Nota
+				ul
+					li La proyección ortogonal de $P$ sobre $\Pi$ es el punto del plano a menor distancia de $P$
+					li El segmento $\vec{PP'}$ es perpendicular al plano $\Pi$
+					li El vector normal al plano es $\vec{N}=(a,b,c)$ y que $d=\vec{N}\cdot Q$
+					li $Proy_\Pi(P)=Proy_N(Q-P)+P$
+
+		+imagen("geogebra/proyeccionPlano.png")
+
+
+
+
+
+block header
+	+navegacion

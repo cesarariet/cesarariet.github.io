@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="descripción del tema"/>
+    <meta name="keywords" content="palabras claves"/>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var parametrosGeogebra = {
+      	"showMenuBar":false,
+      	"showAlgebraInput":false,
+      	"showToolBar":false,
+      	"showToolBarHelp":false,
+      	"showResetIcon":false,
+      	"enableLabelDrags":false,
+      	"enableShiftDragZoom":true,
+      	"enableRightClick":false,
+      	"errorDialogsActive":false,
+      	"useBrowserForJS":false,
+      	"allowStyleBar":false,
+      	"preventFocus":false,
+      	"showZoomButtons":false,
+      	"showFullscreenButton":true,
+      	"scale":1,
+      	"autoHeight":false,
+      	"disableAutoScale":false,
+      	"allowUpscale":false,
+      	"clickToLoad":false,
+      	"appName":"classic",
+      	"showSuggestionButtons":false,
+      	"buttonRounding":0.7,
+      	"buttonShadows":false,
+      	"language":"es",
+      }
+      
+    </script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Pagina creada por Mario Estanislao Cesar Ariet - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="icofont/icofont.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="proyección-sobre-un-vector">
+      <h2>Proyección sobre un vector</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>Llamaremos proyección de un punto $P$ sobre un vector $\vec{v}$ al vector \[ Proy_v(P)=\frac{P\cdot \vec{v}}{||\vec{v}||^2}\vec{v} \]</p>
+        <div class="comentario">
+          <h3>Nota </h3>
+          <ul>
+            <li>La proyección es el punto de intersección entre la dirección de $\vec{v}$ y la recta perpendicular a $\vec{v}$ que pasa por $P$.</li>
+            <li>$\frac{P\cdot \vec{v}}{||v||}$ es la distancia entre el origen y la proyección.</li>
+            <li>$\frac{\vec{v}}{||\vec{v}||}$ es el vector unitario (versor) con la misma dirección de $\vec{v}$</li>
+          </ul>
+        </div>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="proyeccionVector"></div>
+        <script>var proyeccionVector_parametros = {...parametrosGeogebra}
+proyeccionVector_parametros.id = "proyeccionVector"
+proyeccionVector_parametros.appletOnLoad = function(api){ api.setCoordSystem(-7,7,-7,7) }
+proyeccionVector_parametros.filename = "geogebra/proyeccionVector.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+proyeccionVector_parametros.width = "400";
+proyeccionVector_parametros.height = "400";
+          var applet_proyeccionVector = new GGBApplet(proyeccionVector_parametros, '5.0', views);
+          applet_proyeccionVector.inject("proyeccionVector");
+          
+        </script>
+        <figcaption>Representación de $P'= Proy_v(P)$, proyección ortogonal del punto $P$ sobre el vector $\vec{v}$.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="proyección-ortogonal-sobre-una-recta">
+      <h2>Proyección ortogonal sobre una recta</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>Llamaremos proyección ortogonal del punto $P$ sobre la recta $L$ de ecuación $\lambda\vec{v}+Q$ al punto \[ Proy_L(P)= \frac{(P-Q)\cdot \vec{v}}{||v||^2}\vec{v}+Q \]</p>
+        <h3>Distancia entre recta y punto</h3>
+        <p> \[d(L,P)= ||Proy_L(P)-P|| \]</p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>La proyección ortogonal de $P$ sobre $L$ es el punto de la recta a menor distancia de $P$</li>
+            <li>El segmento $\vec{PP'}$ es perpendicular a la recta $L$.</li>
+            <li>$Proy_L(P)=Proy_v(P-Q)+Q$</li>
+          </ul>
+        </div>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="proyeccionRecta"></div>
+        <script>var proyeccionRecta_parametros = {...parametrosGeogebra}
+proyeccionRecta_parametros.id = "proyeccionRecta"
+proyeccionRecta_parametros.appletOnLoad = function(api){ api.setCoordSystem(-7,7,-7,7) }
+proyeccionRecta_parametros.filename = "geogebra/proyeccionRecta.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+proyeccionRecta_parametros.width = "400";
+proyeccionRecta_parametros.height = "400";
+          var applet_proyeccionRecta = new GGBApplet(proyeccionRecta_parametros, '5.0', views);
+          applet_proyeccionRecta.inject("proyeccionRecta");
+          
+        </script>
+      </figure>
+    </section>
+    <section class="diapo" id="proyección-ortogonal-sobre-un-plano">
+      <h2>Proyección ortogonal sobre un plano</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>Llamaremos proyección ortogonal del punto $P$ sobre el plano $\Pi$ de ecuación $ax+by+cz=d$ al punto \[ Proy_\Pi(P)= \frac{(d-\vec{N}\cdot P)}{||N||^2}\vec{N}+P \]</p>
+        <h3>Distancia entre recta y punto</h3>
+        <p> \[d(\Pi,P)= ||Proy_\Pi(P)-P|| = \frac{|d-\vec{N}\cdot P|}{||N||} \]</p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>La proyección ortogonal de $P$ sobre $\Pi$ es el punto del plano a menor distancia de $P$</li>
+            <li>El segmento $\vec{PP'}$ es perpendicular al plano $\Pi$</li>
+            <li>El vector normal al plano es $\vec{N}=(a,b,c)$ y que $d=\vec{N}\cdot Q$</li>
+            <li>$Proy_\Pi(P)=Proy_N(Q-P)+P$</li>
+          </ul>
+        </div>
+      </div>
+      <figure><img src="geogebra/proyeccionPlano.png"/>
+        <figcaption></figcaption>
+      </figure>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#proyección-sobre-un-vector">Proyección sobre un vector</a></li>
+          <li><a href="#proyección-ortogonal-sobre-una-recta">Proyección ortogonal sobre una recta</a></li>
+          <li><a href="#proyección-ortogonal-sobre-un-plano">Proyección ortogonal sobre un plano</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
