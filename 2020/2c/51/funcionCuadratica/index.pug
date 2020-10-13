@@ -43,40 +43,81 @@ block body
 				li $f(x)= x^2+2x(x+1)$
 
 		.comentario
+			h3 Resumen
 			ul
-				li El gráfico de una función cuadrática es una parábola.
 				li $a$ es el coeficiente principal.
-				li El gráfico de una cuadrática es una parábola con ramas hacia arriba para $a\gt 0$ y ramas hacia abajo para $a\lt 0.$
-				li $(x_v,y_v)$ es el vertice de la parábola. \[x_v=-\frac{b}{2a}, y_v=f(x_v)\]
-				li $x_1$ y $x_2$ son las raices de la función cuadrática (si existen). \[ x_1,x_2=\frac{-b\pm\sqrt{b^2-2ac}}{2a} \]
+				li El gráfico de una función cuadrática es una parábola.
+					ul
+						li con ramas hacia arriba si $a\gt 0$
+						li con ramas hacia abajo si $a\lt 0$.
+				li $(x_v,y_v)$ es el vertice de la parábola. Desde la forma canónica se obtiene de: \[x_v=-\frac{b}{2a}, y_v=f(x_v)\]
+				li $x_1$ y $x_2$ son las raices de la función cuadrática (si existen). Desde la forma canónica se obtienen de: \[ x_1,x_2=\frac{-b\pm\sqrt{b^2-4ac}}{2a} \]
+				li De las raices $x_1,x_2$ puede hallarse el vértice con: \[ x_v=\frac{x_1+x_2}{2}, y_v=f(x_v)\]
 
 
 
 	+diapositiva("Forma polinómica")
 		.diapo__contenido
 			p \[ f(x) = ax^2+bx+c \]
-			p Ejemplos:
+			.comentario
+				h3 Ejemplos
 				ul
 					li $f(x)=3x^2+2x-1$ con $a=3,b=2,c=1$
 					li $f(x)=-x^2+9$ con $a=-1,b=0,c=9$
 					li $f(x)=x^2$ con $a=1,b=0,x=0$
 			p Vértice de la parábola:\[ x_v=-\frac{b}{2a}, y_v=f(x_v)\]
-			p Raices o ceros de la cuadrática (si existen) \[ x_1,x_2=\frac{-b\pm\sqrt{b^2-2ac}}{2a} \]
+			p Raices o ceros de la cuadrática (si existen) \[ x_1,x_2=\frac{-b\pm\sqrt{b^2-4ac}}{2a} \]
+
+		figure
+			+graficoGeogebra("cuadraticaFormaPolinomica","api.setCoordSystem(-5,5,-5,5)",600,600)
+			figcaption Gráfico de una función cuadrática. Con los delizadores pueden variarse los valores de los coeficientes de la forma polinómica.
 
 	+diapositiva("Forma canónica")
 		.diapo__contenido
 			p \[f(x)= a(x-x_v)^2+y_v\]
 
-		p Ejemplos:
+			.comentario
+				h3 Ejemplos
+				ul
+					li $f(x)=3(x-4)^2-5$ con $a=3,x_v=4,y_v=-5$
+					li $f(x)=(x+2)^2+3$ con $a=1, x_v=-2, y_v=3$
+					li $f(x)= -x^2+9$ con $a=-1, x_v=0, y_v=9$
+					li $f(x)= x^2$ con $a=1,x_v=0,y_v=0$
+
 			ul
-				li $f(x)=3(x-4)^2+5$ con $a=3,x_v=4,y_v=5$
+				li Para graficar una cuadrática es útil conocer el vértice.
+				li Para pasar de forma polinómica $f(x)=ax^2+bx+c$ a la forma canónica usar: \[ x_v=-\frac{b}{2a}, y_v=f(x_v)\]
+				li Para pasar de forma factorizada $f(x)=a(x-x_1)(x-x_2)$ a forma canónica usar \[ x_v=\frac{x_1+x_2}{2}, y_v=f(x_v)\]	
 
 
 
 		figure
-			+graficoGeogebra("canonicaCuadratica","api.setCoordSystem(-2,4,-3,4)",350,400)
+			+graficoGeogebra("cuadraticaFormaCanonica","api.setCoordSystem(-5,5,-5,5)",600,600)
 			figcaption Gráfico de una función cuadrática, con su vértice y su forma canónica. 
 
 
+	+diapositiva("Forma Factorizada")
+
+		.diapo__contenido
+			p \[ f(x)=a(x-x_1)(x-x_2) \]
+
+			.comentario
+				h3 Ejemplos
+				ul
+					li $f(x)=3(x+2)(x-1)$ con $a=3,x_1=-2,x_2=1$
+					li $f(x)=-(x+2)(x-3)$ con $a=-1, x_1=-2,x_2=3$
+					li $f(x)=(x+3)x$ con $a=1,x_1=-3,x_2=0$
+					li $f(x)=2(x-1)^2$ con $a=2,x_1=1,x_2=1$
+					li $f(x)=x^2$ con $a=1,x_1=0,x_2=0$
+			
+			ul
+				li La forma factorizada depende de que existan las raíces.
+				li Para pasar de forma polinómica $f(x)= ax^2+b+x+c$ a factorizada \[ x_1,x_2=\frac{-b\pm\sqrt{b^2-4ac}}{2a} \]
+				li Conicidas las raices se puede hallar el vertice usando \[ x_v=\frac{x_1+x_2}{2}, y_v=f(x_v)\]	
+
+	
+		figure
+			+graficoGeogebra("cuadraticaFormaFactorizada","api.setCoordSystem(-5,5,-5,5)",600,600)
+			figcaption Gráfico de una función cuadrática y su forma factorizada. 
 block header
 	+navegacion

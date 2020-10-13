@@ -138,166 +138,10 @@ figure .contenedor--geogebra {
   overflow: hidden;
 }
 
-#definición-de-función {
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
-  grid-gap: 0.5rem;
-  align-items: center;
-}
-#definición-de-función .diapo__contenido {
-  grid-row: 2/span 1;
-  grid-column: 1/span 1;
-}
-@media screen and (max-width: 639px) {
-  #definición-de-función {
-    min-height: 95vh;
-    height: auto;
-    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
-  }
-  #definición-de-función .diapo__contenido {
-    grid-row: 2/3;
-    grid-column: 1/-1;
-  }
-}
-#definición-de-función h2 {
-  grid-column: 1/-1;
-}
-
-#representación-de-funciones {
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
-  grid-gap: 0.5rem;
-  align-items: center;
-}
-#representación-de-funciones .diapo__contenido {
-  grid-row: 2/span 1;
-  grid-column: 1/span 1;
-}
-@media screen and (max-width: 639px) {
-  #representación-de-funciones {
-    min-height: 95vh;
-    height: auto;
-    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
-  }
-  #representación-de-funciones .diapo__contenido {
-    grid-row: 2/3;
-    grid-column: 1/-1;
-  }
-}
-#representación-de-funciones h2 {
-  grid-column: 1/-1;
-}
-
-#dominio-e-imagen {
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template: 2.5em repeat(2, 1fr)/repeat(2, 1fr);
-  grid-gap: 0.5rem;
-  align-items: center;
-}
-#dominio-e-imagen .diapo__contenido {
-  grid-row: 2/span 2;
-  grid-column: 1/span 1;
-}
-@media screen and (max-width: 639px) {
-  #dominio-e-imagen {
-    min-height: 95vh;
-    height: auto;
-    grid-template: 2.5em auto repeat(2, minmax(30%, 50%))/1fr;
-  }
-  #dominio-e-imagen .diapo__contenido {
-    grid-row: 2/3;
-    grid-column: 1/-1;
-  }
-}
-#dominio-e-imagen h2 {
-  grid-column: 1/-1;
-}
-
-#conjuntos-de-ceros---de-positividad---de-negatividad {
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
-  grid-gap: 0.5rem;
-  align-items: center;
-}
-#conjuntos-de-ceros---de-positividad---de-negatividad .diapo__contenido {
-  grid-row: 2/span 1;
-  grid-column: 1/span 1;
-}
-@media screen and (max-width: 639px) {
-  #conjuntos-de-ceros---de-positividad---de-negatividad {
-    min-height: 95vh;
-    height: auto;
-    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
-  }
-  #conjuntos-de-ceros---de-positividad---de-negatividad .diapo__contenido {
-    grid-row: 2/3;
-    grid-column: 1/-1;
-  }
-}
-#conjuntos-de-ceros---de-positividad---de-negatividad h2 {
-  grid-column: 1/-1;
-}
-
-#intervalos-de-monotonía {
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
-  grid-gap: 0.5rem;
-  align-items: center;
-}
-#intervalos-de-monotonía .diapo__contenido {
-  grid-row: 2/span 1;
-  grid-column: 1/span 1;
-}
-@media screen and (max-width: 639px) {
-  #intervalos-de-monotonía {
-    min-height: 95vh;
-    height: auto;
-    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
-  }
-  #intervalos-de-monotonía .diapo__contenido {
-    grid-row: 2/3;
-    grid-column: 1/-1;
-  }
-}
-#intervalos-de-monotonía h2 {
-  grid-column: 1/-1;
-}
-
-#función-lineal {
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template: 2.5em repeat(2, 1fr)/repeat(2, 1fr);
-  grid-gap: 0.5rem;
-  align-items: center;
-}
-#función-lineal .diapo__contenido {
-  grid-row: 2/span 2;
-  grid-column: 1/span 1;
-}
-@media screen and (max-width: 639px) {
-  #función-lineal {
-    min-height: 95vh;
-    height: auto;
-    grid-template: 2.5em auto repeat(2, minmax(30%, 50%))/1fr;
-  }
-  #función-lineal .diapo__contenido {
-    grid-row: 2/3;
-    grid-column: 1/-1;
-  }
-}
-#función-lineal h2 {
-  grid-column: 1/-1;
-}
-
 #función-cuadrática {
   display: grid;
   grid-auto-flow: dense;
-  grid-template: 2.5em repeat(1, 1fr)/repeat(3, 1fr);
+  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
   grid-gap: 0.5rem;
   align-items: center;
 }
@@ -309,7 +153,7 @@ figure .contenedor--geogebra {
   #función-cuadrática {
     min-height: 95vh;
     height: auto;
-    grid-template: 2.5em auto repeat(2, minmax(30%, 50%))/1fr;
+    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
   }
   #función-cuadrática .diapo__contenido {
     grid-row: 2/3;
@@ -320,198 +164,81 @@ figure .contenedor--geogebra {
   grid-column: 1/-1;
 }
 
-#función-homográfica {
+#forma-polinómica {
   display: grid;
   grid-auto-flow: dense;
   grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
   grid-gap: 0.5rem;
   align-items: center;
 }
-#función-homográfica .diapo__contenido {
+#forma-polinómica .diapo__contenido {
   grid-row: 2/span 1;
   grid-column: 1/span 1;
 }
 @media screen and (max-width: 639px) {
-  #función-homográfica {
+  #forma-polinómica {
     min-height: 95vh;
     height: auto;
     grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
   }
-  #función-homográfica .diapo__contenido {
+  #forma-polinómica .diapo__contenido {
     grid-row: 2/3;
     grid-column: 1/-1;
   }
 }
-#función-homográfica h2 {
+#forma-polinómica h2 {
   grid-column: 1/-1;
 }
 
-#gráfico-de-funciones {
+#forma-canónica {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  align-items: center;
+}
+#forma-canónica .diapo__contenido {
+  grid-row: 2/span 1;
+  grid-column: 1/span 1;
+}
+@media screen and (max-width: 639px) {
+  #forma-canónica {
+    min-height: 95vh;
+    height: auto;
+    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
+  }
+  #forma-canónica .diapo__contenido {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+}
+#forma-canónica h2 {
+  grid-column: 1/-1;
+}
+
+#forma-factorizada {
   display: grid;
   grid-auto-flow: dense;
   grid-template: 2.5em repeat(1, 1fr)/repeat(3, 1fr);
   grid-gap: 0.5rem;
   align-items: center;
 }
-#gráfico-de-funciones .diapo__contenido {
-  grid-row: 2/span 1;
-  grid-column: 1/span 1;
-}
-@media screen and (max-width: 639px) {
-  #gráfico-de-funciones {
-    min-height: 95vh;
-    height: auto;
-    grid-template: 2.5em auto repeat(2, minmax(30%, 50%))/1fr;
-  }
-  #gráfico-de-funciones .diapo__contenido {
-    grid-row: 2/3;
-    grid-column: 1/-1;
-  }
-}
-#gráfico-de-funciones h2 {
-  grid-column: 1/-1;
-}
-
-#intercambio-de-coordenadas {
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template: 2.5em repeat(2, 1fr)/repeat(2, 1fr);
-  grid-gap: 0.5rem;
-  align-items: center;
-}
-#intercambio-de-coordenadas .diapo__contenido {
+#forma-factorizada .diapo__contenido {
   grid-row: 2/span 1;
   grid-column: 1/span 2;
 }
 @media screen and (max-width: 639px) {
-  #intercambio-de-coordenadas {
-    min-height: 95vh;
-    height: auto;
-    grid-template: 2.5em auto repeat(2, minmax(30%, 50%))/1fr;
-  }
-  #intercambio-de-coordenadas .diapo__contenido {
-    grid-row: 2/3;
-    grid-column: 1/-1;
-  }
-}
-#intercambio-de-coordenadas h2 {
-  grid-column: 1/-1;
-}
-#intercambio-de-coordenadas #mano-que-se-invierte:hover {
-  animation-name: rotar-reflejar;
-  animation-duration: 5s;
-  animation-fill-mode: forwards;
-}
-@keyframes rotar-reflejar {
-  50% {
-    transform: rotateZ(-90deg);
-  }
-  100% {
-    transform: rotateZ(-90deg) rotateX(180deg);
-  }
-}
-
-#función-inversa---ideas {
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
-  grid-gap: 0.5rem;
-  align-items: center;
-}
-#función-inversa---ideas .diapo__contenido {
-  grid-row: 2/span 1;
-  grid-column: 1/span 1;
-}
-@media screen and (max-width: 639px) {
-  #función-inversa---ideas {
+  #forma-factorizada {
     min-height: 95vh;
     height: auto;
     grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
   }
-  #función-inversa---ideas .diapo__contenido {
+  #forma-factorizada .diapo__contenido {
     grid-row: 2/3;
     grid-column: 1/-1;
   }
 }
-#función-inversa---ideas h2 {
-  grid-column: 1/-1;
-}
-
-#función-exponencial {
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
-  grid-gap: 0.5rem;
-  align-items: center;
-}
-#función-exponencial .diapo__contenido {
-  grid-row: 2/span 1;
-  grid-column: 1/span 1;
-}
-@media screen and (max-width: 639px) {
-  #función-exponencial {
-    min-height: 95vh;
-    height: auto;
-    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
-  }
-  #función-exponencial .diapo__contenido {
-    grid-row: 2/3;
-    grid-column: 1/-1;
-  }
-}
-#función-exponencial h2 {
-  grid-column: 1/-1;
-}
-
-#función-logarítmica {
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
-  grid-gap: 0.5rem;
-  align-items: center;
-}
-#función-logarítmica .diapo__contenido {
-  grid-row: 2/span 1;
-  grid-column: 1/span 1;
-}
-@media screen and (max-width: 639px) {
-  #función-logarítmica {
-    min-height: 95vh;
-    height: auto;
-    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
-  }
-  #función-logarítmica .diapo__contenido {
-    grid-row: 2/3;
-    grid-column: 1/-1;
-  }
-}
-#función-logarítmica h2 {
-  grid-column: 1/-1;
-}
-
-#circunferencia-trigonométrica {
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template: 2.5em repeat(1, 1fr)/repeat(2, 1fr);
-  grid-gap: 0.5rem;
-  align-items: center;
-}
-#circunferencia-trigonométrica .diapo__contenido {
-  grid-row: 2/span 1;
-  grid-column: 1/span 1;
-}
-@media screen and (max-width: 639px) {
-  #circunferencia-trigonométrica {
-    min-height: 95vh;
-    height: auto;
-    grid-template: 2.5em auto repeat(1, minmax(30%, 50%))/1fr;
-  }
-  #circunferencia-trigonométrica .diapo__contenido {
-    grid-row: 2/3;
-    grid-column: 1/-1;
-  }
-}
-#circunferencia-trigonométrica h2 {
+#forma-factorizada h2 {
   grid-column: 1/-1;
 }
 

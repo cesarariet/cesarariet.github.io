@@ -21,56 +21,14 @@
 // Para seleccinoar la organización de la diapositiva usar el id la diapositiva (igual al titulo en minusculas con - en vez de espacios).
 // el grid se crea con el mixin dispostiva-grid($filas,$columnas,$contenido-span-fila, $contenido-span-columna)
 
-#definición-de-función
-  @include diapositiva-grid(1,2,1,1)
-  
-#representación-de-funciones
-  @include diapositiva-grid(1,2,1,1)
-
-#dominio-e-imagen
-  @include diapositiva-grid(2,2,2,1)
-
-#conjuntos-de-ceros---de-positividad---de-negatividad
-  @include diapositiva-grid(1,2,1,1)
-  
-#intervalos-de-monotonía
-  @include diapositiva-grid(1,2,1,1)
-  
-#función-lineal
-  @include diapositiva-grid(2,2,2,1)
-
 #función-cuadrática
-  @include diapositiva-grid(1,3,1,1)
+  @include diapositiva-grid(1,2,1 ,1)
 
-#función-homográfica
-  @include diapositiva-grid(1,2,1,1)
-  
-
-#gráfico-de-funciones
-  @include diapositiva-grid(1,3,1,1)
-  
-
-#intercambio-de-coordenadas
-  @include diapositiva-grid(2,2,1, 2)
-  #mano-que-se-invierte:hover
-    animation-name: rotar-reflejar
-    animation-duration: 5s
-    animation-fill-mode: forwards 
-
-  @keyframes rotar-reflejar
-    50%
-      transform: rotateZ(-90deg)
-    100%
-      transform: rotateZ(-90deg) rotateX(180deg)
-
-#función-inversa---ideas
+#forma-polinómica
   @include diapositiva-grid(1,2,1,1)
 
-#función-exponencial
+#forma-canónica
   @include diapositiva-grid(1,2,1,1)
-  
-#función-logarítmica
-  @include diapositiva-grid(1,2,1,1)
-  
-#circunferencia-trigonométrica
-  @include diapositiva-grid(1,2,1,1)
+ 
+#forma-factorizada
+  @include diapositiva-grid(1,3,1,2) 
