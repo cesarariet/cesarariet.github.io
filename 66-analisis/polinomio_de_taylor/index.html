@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="Definición del Polinomio de Taylor."/>
+    <meta name="keywords" content="análisis, cbc, 66, Polinomio de Taylor"/>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var parametrosGeogebra = {
+      	"showMenuBar":false,
+      	"showAlgebraInput":false,
+      	"showToolBar":false,
+      	"showToolBarHelp":false,
+      	"showResetIcon":false,
+      	"enableLabelDrags":false,
+      	"enableShiftDragZoom":true,
+      	"enableRightClick":false,
+      	"errorDialogsActive":false,
+      	"useBrowserForJS":false,
+      	"allowStyleBar":false,
+      	"preventFocus":false,
+      	"showZoomButtons":false,
+      	"showFullscreenButton":true,
+      	"scale":1,
+      	"autoHeight":false,
+      	"disableAutoScale":false,
+      	"allowUpscale":false,
+      	"clickToLoad":false,
+      	"appName":"classic",
+      	"showSuggestionButtons":false,
+      	"buttonRounding":0.7,
+      	"buttonShadows":false,
+      	"language":"es",
+      }
+      
+    </script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Polinomio de Taylor - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="icofont/icofont.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="polinomio-de-taylor">
+      <h2>Polinomio de Taylor</h2>
+      <div class="diapo__contenido">
+        <p>Sea $f(x)$ una función $n$ veces derivable en $x_0$. LLamaremos Polinomio de Taylor de orden $n$ en el punto de contacto de abscisa $x_0$ </p>
+        <p><small>\[ \begin{array}{lcr} P_n(x) & = &  f(x_0)+f'(x_0)(x-x_0)+\frac{f^{(2)}(x_0)}{2!}(x-x_0)^2 \\  & &+\frac{f^{(3)}(x_0)}{3!}(x-x_0)^3 + \dots + \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n \end{array}\]</small></p>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <div>
+          <p><i class="icono-idea"></i>El polinomio de Taylor extiende el concepto de recta tangente.</p>
+          <p><i class="icono-like"></i>El polinomio de Taylor aproxima a la función $f(x)$. A mayor orden y cerca de $x_0$ mejor es aproximación.</p>
+          <p><i class="icono-atencion"></i>¿Qué tan buena es la aproximación? ¿Qué tan lejos puedo estar de $x_0$ con una "buena aproximación"? El resto de Taylor es la respuesta.</p>
+        </div>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="polinomioTaylor"></div>
+        <script>var polinomioTaylor_parametros = {...parametrosGeogebra}
+polinomioTaylor_parametros.id = "polinomioTaylor"
+polinomioTaylor_parametros.appletOnLoad = function(api){ api.setCoordSystem(-5,5,-3,8) }
+polinomioTaylor_parametros.filename = "geogebra/polinomioTaylor.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+polinomioTaylor_parametros.width = "500";
+polinomioTaylor_parametros.height = "400";
+          var applet_polinomioTaylor = new GGBApplet(polinomioTaylor_parametros, '5.0', views);
+          applet_polinomioTaylor.inject("polinomioTaylor");
+          
+          
+        </script>
+        <figcaption>Representación de una función y su polinomio de Taylor de orden $n$ en el punto de contacto $(x_0,f(x_0)).$ </figcaption>
+      </figure>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#polinomio-de-taylor">Polinomio de Taylor</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>

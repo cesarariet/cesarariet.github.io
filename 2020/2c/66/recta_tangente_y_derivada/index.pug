@@ -1,0 +1,252 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Recta tangente y Derivada"
+	+usarGeogebra
+	meta(name="description", content="Definición de recta tangente ¿Cómo se contruye? - Definición de derivaday su relación con la recta tangente.")
+	meta(name="keywords", content="tangente, recta tangente, recta secante, derivada, tabla de derivada, función derivable, función no derivable")
+
+
+block body
+
+	+diapositiva("Recta Tangente - Concepto")
+		.diapo__contenido
+			p La recta tanguente a una curva en un punto $P$ es aquella recta que cumple con las siguentes propiedades:
+				ol
+					li Interseca a la curva en el punto $P$
+					li La recta y la curva son <strong> indistinguibles cerca del punto $P$</strong>
+			
+			h3 Objetivo
+			p Hallar forma funcional de la recta tangente al gráfico de una función en el punto $(x_0,f(x_0)).$
+
+		figure
+			//- <iframe src="https://www.geogebra.org/calculator/qexgpfmu?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("rectaTangenteYCircunferencia")
+			figcaption.
+				Una curva, su recta tangente en el punto $P$ (línea continua) y una recta cualquiera que pasa por $P$ (línea discontinua). 
+				Al ampliar el gráfico hacia el punto $P$ la curva y su recta tangente se vuelven indistinguibles.
+
+
+
+
+
+
+	+diapositiva("Recta Secante - Concepto auxiliar")
+		.diapo__contenido
+			h3 Recta secante
+			ul
+				li Es la recta que pasa por dos puntos de una curva.
+				li Para el gráfico de una función $f(x)$, la recta secante que pasa por los puntos $(x_0,f(x_0))$ y $(x_1,f(x_1))$ tiene:
+					ul
+						li Pendiente \[m=\frac{f(x_1)-f(x_0)}{x_1-x_0}\]
+						li Ecuación \[y=m\cdot (x-x_0)+f(x_0)\]
+		figure
+			//- <iframe src="https://www.geogebra.org/calculator/rdabccah?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("rectaSecante")
+			figcaption Recta secante que pasa por los puntos $(x_0,f(x_0))$ y $(x_1,f(x_1))$
+
+
+
+
+
+
+	+diapositiva("Desde la recta secante hacia la recta tangente")
+		.diapo__contenido
+			.comparacion
+				<small>
+				#idea-secante
+					h3 Recta secante
+					p La recta secante al gráfico de una función $f(x)$ que pasa por los puntos $(x_0,f(x_0))$ y $(x_1,f(x_1))$ tiene:
+					ul
+						li Pendiente \[m=\frac{f(x_1)-f(x_0)}{x_1-x_0}\]
+						li Ecuación \[y=m\cdot (x-x_0)+f(x_0)\]
+				#idea-tangente
+					h3 Recta tangente
+					p La recta tangente al gráfico de una función $f(x)$ que pasa por el punto $(x_0,f(x_0))$ tiene:
+						ul
+							li Pendiente \[m=\lim_{x_1\rightarrow x_0}\frac{f(x_1)-f(x_0)}{x_1-x_0}\]
+							li Ecuación \[y=m\cdot (x-x_0)+f(x_0)\]
+					</small>
+			.comentario
+				h3 Nota
+				p "Acercando los puntos" la recta secante se aproxima a una recta tangente.
+
+		figure
+			//- <iframe src="https://www.geogebra.org/calculator/byub8eev?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("rectaSecanteYRectaTangente","api.setCoordSystem(-3,3,-3,3)",420,420)
+			figcaption Visualización de la recta tagente y recta secante en el gráfico de una función.
+
+
+
+
+	+diapositiva("Recta tangente - Definición")
+		.diapo__contenido
+			h3 Definición
+			p Llamaremos recta tangente al gráfico de una función $f(x)$ en el punto $(x_0,f(x_0))$ a la recta con:
+			ul
+					li Pendiente \[m=\lim_{x\rightarrow x_0}\frac{f(x)-f(x_0)}{x-x_0}\]
+					li Ecuación \[y=m\cdot (x-x_0)+f(x_0)\]
+		figure
+			//- <iframe src="https://www.geogebra.org/calculator/jca3be8t?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("funcionYSuRectaTangente","api.setCoordSystem(-5,5,-3,5)")
+			figcaption Gráfico de una función (puede cambiarse en el recuadro superior) y su recta tangente en el punto de abscisa $x_0$.
+
+
+
+
+	+diapositiva("Derivada - Definición")
+		.diapo__contenido
+			h3 Definición
+			p.
+				Llamaremos derivada de $f(x)$ en $x_0$ (y lo notaremos $f'(x_0)$)
+				al resultado del límite (cuando existe y es finito)
+				\[ f'(x_0)=\lim_{x\rightarrow x_0}\frac{f(x)-f(x_0)}{x-x_0} \]
+			p.
+				Se llama función derivada $f'(x)$ a la función que calcula la derivada de $f(x)$ para cada $x\in \text{Dom }f$ (cuando la derivada existe).
+			.comentario
+				h3 Nota
+				ul
+					li A la expresión $\frac{f(x)-f(x_0)}{x-x_0}$ se la denomina cociente incremental.
+					li La definición de derivada es poco práctica. Usar la tabla de derivadas y propiedades es usualmente una forma más sencilla de hallar $f'(x).$
+					li La pendiente de la recta tangente de $f(x)$ en $x_0$ pasa a ser $m=f'(x_0).$
+		figure 
+			table(style="position:initial")
+				tr 
+					th(colspan=2) Tabla de derivadas
+				tr
+					th $f(x)$
+					th $f'(x)$
+				tr
+					td $C$ (constate)
+					td $0$
+				tr
+					td $x$
+					td $1$
+				tr
+					td $x^n$
+					td $n\cdot x^{n-1}$
+				tr
+					td $e^x$
+					td $e^x$
+				tr
+					td $\ln(x)$
+					td $\frac{1}{x}$
+				tr
+					td $\sin(x)$
+					td $\cos(x)$
+				tr
+					td $\cos(x)$
+					td $-\sin(x)$
+			figcaption Notar que la tabla de derivada no incluye funciones partidas. Para derivar funciones partidas (en donde sucede la partición) es necesario recurrir a la definición de derivada.
+
+
+
+
+	+diapositiva("Derivada - Propiedades")
+		.diapo__contenido
+			figure
+				<small>
+				table(style="position:initial")
+					tr
+						td Función <br>+<br> Función
+						td  $ \big(f(x)+g(x)\big)'=f'(x)+g'(x) $
+					tr
+						td Número <br>$\cdot$<br> Función
+						td $ \big(K\cdot f(x)\big)'= K\cdot f'(x) $
+					tr 
+						td Función <br>$\cdot$<br> Función  
+						td $ \big(f(x) \cdot g(x)\big)'= f'(x)\cdot g(x) + f(x)\cdot g'(x) $
+					tr
+						td Función <br>/<br> Función 
+						td $ \displaystyle \left(\frac{f(x)}{g(x)}\right)'=\frac{f'(x)\cdot g(x) - f(x)\cdot g'(x)}{[g(x)]^2} $
+					tr
+						td Regla <br>de la<br> cadena
+						td $(fog)'(x)=\Big(f\big(g(x)\big)\Big)'=f'\big(g(x)\big)\cdot g'(x) $
+				</small>
+		figure
+			table
+				tr
+					th(colspan=2) Tabla de derivadas
+				tr
+					th $f(x)$
+					th $f'(x)$
+				tr
+					td $C$ (constate)
+					td $0$
+				tr
+					td $x$
+					td $1$
+				tr
+					td $x^n$
+					td $n\cdot x^{n-1}$
+				tr
+					td $e^x$
+					td $e^x$
+				tr
+					td $\ln(x)$
+					td $\frac{1}{x}$
+				tr
+					td $\sin(x)$
+					td $\cos(x)$
+				tr
+					td $\cos(x)$
+					td $-\sin(x)$
+
+	+diapositiva("Derivada logarítmica")
+
+		.diapo__contenido
+			ul 
+				li Usando la regla de la cadena puede verse que $ (\ln(f(x)))'=\frac{f'(x)}{f(x)}$
+				li Esta propiedad es muy útil para derivar una función del tipo $f(x)=g(x)^{h(x)}$. Si aplicamos el $\ln$ de ambos lados tenemos \[ \ln(f(x))=\ln(g(x)^{h(x)})=h(x)\cdot \ln(g(x)) \]
+				li Derivando cada miembro y usando propiedades queda \[ \frac{f'(x)}{f(x)}= h'(x)\cdot \ln(g(x)+h(x)\frac{g'(x)}{g(x)} \]
+				li Y despejando obtenemos la derivada buscada \[ {f'(x)}= f(x) \big[h'(x)\cdot \ln(g(x)+h(x)\frac{g'(x)}{g(x)}\big] \]
+
+	+diapositiva("Derivada de la función inversa")
+
+		.diapo__contenido
+			h3 Teorema
+			p Sea $f(x)$ una función inversible tal que $f(a)=b$. Si ambos funciones son derivables se tiene \[ (f^{-1})'(b)=\frac{1}{f'(a)} \]
+
+
+
+	+diapositiva("Derivada y la recta tangente")
+		.diapo__contenido
+			h3 Propiedad
+			p La recta tangente al gráfico de $f(x)$ en $(x_0,f(x_0))$ tiene ecuación: \[ y=f'(x_0)\cdot (x-x_0)+f(x_0) \]
+			h3 Propiedad
+			p Si $y=m\cdot x +b$ es la recta tangente al gráfico de $f(x)$ en $(x_0,f(x_0))$, entonces \[f'(x_0)=m\] \[f(x_0)=m\cdot x_0 +b\]
+
+
+		
+		.comentario
+			h3 Nota
+			div
+				p $f(x)$ no es derivable en $x_0$ cuando se da alguna de las siguientes situaciones:
+					ul
+						li $f(x)$ es discontinua en $x_0$
+						li Si $f(x)$ tiene "arrugas o picos" en $x_0$
+						li La recta tangente al gráfico de $f(x)$ es vertical en $x_0$
+
+		figure
+			//- <iframe src="https://www.geogebra.org/calculator/expcnjmt?embed" width="100%" height="100%" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+			+graficoGeogebra("funcionConPuntosNoDerivables","api.setCoordSystem(-3,4,-1.5,3)",500,250)
+			figcaption Función no derivable en $x=-1$ por discontinuidad, en $x=1$ por "tener un pico o arruga", en $x=2$ por tener tangente vertical.
+
+
+block header
+	+navegacion

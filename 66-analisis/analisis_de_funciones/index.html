@@ -135,6 +135,55 @@ puntosCriticos_parametros.height = "200";
         <p>Los tres teoremas son equivalentes. Cada uno puede desmostrarse a partir de cualquiera de los otros dos.</p>
       </div>
     </section>
+    <section class="diapo" id="regla-de-l'hospital">
+      <h2>Regla de L'Hospital</h2>
+      <div class="diapo__contenido"><ul>
+<li>
+<p><strong>Teorema (para $\frac{0}{0}$): </strong> Sean $f$ y $g$ derivables en un entorno de $x_0$ tal que $\lim_{x\rightarrow x_0}{f(x)}=0$ y $\lim_{x\rightarrow x_0}{g(x)}=0$</p>
+        <p>
+          Si existe el límite $\lim_{x\rightarrow x_0}{\frac{f'(x)}{g'(x)}}=l$, entonces
+          \[ \lim_{x\rightarrow x_0}{\frac{\overbrace{f(x)}^{\rightarrow 0}}{\underbrace{g(x)}_{\rightarrow 0}}}=\lim_{x\rightarrow x_0}{\frac{f'(x)}{g'(x)}}=l\]
+          
+          
+        </p></li>
+<li>
+        <p>
+          <strong>Demostración (idea): </strong> Usando Teorema de valor medio de Cauchy (suponiendo que $f(x_0)=g(x_0)=0$)
+          \[
+          \lim_{x\rightarrow x_0}{\frac{f(x)}{g(x)}}=
+          \lim_{x\rightarrow x_0}{\frac{f(x)-\overbrace{f(x_0)}^{=0}}{g(x)-\underbrace{g(x_0)}_{=0}}}=
+          \lim_{c\rightarrow x_0}{\frac{f'(c)}{g'(c)}} \]
+        </p></li>
+</ul>
+      </div>
+    </section>
+    <section class="diapo" id="regla-de-l'hospital---otros-casos">
+      <h2>Regla de L'Hospital - otros casos</h2>
+      <div class="diapo__contenido">
+        <ul><li>
+<p><strong>Teorema (para $\frac{\infty}{\infty}$): </strong> Sean $f$ y $g$ derivables en un entorno de $x_0$ tal que $\lim_{x\rightarrow x_0}{f(x)}=\infty$ y $\lim_{x\rightarrow x_0}{g(x)}=\infty$</p>
+          <p>
+            Si existe el límite $\lim_{x\rightarrow x_0}{\frac{f'(x)}{g'(x)}}=l$, entonces
+            \[ \lim_{x\rightarrow x_0}{\frac{\overbrace{f(x)}^{\rightarrow \infty}}{\underbrace{g(x)}_{\rightarrow \infty}}}=\lim_{x\rightarrow x_0}{\frac{f'(x)}{g'(x)}}=l\]
+            
+          </p></li>
+        </ul>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul><li>
+            <Los>límites donde pueden usarse las reglas de L'Hospital son:</Los><ul>
+<li>$x\rightarrow x_0$</li>
+<li>$x\rightarrow x_0^+$</li>
+<li>$x\rightarrow x_0^-$</li>
+<li>$x\rightarrow \pm\infty$</li>
+</ul>
+</li>
+<li> La regla de L'Hospital sirve en indeterminaciones del tipo $\frac{0}{0}$ o $\frac{\infty}{\infty}.$ Sin embargo, casos del tipo $0\cdot \infty, 0^0, \infty^0,\infty -\infty$ pueden convertirse en los anteriores con ajustes adecuados.
+</li>
+          </ul>
+        </div>
+      </div>
+    </section>
     <section class="diapo" id="consecuencias-del-teorema-de-valor-medio">
       <h2>Consecuencias del Teorema de Valor Medio</h2>
       <div class="diapo__contenido">
@@ -318,6 +367,8 @@ funcionConcavaHaciaAbajo_parametros.height = "200";
         <ul>
           <li><a href="#puntos-críticos">Puntos críticos</a></li>
           <li><a href="#teoremas-de-valor-medio">Teoremas de valor medio</a></li>
+          <li><a href="#regla-de-l'hospital">Regla de L'Hospital</a></li>
+          <li><a href="#regla-de-l'hospital---otros-casos">Regla de L'Hospital - otros casos</a></li>
           <li><a href="#consecuencias-del-teorema-de-valor-medio">Consecuencias del Teorema de Valor Medio</a></li>
           <li><a href="#gráficos-de-funciones">Gráficos de funciones</a></li>
           <li><a href="#concavidad">Concavidad</a></li>

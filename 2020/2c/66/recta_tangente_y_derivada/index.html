@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var parametrosGeogebra = {
+      	"showMenuBar":false,
+      	"showAlgebraInput":false,
+      	"showToolBar":false,
+      	"showToolBarHelp":false,
+      	"showResetIcon":false,
+      	"enableLabelDrags":false,
+      	"enableShiftDragZoom":true,
+      	"enableRightClick":false,
+      	"errorDialogsActive":false,
+      	"useBrowserForJS":false,
+      	"allowStyleBar":false,
+      	"preventFocus":false,
+      	"showZoomButtons":false,
+      	"showFullscreenButton":true,
+      	"scale":1,
+      	"autoHeight":false,
+      	"disableAutoScale":false,
+      	"allowUpscale":false,
+      	"clickToLoad":false,
+      	"appName":"classic",
+      	"showSuggestionButtons":false,
+      	"buttonRounding":0.7,
+      	"buttonShadows":false,
+      	"language":"es",
+      }
+      
+    </script>
+    <meta name="description" content="Definición de recta tangente ¿Cómo se contruye? - Definición de derivaday su relación con la recta tangente."/>
+    <meta name="keywords" content="tangente, recta tangente, recta secante, derivada, tabla de derivada, función derivable, función no derivable"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Recta tangente y Derivada - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="recta-tangente---concepto">
+      <h2>Recta Tangente - Concepto</h2>
+      <div class="diapo__contenido">
+        <p>La recta tanguente a una curva en un punto $P$ es aquella recta que cumple con las siguentes propiedades:
+          <ol>
+            <li>Interseca a la curva en el punto $P$</li>
+            <li>La recta y la curva son <strong> indistinguibles cerca del punto $P$</strong></li>
+          </ol>
+        </p>
+        <h3>Objetivo</h3>
+        <p>Hallar forma funcional de la recta tangente al gráfico de una función en el punto $(x_0,f(x_0)).$</p>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="rectaTangenteYCircunferencia"></div>
+        <script>var rectaTangenteYCircunferencia_parametros = {...parametrosGeogebra}
+rectaTangenteYCircunferencia_parametros.id = "rectaTangenteYCircunferencia"
+rectaTangenteYCircunferencia_parametros.appletOnLoad = function(api){  }
+rectaTangenteYCircunferencia_parametros.filename = "geogebra/rectaTangenteYCircunferencia.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+rectaTangenteYCircunferencia_parametros.width = "500";
+rectaTangenteYCircunferencia_parametros.height = "400";
+          var applet_rectaTangenteYCircunferencia = new GGBApplet(rectaTangenteYCircunferencia_parametros, '5.0', views);
+          applet_rectaTangenteYCircunferencia.inject("rectaTangenteYCircunferencia");
+          
+          
+        </script>
+        <figcaption>
+          Una curva, su recta tangente en el punto $P$ (línea continua) y una recta cualquiera que pasa por $P$ (línea discontinua). 
+          Al ampliar el gráfico hacia el punto $P$ la curva y su recta tangente se vuelven indistinguibles.
+          
+          
+          
+          
+          
+          
+        </figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="recta-secante---concepto-auxiliar">
+      <h2>Recta Secante - Concepto auxiliar</h2>
+      <div class="diapo__contenido">
+        <h3>Recta secante</h3>
+        <ul>
+          <li>Es la recta que pasa por dos puntos de una curva.</li>
+          <li>Para el gráfico de una función $f(x)$, la recta secante que pasa por los puntos $(x_0,f(x_0))$ y $(x_1,f(x_1))$ tiene:
+            <ul>
+              <li>Pendiente \[m=\frac{f(x_1)-f(x_0)}{x_1-x_0}\]</li>
+              <li>Ecuación \[y=m\cdot (x-x_0)+f(x_0)\]</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="rectaSecante"></div>
+        <script>var rectaSecante_parametros = {...parametrosGeogebra}
+rectaSecante_parametros.id = "rectaSecante"
+rectaSecante_parametros.appletOnLoad = function(api){  }
+rectaSecante_parametros.filename = "geogebra/rectaSecante.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+rectaSecante_parametros.width = "500";
+rectaSecante_parametros.height = "400";
+          var applet_rectaSecante = new GGBApplet(rectaSecante_parametros, '5.0', views);
+          applet_rectaSecante.inject("rectaSecante");
+          
+          
+        </script>
+        <figcaption>Recta secante que pasa por los puntos $(x_0,f(x_0))$ y $(x_1,f(x_1))$</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="desde-la-recta-secante-hacia-la-recta-tangente">
+      <h2>Desde la recta secante hacia la recta tangente</h2>
+      <div class="diapo__contenido">
+        <div class="comparacion"><small>
+          <div id="idea-secante">
+            <h3>Recta secante</h3>
+            <p>La recta secante al gráfico de una función $f(x)$ que pasa por los puntos $(x_0,f(x_0))$ y $(x_1,f(x_1))$ tiene:</p>
+            <ul>
+              <li>Pendiente \[m=\frac{f(x_1)-f(x_0)}{x_1-x_0}\]</li>
+              <li>Ecuación \[y=m\cdot (x-x_0)+f(x_0)\]</li>
+            </ul>
+          </div>
+          <div id="idea-tangente">
+            <h3>Recta tangente</h3>
+            <p>La recta tangente al gráfico de una función $f(x)$ que pasa por el punto $(x_0,f(x_0))$ tiene:
+              <ul>
+                <li>Pendiente \[m=\lim_{x_1\rightarrow x_0}\frac{f(x_1)-f(x_0)}{x_1-x_0}\]</li>
+                <li>Ecuación \[y=m\cdot (x-x_0)+f(x_0)\]</li>
+              </ul>
+            </p></small>
+          </div>
+        </div>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <p>"Acercando los puntos" la recta secante se aproxima a una recta tangente.</p>
+        </div>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="rectaSecanteYRectaTangente"></div>
+        <script>var rectaSecanteYRectaTangente_parametros = {...parametrosGeogebra}
+rectaSecanteYRectaTangente_parametros.id = "rectaSecanteYRectaTangente"
+rectaSecanteYRectaTangente_parametros.appletOnLoad = function(api){ api.setCoordSystem(-3,3,-3,3) }
+rectaSecanteYRectaTangente_parametros.filename = "geogebra/rectaSecanteYRectaTangente.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+rectaSecanteYRectaTangente_parametros.width = "420";
+rectaSecanteYRectaTangente_parametros.height = "420";
+          var applet_rectaSecanteYRectaTangente = new GGBApplet(rectaSecanteYRectaTangente_parametros, '5.0', views);
+          applet_rectaSecanteYRectaTangente.inject("rectaSecanteYRectaTangente");
+          
+          
+        </script>
+        <figcaption>Visualización de la recta tagente y recta secante en el gráfico de una función.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="recta-tangente---definición">
+      <h2>Recta tangente - Definición</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>Llamaremos recta tangente al gráfico de una función $f(x)$ en el punto $(x_0,f(x_0))$ a la recta con:</p>
+        <ul>
+          <li>Pendiente \[m=\lim_{x\rightarrow x_0}\frac{f(x)-f(x_0)}{x-x_0}\]</li>
+          <li>Ecuación \[y=m\cdot (x-x_0)+f(x_0)\]</li>
+        </ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="funcionYSuRectaTangente"></div>
+        <script>var funcionYSuRectaTangente_parametros = {...parametrosGeogebra}
+funcionYSuRectaTangente_parametros.id = "funcionYSuRectaTangente"
+funcionYSuRectaTangente_parametros.appletOnLoad = function(api){ api.setCoordSystem(-5,5,-3,5) }
+funcionYSuRectaTangente_parametros.filename = "geogebra/funcionYSuRectaTangente.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+funcionYSuRectaTangente_parametros.width = "500";
+funcionYSuRectaTangente_parametros.height = "400";
+          var applet_funcionYSuRectaTangente = new GGBApplet(funcionYSuRectaTangente_parametros, '5.0', views);
+          applet_funcionYSuRectaTangente.inject("funcionYSuRectaTangente");
+          
+          
+        </script>
+        <figcaption>Gráfico de una función (puede cambiarse en el recuadro superior) y su recta tangente en el punto de abscisa $x_0$.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="derivada---definición">
+      <h2>Derivada - Definición</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>
+          Llamaremos derivada de $f(x)$ en $x_0$ (y lo notaremos $f'(x_0)$)
+          al resultado del límite (cuando existe y es finito)
+          \[ f'(x_0)=\lim_{x\rightarrow x_0}\frac{f(x)-f(x_0)}{x-x_0} \]
+        </p>
+        <p>Se llama función derivada $f'(x)$ a la función que calcula la derivada de $f(x)$ para cada $x\in \text{Dom }f$ (cuando la derivada existe).</p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>A la expresión $\frac{f(x)-f(x_0)}{x-x_0}$ se la denomina cociente incremental.</li>
+            <li>La definición de derivada es poco práctica. Usar la tabla de derivadas y propiedades es usualmente una forma más sencilla de hallar $f'(x).$</li>
+            <li>La pendiente de la recta tangente de $f(x)$ en $x_0$ pasa a ser $m=f'(x_0).$</li>
+          </ul>
+        </div>
+      </div>
+      <figure> 
+        <table style="position:initial">
+          <tr> 
+            <th colspan="2">Tabla de derivadas</th>
+          </tr>
+          <tr>
+            <th>$f(x)$</th>
+            <th>$f'(x)$</th>
+          </tr>
+          <tr>
+            <td>$C$ (constate)</td>
+            <td>$0$</td>
+          </tr>
+          <tr>
+            <td>$x$</td>
+            <td>$1$</td>
+          </tr>
+          <tr>
+            <td>$x^n$</td>
+            <td>$n\cdot x^{n-1}$</td>
+          </tr>
+          <tr>
+            <td>$e^x$</td>
+            <td>$e^x$</td>
+          </tr>
+          <tr>
+            <td>$\ln(x)$</td>
+            <td>$\frac{1}{x}$</td>
+          </tr>
+          <tr>
+            <td>$\sin(x)$</td>
+            <td>$\cos(x)$</td>
+          </tr>
+          <tr>
+            <td>$\cos(x)$</td>
+            <td>$-\sin(x)$</td>
+          </tr>
+        </table>
+        <figcaption>Notar que la tabla de derivada no incluye funciones partidas. Para derivar funciones partidas (en donde sucede la partición) es necesario recurrir a la definición de derivada.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="derivada---propiedades">
+      <h2>Derivada - Propiedades</h2>
+      <div class="diapo__contenido">
+        <figure><small>
+          <table style="position:initial">
+            <tr>
+              <td>Función <br>+<br> Función</td>
+              <td> $ \big(f(x)+g(x)\big)'=f'(x)+g'(x) $</td>
+            </tr>
+            <tr>
+              <td>Número <br>$\cdot$<br> Función</td>
+              <td>$ \big(K\cdot f(x)\big)'= K\cdot f'(x) $</td>
+            </tr>
+            <tr> 
+              <td>Función <br>$\cdot$<br> Función  </td>
+              <td>$ \big(f(x) \cdot g(x)\big)'= f'(x)\cdot g(x) + f(x)\cdot g'(x) $</td>
+            </tr>
+            <tr>
+              <td>Función <br>/<br> Función </td>
+              <td>$ \displaystyle \left(\frac{f(x)}{g(x)}\right)'=\frac{f'(x)\cdot g(x) - f(x)\cdot g'(x)}{[g(x)]^2} $</td>
+            </tr>
+            <tr>
+              <td>Regla <br>de la<br> cadena</td>
+              <td>$(fog)'(x)=\Big(f\big(g(x)\big)\Big)'=f'\big(g(x)\big)\cdot g'(x) $</td>
+            </tr>
+          </table></small>
+        </figure>
+      </div>
+      <figure>
+        <table>
+          <tr>
+            <th colspan="2">Tabla de derivadas</th>
+          </tr>
+          <tr>
+            <th>$f(x)$</th>
+            <th>$f'(x)$</th>
+          </tr>
+          <tr>
+            <td>$C$ (constate)</td>
+            <td>$0$</td>
+          </tr>
+          <tr>
+            <td>$x$</td>
+            <td>$1$</td>
+          </tr>
+          <tr>
+            <td>$x^n$</td>
+            <td>$n\cdot x^{n-1}$</td>
+          </tr>
+          <tr>
+            <td>$e^x$</td>
+            <td>$e^x$</td>
+          </tr>
+          <tr>
+            <td>$\ln(x)$</td>
+            <td>$\frac{1}{x}$</td>
+          </tr>
+          <tr>
+            <td>$\sin(x)$</td>
+            <td>$\cos(x)$</td>
+          </tr>
+          <tr>
+            <td>$\cos(x)$</td>
+            <td>$-\sin(x)$</td>
+          </tr>
+        </table>
+      </figure>
+    </section>
+    <section class="diapo" id="derivada-logarítmica">
+      <h2>Derivada logarítmica</h2>
+      <div class="diapo__contenido">
+        <ul> 
+          <li>Usando la regla de la cadena puede verse que $ (\ln(f(x)))'=\frac{f'(x)}{f(x)}$</li>
+          <li>Esta propiedad es muy útil para derivar una función del tipo $f(x)=g(x)^{h(x)}$. Si aplicamos el $\ln$ de ambos lados tenemos \[ \ln(f(x))=\ln(g(x)^{h(x)})=h(x)\cdot \ln(g(x)) \]</li>
+          <li>Derivando cada miembro y usando propiedades queda \[ \frac{f'(x)}{f(x)}= h'(x)\cdot \ln(g(x)+h(x)\frac{g'(x)}{g(x)} \]</li>
+          <li>Y despejando obtenemos la derivada buscada \[ {f'(x)}= f(x) \big[h'(x)\cdot \ln(g(x)+h(x)\frac{g'(x)}{g(x)}\big] \]</li>
+        </ul>
+      </div>
+    </section>
+    <section class="diapo" id="derivada-de-la-función-inversa">
+      <h2>Derivada de la función inversa</h2>
+      <div class="diapo__contenido">
+        <h3>Teorema</h3>
+        <p>Sea $f(x)$ una función inversible tal que $f(a)=b$. Si ambos funciones son derivables se tiene \[ (f^{-1})'(b)=\frac{1}{f'(a)} \]</p>
+      </div>
+    </section>
+    <section class="diapo" id="derivada-y-la-recta-tangente">
+      <h2>Derivada y la recta tangente</h2>
+      <div class="diapo__contenido">
+        <h3>Propiedad</h3>
+        <p>La recta tangente al gráfico de $f(x)$ en $(x_0,f(x_0))$ tiene ecuación: \[ y=f'(x_0)\cdot (x-x_0)+f(x_0) \]</p>
+        <h3>Propiedad</h3>
+        <p>Si $y=m\cdot x +b$ es la recta tangente al gráfico de $f(x)$ en $(x_0,f(x_0))$, entonces \[f'(x_0)=m\] \[f(x_0)=m\cdot x_0 +b\]</p>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <div>
+          <p>$f(x)$ no es derivable en $x_0$ cuando se da alguna de las siguientes situaciones:
+            <ul>
+              <li>$f(x)$ es discontinua en $x_0$</li>
+              <li>Si $f(x)$ tiene "arrugas o picos" en $x_0$</li>
+              <li>La recta tangente al gráfico de $f(x)$ es vertical en $x_0$</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="funcionConPuntosNoDerivables"></div>
+        <script>var funcionConPuntosNoDerivables_parametros = {...parametrosGeogebra}
+funcionConPuntosNoDerivables_parametros.id = "funcionConPuntosNoDerivables"
+funcionConPuntosNoDerivables_parametros.appletOnLoad = function(api){ api.setCoordSystem(-3,4,-1.5,3) }
+funcionConPuntosNoDerivables_parametros.filename = "geogebra/funcionConPuntosNoDerivables.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+funcionConPuntosNoDerivables_parametros.width = "500";
+funcionConPuntosNoDerivables_parametros.height = "250";
+          var applet_funcionConPuntosNoDerivables = new GGBApplet(funcionConPuntosNoDerivables_parametros, '5.0', views);
+          applet_funcionConPuntosNoDerivables.inject("funcionConPuntosNoDerivables");
+          
+          
+        </script>
+        <figcaption>Función no derivable en $x=-1$ por discontinuidad, en $x=1$ por "tener un pico o arruga", en $x=2$ por tener tangente vertical.</figcaption>
+      </figure>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#recta-tangente---concepto">Recta Tangente - Concepto</a></li>
+          <li><a href="#recta-secante---concepto-auxiliar">Recta Secante - Concepto auxiliar</a></li>
+          <li><a href="#desde-la-recta-secante-hacia-la-recta-tangente">Desde la recta secante hacia la recta tangente</a></li>
+          <li><a href="#recta-tangente---definición">Recta tangente - Definición</a></li>
+          <li><a href="#derivada---definición">Derivada - Definición</a></li>
+          <li><a href="#derivada---propiedades">Derivada - Propiedades</a></li>
+          <li><a href="#derivada-logarítmica">Derivada logarítmica</a></li>
+          <li><a href="#derivada-de-la-función-inversa">Derivada de la función inversa</a></li>
+          <li><a href="#derivada-y-la-recta-tangente">Derivada y la recta tangente</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>

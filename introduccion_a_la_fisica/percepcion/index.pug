@@ -1,0 +1,72 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Ciencia de la percepción"
+	//- Poner una descripcion del tema de la pagina. Sobre todo para cuando arme una pagina como indice general.
+	meta(name="description", content="La percepción del entorno es una aptitud notable de los seres vivos. La relación entre lo dictan nuestros sentidos y lo que interpretamos es de gran interes para las ciencias.")
+	//- A continuación poner los tag que describen los temas de las diapositvas
+	//- también incluir para quienes esta dirigida la diapositiva, materia, codigo materia, cbc
+	meta(name="keywords", content="palabras claves")
+
+	+usarGeogebra
+
+block body
+	+diapositiva("Ilusión Muller-Lyer")
+		.diapo__contenido
+			figure
+				img(src="images/ilusion-lineas.png", alt="",id="linea1")
+
+				img(src="images/ilusion-lineas-2.png", alt="",id="linea2")
+
+	+diapositiva("Cerebro y Percepción")
+
+		.diapo__contenido
+			ul
+				li Nos conectamos al mundo a traves de los sentidos. (Vista, gusto, olfato, tacto y oído)
+				li Los sentidos envian señales al cerebro a traves del sistema nervioso.
+				li El cerebro interpreta esas señales. 
+					ul
+						li ¿Qué tan buena es esa interpretación?
+						li ¿Nuestro cerebro está atento a toda la información que les da nuestros sentidos? 
+						li ¿El cerebro puede cometer errores?
+						li ¿Nuestro sentidos son perfectos?
+
+		//+imagen("images/descartes.jpg","René Descartes. Dibujo 53 del libro De Homine (1662)")
+		figure
+			<iframe width="400" height="225" src="https://www.youtube.com/embed/zONDGowt5lw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		
+	+diapositiva("Propuesta del proyecto")
+
+		.diapo__contenido
+			ol
+				li Los alumnos deberan realizar un trabajo de investigación y/o experimentación.
+				li Se evaluará:
+					ul
+						li Trabajos escritos.
+						li Video.
+				li Realizaremos una visita virtuál al LABORATORIO DE PERCEPCIÓN en el C3.
+					ul
+						li 4º A y B - 22/10 a las 11hs.
+						li 5º A y B - 29/10 a las 11hs.
+				li En el campus habrá un tema en el aula de Física (4º) y de Matemática (5º). Allí cada grupo tendrá un foro para trabaja y hacer consultas a los docentes. 
+				li: strong Confirmación de grupos: 19/10.
+				li: strong Elección de tema y estrategia de trabajo: 4/11.
+				li: strong Entrega de informes: 17/11.
+				li: strong Muestra de trabajos: 23/11.
+block header
+	+navegacion

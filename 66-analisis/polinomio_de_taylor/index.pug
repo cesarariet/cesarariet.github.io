@@ -1,0 +1,57 @@
+//- Para dar el titulo de la pagina usar                 -var titulo = "titulo de la pagina"
+
+//- para usar geogebra usar el mixin en el header            +usarGeogebra
+//- para comenzar una nueva diapositiva usar el mixin        +diapositiva("titulo de la diapositiva")
+//- 	el bloque hijo sera incluido como parte de la diapositiva
+//-			Usar para añadir el contenedor de contenido					 .diapo__contenido
+//-			Para agregar una Nota, comentario, extra usar				 .comentario
+//- 	es recomendable incluir imagenes,tables en un bloque figure 
+//-		con una descripcion figcaption
+//- 		para agregar una imagen usar el mixin                 +imagen(archivo, descripcion)
+//- 	  para incluir un archivo de geogebra usar el mixin     +graficoGeogebra(nombreArchivo,comandos='',width=400,height=400)
+//-	      el archivo debe incluirse en la carpeta geogebra/
+//- 	    En comandos se puede pasar javascript y comandos de Geogebra mediante api.comando_geogebra
+//-		    Ejemplo: "api.setCoordSystem(-1,7,-2,6)"
+//- se agrega al final la navegacion con el mixion			      +navegacion
+
+extend pug/_plantilla.pug
+prepend head
+	- var titulo = "Polinomio de Taylor"
+	//- Poner una descripcion del tema de la pagina. Sobre todo para cuando arme una pagina como indice general.
+	meta(name="description", content="Definición del Polinomio de Taylor.")
+	//- A continuación poner los tag que describen los temas de las diapositvas
+	//- también incluir para quienes esta dirigida la diapositiva, materia, codigo materia, cbc
+	meta(name="keywords", content="análisis, cbc, 66, Polinomio de Taylor")
+
+
+	+usarGeogebra
+
+block body
+
+	+diapositiva("Polinomio de Taylor")
+
+		.diapo__contenido
+
+			p Sea $f(x)$ una función $n$ veces derivable en $x_0$. LLamaremos Polinomio de Taylor de orden $n$ en el punto de contacto de abscisa $x_0$ 
+			p: small \[ \begin{array}{lcr} P_n(x) & = &  f(x_0)+f'(x_0)(x-x_0)+\frac{f^{(2)}(x_0)}{2!}(x-x_0)^2 \\  & &+\frac{f^{(3)}(x_0)}{3!}(x-x_0)^3 + \dots + \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n \end{array}\]
+		
+		.comentario
+			h3 Nota
+			div
+				p
+					i.icono-idea
+					| El polinomio de Taylor extiende el concepto de recta tangente.
+				p
+					i.icono-like
+					| El polinomio de Taylor aproxima a la función $f(x)$. A mayor orden y cerca de $x_0$ mejor es aproximación.
+				p
+					i.icono-atencion
+					| ¿Qué tan buena es la aproximación? ¿Qué tan lejos puedo estar de $x_0$ con una "buena aproximación"? El resto de Taylor es la respuesta.
+		figure
+			+graficoGeogebra("polinomioTaylor","api.setCoordSystem(-5,5,-3,8)",500,400)
+			figcaption Representación de una función y su polinomio de Taylor de orden $n$ en el punto de contacto $(x_0,f(x_0)).$ 
+
+
+
+block header
+	+navegacion
