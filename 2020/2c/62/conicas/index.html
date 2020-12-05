@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="descripción del tema"/>
+    <meta name="keywords" content="palabras claves"/>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script>
+      var parametrosGeogebra = {
+      	"showMenuBar":false,
+      	"showAlgebraInput":false,
+      	"showToolBar":false,
+      	"showToolBarHelp":false,
+      	"showResetIcon":false,
+      	"enableLabelDrags":false,
+      	"enableShiftDragZoom":true,
+      	"enableRightClick":false,
+      	"errorDialogsActive":false,
+      	"useBrowserForJS":false,
+      	"allowStyleBar":false,
+      	"preventFocus":false,
+      	"showZoomButtons":false,
+      	"showFullscreenButton":true,
+      	"scale":1,
+      	"autoHeight":false,
+      	"disableAutoScale":false,
+      	"allowUpscale":false,
+      	"clickToLoad":false,
+      	"appName":"classic",
+      	"showSuggestionButtons":false,
+      	"buttonRounding":0.7,
+      	"buttonShadows":false,
+      	"language":"es",
+      }
+      
+    </script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Pagina creada por Mario Estanislao Cesar Ariet - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="icofont/icofont.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="cónicas">
+      <h2>Cónicas</h2>
+      <div class="diapo__contenido">
+        <h3>Expresión general</h3>
+        <p>Se llama cónica al lugar geometrico formado por todos los puntos $(x,y)$ que cumplen con una ecuación de segunda grado como la siguiente:</p>
+        <p>\[ \alpha x^2 +\beta xy + \gamma y^2 + \lambda x + \mu y + \nu = 0\]</p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>Al menos un término cuadratico ($\alpha x^2, \beta xy \text{ o bien } \gamma y^2$ ) debe ser distinto de cero. </li>
+            <li>Cuando $\beta = 0$ la cónica se encuentra alineada con el eje horizontal o el eje vertical.</li>
+          </ul>
+        </div>
+        <h3>Ejemplos</h3>
+        <ul>
+          <li>$x^2+4y+3=0$ (parábola)</li>
+          <li>$3x^2+y^2-5=0$ (elipse)</li>
+          <li>$(x-2)^2-(y+2)^2=1$ (hipérbola)</li>
+          <li>$xy=4$ (hipérbola)</li>
+        </ul>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="conicas"></div>
+        <script>var conicas_parametros = {...parametrosGeogebra}
+conicas_parametros.id = "conicas"
+conicas_parametros.appletOnLoad = function(api){ api.setCoordSystem(-10,10,-10,10) }
+conicas_parametros.filename = "geogebra/conicas.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+conicas_parametros.width = "500";
+conicas_parametros.height = "400";
+          var applet_conicas = new GGBApplet(conicas_parametros, '5.0', views);
+          applet_conicas.inject("conicas");
+          
+          
+        </script>
+      </figure>
+    </section>
+    <section class="diapo" id="parábola">
+      <h2>Parábola</h2>
+      <div class="diapo__contenido">
+        <div>
+          <h3>Horizontal</h3>
+          <p>\[ (y-k)^2-4c(x-h)=0\]
+            <ul>
+              <li>Vertice $(h,k)$</li>
+              <li>Foco $(h+c,k)$</li>
+              <li>Directriz $ x=h-c$</li>
+            </ul>
+          </p>
+        </div>
+        <div>
+          <h3>Vertical</h3>
+          <p>\[ (x-h)^2-4c(y-k)=0\]
+            <ul>
+              <li>Vertice $(h,k)$</li>
+              <li>Foco $(h,k+c)$</li>
+              <li>Directriz $ y=k-c$</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="parabola"></div>
+        <script>var parabola_parametros = {...parametrosGeogebra}
+parabola_parametros.id = "parabola"
+parabola_parametros.appletOnLoad = function(api){ api.setCoordSystem(-15,15,-15,15) }
+parabola_parametros.filename = "geogebra/parabola.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+parabola_parametros.width = "500";
+parabola_parametros.height = "400";
+          var applet_parabola = new GGBApplet(parabola_parametros, '5.0', views);
+          applet_parabola.inject("parabola");
+          
+          
+        </script>
+        <figcaption>Es el lugar geométrico de los puntos $P$ que se encuentra a la misma distancia de un punto $F$ (foco) y una recta $L$ (directriz). \[ \frac{d(P,F)}{d(P,L)}=1\]</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="elipse">
+      <h2>Elipse</h2>
+      <div>
+        <h3>Horizontal </h3>
+        <p>\[ \frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1\]
+          <ul>
+            <li>Vertices $(h\pm a,k)$</li>
+            <li>Focos $(h\pm c,k)$</li>
+            <li>Directrices $ x=h\pm \frac{a^2}{c}$</li>
+          </ul>
+        </p>
+      </div>
+      <div>
+        <h3>Vertical </h3>
+        <p>\[ \frac{(x-h)^2}{b^2}+\frac{(y-k)^2}{a^2}=1\]
+          <ul>
+            <li>Vertices $(h,k\pm a)$</li>
+            <li>Focos $(h,k\pm c)$</li>
+            <li>Directrices $ y=k\pm \frac{a^2}{c}$	</li>
+          </ul>
+        </p>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="parabola"></div>
+        <script>var parabola_parametros = {...parametrosGeogebra}
+parabola_parametros.id = "parabola"
+parabola_parametros.appletOnLoad = function(api){ api.setCoordSystem(-10,10,-10,10) }
+parabola_parametros.filename = "geogebra/parabola.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+parabola_parametros.width = "600";
+parabola_parametros.height = "600";
+          var applet_parabola = new GGBApplet(parabola_parametros, '5.0', views);
+          applet_parabola.inject("parabola");
+          
+          
+        </script>
+        <figcaption>Es el lugar geométrico de los puntos $P$ que se encuentra a la misma distancia de un punto $F$ (foco) y una recta $L$ (directriz). \[ \frac{d(P,F)}{d(P,L)}=1\]</figcaption>
+      </figure>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#cónicas">Cónicas</a></li>
+          <li><a href="#parábola">Parábola</a></li>
+          <li><a href="#elipse">Elipse</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
