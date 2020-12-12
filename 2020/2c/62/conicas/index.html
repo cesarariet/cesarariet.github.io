@@ -52,7 +52,7 @@
       <h2>Cónicas</h2>
       <div class="diapo__contenido">
         <h3>Expresión general</h3>
-        <p>Se llama cónica al lugar geometrico formado por todos los puntos $(x,y)$ que cumplen con una ecuación de segunda grado como la siguiente:</p>
+        <p>Se llama cónica al lugar geométrico formado por todos los puntos $(x,y)$ que cumplen con una ecuación de segundo grado como la siguiente:</p>
         <p>\[ \alpha x^2 +\beta xy + \gamma y^2 + \lambda x + \mu y + \nu = 0\]</p>
         <div class="comentario">
           <h3>Nota</h3>
@@ -61,13 +61,15 @@
             <li>Cuando $\beta = 0$ la cónica se encuentra alineada con el eje horizontal o el eje vertical.</li>
           </ul>
         </div>
-        <h3>Ejemplos</h3>
-        <ul>
-          <li>$x^2+4y+3=0$ (parábola)</li>
-          <li>$3x^2+y^2-5=0$ (elipse)</li>
-          <li>$(x-2)^2-(y+2)^2=1$ (hipérbola)</li>
-          <li>$xy=4$ (hipérbola)</li>
-        </ul>
+        <div class="comentario">
+          <h3>Ejemplos</h3>
+          <ul>
+            <li>$x^2+4y+3=0$ (parábola)</li>
+            <li>$3x^2+y^2-5=0$ (elipse)</li>
+            <li>$(x-2)^2-(y+2)^2=1$ (hipérbola)</li>
+            <li>$xy=4$ (hipérbola)</li>
+          </ul>
+        </div>
       </div>
       <figure>
         <div class="contenedor--geogebra" id="conicas"></div>
@@ -78,12 +80,41 @@ conicas_parametros.filename = "geogebra/conicas.ggb"
           // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
           var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
 conicas_parametros.width = "500";
-conicas_parametros.height = "400";
+conicas_parametros.height = "500";
           var applet_conicas = new GGBApplet(conicas_parametros, '5.0', views);
           applet_conicas.inject("conicas");
           
           
         </script>
+        <figcaption>Representación de cónicas. Con los deslizadores se pueden variar los parámetros. </figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="parábola---definición">
+      <h2>Parábola - Definición</h2>
+      <div class="diapo__contenido">
+        <h3>Definición </h3>
+        <p>Sea $F$ un punto (foco) y sea $L$ una recta (directríz). Llamaremos parabóla al lugar geométrico de los puntos $P$ que se encuentran a la misma distancia de $F$ (foco) y de $L$ (directríz). \[ \frac{d(F,P)}{d(L,P)}=1 \]</p>
+        <div class="comentario">
+          <h3>Nota </h3>
+          <p>El cociente anterior se denomina excentricidad y es una propiedad de todas las cónicas. Para la parábola la excentricidad es $1$</p>
+        </div>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="parabolaExcentricidad"></div>
+        <script>var parabolaExcentricidad_parametros = {...parametrosGeogebra}
+parabolaExcentricidad_parametros.id = "parabolaExcentricidad"
+parabolaExcentricidad_parametros.appletOnLoad = function(api){ api.setCoordSystem(-6,4,-1,9) }
+parabolaExcentricidad_parametros.filename = "geogebra/parabolaExcentricidad.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+parabolaExcentricidad_parametros.width = "400";
+parabolaExcentricidad_parametros.height = "400";
+          var applet_parabolaExcentricidad = new GGBApplet(parabolaExcentricidad_parametros, '5.0', views);
+          applet_parabolaExcentricidad.inject("parabolaExcentricidad");
+          
+          
+        </script>
+        <figcaption>Representación de una parábola junto con su Foco $P$ y su recta directríz $L$. Notar que la distancia entre $P$ y el foco $F$ es igual a la distancia entre $P$ y la directriz. Moviendo los puntos azules puede visualizarse la dependencia entre parábola, foco y diretríz.</figcaption>
       </figure>
     </section>
     <section class="diapo" id="parábola">
@@ -119,13 +150,59 @@ parabola_parametros.filename = "geogebra/parabola.ggb"
           // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
           var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
 parabola_parametros.width = "500";
-parabola_parametros.height = "400";
+parabola_parametros.height = "500";
           var applet_parabola = new GGBApplet(parabola_parametros, '5.0', views);
           applet_parabola.inject("parabola");
           
           
         </script>
-        <figcaption>Es el lugar geométrico de los puntos $P$ que se encuentra a la misma distancia de un punto $F$ (foco) y una recta $L$ (directriz). \[ \frac{d(P,F)}{d(P,L)}=1\]</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="elipse---definición-1">
+      <h2>Elipse - Definición 1</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>Sean $F_1$ y $F_2$ dos puntos (focos). Llamaremos elipse al lugar geométrico de los puntos $P$ tal que la distancia del foco $F_1$ a $P$ más la distancia de $F_2$ al $P$ es una constante (de valor $2a$) \[ d(F_1,P)+d(F_2,P)=2a \]</p>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="elipseDistanciaFocos"></div>
+        <script>var elipseDistanciaFocos_parametros = {...parametrosGeogebra}
+elipseDistanciaFocos_parametros.id = "elipseDistanciaFocos"
+elipseDistanciaFocos_parametros.appletOnLoad = function(api){ api.setCoordSystem(0,8,-1,7) }
+elipseDistanciaFocos_parametros.filename = "geogebra/elipseDistanciaFocos.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+elipseDistanciaFocos_parametros.width = "500";
+elipseDistanciaFocos_parametros.height = "500";
+          var applet_elipseDistanciaFocos = new GGBApplet(elipseDistanciaFocos_parametros, '5.0', views);
+          applet_elipseDistanciaFocos.inject("elipseDistanciaFocos");
+          
+          
+        </script>
+        <figcaption>Representación de una elipse, sus focos, vertice y centro. Moviendo los focos o el vertice rojo puede verse como varía la elipse. Notar que la suma de las distancias de cada foco al punto $P$ es siempre constante.</figcaption>
+      </figure>
+    </section>
+    <section class="diapo" id="elipse---definición-2">
+      <h2>Elipse - Definición 2</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>Sean $F$ un punto (foco), $L$ una recta (directriz) y $0 \lt e \lt 1$ (excentricidad). Una elipse es el lugar geométrico de puntos $P$ tal que el cociente entre la distancia de $P$ al foco $F$ y la distancia de $P$ a la directriz $L$ es igual a la excentricidad $e$. \[ \frac{d(F,P)}{d(L,P)}=e \]</p>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="elipseExcentricidad"></div>
+        <script>var elipseExcentricidad_parametros = {...parametrosGeogebra}
+elipseExcentricidad_parametros.id = "elipseExcentricidad"
+elipseExcentricidad_parametros.appletOnLoad = function(api){ api.setCoordSystem(-4,10,-4,10) }
+elipseExcentricidad_parametros.filename = "geogebra/elipseExcentricidad.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+elipseExcentricidad_parametros.width = "500";
+elipseExcentricidad_parametros.height = "500";
+          var applet_elipseExcentricidad = new GGBApplet(elipseExcentricidad_parametros, '5.0', views);
+          applet_elipseExcentricidad.inject("elipseExcentricidad");
+          
+          
+        </script>
       </figure>
     </section>
     <section class="diapo" id="elipse">
@@ -134,47 +211,154 @@ parabola_parametros.height = "400";
         <h3>Horizontal </h3>
         <p>\[ \frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1\]
           <ul>
+            <li>Semieje mayor horizontal</li>
             <li>Vertices $(h\pm a,k)$</li>
             <li>Focos $(h\pm c,k)$</li>
             <li>Directrices $ x=h\pm \frac{a^2}{c}$</li>
           </ul>
         </p>
       </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <ul>
+          <li>$(h,k)$ es el centro.</li>
+          <li>$a$ es semieje mayor.</li>
+          <li>$b$ es semieje menor.</li>
+          <li>$c$ es la distancia del centro a cada foco.</li>
+          <li>$a^2 = b^2+c^2$</li>
+          <li>Excentricidad $e=\frac{c}{a}\lt 1$</li>
+        </ul>
+      </div>
       <div>
         <h3>Vertical </h3>
         <p>\[ \frac{(x-h)^2}{b^2}+\frac{(y-k)^2}{a^2}=1\]
           <ul>
+            <li>Semieje mayor vertical</li>
             <li>Vertices $(h,k\pm a)$</li>
             <li>Focos $(h,k\pm c)$</li>
             <li>Directrices $ y=k\pm \frac{a^2}{c}$	</li>
           </ul>
         </p>
       </div>
+    </section>
+    <section class="diapo" id="circunferencia">
+      <h2>Circunferencia</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>Sea $C=(h,k)$ un punto (centro) y $R\in \Re$ (radio). Se llama circunferencia al lugar geométrico de puntos $P$ que se encuentran a distancia $R$ del punto $C$. \[ d(C,P)=R \]</p>
+        <h3>Ecuación</h3>
+        <p>\[ (x-h)^2+(y-k)^2=R^2 \]	</p>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <ul>
+          <li>Es un caso particular de la elipse donde los semiejes mayor y menor se hacen iguales. </li>
+          <li>La excentricidad de la circunferencia es cero.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="diapo" id="hipérbola---definición-1">
+      <h2>Hipérbola - Definición 1</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>Sea $F_1$ y $F_2$ dos puntos (focos) y sea $a \gt 0$. LLamaremos hipérbola al lugar geométricos de puntos $P$ tal que \[ |d(F_1,P)-d(F_2,P)|=2a \]  </p>
+        <div class="comentario">
+          <h3>Nota</h3>
+          <ul>
+            <li>$a$ se conoce como semieje real y debe ser un número menor a la distancia del centro de la hipérbola a cada foco.</li>
+          </ul>
+        </div>
+      </div>
       <figure>
-        <div class="contenedor--geogebra" id="parabola"></div>
-        <script>var parabola_parametros = {...parametrosGeogebra}
-parabola_parametros.id = "parabola"
-parabola_parametros.appletOnLoad = function(api){ api.setCoordSystem(-10,10,-10,10) }
-parabola_parametros.filename = "geogebra/parabola.ggb"
+        <div class="contenedor--geogebra" id="hiperbolaLugarGeometrico"></div>
+        <script>var hiperbolaLugarGeometrico_parametros = {...parametrosGeogebra}
+hiperbolaLugarGeometrico_parametros.id = "hiperbolaLugarGeometrico"
+hiperbolaLugarGeometrico_parametros.appletOnLoad = function(api){ api.setCoordSystem(-5,10,-5,10) }
+hiperbolaLugarGeometrico_parametros.filename = "geogebra/hiperbolaLugarGeometrico.ggb"
           // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
           var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
-parabola_parametros.width = "600";
-parabola_parametros.height = "600";
-          var applet_parabola = new GGBApplet(parabola_parametros, '5.0', views);
-          applet_parabola.inject("parabola");
+hiperbolaLugarGeometrico_parametros.width = "500";
+hiperbolaLugarGeometrico_parametros.height = "500";
+          var applet_hiperbolaLugarGeometrico = new GGBApplet(hiperbolaLugarGeometrico_parametros, '5.0', views);
+          applet_hiperbolaLugarGeometrico.inject("hiperbolaLugarGeometrico");
           
           
         </script>
-        <figcaption>Es el lugar geométrico de los puntos $P$ que se encuentra a la misma distancia de un punto $F$ (foco) y una recta $L$ (directriz). \[ \frac{d(P,F)}{d(P,L)}=1\]</figcaption>
       </figure>
+    </section>
+    <section class="diapo" id="hipérbola---definición-2">
+      <h2>Hipérbola - Definición 2</h2>
+      <div class="diapo__contenido">
+        <h3>Definición</h3>
+        <p>Sean $F$ un punto (foco), $L$ una recta (directriz) y $e \gt 1$ (excentricidad). Una hipérbola es el lugar geométrico de puntos $P$ tal que el cociente entre la distancia de $P$ al foco $F$ y la distancia de $P$ a la directriz $L$ es igual a la excentricidad $e$. \[ \frac{d(F,P)}{d(L,P)}=e \]</p>
+      </div>
+      <figure>
+        <div class="contenedor--geogebra" id="hiperbolaExcentricidad"></div>
+        <script>var hiperbolaExcentricidad_parametros = {...parametrosGeogebra}
+hiperbolaExcentricidad_parametros.id = "hiperbolaExcentricidad"
+hiperbolaExcentricidad_parametros.appletOnLoad = function(api){ api.setCoordSystem(-4,8,-4,8) }
+hiperbolaExcentricidad_parametros.filename = "geogebra/hiperbolaExcentricidad.ggb"
+          // is3D=is 3D applet using 3D view, AV=Algebra View, SV=Spreadsheet View, CV=CAS View, EV2=Graphics View 2, CP=Construction Protocol, PC=Probability Calculator DA=Data Analysis, FI=Function Inspector, macro=Macros
+          var views = {'is3D': 0,'AV': 0,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
+hiperbolaExcentricidad_parametros.width = "500";
+hiperbolaExcentricidad_parametros.height = "500";
+          var applet_hiperbolaExcentricidad = new GGBApplet(hiperbolaExcentricidad_parametros, '5.0', views);
+          applet_hiperbolaExcentricidad.inject("hiperbolaExcentricidad");
+          
+          
+        </script>
+      </figure>
+    </section>
+    <section class="diapo" id="hipérbola">
+      <h2>Hipérbola</h2>
+      <div>
+        <h3>Ramas horizontales</h3>
+        <p>\[ \frac{(x-h)^2}{a^2}-\frac{(y-k)^2}{b^2}=1\]</p>
+        <ul>
+          <li>El semieje real es horizontal</li>
+          <li>Vertices $(h\pm a,k)$</li>
+          <li>Focos $(h\pm c, k)$</li>
+          <li>Directrices $x = h \pm \frac{a^2}{c}$ </li>
+          <li>Asíntotas $y= \pm\frac{b}{a}(x-h)+k$</li>
+        </ul>
+      </div>
+      <div class="comentario">
+        <h3>Nota</h3>
+        <ul>
+          <li>$(h,k)$ es el centro de la hipérbola</li>
+          <li>$a$ es semieje real (distancia del centro a cada vértice)</li>
+          <li>$b$ es el semieje imaginario.</li>
+          <li>$c$ es la distancia del centro a cada foco.</li>
+          <li>$a^2+b^2 = c^2$</li>
+          <li>Excentricidad $e=\frac{c}{a}\gt 1$</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Ramas verticales</h3>
+        <p>\[ \frac{(y-k)^2}{a^2}-\frac{(x-h)^2}{b^2}=1\]</p>
+        <ul>
+          <li>El semieje real es vertical</li>
+          <li>Vertices $(h,k\pm a)$</li>
+          <li>Focos $(h, k\pm c)$</li>
+          <li>Directrices $y = k \pm \frac{a^2}{c}$ </li>
+          <li>Asíntotas $y= \pm \frac{a}{b}(x-h)+k$</li>
+        </ul>
+      </div>
     </section>
     <header>
       <h1> <a href="#">menu</a></h1>
       <nav>
         <ul>
           <li><a href="#cónicas">Cónicas</a></li>
+          <li><a href="#parábola---definición">Parábola - Definición</a></li>
           <li><a href="#parábola">Parábola</a></li>
+          <li><a href="#elipse---definición-1">Elipse - Definición 1</a></li>
+          <li><a href="#elipse---definición-2">Elipse - Definición 2</a></li>
           <li><a href="#elipse">Elipse</a></li>
+          <li><a href="#circunferencia">Circunferencia</a></li>
+          <li><a href="#hipérbola---definición-1">Hipérbola - Definición 1</a></li>
+          <li><a href="#hipérbola---definición-2">Hipérbola - Definición 2</a></li>
+          <li><a href="#hipérbola">Hipérbola</a></li>
         </ul>
       </nav>
     </header>

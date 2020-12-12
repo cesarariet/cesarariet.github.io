@@ -30,22 +30,37 @@ block body
 	+diapositiva("Cónicas")
 		.diapo__contenido
 			h3 Expresión general
-			p Se llama cónica al lugar geometrico formado por todos los puntos $(x,y)$ que cumplen con una ecuación de segunda grado como la siguiente:
+			p Se llama cónica al lugar geométrico formado por todos los puntos $(x,y)$ que cumplen con una ecuación de segundo grado como la siguiente:
 			p \[ \alpha x^2 +\beta xy + \gamma y^2 + \lambda x + \mu y + \nu = 0\]
 			.comentario
 				h3 Nota
 				ul
 					li Al menos un término cuadratico ($\alpha x^2, \beta xy \text{ o bien } \gamma y^2$ ) debe ser distinto de cero. 
 					li Cuando $\beta = 0$ la cónica se encuentra alineada con el eje horizontal o el eje vertical.
-
-			h3 Ejemplos
-			ul
-				li $x^2+4y+3=0$ (parábola)
-				li $3x^2+y^2-5=0$ (elipse)
-				li $(x-2)^2-(y+2)^2=1$ (hipérbola)
-				li $xy=4$ (hipérbola)
+			
+			.comentario
+				h3 Ejemplos
+				ul
+					li $x^2+4y+3=0$ (parábola)
+					li $3x^2+y^2-5=0$ (elipse)
+					li $(x-2)^2-(y+2)^2=1$ (hipérbola)
+					li $xy=4$ (hipérbola)
 		figure
-			+graficoGeogebra("conicas","api.setCoordSystem(-10,10,-10,10)")
+			+graficoGeogebra("conicas","api.setCoordSystem(-10,10,-10,10)",500,500)
+			figcaption Representación de cónicas. Con los deslizadores se pueden variar los parámetros. 
+
+
+	+diapositiva("Parábola - Definición")
+		.diapo__contenido
+			h3 Definición 
+			p Sea $F$ un punto (foco) y sea $L$ una recta (directríz). Llamaremos parabóla al lugar geométrico de los puntos $P$ que se encuentran a la misma distancia de $F$ (foco) y de $L$ (directríz). \[ \frac{d(F,P)}{d(L,P)}=1 \]
+			.comentario
+				h3 Nota 
+				p El cociente anterior se denomina excentricidad y es una propiedad de todas las cónicas. Para la parábola la excentricidad es $1$
+
+		figure
+			+graficoGeogebra("parabolaExcentricidad","api.setCoordSystem(-6,4,-1,9)",400,400)
+			figcaption Representación de una parábola junto con su Foco $P$ y su recta directríz $L$. Notar que la distancia entre $P$ y el foco $F$ es igual a la distancia entre $P$ y la directriz. Moviendo los puntos azules puede visualizarse la dependencia entre parábola, foco y diretríz.
 
 	+diapositiva("Parábola")
 		.diapo__contenido
@@ -64,32 +79,116 @@ block body
 						li Foco $(h,k+c)$
 						li Directriz $ y=k-c$
 		figure
-			+graficoGeogebra("parabola","api.setCoordSystem(-15,15,-15,15)")
-			figcaption Es el lugar geométrico de los puntos $P$ que se encuentra a la misma distancia de un punto $F$ (foco) y una recta $L$ (directriz). \[ \frac{d(P,F)}{d(P,L)}=1\]
+			+graficoGeogebra("parabola","api.setCoordSystem(-15,15,-15,15)",500,500)
+
+	+diapositiva("Elipse - Definición 1")
+		.diapo__contenido
+			h3 Definición
+			p Sean $F_1$ y $F_2$ dos puntos (focos). Llamaremos elipse al lugar geométrico de los puntos $P$ tal que la distancia del foco $F_1$ a $P$ más la distancia de $F_2$ al $P$ es una constante (de valor $2a$) \[ d(F_1,P)+d(F_2,P)=2a \]
+
+
+		figure
+			+graficoGeogebra("elipseDistanciaFocos","api.setCoordSystem(0,8,-1,7)",500,500)
+			figcaption Representación de una elipse, sus focos, vertice y centro. Moviendo los focos o el vertice rojo puede verse como varía la elipse. Notar que la suma de las distancias de cada foco al punto $P$ es siempre constante.
+
+	+diapositiva("Elipse - Definición 2")
+		.diapo__contenido
+			h3 Definición
+			p Sean $F$ un punto (foco), $L$ una recta (directriz) y $0 \lt e \lt 1$ (excentricidad). Una elipse es el lugar geométrico de puntos $P$ tal que el cociente entre la distancia de $P$ al foco $F$ y la distancia de $P$ a la directriz $L$ es igual a la excentricidad $e$. \[ \frac{d(F,P)}{d(L,P)}=e \]
+
+		figure
+			+graficoGeogebra("elipseExcentricidad","api.setCoordSystem(-4,10,-4,10)",500,500)
+
 
 	+diapositiva("Elipse")
 		div
 			h3 Horizontal 
 			p \[ \frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1\]
 				ul
+					li Semieje mayor horizontal
 					li Vertices $(h\pm a,k)$
 					li Focos $(h\pm c,k)$
 					li Directrices $ x=h\pm \frac{a^2}{c}$
+		.comentario
+			h3 Nota
+			ul
+				li $(h,k)$ es el centro.
+				li $a$ es semieje mayor.
+				li $b$ es semieje menor.
+				li $c$ es la distancia del centro a cada foco.
+				li $a^2 = b^2+c^2$
+				li Excentricidad $e=\frac{c}{a}\lt 1$
 		div
 			h3 Vertical 
 			p \[ \frac{(x-h)^2}{b^2}+\frac{(y-k)^2}{a^2}=1\]
 				ul
+					li Semieje mayor vertical
 					li Vertices $(h,k\pm a)$
 					li Focos $(h,k\pm c)$
 					li Directrices $ y=k\pm \frac{a^2}{c}$	
-		figure
-			+graficoGeogebra("parabola","api.setCoordSystem(-10,10,-10,10)",600,600)
-			figcaption Es el lugar geométrico de los puntos $P$ que se encuentra a la misma distancia de un punto $F$ (foco) y una recta $L$ (directriz). \[ \frac{d(P,F)}{d(P,L)}=1\]
-
-
-
 		
-			
+	+diapositiva("Circunferencia")
+		.diapo__contenido
+			h3 Definición
+			p Sea $C=(h,k)$ un punto (centro) y $R\in \Re$ (radio). Se llama circunferencia al lugar geométrico de puntos $P$ que se encuentran a distancia $R$ del punto $C$. \[ d(C,P)=R \]
+			h3 Ecuación
+			p \[ (x-h)^2+(y-k)^2=R^2 \]	
+		.comentario
+			h3 Nota
+			ul
+				li Es un caso particular de la elipse donde los semiejes mayor y menor se hacen iguales. 
+				li La excentricidad de la circunferencia es cero.
 
+	+diapositiva("Hipérbola - Definición 1")
+		.diapo__contenido
+			h3 Definición
+			p Sea $F_1$ y $F_2$ dos puntos (focos) y sea $a \gt 0$. LLamaremos hipérbola al lugar geométricos de puntos $P$ tal que \[ |d(F_1,P)-d(F_2,P)|=2a \]  
+			.comentario
+				h3 Nota
+				ul
+					li $a$ se conoce como semieje real y debe ser un número menor a la distancia del centro de la hipérbola a cada foco.
+
+		figure
+			+graficoGeogebra("hiperbolaLugarGeometrico","api.setCoordSystem(-5,10,-5,10)",500,500)
+
+	+diapositiva("Hipérbola - Definición 2")
+		.diapo__contenido
+			h3 Definición
+			p Sean $F$ un punto (foco), $L$ una recta (directriz) y $e \gt 1$ (excentricidad). Una hipérbola es el lugar geométrico de puntos $P$ tal que el cociente entre la distancia de $P$ al foco $F$ y la distancia de $P$ a la directriz $L$ es igual a la excentricidad $e$. \[ \frac{d(F,P)}{d(L,P)}=e \]
+
+		figure
+			+graficoGeogebra("hiperbolaExcentricidad","api.setCoordSystem(-4,8,-4,8)",500,500)
+
+
+	+diapositiva("Hipérbola")
+
+		div
+			h3 Ramas horizontales
+			p \[ \frac{(x-h)^2}{a^2}-\frac{(y-k)^2}{b^2}=1\]
+			ul
+				li El semieje real es horizontal
+				li Vertices $(h\pm a,k)$
+				li Focos $(h\pm c, k)$
+				li Directrices $x = h \pm \frac{a^2}{c}$ 
+				li Asíntotas $y= \pm\frac{b}{a}(x-h)+k$
+		.comentario
+			h3 Nota
+			ul
+				li $(h,k)$ es el centro de la hipérbola
+				li $a$ es semieje real (distancia del centro a cada vértice)
+				li $b$ es el semieje imaginario.
+				li $c$ es la distancia del centro a cada foco.
+				li $a^2+b^2 = c^2$
+				li Excentricidad $e=\frac{c}{a}\gt 1$
+		div
+			h3 Ramas verticales
+			p \[ \frac{(y-k)^2}{a^2}-\frac{(x-h)^2}{b^2}=1\]
+			ul
+				li El semieje real es vertical
+				li Vertices $(h,k\pm a)$
+				li Focos $(h, k\pm c)$
+				li Directrices $y = k \pm \frac{a^2}{c}$ 
+				li Asíntotas $y= \pm \frac{a}{b}(x-h)+k$
+	
 block header
 	+navegacion
