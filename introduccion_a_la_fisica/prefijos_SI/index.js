@@ -41,7 +41,7 @@ var handleClick = () => {
 
   if (
     numeroSePasaALaDerecha(parteDecimal, posicionComa) ||
-    numeroSePasaALaIzquierda(parteEntera, posicionComa)
+    numeroSePasaALaIzquierda(parteEntera, posicionComa + 1)
   ) {
     alert("El número no entra en la tabla");
   }
@@ -61,6 +61,13 @@ var moverLaComa = (lado) => {
   parteDecimal === undefined ? (parteDecimal = "") : null;
   // POSICION DE LA COMA DEL NUMERO EN LA TABLA
   var posicionComa = puntoMedio - Math.log10(prefijo);
+  //Verificar que se puede hacer el movimiento
+  if (
+    numeroSePasaALaDerecha(parteDecimal, posicionComa + movimiento) ||
+    numeroSePasaALaIzquierda(parteEntera, posicionComa + movimiento + 1)
+  ) {
+    alert("El número no entra en la tabla");
+  }
   //Mueve la coma y agrega ceros si hace falta
 
   if (movimiento < 0) {
@@ -96,12 +103,6 @@ var moverLaComa = (lado) => {
 
   for (var i = 0; i < columnaNueva.length; i++) {
     columnaNueva[i].innerHTML = "";
-  }
-  if (
-    numeroSePasaALaDerecha(parteDecimal, posicionComa + movimiento) ||
-    numeroSePasaALaIzquierda(parteEntera, posicionComa + movimiento)
-  ) {
-    alert("El número no entra en la tabla");
   }
 
   //IMPRIMIR EL NÚMERO ELEGIDO

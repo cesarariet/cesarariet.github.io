@@ -13,14 +13,19 @@
     <h2>Elije un número</h2>
     <input type="number" id="numero" placeholder="número" />
     <select name="prefijo" id="prefijo">
-      <option value="1000000">M</option>
-      <option value="1000">k</option>
-      <option value="100">h</option>
-      <option value="10">da</option>
+      <option value="1000000000000">Tera (T)</option>
+      <option value="1000000000">Giga (G)</option>
+      <option value="1000000">Mega (M)</option>
+      <option value="1000">kilo (k)</option>
+      <option value="100">hecto (h)</option>
+      <option value="10">deca (da)</option>
       <option value="1" selected></option>
-      <option value=".1">d</option>
-      <option value=".01">c</option>
-      <option value=".001">m</option>
+      <option value=".1">deci (d)</option>
+      <option value=".01">centi (c)</option>
+      <option value=".001">mili (m)</option>
+      <option value=".000001">micro (µ)</option>
+      <option value=".000000001">nano (n)</option>
+      <option value=".000000000001">pico (p)</option>
     </select>
     <select name="unidad" id="unidad">
       <option value="m">metro(m)</option>
@@ -79,7 +84,7 @@
         <td>m</td>
         <td>-</td>
         <td>-</td>
-        <td>u</td>
+        <td>µ</td>
         <td>-</td>
         <td>-</td>
         <td>n</td>
