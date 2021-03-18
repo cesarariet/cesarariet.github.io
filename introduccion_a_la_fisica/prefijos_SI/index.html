@@ -9,8 +9,12 @@
     <script src="index.js"></script>
   </head>
   <body>
-    <h1>Prefijos del sistema internacional</h1>
-    <h2>Elije un número</h2>
+    <h1>Prefijos del Sistema Internacional</h1>
+    <h2>Elija una Cantidad</h2>
+    <p>
+      Escriba un número, seleccione un prefijo (o dejelo vacio) y elija una
+      unidad.
+    </p>
     <input type="number" id="numero" placeholder="número" />
     <select name="prefijo" id="prefijo">
       <option value="1000000000000">Tera (T)</option>
@@ -34,6 +38,10 @@
       <option value="s">segundo (s)</option>
     </select>
     <button onclick="handleClick()">Enviar</button>
+    <p>
+      La cantidad elegida aparecá por encima de la tabla de conversión con la
+      coma (separador decimal) ubicado justo en la unidad armada.
+    </p>
 
     <h2>Tabla de conversión</h2>
 
@@ -120,10 +128,29 @@
         <td></td>
       </tr>
     </table>
-    <p>Mover la coma para llegar al resultado deseado:</p>
+    <p>
+      Para pasar la cantidad a una unidad con prefijo distinto mover la coma
+      hasta llegar al resultado deseado. La coma (separador decimal) debe quedar
+      en la ubicación de la nuevo prefijo-unidad.
+    </p>
     <p>
       <button onclick="moverLaComa(-1)">Mover Coma a la Izquierda</button>
       <button onclick="moverLaComa(1)">Mover Coma a la Derecha</button>
     </p>
+    <h3>Ejemplos:</h3>
+    <ul>
+      <li>
+        Al pasar 3,2km a decametros (dam) debe moverse la coma dos lugares a la
+        derecha quedando 320dam.
+      </li>
+      <li>
+        Al pasar 3,2km a Megametros (Mm) debe moverse la coma tres lugares a la
+        izquierda quedando 0,0032Mm.
+      </li>
+      <li>
+        Al pasar 34kg a gramos (g) debe moverse la coma dos lugares a la
+        izquierda quedando 0,034g.
+      </li>
+    </ul>
   </body>
 </html>
