@@ -3,7 +3,7 @@ var movimiento = 0;
 
 var handleClick = () => {
   //reseteo
-  movmiento = 0;
+  movimiento = 0;
   moverLaComa(0);
   // TOMA DE DATOS
   var valor = document.getElementById("numero").value;
@@ -138,5 +138,14 @@ var imprimirNumero = (columnas, parteEntera, posicionComa, parteDecimal) => {
     for (let i = 0; i < parteDecimal.length; i++) {
       columnas[posicionComa + i + 1].innerHTML = parteDecimal[i];
     }
+  }
+};
+
+var mostrarOcultar = (id) => {
+  var elemento = document.getElementById(id);
+  if (elemento.style.display === "none") {
+    elemento.style.display = "block";
+  } else {
+    elemento.style.display = "none";
   }
 };
