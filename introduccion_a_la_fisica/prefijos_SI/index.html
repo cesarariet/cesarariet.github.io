@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prefijos del Sistema Internacional</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <h1>Prefijos del sistema internacional</h1>
+    <h2>Elije un número</h2>
+    <input type="number" id="numero" placeholder="número" />
+    <select name="prefijo" id="prefijo">
+      <option value="1000000">M</option>
+      <option value="1000">k</option>
+      <option value="100">h</option>
+      <option value="10">da</option>
+      <option value="1" selected></option>
+      <option value=".1">d</option>
+      <option value=".01">c</option>
+      <option value=".001">m</option>
+    </select>
+    <select name="unidad" id="unidad">
+      <option value="m">metro(m)</option>
+      <option value="g">gramo(g)</option>
+      <option value="N">Newton (N)</option>
+      <option value="s">segundo (s)</option>
+    </select>
+    <button onclick="handleClick()">Enviar</button>
+
+    <h2>Tabla de conversión</h2>
+
+    <table>
+      <tr id="original">
+        <td style="font-size: 15px">Valor Original</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr id="guia">
+        <td style="border: none"></td>
+        <td>T</td>
+        <td>-</td>
+        <td>-</td>
+        <td>G</td>
+        <td>-</td>
+        <td>-</td>
+        <td>M</td>
+        <td>-</td>
+        <td>-</td>
+        <td>k</td>
+        <td>h</td>
+        <td>da</td>
+        <td></td>
+        <td>d</td>
+        <td>c</td>
+        <td>m</td>
+        <td>-</td>
+        <td>-</td>
+        <td>u</td>
+        <td>-</td>
+        <td>-</td>
+        <td>n</td>
+        <td>-</td>
+        <td>-</td>
+        <td>p</td>
+      </tr>
+      <tr id="nueva">
+        <td style="font-size: 15px">Valor convertido</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <p>Mover la coma para llegar al resultado deseado:</p>
+    <p>
+      <button onclick="moverLaComa(-1)">Mover Coma a la Izquierda</button>
+      <button onclick="moverLaComa(1)">Mover Coma a la Derecha</button>
+    </p>
+  </body>
+</html>

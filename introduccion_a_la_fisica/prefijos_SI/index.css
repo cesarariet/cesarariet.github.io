@@ -1,0 +1,15 @@
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border: 1px solid gray;
+  font-size: 25px;
+}
+td {
+  width: 1em;
+  text-align: center;
+}
+#guia td {
+  border: 2px solid black;
+  font-size: 0.5em;
+}
