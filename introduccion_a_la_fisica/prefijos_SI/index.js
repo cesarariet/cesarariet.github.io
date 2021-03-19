@@ -53,7 +53,6 @@ var handleClick = () => {
 var moverLaComa = (lado) => {
   //Cuenta el desplazamiento total
   movimiento = movimiento + lado;
-  console.log(movimiento);
   // TOMA DE DATOS
   var valor = document.getElementById("numero").value;
   var prefijo = document.getElementById("prefijo").value;
@@ -62,12 +61,14 @@ var moverLaComa = (lado) => {
   // POSICION DE LA COMA DEL NUMERO EN LA TABLA
   var posicionComa = puntoMedio - Math.log10(prefijo);
   //Verificar que se puede hacer el movimiento
-  if (
-    numeroSePasaALaDerecha(parteDecimal, posicionComa + movimiento) ||
-    numeroSePasaALaIzquierda(parteEntera, posicionComa + movimiento + 1)
-  ) {
-    alert("El número no entra en la tabla");
-  }
+
+  // console.log(movimiento);
+  // if (
+  //   numeroSePasaALaDerecha(parteDecimal, posicionComa + movimiento) ||
+  //   numeroSePasaALaIzquierda(parteEntera, posicionComa + movimiento + 1)
+  // ) {
+  //   alert("El número no entra en la tabla");
+  // }
   //Mueve la coma y agrega ceros si hace falta
 
   if (movimiento < 0) {
