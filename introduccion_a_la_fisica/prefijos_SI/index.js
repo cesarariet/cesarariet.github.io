@@ -135,6 +135,9 @@ var imprimirNumero = (columnas, parteEntera, posicionComa, parteDecimal) => {
     }
   }
   //Escribe la parte decimal
+
+  parteDecimal = sacarCerosDerechaParteDecimal(parteDecimal); //Con esto saco los ceros que quedan a la derecha de la parte decimal. Ejemplo 32,2000 ---> 32,2
+
   if (parteDecimal !== undefined) {
     for (let i = 0; i < parteDecimal.length; i++) {
       columnas[posicionComa + i + 1].innerHTML = parteDecimal[i];
@@ -148,5 +151,18 @@ var mostrarOcultar = (id) => {
     elemento.style.display = "block";
   } else {
     elemento.style.display = "none";
+  }
+};
+
+var sacarCerosDerechaParteDecimal = (decimal) => {
+  if (!decimal) {
+    return decimal;
+  }
+  if (decimal.slice(-1) === "0") {
+    decimal = decimal.slice(0, -1);
+    return sacarCerosDerechaParteDecimal(decimal);
+  } else {
+    console.log("terminó");
+    return decimal;
   }
 };
