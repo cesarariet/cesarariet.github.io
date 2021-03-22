@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Los números y la calculadora</title>
+    <script src="./index.js" defer></script>
+  </head>
+  <body style="max-width: 800px; margin: auto">
+    <h1>El separadador decimal</h1>
+    <p>
+      El separador decimal es un signo que se utiliza para indicar la separación
+      de la parte entera y la parte decimal de un número.
+    </p>
+    <p>
+      El número 3,14 conocido en matemática como π tiene parte entera 3 y parte
+      decimal 14, con el separador decimal coma (en este caso). Sin embargo, en
+      otras culturas el separador decimal es el punto quedando 3.14 el número π.
+    </p>
+    <p>
+      Dependiendo el origen y como este configurada una calculadora tendrá la
+      coma, el punto u otro símbolo como separador decimal.
+    </p>
+    <h1>Separadores de millares</h1>
+    <p>
+      Es común agrupar las cifras enteras de un número de tres en tres para
+      falicitar su lectura y cada grupo separarlos por un punto (en argentina),
+      una coma o un espacio.
+    </p>
+    <p>
+      Por ejemplo el numero 123456789 puede escribirse de las siguientes formas
+    </p>
+    <ul>
+      <li>
+        123.456.789 (separando miles y millares con un punto, muy usando en
+        argentina)
+      </li>
+      <li>
+        123,456,789 (separando miles y millares con una coma, usado en otros
+        paises)
+      </li>
+      <li>
+        123 456 789 (separando miles y millares con un espacio, de uso en
+        argentina y otros paises)
+      </li>
+      <li>123456789 (Sin separadores)</li>
+    </ul>
+    <p>
+      Los separadores de millares tienen la función de facilitar la lectura pero
+      <strong
+        >debe evitarse el uso porque suelen confundirse con el separador
+        decimal.</strong
+      >
+    </p>
+    <h1>Las calculadoras y los separadores</h1>
+    <p>
+      Las calculadoras pueden estar configuradas o configurarse para mostrar
+      separador decimal y separadores de millares. Cuando ambos separadores se
+      encuentran disponibles suelen confundirse. Para reconocer que separadores
+      tiene una calculadora debe tenerse en cuenta lo siguiente:
+    </p>
+    <ol>
+      <li>
+        El primer separador desde la derecha siempre es el separador decimal.
+      </li>
+      <li>
+        En caso de mostrar separadores de millares, estos aparecen cada tres
+        dígitos desde el separador decimal.
+      </li>
+    </ol>
+    <h2>Ejercicio:</h2>
+    <p>
+      Indique el separador decimal y separadores de millares para el siguiente
+      número. Elegir la opción correcta en la lista desplegable y luego
+      precionar el botón enviar.
+    </p>
+    <p style="text-align: center">
+      <span style="font-size: 2em" id="cantidad1">...</span> <br />
+      <select name="eleccion" id="eleccion1">
+        <option value="0">
+          Separador de millares: punto - Separador decimal: coma
+        </option>
+        <option value="1">
+          Separador de millares: coma - Separador decimal: punto
+        </option>
+        <option value="2">
+          Separador de millares: espacio - Separador decimal: coma
+        </option>
+        <option value="3">
+          Separador de millares: espacio - Separador decimal: punto
+        </option>
+        <option value="4">Solo separador decimal: coma</option>
+        <option value="5">Solo separador decimal: punto</option>
+      </select>
+      <button onclick="corregir()">Enviar</button>
+    </p>
+    <h2>Ejercicio:</h2>
+
+    <p>
+      Escriba el siguiente número sin usar separador de millares en el recuadro
+      y luego presione el boton enviar.
+    </p>
+    <p style="text-align: center">
+      <span style="font-size: 2em" id="cantidad2">...</span> <br />
+      <input type="number" id="respuesta2" />
+      <button onclick="corregir2()">Enviar</button>
+    </p>
+    <p>
+      <strong>Nota:</strong> Las calculadoras o computadoras actuales suelen
+      mostrar los resultados de las cuentas con ambos separadores (de millares y
+      decimal) generando duda a los nuevos usuarios.
+    </p>
+    <p>
+      <strong>Importante: </strong> Al ingresar los números en calculadoras y
+      computadoras no debe usarse los separadores de millares, solo escribe el
+      separador decimal. Eventualmente, la calculadora o computadora usada le
+      dara formato al número.
+    </p>
+  </body>
+</html>
