@@ -1,0 +1,14 @@
+- grafico temperatura - hora del día
+	cuando sube la temperatura, cuando baja.
+-temperatura- dia del año
+	para ver cuando se dio al mayor mayor temperatura, la menor temperatura.
+
+-personas vacunadas-dia
+
+- velocidad- tiempo de un auto
+	cuando acelera, cuando frena
+- tiro vertical, horario.
+
+- precio televisor - tamaño de pantalla
+
+

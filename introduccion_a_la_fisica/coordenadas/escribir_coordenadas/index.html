@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Leer coordendas</h1>
+    <p>Indique en el siguiente recuadro las coordenadas del punto P.</p>
+    <p style="font-size: 1.4em; text-align: center">
+      (
+      <input type="text" id="coordX" style="width: 1em; text-align: center" />
+      ,
+      <input type="text" id="coordY" style="width: 1em; text-align: center" />
+      )
+    </p>
+    <p style="text-align: center">
+      <button onclick="verificar()">Verificar</button>
+    </p>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script defer>
+      var params = {
+        showMenuBar: false,
+        showAlgebraInput: false,
+        showToolBar: false,
+        showToolBarHelp: false,
+        showResetIcon: false,
+        enableLabelDrags: false,
+        enableShiftDragZoom: true,
+        enableRightClick: false,
+        errorDialogsActive: false,
+        useBrowserForJS: true,
+        allowStyleBar: false,
+        preventFocus: false,
+        showZoomButtons: false,
+        showAlgebraPanel: false,
+        showFullscreenButton: false,
+        scale: 1,
+        autoHeight: false,
+        disableAutoScale: true,
+        allowUpscale: true,
+        clickToLoad: false,
+        appName: "classic",
+        showSuggestionButtons: false,
+        buttonRounding: 0.7,
+        language: "es",
+        material_id: "b3qcyfrr",
+        width: 400,
+        height: 400,
+      };
+      var views = {
+        is3D: false,
+        AV: false,
+        SV: false,
+        CV: false,
+        EV2: false,
+        CP: false,
+        PC: false,
+        DA: false,
+        FI: false,
+        macro: false,
+      };
+      var intento = 5;
+      let punto;
+      var ggbApplet = new GGBApplet(params, 5, true, views);
+      window.addEventListener("load", function () {
+        ggbApplet.inject("ggb1");
+      });
+      function ggbOnInit() {
+        iniciar();
+        ggbApplet.setCoordSystem(-7, 7, -7, 7);
+      }
+
+      function iniciar() {
+        punto = [aleatorioEntre(-6, 6), aleatorioEntre(-6, 6)];
+        document.getElementById("reiniciar").style.display = "none";
+        ggbApplet.evalCommand(`P=${convertirPuntos(punto)}`);
+        ggbApplet.setFixed(`P`, true);
+        ggbApplet.setLabelVisible("P", true);
+      }
+      function construirPuntos(cantidad = 5) {
+        if (cantidad <= 0) {
+          return [];
+        } else {
+          return [[aleatorioEntre(-6, 6), aleatorioEntre(-6, 6)]].concat(
+            construirPuntos(cantidad - 1)
+          );
+        }
+      }
+
+      function aleatorioEntre(Min = 1, Max = 4) {
+        return Math.floor(Math.random() * (Max - Min) + Min);
+      }
+
+      function convertirPuntos(arreglo) {
+        if (arreglo[0].length === undefined) {
+          return `(${arreglo[0]},${arreglo[1]})`;
+        }
+        return arreglo.reduce((acumulador, actual) => {
+          return `${acumulador},(${actual[0]},${actual[1]})`;
+        }, "");
+      }
+      function bien() {
+        intento--;
+        if (intento > 0) {
+          alert(`¡Muy Bien! \n Le quedan ${intento} coordendas por escribir.`);
+          ggbApplet.reset();
+        } else {
+          alert("Felicitaciones, has descripto bien todas las coordenas.");
+          document.getElementById("reiniciar").style.display = "inherit";
+        }
+      }
+      function mal() {
+        alert("Incorrecto, revisa las coordenadas.");
+      }
+      function malOrden() {
+        alert(
+          "Incorrecto, \n Nota: La primer coordenada corresponde al eje horizontal y la segunda al vertical."
+        );
+      }
+
+      function verificar() {
+        let coordX = document.getElementById("coordX").value;
+        let coordY = document.getElementById("coordY").value;
+        if (coordX == punto[0] && coordY == punto[1]) {
+          bien();
+        } else if (coordY == punto[0] && coordX == punto[1]) {
+          malOrden();
+        } else {
+          mal();
+        }
+      }
+    </script>
+
+    <div id="ggb1" style="margin: auto auto"></div>
+    <button id="reiniciar" onclick="iniciar()">Intentar nuevamente</button>
+  </body>
+</html>

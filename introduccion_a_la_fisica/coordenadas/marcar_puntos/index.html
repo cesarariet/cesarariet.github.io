@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Encuentre los puntos en los ejes cartesianos</h1>
+    <p>Marque el punto <span id="punto"></span>.</p>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script defer>
+      var params = {
+        showMenuBar: false,
+        showAlgebraInput: false,
+        showToolBar: false,
+        showToolBarHelp: false,
+        showResetIcon: false,
+        enableLabelDrags: false,
+        enableShiftDragZoom: true,
+        enableRightClick: false,
+        errorDialogsActive: false,
+        useBrowserForJS: true,
+        allowStyleBar: false,
+        preventFocus: false,
+        showZoomButtons: false,
+        showAlgebraPanel: false,
+        showFullscreenButton: false,
+        scale: 1,
+        autoHeight: false,
+        disableAutoScale: true,
+        allowUpscale: true,
+        clickToLoad: false,
+        appName: "classic",
+        showSuggestionButtons: false,
+        buttonRounding: 0.7,
+        language: "es",
+        material_id: "b3qcyfrr",
+        width: 400,
+        height: 400,
+      };
+      var views = {
+        is3D: false,
+        AV: false,
+        SV: false,
+        CV: false,
+        EV2: false,
+        CP: false,
+        PC: false,
+        DA: false,
+        FI: false,
+        macro: false,
+      };
+      var intento = 5;
+      var ggbApplet = new GGBApplet(params, 5, true, views);
+      window.addEventListener("load", function () {
+        ggbApplet.inject("ggb1");
+      });
+      function ggbOnInit() {
+        iniciar();
+        ggbApplet.setCoordSystem(-7, 7, -7, 7);
+      }
+
+      function iniciar() {
+        document.getElementById("reiniciar").style.display = "none";
+        let camino = construirPuntos(6);
+        camino.forEach((item, index) => {
+          ggbApplet.evalCommand(`P${index}=${convertirPuntos(item)}`);
+          ggbApplet.setFixed(`P${index}`, true);
+        });
+        document.getElementById("punto").innerHTML = convertirPuntos(camino[0]);
+
+        ggbApplet.unregisterClickListener("bien");
+        ggbApplet.unregisterClickListener("mal");
+
+        camino.forEach((item, index) => {
+          index === 0
+            ? ggbApplet.registerObjectClickListener(`P${index}`, "bien")
+            : ggbApplet.registerObjectClickListener(`P${index}`, "mal");
+        });
+      }
+      function construirPuntos(cantidad = 5) {
+        if (cantidad <= 0) {
+          return [];
+        } else {
+          return [[aleatorioEntre(-6, 6), aleatorioEntre(-6, 6)]].concat(
+            construirPuntos(cantidad - 1)
+          );
+        }
+      }
+
+      function aleatorioEntre(Min = 1, Max = 4) {
+        return Math.floor(Math.random() * (Max - Min) + Min);
+      }
+
+      function convertirPuntos(arreglo) {
+        if (arreglo[0].length === undefined) {
+          return `(${arreglo[0]},${arreglo[1]})`;
+        }
+        return arreglo.reduce((acumulador, actual) => {
+          return `${acumulador},(${actual[0]},${actual[1]})`;
+        }, "");
+      }
+      function bien() {
+        intento--;
+        if (intento > 0) {
+          alert(`¡Muy Bien! \n Le quedan ${intento} punto/s por encontrar.`);
+          ggbApplet.reset();
+        } else {
+          alert("Felicitaciones, ha encontrado todos los puntos.");
+          document.getElementById("reiniciar").style.display = "inherit";
+        }
+      }
+      function mal() {
+        alert("Incorrecto, Por acá no es.");
+      }
+    </script>
+
+    <div id="ggb1" style="margin: auto auto"></div>
+    <button id="reiniciar" onclick="iniciar()">Intentar nuevamente</button>
+  </body>
+</html>
