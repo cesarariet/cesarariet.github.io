@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Ejes cartesianos y las coordenadas</h1>
+    <p>
+      Los ejes cartesianos son los rectas perpendiculares. El punto donde se
+      cortan las rectas se denomina <strong>origen de coordenadas</strong>. Cada
+      recta esta graduada con números positivos y negativos.
+    </p>
+    <p>
+      La recta horizontal se la suele llamar
+      <strong>eje x, eje horizontal o eje de abscisas</strong>. La recta
+      vertical se la denomina
+      <strong>eje y, eje vertical o eje de ordenadas.</strong>.
+    </p>
+    <p>
+      Los puntos en el plano (es decir, en una hoja, en un pizarron, en una
+      pantalla) se indican mediante dos números llamados
+      <strong>coordenadas</strong>. Una coordenada es un número en alguno de los
+      ejes cartesianos. Siempre se indica primero la coordenada del eje
+      horizontal y la coordenada luego del eje vertical. Los valores se ponen
+      entre parentesis y separados por una "coma" o un "punto y coma".
+    </p>
+    <div style="text-align: center">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/0cUkAd2o1yw"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer;
+        autoplay; clipboard-write; encrypted-media; gyroscope;
+        picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <p>
+      A continuación se presenta unos ejes cartesianos y un punto P de
+      coordenadas (4,2). Puedes hacer click y mover el punto en el gráfico para
+      ver como cambian las coordenadas.
+    </p>
+    <p>
+      Es interesante notar que cuando se mueve el punto P hacia la izquierda o
+      la derecha cambia solamente la primer coordenada (del eje x, eje
+      horizontal, eje de abscisas). Por otro lado, si se mueve el punto P hacia
+      arriba o hacia abajo la coordenada que cambia es la segunda (del eje y,
+      eje vertical, eje de ordenadas).
+    </p>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script defer>
+      var params = {
+        id: "graficoPunto",
+        showMenuBar: false,
+        showAlgebraInput: false,
+        showToolBar: false,
+        showToolBarHelp: false,
+        showResetIcon: false,
+        enableLabelDrags: false,
+        enableShiftDragZoom: true,
+        enableRightClick: false,
+        errorDialogsActive: false,
+        useBrowserForJS: true,
+        allowStyleBar: false,
+        preventFocus: false,
+        showZoomButtons: false,
+        showAlgebraPanel: false,
+        showFullscreenButton: false,
+        scale: 1,
+        autoHeight: false,
+        disableAutoScale: true,
+        allowUpscale: true,
+        clickToLoad: false,
+        appName: "classic",
+        showSuggestionButtons: false,
+        buttonRounding: 0.7,
+        material_id: "b3qcyfrr",
+        width: 320,
+        height: 320,
+      };
+      var coordX = 4;
+      var coordY = 2;
+      var ggbApplet = new GGBApplet(params, true);
+      window.addEventListener("load", function () {
+        ggbApplet.inject("ggb1");
+      });
+      var params2 = {
+        id: "pixelCoordenadas",
+        showMenuBar: false,
+        showAlgebraInput: false,
+        showToolBar: false,
+        showToolBarHelp: false,
+        showResetIcon: false,
+        enableLabelDrags: false,
+        enableShiftDragZoom: true,
+        enableRightClick: false,
+        errorDialogsActive: false,
+        useBrowserForJS: true,
+        allowStyleBar: false,
+        preventFocus: false,
+        showZoomButtons: false,
+        showAlgebraPanel: false,
+        showFullscreenButton: false,
+        scale: 1,
+        autoHeight: false,
+        disableAutoScale: true,
+        allowUpscale: true,
+        clickToLoad: false,
+        appName: "classic",
+        showSuggestionButtons: false,
+        buttonRounding: 0.7,
+        material_id: "ndq5gk5p",
+        width: 320,
+        height: 320,
+      };
+      var ggbApplet2 = new GGBApplet(params2, true);
+      window.addEventListener("load", function () {
+        ggbApplet2.inject("ggb2");
+      });
+      function ggbOnInit() {
+        graficoPunto.evalCommand(`P=(${coordX},${coordY})`);
+        graficoPunto.evalCommand(`LH=Segment((x(P),0),P)`);
+        graficoPunto.setLineStyle("LH", 2);
+        graficoPunto.evalCommand(`LV=Segment((0,y(P)),P)`);
+        graficoPunto.setLineStyle("LV", 2);
+        graficoPunto.setLabelVisible("P", true);
+        graficoPunto.setLabelStyle("P", 1);
+        graficoPunto.setCoordSystem(-5, 5, -5, 5);
+        pixelCoordenadas.setCoordSystem(-2, 18, -2, 18);
+      }
+    </script>
+    <div id="ggb1" style="margin: auto"></div>
+
+    <h2>Las coordenadas y los pixeles de una pantalla</h2>
+    <p>
+      Las pantallas de los celulares, televisores y computadoras estan formadas
+      por pixeles (Pequeños puntos que se prenden de distintos colores o se
+      apagan) para formar la imagen. Para que el procesador del dispositivo
+      indique que pixel se tiene que prender o apagar
+      <strong>¡pasando sus coordenadas cartesianas a la pantalla!</strong>
+    </p>
+    <p>
+      En el siguiente gráfico observamos un emoji ampliado (tanto que se ven sus
+      pixeles como cuadrados) y unos ejes cartesianos. El punto en azul indica
+      las coordenadas de pixel cuadrado que está debajo. Así podemos notar que
+      el pixel de las coordendas (9,6) es amarillo, el pixel de coordenadas
+      (14,8) es negro, el pixel de coordenadas (4,10) es blanco. Si una
+      computadora quiere cambiar la imagen mostrada en pantalla debe indicar por
+      cada pixel, su coordenada y su color. Con esa información la pantalla hace
+      los cambios necesarios.
+    </p>
+    <div id="ggb2" style="margin: auto"></div>
+  </body>
+</html>
