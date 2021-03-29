@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uso de modulo_geogebra</title>
+  </head>
+  <body>
+    <h1>Forma de uso del modulo</h1>
+    <p>
+      Debe hacerse referencia a esta libreria. Use el atributo defer para que el
+      script no se ejecute hasta que este cargado todo del html
+    </p>
+    <code>
+      &ltscript defer
+      src="https://cesarariet.github.io/modulo_geogebra/index.js"> &lt/script>
+    </code>
+  </body>
+  <p>
+    En un &ltscript defer> debe iniciarse el grafico con un id y si hay un
+    gráfico en la nube de geogebra agregar su material_id. Si no se da
+    material_id, la función usa base.
+  </p>
+  <code>
+    crearGrafico(id, material_id = "b3qcyfrr", width = 400, height = 400)
+  </code>
+  <p>
+    Para colocar el gráfico es necesario que exista un elemento en html con el
+    atributo id igual al del grafico. El comando crearGrafico lo inscrusta en el
+    elmento html.
+  </p>
+  <code> &ltdiv id=id>&lt/div> </code>
+  <p>
+    Las modificaciones del grafico durante la carga se realizan con la funcion
+    de geogebra ggbOnInit(){}
+  </p>
+  <p>
+    Para modificar el gráfico se indica el id y la operación a realizar. como
+    por ejemplo si el id="funcionSeno"
+  </p>
+  <code>funcionSeno.evalCommand("f(x)=sin(x)")</code>
+  <h2>Ejemplo</h2>
+  <div id="seno"></div>
+  <div id="coseno"></div>
+  <script src="./index.js"></script>
+  <script>
+    function ggbOnInit() {
+      seno.evalCommand(`
+    f=sin(x)
+    P=Point(f)`);
+      seno.setCoordSystem(-3, 3, -1, 1);
+      coseno.evalCommand(`
+    f=cos(x)
+    P=Point(f)
+    `);
+      coseno.setCoordSystem(-6, 6, -1, 1);
+    }
+
+    const graficos = ["seno", "coseno"];
+    graficos.map((item) => crearGrafico(item));
+  </script>
+</html>
