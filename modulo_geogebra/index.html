@@ -50,6 +50,8 @@
     f=sin(x)
     P=Point(f)`);
       seno.setCoordSystem(-3, 3, -1, 1);
+      seno.setAxisUnits(1, "cm", "N");
+      seno.setAxisLabels(1, "distancia", "Fuerza");
       coseno.evalCommand(`
     f=cos(x)
     P=Point(f)
