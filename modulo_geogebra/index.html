@@ -18,13 +18,22 @@
     </code>
   </body>
   <p>
-    En un &ltscript defer> debe iniciarse el grafico con un id y si hay un
-    gráfico en la nube de geogebra agregar su material_id. Si no se da
-    material_id, la función usa base.
+    En un &ltscript defer> debe iniciarse el grafico con un id. Si hay un
+    gráfico en la nube de geogebra agregar su material_id. Si se sabe el
+    ggbBase64 del gráfico pasar undefined como parametro material_id y pasar el
+    codigo ggbBase64 (este se copia de hacer ctrl+shift+B en la pantalla de la
+    aplicación de geogebra). Si no se explicita material_id y tampoco ggbBase64,
+    la función usa un gráfico vacio.
   </p>
   <code>
-    crearGrafico(id, material_id = "b3qcyfrr", width = 400, height = 400)
+    crearGrafico(id, width = 400, height = 400, material_id, ggbBase64)
   </code>
+  <p>Ejemplo con un material_id</p>
+  <code> crearGrafico("cara", 400, 400, "ndq5gk5p") </code>
+  <p>Ejemplo con un ggbBase64</p>
+  <code> crearGrafico("coseno", 400, 400, undefined, "afsdfsadfasdf...") </code>
+  <p>Ejemplo con un grafico vacio</p>
+  <code> crearGrafico("nada") </code>
   <p>
     Para colocar el gráfico es necesario que exista un elemento en html con el
     atributo id igual al del grafico. El comando crearGrafico lo inscrusta en el
@@ -43,6 +52,7 @@
   <h2>Ejemplo</h2>
   <div id="seno"></div>
   <div id="coseno"></div>
+  <div id="cara"></div>
   <script src="./index.js"></script>
   <script>
     function ggbOnInit() {
@@ -52,14 +62,17 @@
       seno.setCoordSystem(-3, 3, -1, 1);
       seno.setAxisUnits(1, "cm", "N");
       seno.setAxisLabels(1, "distancia", "Fuerza");
-      coseno.evalCommand(`
-    f=cos(x)
-    P=Point(f)
-    `);
-      coseno.setCoordSystem(-6, 6, -1, 1);
+      coseno.setCoordSystem(-3, 3, -2, 2);
+      cara.setCoordSystem(-3, 20, -3, 20);
     }
-
-    const graficos = ["seno", "coseno"];
-    graficos.map((item) => crearGrafico(item));
+    crearGrafico("seno");
+    crearGrafico(
+      "coseno",
+      400,
+      400,
+      undefined,
+      "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"
+    );
+    crearGrafico("cara", 400, 400, "ndq5gk5p");
   </script>
 </html>
