@@ -1,12 +1,13 @@
 //  La idea de esta aplicación es tener una implementación que me permita incluir grafícos geogebra en mis páginas de forma más sencilla.
 
-exports.crearGrafico = (
+function crearGrafico(
   id,
+  appletOnLoad,
   width = 400,
   height = 400,
   material_id,
   ggbBase64
-) => {
+) {
   // Debe ingresarse un id. material_id es el identificador de un gráfico subido al geogebra.com
   if (id === undefined || id === "") {
     return console.error("Debe asignar una id al gráfico");
@@ -52,13 +53,13 @@ exports.crearGrafico = (
   };
 
   const grafico = new GGBApplet(
-    { ...params, id, ...grafico_elegido, width, height },
+    { ...params, id, appletOnLoad, ...grafico_elegido, width, height },
     true
   );
   window.addEventListener("load", function () {
     grafico.inject(grafico.getParameters().id);
   });
-};
+}
 // Acá va el deployggbjs. que esta en geogebra
 // Lo que sigue a partir de aca no es mio.
 /*
