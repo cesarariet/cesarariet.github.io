@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta name="description" content="descripción del tema"/>
+    <meta name="keywords" content="palabras claves"/>
+    <script src="https://cesarariet.github.io/modulo_geogebra_v2/index.js"></script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta author="Mario Estanislao Cesar Ariet"/>
+    <title>Pagina creada por Mario Estanislao Cesar Ariet - Mario Estanislao Cesar Ariet</title>
+    <link rel="stylesheet" href="css/estilos.css"/>
+    <link rel="stylesheet" href="icofont/icofont.css"/>
+    <script>
+      MathJax = {
+      	tex: {
+      		inlineMath: [['$', '$'], ['\\(', '\\)']]
+      	}
+      };
+    </script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <section class="diapo" id="distancia-entre-puntos-en-el-plano">
+      <h2>Distancia entre puntos en el plano</h2>
+      <p>Sean los puntos \( A=(x_1,y_1) \) y \( B=(x_2,y_2) \). La distancia entre \( A \)  y \( B \) es \[ d(A,B)= \sqrt{(x_2-x_1)^2+(y_2-y_1)^2} \] </p>
+      <div id="distancia"> </div>
+      <script>
+        crearGrafico("distancia","iniciarDistancia")
+        function iniciarDistancia(){
+        	distancia.evalCommand(`sin(x)`)
+        }
+        
+        
+      </script>
+    </section>
+    <header>
+      <h1> <a href="#">menu</a></h1>
+      <nav>
+        <ul>
+          <li><a href="#distancia-entre-puntos-en-el-plano">Distancia entre puntos en el plano</a></li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
