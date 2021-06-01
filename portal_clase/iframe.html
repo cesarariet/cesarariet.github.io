@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase</title>
+    <script>
+      function navegar() {
+        let pagina = document.querySelector("#pagina").value;
+        window.location.href = "http://" + pagina;
+      }
+    </script>
+  </head>
+  <body style="text-align: center">
+    http://<input
+      type="text"
+      name="pagina"
+      id="pagina"
+      placeholder="dirección"
+    />
+    <button onclick="navegar()">ir</button>
+  </body>
+</html>
