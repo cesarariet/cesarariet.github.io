@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Calculator";
+  src: url("Calculator.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+#pantalla {
+  font-family: Calculator;
+  background: black;
+  color: white;
+  font-size: 40px;
+}
