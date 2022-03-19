@@ -60,7 +60,7 @@ var corregir = () => {
     alert(
       `¡Respuesta correcta! \n Felicitaciones, ha cambiado el número, puedes intentarlo otra vez.`
     );
-    escribirNumero();
+    escribirNumero1();
   } else {
     alert(
       "Respuesta incorrecta \n Presta atención a los separadores de derecha a izquerda. En eso orden siempre aparece primero el separador decimal. \n Prueba de nuevo."
