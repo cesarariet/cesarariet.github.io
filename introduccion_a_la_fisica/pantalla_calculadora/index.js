@@ -52,7 +52,6 @@ function separarParteEnteraEnMillares(parteEntera, separadorMillares) {
   // Cuando es necesario agregar separadores de millares este bucle se encarga de eso.
 
   for (var i = cantidadDeSeparadores; i > 0; i--) {
-    console.log(parteEntera);
     parteEntera =
       parteEntera.slice(0, -3 * i) +
       separadorMillares +

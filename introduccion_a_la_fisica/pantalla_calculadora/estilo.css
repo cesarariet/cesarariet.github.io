@@ -4,9 +4,17 @@
   font-style: normal;
   font-weight: normal;
 }
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100vw;
+  background: black;
+}
 #pantalla {
   font-family: Calculator;
-  background: black;
   color: white;
   font-size: 40px;
+  text-align: center;
 }
