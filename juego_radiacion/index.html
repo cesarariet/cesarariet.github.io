@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Página con cuenta regresiva</title>
+    <style>
+      #contenido {
+        display: none;
+      }
+      #comenzar {
+        font-size: 3em;
+        width: 100%;
+        padding: 10px;
+      }
+      .animar {
+        animation-duration: 1s;
+        animation-direction: alternate;
+        animation-name: cambiar_color;
+        animation-iteration-count: infinite;
+      }
+      @keyframes cambiar_color {
+        100% {
+          color: red;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="contenido">
+      <h2>
+        ¿Cuál es la mejor opción para salir de la nube radiactiva con la menor
+        exposición a la radiación?
+      </h2>
+      <p>
+        Usa el simulador
+        <a href="https://www.gigaphysics.com/gmtube_lab.html"
+          >Geiger-Müller Tube</a
+        >
+        con la opción <em>Radiation source: Unknown</em> para estudiar cual es
+        la mejor opción con la cual alejarse una nube radiactiva.
+      </p>
+      <ol>
+        <li>Correr sin cobertura, tardando 90 segundo.</li>
+        <li>Correr con una lámina de cartón, tardando 100 segundos.</li>
+        <li>Correr con dos láminas de cartón, tardando 110 segundos.</li>
+        <li>Correr con tres láminas de cartón, tardando 120 segundos.</li>
+        <li>Correr con cuatro láminas de cartón, tardando 130 segundos.</li>
+        <li>Correr con cuatro láminas de cartón, tardando 140 segundos.</li>
+        <li>Caminar con una lámina de plástico, tardando 4 minutos.</li>
+        <li>Caminar con dos láminas de plástico, tardando 8 minutos.</li>
+        <li>Caminar con tres láminas de plástico, tardando 16 minutos.</li>
+        <li>Caminar con cuatro láminas de plástico, tardando 32 minutos.</li>
+        <li>Caminar con cinco láminas de plástico, tardando 64 minutos.</li>
+        <li>
+          Caminar con una lámina de plomo durante 20 minutos y teniendo que
+          bajarla durante 15 segundos para descansar (quedando expuestos a la
+          radiación).
+        </li>
+        <li>
+          Caminar con dos láminas de plomo durante 25 minutos y teniendo que
+          bajarlas durante 30 segundos para descansar (quedando expuestos a la
+          radiación).
+        </li>
+        <li>
+          Caminar con tres láminas de plomo durante 25 minutos y teniendo que
+          bajarlas durante 45 segundos para descansar (quedando expuestos a la
+          radiación).
+        </li>
+        <li>
+          Caminar con cuatro láminas de plomo durante 25 minutos y teniendo que
+          bajarlas durante 60 segundos para descansar (quedando expuestos a la
+          radiación).
+        </li>
+        <li>
+          Caminar con cinco láminas de plomo durante 25 minutos y teniendo que
+          bajarlas durante 75 segundos para descansar (quedando expuestos a la
+          radiación).
+        </li>
+      </ol>
+      <p>
+        Tenemos una sola oportunidad para sobrevivir. Ingresa la respuesta
+        unicamente cuando estes seguro.
+      </p>
+      <label for="respuesta">Ingresa el número de mejor opción: </label>
+      <input type="number" id="respuesta" name="respuesta" />
+      <button onclick="verificarRespuesta()">Verificar</button>
+      <br />
+      <br />
+    </div>
+    <button id="comenzar" onclick="iniciarCuentaRegresiva()">Comenzar</button>
+
+    <script>
+      function iniciarCuentaRegresiva() {
+        var contenidoElement = document.getElementById("contenido");
+        // verificar que no haya sido apretado el botón
+        if (contenidoElement.style.display == "block")
+          return console.log("ya ejecutada");
+        // Mostrar el elemento de contenido
+        contenidoElement.style.display = "block";
+
+        var tiempoRestante = 20 * 60; // 20 minutos en segundos
+
+        // Aplicar animación al botón
+        document.getElementById("comenzar").classList.add("animar");
+
+        // Mostrar la cuenta regresiva
+        var countdownInterval = setInterval(function () {
+          var minutos = Math.floor(tiempoRestante / 60);
+          var segundos = tiempoRestante % 60;
+
+          var minutosStr = minutos < 10 ? "0" + minutos : minutos;
+          var segundosStr = segundos < 10 ? "0" + segundos : segundos;
+
+          document.getElementById("comenzar").innerText =
+            "Tiempo restante: " + minutosStr + ":" + segundosStr;
+
+          if (tiempoRestante === 0) {
+            clearInterval(countdownInterval);
+            document.getElementById("comenzar").innerText =
+              "¡Tiempo terminado!";
+            contenidoElement.innerText = "¡Tiempo terminado!";
+          }
+
+          tiempoRestante--;
+        }, 1000); // 1000 milisegundos = 1 segundo
+      }
+
+      function verificarRespuesta() {
+        var inputRespuesta = document.getElementById("respuesta");
+        var valorRespuesta = parseInt(inputRespuesta.value);
+
+        if (valorRespuesta === 13) {
+          alert("¡Correcto! Sobreviviremos");
+        } else {
+          alert("Respuesta incorrecta. Hemos muerto en el camino.");
+          document.getElementById("comenzar").style.display = "none";
+          document.getElementById("contenido").style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
