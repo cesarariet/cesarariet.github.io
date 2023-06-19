@@ -88,6 +88,20 @@
     </div>
     <button id="comenzar" onclick="iniciarCuentaRegresiva()">Comenzar</button>
 
+    <div id="respuesta_correcta" style="display: none">
+      <h1>¡Correcto!</h1>
+      <p>
+        Sobreviremos. La cantidad de radiación que recibiremos ejecuntando el
+        plan será mínima y nuestra salud no corre riesgo.
+      </p>
+    </div>
+    <div id="respuesta_incorrecta" style="display: none">
+      <h1>¡Incorrecto!</h1>
+      <p>
+        La radiación a la que nos exponemos nos provocará graves problemas en la
+        salud.
+      </p>
+    </div>
     <script>
       function iniciarCuentaRegresiva() {
         var contenidoElement = document.getElementById("contenido");
@@ -129,12 +143,13 @@
         var valorRespuesta = parseInt(inputRespuesta.value);
 
         if (valorRespuesta === 13) {
-          alert("¡Correcto! Sobreviviremos");
+          document.getElementById("respuesta_correcta").style.display = "block";
         } else {
-          alert("Respuesta incorrecta. Hemos muerto en el camino.");
-          document.getElementById("comenzar").style.display = "none";
-          document.getElementById("contenido").style.display = "none";
+          document.getElementById("respuesta_incorrecta").style.display =
+            "block";
         }
+        document.getElementById("comenzar").style.display = "none";
+        document.getElementById("contenido").style.display = "none";
       }
     </script>
   </body>
