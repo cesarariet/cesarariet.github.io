@@ -28,6 +28,9 @@ switch (separadorMillares) {
   case "espacio":
     separadorMillares = " ";
     break;
+  case "ninguno":
+    separadorMillares = "";
+    break;
   default:
     separadorMillares = "Error";
 }
